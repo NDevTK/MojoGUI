@@ -98,6 +98,11 @@ mojo.internal.bindings.blink.mojom.SharedWorker.$interfaceName = 'blink.mojom.Sh
 mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedWorker_Terminate_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SharedWorker
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec, 'blink.mojom.SharedWorker_Connect_Params', [

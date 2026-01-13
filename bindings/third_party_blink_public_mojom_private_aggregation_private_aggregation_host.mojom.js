@@ -102,6 +102,11 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_
 mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec = mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: PrivateAggregationErrorEvent
 mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEvent = {
   kReportSuccess: 0,

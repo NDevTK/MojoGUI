@@ -106,6 +106,14 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserver.$interfaceName = 'blink.mojom.FileSystemAccessObserver';
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec = mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Union: FileSystemAccessChangeType
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, 'blink.mojom.FileSystemAccessChangeType', {

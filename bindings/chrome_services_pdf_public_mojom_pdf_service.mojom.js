@@ -108,6 +108,15 @@ mojo.internal.bindings.pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec = { $:
 mojo.internal.bindings.pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.pdf = mojo.internal.bindings.pdf || {};
+mojo.internal.bindings.pdf.mojom = mojo.internal.bindings.pdf.mojom || {};
+mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierSpec = mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.pdf = mojo.internal.bindings.pdf || {};
+mojo.internal.bindings.pdf.mojom = mojo.internal.bindings.pdf.mojom || {};
+mojo.internal.bindings.pdf.mojom.PdfSearchifierSpec = mojo.internal.bindings.pdf.mojom.PdfSearchifierSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.pdf = mojo.internal.bindings.pdf || {};
+mojo.internal.bindings.pdf.mojom = mojo.internal.bindings.pdf.mojom || {};
+mojo.internal.bindings.pdf.mojom.PdfThumbnailerSpec = mojo.internal.bindings.pdf.mojom.PdfThumbnailerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec = mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec || { $: mojo.internal.OpaqueStruct.$ };

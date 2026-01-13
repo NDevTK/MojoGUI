@@ -145,6 +145,9 @@ mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_Resp
 mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DataTransferFileSpec = mojo.internal.bindings.blink.mojom.DataTransferFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };

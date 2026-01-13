@@ -112,6 +112,15 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferred
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.BeginFrameAckSpec = mojo.internal.bindings.viz.mojom.BeginFrameAckSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec = mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec = mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ExternalBeginFrameController
 mojo.internal.Struct(

@@ -94,6 +94,26 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXNodeDataSpec = mojo.internal.bindings.ax.mojom.AXNodeDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeChecksSpec = mojo.internal.bindings.ax.mojom.AXTreeChecksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeDataSpec = mojo.internal.bindings.ax.mojom.AXTreeDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.ActionSpec = mojo.internal.bindings.ax.mojom.ActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.EventFromSpec = mojo.internal.bindings.ax.mojom.EventFromSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.EventIntentSpec = mojo.internal.bindings.ax.mojom.EventIntentSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: AXTreeUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, 'ax.mojom.AXTreeUpdate', [

@@ -94,6 +94,11 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.SurfaceRangeSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SurfaceIdSpec = mojo.internal.bindings.viz.mojom.SurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: SurfaceRange
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, 'viz.mojom.SurfaceRange', [

@@ -133,6 +133,11 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpe
 mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioStreamFactorySpec = mojo.internal.bindings.media.mojom.AudioStreamFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: AudioParameters
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec, 'chromeos.tts.mojom.AudioParameters', [

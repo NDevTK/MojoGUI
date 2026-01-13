@@ -102,6 +102,11 @@ mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerSpec = { $ : 
 mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListener.$interfaceName = 'network.mojom.NetworkInterfaceChangeListener';
 mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: IfAddrMsg
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IfAddrMsgSpec, 'network.mojom.IfAddrMsg', [

@@ -120,6 +120,14 @@ mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params
 mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.RangeSpec = mojo.internal.bindings.arc.mojom.RangeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.RectSpec = mojo.internal.bindings.arc.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_NONE = 0;
 
 mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_NONE = 64;

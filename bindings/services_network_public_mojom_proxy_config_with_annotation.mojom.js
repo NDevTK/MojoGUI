@@ -109,6 +109,14 @@ mojo.internal.bindings.network.mojom.ProxyErrorClient.$interfaceName = 'network.
 mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec = mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ProxyConfigSpec = mojo.internal.bindings.network.mojom.ProxyConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: ProxyConfigWithAnnotation
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec, 'network.mojom.ProxyConfigWithAnnotation', [

@@ -104,6 +104,11 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponsePara
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: FileSystemAccessFileWriter
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Write_Params', [

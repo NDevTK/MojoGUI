@@ -100,6 +100,9 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.blink.mojom.VisualPropertiesSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DisplayModeSpec = mojo.internal.bindings.blink.mojom.DisplayModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec = mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec || { $: mojo.internal.OpaqueStruct.$ };

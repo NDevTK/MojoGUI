@@ -94,6 +94,11 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.IPEndPointSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: IPEndPoint
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IPEndPointSpec, 'network.mojom.IPEndPoint', [

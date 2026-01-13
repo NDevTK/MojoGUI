@@ -94,6 +94,14 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
 mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.LinearGradientSpec = mojo.internal.bindings.gfx.mojom.LinearGradientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RRectFSpec = mojo.internal.bindings.gfx.mojom.RRectFSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: MaskFilterInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec, 'gfx.mojom.MaskFilterInfo', [

@@ -114,6 +114,27 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoDecoderSpec = mojo.internal.bindings.arc.mojom.VideoDecoderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorSpec = mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
+mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: VideoHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_Params', [

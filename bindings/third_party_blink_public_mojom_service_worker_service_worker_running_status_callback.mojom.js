@@ -97,6 +97,11 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackSpec = { $ 
 mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback.$interfaceName = 'blink.mojom.ServiceWorkerRunningStatusCallback';
 mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: ServiceWorkerRunningStatusCallback
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec, 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params', [

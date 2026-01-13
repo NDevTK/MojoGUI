@@ -98,6 +98,16 @@ mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactorySpec =
 mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory.$interfaceName = 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory';
 mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: UntrustedPageInterfacesFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_Params', [

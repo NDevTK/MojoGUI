@@ -109,6 +109,9 @@ mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec = { $: {}
 mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec = mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };

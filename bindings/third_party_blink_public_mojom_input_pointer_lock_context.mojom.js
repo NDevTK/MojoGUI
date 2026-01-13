@@ -98,6 +98,11 @@ mojo.internal.bindings.blink.mojom.PointerLockContext.$interfaceName = 'blink.mo
 mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PointerLockResultSpec = mojo.internal.bindings.blink.mojom.PointerLockResultSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: PointerLockContext
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_Params', [

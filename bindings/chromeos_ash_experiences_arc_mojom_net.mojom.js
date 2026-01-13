@@ -189,6 +189,18 @@ mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec = { $: 
 mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.AppCategorySpec = mojo.internal.bindings.arc.mojom.AppCategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec = mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.NetworkDetailsSpec = mojo.internal.bindings.arc.mojom.NetworkDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.SecurityTypeSpec = mojo.internal.bindings.arc.mojom.SecurityTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -112,6 +112,12 @@ mojo.internal.bindings.composebox.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.composebox.mojom.Page.$interfaceName = 'composebox.mojom.Page';
 
 // External type stubs (from imports)
+mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
+mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
+mojo.internal.bindings.searchbox.mojom.PageSpec = mojo.internal.bindings.searchbox.mojom.PageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
+mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
+mojo.internal.bindings.searchbox.mojom.PageHandlerSpec = mojo.internal.bindings.searchbox.mojom.PageHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

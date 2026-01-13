@@ -104,6 +104,11 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory.$interfaceName = 'medi
 mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCodecProfileSpec = mojo.internal.bindings.media.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: WebrtcPredictionFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [

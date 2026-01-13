@@ -104,6 +104,21 @@ mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_Par
 mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXActionDataSpec = mojo.internal.bindings.ax.mojom.AXActionDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXEventSpec = mojo.internal.bindings.ax.mojom.AXEventSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec = mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeIDSpec = mojo.internal.bindings.ax.mojom.AXTreeIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };

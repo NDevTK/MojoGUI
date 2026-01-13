@@ -108,6 +108,30 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_Para
 mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BlobURLStoreSpec = mojo.internal.bindings.blink.mojom.BlobURLStoreSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BroadcastChannelProviderSpec = mojo.internal.bindings.blink.mojom.BroadcastChannelProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CacheStorageSpec = mojo.internal.bindings.blink.mojom.CacheStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.IDBFactorySpec = mojo.internal.bindings.blink.mojom.IDBFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.LockManagerSpec = mojo.internal.bindings.blink.mojom.LockManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SharedWorkerConnectorSpec = mojo.internal.bindings.blink.mojom.SharedWorkerConnectorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteCountSpec = mojo.internal.bindings.mojo_base.mojom.ByteCountSpec || { $: mojo.internal.OpaqueStruct.$ };

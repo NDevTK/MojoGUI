@@ -106,6 +106,14 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec = mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCodecSpec = mojo.internal.bindings.media.mojom.VideoCodecSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: VideoDecoderSecureMemoryMode
 mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryMode = {
   CLEAR: 0,

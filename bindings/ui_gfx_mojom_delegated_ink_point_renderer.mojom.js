@@ -98,6 +98,11 @@ mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer.$interfaceName = 'gfx
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec = mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: DelegatedInkPointRenderer
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params', [

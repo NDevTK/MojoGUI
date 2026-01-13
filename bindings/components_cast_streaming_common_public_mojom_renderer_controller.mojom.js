@@ -99,6 +99,11 @@ mojo.internal.bindings.cast_streaming.mojom.RendererController.$interfaceName = 
 mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec = { $: {} };
 mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.RendererSpec = mojo.internal.bindings.media.mojom.RendererSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: RendererController
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_Params', [

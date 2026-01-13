@@ -114,6 +114,33 @@ mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec
 mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioBufferSpec = mojo.internal.bindings.media.mojom.AudioBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioCodecSpec = mojo.internal.bindings.media.mojom.AudioCodecSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioCodecProfileSpec = mojo.internal.bindings.media.mojom.AudioCodecProfileSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec = mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioDecoderTypeSpec = mojo.internal.bindings.media.mojom.AudioDecoderTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.DecoderBufferSpec = mojo.internal.bindings.media.mojom.DecoderBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.DecoderStatusSpec = mojo.internal.bindings.media.mojom.DecoderStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.MediaLogSpec = mojo.internal.bindings.media.mojom.MediaLogSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.WaitingReasonSpec = mojo.internal.bindings.media.mojom.WaitingReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };

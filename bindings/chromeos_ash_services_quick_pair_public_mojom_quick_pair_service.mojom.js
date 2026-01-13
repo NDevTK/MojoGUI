@@ -99,6 +99,12 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService.$interfaceName = 'ash.quick_pair.mojom.QuickPairService';
 mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair || {};
+mojo.internal.bindings.ash.quick_pair.mojom = mojo.internal.bindings.ash.quick_pair.mojom || {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: QuickPairService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec, 'ash.quick_pair.mojom.QuickPairService_Connect_Params', [

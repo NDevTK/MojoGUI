@@ -98,6 +98,11 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistrySpec = { $ : {
 mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry.$interfaceName = 'extensions.mojom.RendererAutomationRegistry';
 mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AutomationSpec = mojo.internal.bindings.ax.mojom.AutomationSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: RendererAutomationRegistry
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec, 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params', [

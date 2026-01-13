@@ -98,6 +98,11 @@ mojo.internal.bindings.viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() }
 mojo.internal.bindings.viz.mojom.SharedImageFormatSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.MultiplanarFormatSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SingleplanarFormatSpec = mojo.internal.bindings.viz.mojom.SingleplanarFormatSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: PlaneConfig
 mojo.internal.bindings.viz.mojom.PlaneConfig = {
   kY_U_V: 0,

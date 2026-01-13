@@ -100,6 +100,17 @@ mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusMan
 mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaControllerManagerSpec = mojo.internal.bindings.media_session.mojom.MediaControllerManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MediaSessionService
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec, 'media_session.mojom.MediaSessionService_BindAudioFocusManager_Params', [

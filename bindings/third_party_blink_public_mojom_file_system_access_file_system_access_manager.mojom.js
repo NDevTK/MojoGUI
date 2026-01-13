@@ -118,6 +118,36 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTrans
 mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec = mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec = mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec = mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };

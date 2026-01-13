@@ -103,6 +103,14 @@ mojo.internal.bindings.blink.mojom.AIRewriter_Rewrite_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIRewriter_MeasureUsage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIRewriter_MeasureUsage_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageCodeSpec = mojo.internal.bindings.blink.mojom.AILanguageCodeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: AIRewriterTone
 mojo.internal.bindings.blink.mojom.AIRewriterTone = {
   kAsIs: 0,

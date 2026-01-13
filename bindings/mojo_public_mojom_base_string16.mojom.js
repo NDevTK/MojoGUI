@@ -95,6 +95,11 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.String16Spec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.BigString16Spec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: String16
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.String16Spec, 'mojo_base.mojom.String16', [

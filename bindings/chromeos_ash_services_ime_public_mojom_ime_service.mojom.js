@@ -116,6 +116,18 @@ mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpe
 mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.ConnectionFactorySpec = mojo.internal.bindings.ash.ime.mojom.ConnectionFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputChannelSpec = mojo.internal.bindings.ash.ime.mojom.InputChannelSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -108,6 +108,11 @@ mojo.internal.bindings.media.mojom.AudioInputStreamObserverSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioInputStreamObserver.$interfaceName = 'media.mojom.AudioInputStreamObserver';
 mojo.internal.bindings.media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.InputStreamErrorCodeSpec = mojo.internal.bindings.media.mojom.InputStreamErrorCodeSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: DisconnectReason
 mojo.internal.bindings.media.mojom.DisconnectReason = {
   kDefault: 0,

@@ -119,6 +119,14 @@ mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.DeviceSwitchInterface.$interfaceName = 'media.mojom.DeviceSwitchInterface';
 mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec = mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: DisconnectReason
 mojo.internal.bindings.media.mojom.DisconnectReason = {
   kDefault: 0,

@@ -97,6 +97,12 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FramePolicySpec = mojo.internal.bindings.blink.mojom.FramePolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.InsecureRequestPolicySpec = mojo.internal.bindings.blink.mojom.InsecureRequestPolicySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec = mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec || { $: mojo.internal.OpaqueStruct.$ };

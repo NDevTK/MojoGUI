@@ -112,9 +112,24 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTe
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeSpec = mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactorySpec = mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.LuidSpec = mojo.internal.bindings.gpu.mojom.LuidSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.TestingControlsSpec = mojo.internal.bindings.video_capture.mojom.TestingControlsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kVideoCapture;
 

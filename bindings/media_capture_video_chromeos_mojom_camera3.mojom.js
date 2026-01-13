@@ -150,6 +150,17 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec = { $:
 mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.Camera3NotifyMsgMessageSpec = mojo.internal.bindings.cros.mojom.Camera3NotifyMsgMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec = mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraMetadataSpec = mojo.internal.bindings.cros.mojom.CameraMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.cros.mojom.GRALLOC_USAGE_SW_READ_NEVER = 0x00000000;
 
 mojo.internal.bindings.cros.mojom.GRALLOC_USAGE_SW_READ_OFTEN = 0x00000003;

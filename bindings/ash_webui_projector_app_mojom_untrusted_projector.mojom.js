@@ -134,6 +134,34 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory.
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.AccountSpec = mojo.internal.bindings.ash.projector.mojom.AccountSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec = mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec = mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec = mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec = mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec = mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec = mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec = mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec || { $: mojo.internal.OpaqueStruct.$ };

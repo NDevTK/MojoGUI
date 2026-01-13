@@ -99,6 +99,11 @@ mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ColorPlaneLayoutSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoFrameLayoutSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.SizeSpec = mojo.internal.bindings.arc.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: VideoCodecProfile
 mojo.internal.bindings.arc.mojom.VideoCodecProfile = {
   VIDEO_CODEC_PROFILE_UNKNOWN: -1,

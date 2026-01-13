@@ -98,6 +98,14 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandler.$interfaceName = 'mojom.Usb
 mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: UsbInternalsPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_Params', [

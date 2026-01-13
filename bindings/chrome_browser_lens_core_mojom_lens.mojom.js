@@ -160,6 +160,21 @@ mojo.internal.bindings.lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec = { $:
 mojo.internal.bindings.lens.mojom.LensPage_OnOverlayReshown_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec = mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.LanguageSpec = mojo.internal.bindings.lens.mojom.LanguageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.OverlayObjectSpec = mojo.internal.bindings.lens.mojom.OverlayObjectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.PageContentTypeSpec = mojo.internal.bindings.lens.mojom.PageContentTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.TextSpec = mojo.internal.bindings.lens.mojom.TextSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };

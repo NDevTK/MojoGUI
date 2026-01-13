@@ -109,6 +109,20 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactory.$interfaceName = 'paym
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec = mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.CreateDigitalGoodsResponseCodeSpec = mojo.internal.bindings.payments.mojom.CreateDigitalGoodsResponseCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.ItemDetailsSpec = mojo.internal.bindings.payments.mojom.ItemDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec = mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: DigitalGoods
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec, 'payments.mojom.DigitalGoods_GetDetails_Params', [

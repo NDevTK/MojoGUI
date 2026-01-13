@@ -121,6 +121,9 @@ mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_base.mojom.TokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec = mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ConnectResult
 mojo.internal.bindings.service_manager.mojom.ConnectResult = {

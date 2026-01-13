@@ -112,6 +112,15 @@ mojo.internal.bindings.device.mojom.PressureClient.$interfaceName = 'device.mojo
 mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.PressureSourceSpec = mojo.internal.bindings.device.mojom.PressureSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.PressureStateSpec = mojo.internal.bindings.device.mojom.PressureStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.PressureUpdateSpec = mojo.internal.bindings.device.mojom.PressureUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };

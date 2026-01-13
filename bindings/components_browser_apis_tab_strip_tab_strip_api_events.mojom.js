@@ -98,6 +98,23 @@ mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.ContainerSpec = mojo.internal.bindings.tabs_api.mojom.ContainerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.DataSpec = mojo.internal.bindings.tabs_api.mojom.DataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.NodeIdSpec = mojo.internal.bindings.tabs_api.mojom.NodeIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.PositionSpec = mojo.internal.bindings.tabs_api.mojom.PositionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: OnTabsCreatedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec, 'tabs_api.mojom.OnTabsCreatedEvent', [

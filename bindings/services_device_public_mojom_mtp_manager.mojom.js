@@ -125,6 +125,14 @@ mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsS
 mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.MtpFileEntrySpec = mojo.internal.bindings.device.mojom.MtpFileEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.MtpStorageInfoSpec = mojo.internal.bindings.device.mojom.MtpStorageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MtpManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageAttached_Params', [

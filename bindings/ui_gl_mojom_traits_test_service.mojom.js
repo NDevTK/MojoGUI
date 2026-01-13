@@ -100,6 +100,14 @@ mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponsePara
 mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = { $: {} };
 mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
+mojo.internal.bindings.gl.mojom = mojo.internal.bindings.gl.mojom || {};
+mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec = mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
+mojo.internal.bindings.gl.mojom = mojo.internal.bindings.gl.mojom || {};
+mojo.internal.bindings.gl.mojom.GpuPreferenceSpec = mojo.internal.bindings.gl.mojom.GpuPreferenceSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_Params', [

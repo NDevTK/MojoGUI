@@ -127,6 +127,9 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSp
 mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.PageContentTypeSpec = mojo.internal.bindings.lens.mojom.PageContentTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

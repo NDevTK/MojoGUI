@@ -122,6 +122,18 @@ mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec = mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.TensorInfoSpec = mojo.internal.bindings.webnn.mojom.TensorInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.WebNNTensorSpec = mojo.internal.bindings.webnn.mojom.WebNNTensorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: CreateTensorResult
 mojo.internal.Union(

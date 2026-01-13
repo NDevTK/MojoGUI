@@ -259,6 +259,24 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec = { $
 mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
+mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.drivefs.mojom.DriveFsNotificationSpec = mojo.internal.bindings.drivefs.mojom.DriveFsNotificationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
+mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec = mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
+mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec = mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
+mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.drivefs.mojom.FilePathOrErrorSpec = mojo.internal.bindings.drivefs.mojom.FilePathOrErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
+mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec = mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
+mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec = mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };

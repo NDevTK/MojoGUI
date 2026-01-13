@@ -102,6 +102,11 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_Fetc
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.printing = mojo.internal.bindings.ash.printing || {};
+mojo.internal.bindings.ash.printing.print_preview = mojo.internal.bindings.ash.printing.print_preview || {};
+mojo.internal.bindings.ash.printing.print_preview.mojom = mojo.internal.bindings.ash.printing.print_preview.mojom || {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PrinterTypeSpec = mojo.internal.bindings.printing.mojom.PrinterTypeSpec || { $: mojo.internal.Enum().$ };

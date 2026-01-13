@@ -112,6 +112,21 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSp
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.DnsQueryTypeSpec = mojo.internal.bindings.network.mojom.DnsQueryTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.HostPortPairSpec = mojo.internal.bindings.network.mojom.HostPortPairSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec = mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec = mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: RestrictedUDPSocketMode
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketMode = {

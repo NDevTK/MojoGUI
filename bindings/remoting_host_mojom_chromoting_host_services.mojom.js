@@ -103,6 +103,17 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProx
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderSpec = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec = mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ChromotingHostServices
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [

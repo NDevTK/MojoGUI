@@ -110,6 +110,24 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHea
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
+mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
+mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
+mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
+mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec = mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: NetworkEventsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_Params', [

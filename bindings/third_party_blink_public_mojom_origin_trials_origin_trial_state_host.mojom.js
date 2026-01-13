@@ -101,6 +101,9 @@ mojo.internal.bindings.blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOrigi
 mojo.internal.bindings.blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RuntimeFeatureSpec = mojo.internal.bindings.blink.mojom.RuntimeFeatureSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -108,6 +108,17 @@ mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpe
 mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec = mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverSpec = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.TranslatorSpec = mojo.internal.bindings.blink.mojom.TranslatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: CanCreateTranslatorResult
 mojo.internal.bindings.blink.mojom.CanCreateTranslatorResult = {
   kReadily: 0,

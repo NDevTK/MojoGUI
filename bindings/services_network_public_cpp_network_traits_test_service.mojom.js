@@ -98,6 +98,11 @@ mojo.internal.bindings.network.mojom.TraitsTestService.$interfaceName = 'network
 mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_Params', [

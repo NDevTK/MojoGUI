@@ -107,6 +107,9 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRenderer
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec = mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: TransformType
 mojo.internal.bindings.printing.mojom.TransformType = {

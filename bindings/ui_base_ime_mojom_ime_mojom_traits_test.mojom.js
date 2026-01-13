@@ -98,6 +98,11 @@ mojo.internal.bindings.ui.mojom.IMEStructTraitsTest.$interfaceName = 'ui.mojom.I
 mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = { $: {} };
 mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.TextInputTypeSpec = mojo.internal.bindings.ui.mojom.TextInputTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: IMEStructTraitsTest
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params', [

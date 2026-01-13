@@ -112,6 +112,32 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIDat
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FormDataSpec = mojo.internal.bindings.autofill.mojom.FormDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec = mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FormFieldDataSpec = mojo.internal.bindings.autofill.mojom.FormFieldDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec = mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec = mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec = mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: TypeTraitsTest
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_Params', [

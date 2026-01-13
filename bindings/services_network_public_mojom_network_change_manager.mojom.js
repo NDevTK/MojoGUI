@@ -107,6 +107,11 @@ mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_P
 mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerSpec = mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: ConnectionType
 mojo.internal.bindings.network.mojom.ConnectionType = {
   CONNECTION_UNKNOWN: 0,

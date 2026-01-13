@@ -101,6 +101,9 @@ mojo.internal.bindings.network.mojom.CorsErrorStatusSpec = { $: {} };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpaceSpec = mojo.internal.bindings.network.mojom.IPAddressSpaceSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: CorsPreflightPolicy
 mojo.internal.bindings.network.mojom.CorsPreflightPolicy = {

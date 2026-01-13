@@ -97,6 +97,11 @@ mojo.internal.bindings.mojom.LocationInternalsHandlerSpec = { $ : {} };
 mojo.internal.bindings.mojom.LocationInternalsHandler.$interfaceName = 'mojom.LocationInternalsHandler';
 mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: LocationInternalsHandler
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec, 'mojom.LocationInternalsHandler_BindInternalsInterface_Params', [

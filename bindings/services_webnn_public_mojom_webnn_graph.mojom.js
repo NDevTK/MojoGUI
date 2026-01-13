@@ -180,6 +180,15 @@ mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec = mojo.internal
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec = mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.NumberSpec = mojo.internal.bindings.webnn.mojom.NumberSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.OperationSpec = mojo.internal.bindings.webnn.mojom.OperationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.PaddingModeSpec = mojo.internal.bindings.webnn.mojom.PaddingModeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: DataType
 mojo.internal.bindings.webnn.mojom.DataType = {

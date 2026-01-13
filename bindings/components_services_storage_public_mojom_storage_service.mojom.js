@@ -107,6 +107,15 @@ mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec = { $
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.LocalStorageControlSpec = mojo.internal.bindings.storage.mojom.LocalStorageControlSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.SessionStorageControlSpec = mojo.internal.bindings.storage.mojom.SessionStorageControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.storage.mojom.kStorageSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 

@@ -97,6 +97,9 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.i
 mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationOptionsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScriptTypeSpec = mojo.internal.bindings.blink.mojom.ScriptTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -94,6 +94,11 @@ mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 
 mojo.internal.bindings.lens.mojom.OverlayObjectSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.GeometrySpec = mojo.internal.bindings.lens.mojom.GeometrySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: OverlayObject
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.OverlayObjectSpec, 'lens.mojom.OverlayObject', [

@@ -111,7 +111,19 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec = mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.CreateFrameParamsSpec = mojo.internal.bindings.content.mojom.CreateFrameParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.CreateViewParamsSpec = mojo.internal.bindings.content.mojom.CreateViewParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.RouteProviderSpec = mojo.internal.bindings.content.mojom.RouteProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AgentSchedulingGroupHost
 mojo.internal.Struct(

@@ -100,6 +100,14 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarc
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: BarcodeDetectorOptions
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, 'shape_detection.mojom.BarcodeDetectorOptions', [

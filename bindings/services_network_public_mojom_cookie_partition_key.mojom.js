@@ -101,6 +101,9 @@ mojo.internal.bindings.network.mojom.CookiePartitionKeyCollectionSpec = { $: {} 
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SchemefulSiteSpec = mojo.internal.bindings.network.mojom.SchemefulSiteSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: AncestorChainBit
 mojo.internal.bindings.network.mojom.AncestorChainBit = {

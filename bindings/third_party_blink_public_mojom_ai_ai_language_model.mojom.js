@@ -119,6 +119,21 @@ mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec 
 mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageCodeSpec = mojo.internal.bindings.blink.mojom.AILanguageCodeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec = mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec = mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.AudioDataSpec = mojo.internal.bindings.on_device_model.mojom.AudioDataSpec || { $: mojo.internal.OpaqueStruct.$ };

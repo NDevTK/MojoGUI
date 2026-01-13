@@ -102,6 +102,14 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollecto
 mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
+mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
+mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
+mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
+mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: TestConnector
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_Params', [

@@ -152,6 +152,24 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendUnsupportedProtocol
 mojo.internal.bindings.ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
+mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
+mojo.internal.bindings.ash.camera_app.mojom.CameraModuleSpec = mojo.internal.bindings.ash.camera_app.mojom.CameraModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
+mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
+mojo.internal.bindings.ash.camera_app.mojom.CaptureDetailsSpec = mojo.internal.bindings.ash.camera_app.mojom.CaptureDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
+mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
+mojo.internal.bindings.ash.camera_app.mojom.RecordTypeDetailsSpec = mojo.internal.bindings.ash.camera_app.mojom.RecordTypeDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
+mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
+mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec = mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: LaunchType
 mojo.internal.bindings.ash.camera_app.mojom.LaunchType = {
   kDefault: 0,

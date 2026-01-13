@@ -112,6 +112,11 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstance.$interfaceName = 'arc.mojo
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec = mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: PrintSessionHost
 mojo.internal.bindings.arc.mojom.PrintSessionHostPendingReceiver = class {
   constructor(handle) {

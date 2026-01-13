@@ -99,6 +99,12 @@ mojo.internal.bindings.viz.mojom.ViewTransitionRequestSpec = { $: {} };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec = mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec = mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: ViewTransitionRequest
 mojo.internal.Struct(

@@ -104,6 +104,9 @@ mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec
 mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.ExtensionIdSpec = mojo.internal.bindings.extensions.mojom.ExtensionIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ListValueSpec = mojo.internal.bindings.mojo_base.mojom.ListValueSpec || { $: mojo.internal.OpaqueStruct.$ };

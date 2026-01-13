@@ -149,6 +149,12 @@ mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec = {
 mojo.internal.bindings.blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SerializedBlobSpec = mojo.internal.bindings.blink.mojom.SerializedBlobSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
 mojo.internal.bindings.filesystem.mojom = mojo.internal.bindings.filesystem.mojom || {};
 mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec = mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -99,6 +99,14 @@ mojo.internal.bindings.blink.mojom.AIProofreader.$interfaceName = 'blink.mojom.A
 mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageCodeSpec = mojo.internal.bindings.blink.mojom.AILanguageCodeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: AIProofreaderCreateOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec, 'blink.mojom.AIProofreaderCreateOptions', [

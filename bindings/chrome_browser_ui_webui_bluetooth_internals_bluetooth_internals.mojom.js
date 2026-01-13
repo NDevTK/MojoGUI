@@ -121,6 +121,11 @@ mojo.internal.bindings.mojom.BluetoothBtsnoop.$interfaceName = 'mojom.BluetoothB
 mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.AdapterSpec = mojo.internal.bindings.bluetooth.mojom.AdapterSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: DebugLogsChangeHandler
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec, 'mojom.DebugLogsChangeHandler_ChangeDebugLogsState_Params', [

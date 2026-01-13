@@ -96,6 +96,11 @@ mojo.internal.bindings.cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.cros.mojom.CameraMetadataEntrySpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraMetadataSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraMetadataTagSpec = mojo.internal.bindings.cros.mojom.CameraMetadataTagSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: EntryType
 mojo.internal.bindings.cros.mojom.EntryType = {
   TYPE_BYTE: 0,

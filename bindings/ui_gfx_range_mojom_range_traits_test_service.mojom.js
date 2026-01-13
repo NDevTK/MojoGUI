@@ -100,6 +100,14 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParams
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RangeSpec = mojo.internal.bindings.gfx.mojom.RangeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RangeFSpec = mojo.internal.bindings.gfx.mojom.RangeFSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: RangeTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_Params', [

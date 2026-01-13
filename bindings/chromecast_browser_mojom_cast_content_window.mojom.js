@@ -110,6 +110,11 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_Par
 mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
+mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.chromecast.mojom.ZOrderSpec = mojo.internal.bindings.chromecast.mojom.ZOrderSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: VisibilityType
 mojo.internal.bindings.chromecast.mojom.VisibilityType = {
   UNKNOWN: 0,

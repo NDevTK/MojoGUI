@@ -126,6 +126,36 @@ mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mo
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.LatencyInfoSpec = mojo.internal.bindings.ui.mojom.LatencyInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.BeginFrameAckSpec = mojo.internal.bindings.viz.mojom.BeginFrameAckSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSpec = mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameDeadlineSpec = mojo.internal.bindings.viz.mojom.FrameDeadlineSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec = mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec = mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.OffsetTagValueSpec = mojo.internal.bindings.viz.mojom.OffsetTagValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.RegionCaptureBoundsSpec = mojo.internal.bindings.viz.mojom.RegionCaptureBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SurfaceIdSpec = mojo.internal.bindings.viz.mojom.SurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SurfaceRangeSpec = mojo.internal.bindings.viz.mojom.SurfaceRangeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TreesInVizTimingSpec = mojo.internal.bindings.viz.mojom.TreesInVizTimingSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: CompositorFrameMetadata
 mojo.internal.Struct(

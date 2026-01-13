@@ -181,6 +181,20 @@ mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ParamsSpec = { $: {}
 mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppInstance_SetAppLocale_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.AppPermissionSpec = mojo.internal.bindings.arc.mojom.AppPermissionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec = mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.PermissionStateSpec = mojo.internal.bindings.arc.mojom.PermissionStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.RectSpec = mojo.internal.bindings.arc.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: WindowSizeType
 mojo.internal.bindings.arc.mojom.WindowSizeType = {
   kUnknown: 0,

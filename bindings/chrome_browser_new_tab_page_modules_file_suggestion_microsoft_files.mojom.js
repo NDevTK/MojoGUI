@@ -100,6 +100,11 @@ mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_
 mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = { $: {} };
 mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.file_suggestion = mojo.internal.bindings.file_suggestion || {};
+mojo.internal.bindings.file_suggestion.mojom = mojo.internal.bindings.file_suggestion.mojom || {};
+mojo.internal.bindings.file_suggestion.mojom.FileSpec = mojo.internal.bindings.file_suggestion.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MicrosoftFilesPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_Params', [

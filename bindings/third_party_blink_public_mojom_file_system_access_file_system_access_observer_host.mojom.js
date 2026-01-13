@@ -99,6 +99,17 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSp
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: FileSystemAccessObserverHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_Params', [

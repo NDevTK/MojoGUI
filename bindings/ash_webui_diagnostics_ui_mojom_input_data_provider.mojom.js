@@ -139,6 +139,16 @@ mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingS
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
+mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
+mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: KeyEventType
 mojo.internal.bindings.ash.diagnostics.mojom.KeyEventType = {
   kPress: 0,

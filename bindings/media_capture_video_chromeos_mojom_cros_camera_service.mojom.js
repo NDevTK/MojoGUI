@@ -141,6 +141,18 @@ mojo.internal.bindings.cros.mojom.CrosCameraService_AddCrosCameraServiceObserver
 mojo.internal.bindings.cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraHalClientSpec = mojo.internal.bindings.cros.mojom.CameraHalClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraModuleSpec = mojo.internal.bindings.cros.mojom.CameraModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.EffectsConfigSpec = mojo.internal.bindings.cros.mojom.EffectsConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.SetEffectResultSpec = mojo.internal.bindings.cros.mojom.SetEffectResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };

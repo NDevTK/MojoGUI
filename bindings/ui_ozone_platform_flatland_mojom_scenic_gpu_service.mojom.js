@@ -97,6 +97,11 @@ mojo.internal.bindings.ui.mojom.ScenicGpuServiceSpec = { $ : {} };
 mojo.internal.bindings.ui.mojom.ScenicGpuService.$interfaceName = 'ui.mojom.ScenicGpuService';
 mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec = mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ScenicGpuService
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec, 'ui.mojom.ScenicGpuService_Initialize_Params', [

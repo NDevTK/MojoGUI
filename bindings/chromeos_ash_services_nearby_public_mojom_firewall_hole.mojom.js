@@ -101,6 +101,11 @@ mojo.internal.bindings.sharing.mojom.FirewallHoleFactory.$interfaceName = 'shari
 mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec = mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: FirewallHole
 mojo.internal.bindings.sharing.mojom.FirewallHolePendingReceiver = class {
   constructor(handle) {

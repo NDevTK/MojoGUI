@@ -155,6 +155,24 @@ mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec = 
 mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.DomKeySpec = mojo.internal.bindings.ash.ime.mojom.DomKeySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec = mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: KeyEventType
 mojo.internal.bindings.ash.ime.mojom.KeyEventType = {
   kKeyDown: 0,

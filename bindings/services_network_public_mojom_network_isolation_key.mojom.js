@@ -101,6 +101,12 @@ mojo.internal.bindings.network.mojom.NonEmptyNetworkIsolationKeySpec = { $: {} }
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec = mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SchemefulSiteSpec = mojo.internal.bindings.network.mojom.SchemefulSiteSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: NetworkIsolationKey
 mojo.internal.Union(

@@ -97,6 +97,11 @@ mojo.internal.bindings.cros.mojom.CameraHalClientSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraHalClient.$interfaceName = 'cros.mojom.CameraHalClient';
 mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraModuleSpec = mojo.internal.bindings.cros.mojom.CameraModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: CameraHalClient
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec, 'cros.mojom.CameraHalClient_SetUpChannel_Params', [

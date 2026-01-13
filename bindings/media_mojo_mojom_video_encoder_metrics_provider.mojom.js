@@ -106,6 +106,15 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSp
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.EncoderStatusSpec = mojo.internal.bindings.media.mojom.EncoderStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SVCScalabilityModeSpec = mojo.internal.bindings.media.mojom.SVCScalabilityModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCodecProfileSpec = mojo.internal.bindings.media.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: VideoEncoderUseCase
 mojo.internal.bindings.media.mojom.VideoEncoderUseCase = {

@@ -131,6 +131,10 @@ mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec = { $
 mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.coral = mojo.internal.bindings.coral || {};
 mojo.internal.bindings.coral.mojom = mojo.internal.bindings.coral.mojom || {};
 mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec = mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec || { $: mojo.internal.OpaqueStruct.$ };

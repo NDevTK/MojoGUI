@@ -94,6 +94,11 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.FilterOperationsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FilterOperationSpec = mojo.internal.bindings.viz.mojom.FilterOperationSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: FilterOperations
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FilterOperationsSpec, 'viz.mojom.FilterOperations', [

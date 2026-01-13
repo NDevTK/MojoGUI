@@ -146,6 +146,27 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.int
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.MetafileDataTypeSpec = mojo.internal.bindings.printing.mojom.MetafileDataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.PrintSettingsSpec = mojo.internal.bindings.printing.mojom.PrintSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec = mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec = mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec = mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.RequestedMediaSpec = mojo.internal.bindings.printing.mojom.RequestedMediaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.printing.mojom.ResultCodeSpec = mojo.internal.bindings.printing.mojom.ResultCodeSpec || { $: mojo.internal.Enum().$ };
 
 // Struct: PrinterCapsAndInfo
 mojo.internal.Struct(

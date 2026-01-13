@@ -136,6 +136,15 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoFo
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionSpec = mojo.internal.bindings.media_session.mojom.MediaSessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec = mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec = mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };

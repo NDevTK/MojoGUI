@@ -138,6 +138,12 @@ mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSp
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.history_clusters = mojo.internal.bindings.history_clusters || {};
+mojo.internal.bindings.history_clusters.mojom = mojo.internal.bindings.history_clusters.mojom || {};
+mojo.internal.bindings.history_clusters.mojom.ClusterSpec = mojo.internal.bindings.history_clusters.mojom.ClusterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.history_clusters = mojo.internal.bindings.history_clusters || {};
+mojo.internal.bindings.history_clusters.mojom = mojo.internal.bindings.history_clusters.mojom || {};
+mojo.internal.bindings.history_clusters.mojom.URLVisitSpec = mojo.internal.bindings.history_clusters.mojom.URLVisitSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };

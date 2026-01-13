@@ -94,6 +94,20 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.AXEventSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.ActionSpec = mojo.internal.bindings.ax.mojom.ActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.EventSpec = mojo.internal.bindings.ax.mojom.EventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.EventFromSpec = mojo.internal.bindings.ax.mojom.EventFromSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.EventIntentSpec = mojo.internal.bindings.ax.mojom.EventIntentSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: AXEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXEventSpec, 'ax.mojom.AXEvent', [

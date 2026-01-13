@@ -118,6 +118,14 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegate.$interfaceName = 'smbfs.mojom.S
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.smbfs = mojo.internal.bindings.smbfs || {};
+mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
+mojo.internal.bindings.smbfs.mojom.FilePathSpec = mojo.internal.bindings.smbfs.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.smbfs = mojo.internal.bindings.smbfs || {};
+mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
+mojo.internal.bindings.smbfs.mojom.IPAddressSpec = mojo.internal.bindings.smbfs.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.smbfs.mojom.kBootstrapPipeName = "smbfs-bootstrap";
 
 mojo.internal.bindings.smbfs.mojom.kMaxLength = 255;

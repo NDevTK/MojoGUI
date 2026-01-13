@@ -103,6 +103,14 @@ mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec = { $: {} }
 mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageCodeSpec = mojo.internal.bindings.blink.mojom.AILanguageCodeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: AISummarizerType
 mojo.internal.bindings.blink.mojom.AISummarizerType = {
   kTLDR: 0,

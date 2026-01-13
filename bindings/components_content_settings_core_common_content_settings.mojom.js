@@ -101,6 +101,18 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec = 
 mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.ProviderTypeSpec = mojo.internal.bindings.content_settings.mojom.ProviderTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.SessionModelSpec = mojo.internal.bindings.content_settings.mojom.SessionModelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.TpcdMetadataCohortSpec = mojo.internal.bindings.content_settings.mojom.TpcdMetadataCohortSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.TpcdMetadataRuleSourceSpec = mojo.internal.bindings.content_settings.mojom.TpcdMetadataRuleSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };

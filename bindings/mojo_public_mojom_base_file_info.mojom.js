@@ -94,6 +94,11 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.FileInfoSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: FileInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.FileInfoSpec, 'mojo_base.mojom.FileInfo', [

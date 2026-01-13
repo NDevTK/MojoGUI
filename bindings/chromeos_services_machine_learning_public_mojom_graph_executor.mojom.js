@@ -100,6 +100,12 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor.$interfaceN
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: ExecuteResult
 mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResult = {
   OK: 0,

@@ -132,6 +132,12 @@ mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionOb
 mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec = mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings.blink.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };

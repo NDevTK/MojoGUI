@@ -101,6 +101,12 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_R
 mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
+mojo.internal.bindings.ntp.calendar = mojo.internal.bindings.ntp.calendar || {};
+mojo.internal.bindings.ntp.calendar.mojom = mojo.internal.bindings.ntp.calendar.mojom || {};
+mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec = mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: OutlookCalendarPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_Params', [

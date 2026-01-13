@@ -101,6 +101,9 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceiv
 mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec = mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };

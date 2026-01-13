@@ -101,6 +101,14 @@ mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXActionDataSpec = mojo.internal.bindings.ax.mojom.AXActionDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeIDSpec = mojo.internal.bindings.ax.mojom.AXTreeIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: AutomationClient
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec, 'ax.mojom.AutomationClient_Enable_Params', [

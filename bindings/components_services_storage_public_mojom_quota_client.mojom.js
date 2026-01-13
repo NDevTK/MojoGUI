@@ -112,6 +112,9 @@ mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink.mojom.StorageKeySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketLocatorSpec = mojo.internal.bindings.storage.mojom.BucketLocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: QuotaClient
 mojo.internal.Struct(

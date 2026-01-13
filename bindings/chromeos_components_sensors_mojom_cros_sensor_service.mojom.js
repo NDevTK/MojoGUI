@@ -102,6 +102,12 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientSpec = { $ : {} };
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClient.$interfaceName = 'chromeos.sensors.mojom.SensorHalClient';
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.sensors = mojo.internal.bindings.chromeos.sensors || {};
+mojo.internal.bindings.chromeos.sensors.mojom = mojo.internal.bindings.chromeos.sensors.mojom || {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SensorHalServer
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalServer_CreateChannel_Params', [

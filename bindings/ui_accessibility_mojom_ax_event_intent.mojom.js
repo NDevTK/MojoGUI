@@ -94,6 +94,20 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.EventIntentSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.CommandSpec = mojo.internal.bindings.ax.mojom.CommandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.InputEventTypeSpec = mojo.internal.bindings.ax.mojom.InputEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.MoveDirectionSpec = mojo.internal.bindings.ax.mojom.MoveDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.TextBoundarySpec = mojo.internal.bindings.ax.mojom.TextBoundarySpec || { $: mojo.internal.Enum().$ };
+
 // Struct: EventIntent
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.EventIntentSpec, 'ax.mojom.EventIntent', [

@@ -124,6 +124,9 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFil
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketLocatorSpec = mojo.internal.bindings.storage.mojom.BucketLocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: FailClass
 mojo.internal.bindings.storage.mojom.FailClass = {

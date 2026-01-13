@@ -100,6 +100,14 @@ mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParams
 mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.AddressFamilySpec = mojo.internal.bindings.network.mojom.AddressFamilySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TransferableSocketSpec = mojo.internal.bindings.network.mojom.TransferableSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SocketBroker
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_Params', [

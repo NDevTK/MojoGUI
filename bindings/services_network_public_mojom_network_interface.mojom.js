@@ -94,6 +94,14 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.NetworkInterfaceSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ConnectionTypeSpec = mojo.internal.bindings.network.mojom.ConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: NetworkInterface
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkInterfaceSpec, 'network.mojom.NetworkInterface', [

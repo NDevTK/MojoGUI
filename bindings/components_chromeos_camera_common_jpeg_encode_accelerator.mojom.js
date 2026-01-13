@@ -104,6 +104,11 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec = mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: EncodeStatus
 mojo.internal.bindings.chromeos_camera.mojom.EncodeStatus = {
   ENCODE_OK: 0,

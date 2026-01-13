@@ -137,6 +137,9 @@ mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ParamsSpec = { $: {} }
 mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.data_sharing = mojo.internal.bindings.data_sharing || {};
+mojo.internal.bindings.data_sharing.mojom = mojo.internal.bindings.data_sharing.mojom || {};
+mojo.internal.bindings.data_sharing.mojom.GroupDataSpec = mojo.internal.bindings.data_sharing.mojom.GroupDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec = mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec || { $: mojo.internal.Enum().$ };

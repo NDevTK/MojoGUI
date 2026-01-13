@@ -98,6 +98,11 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClient.$interfaceName = 'dev
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec = mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: UsbDeviceManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params', [

@@ -113,6 +113,14 @@ mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = { $
 mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec = mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec = mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: SpeechRecognitionType
 mojo.internal.bindings.ax.mojom.SpeechRecognitionType = {
   kOnDevice: 0,

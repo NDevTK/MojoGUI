@@ -94,6 +94,14 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.HostResolverEndpointResultSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ConnectionEndpointMetadataSpec = mojo.internal.bindings.network.mojom.ConnectionEndpointMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.network.mojom.IPEndPointSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: HostResolverEndpointResult
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HostResolverEndpointResultSpec, 'network.mojom.HostResolverEndpointResult', [

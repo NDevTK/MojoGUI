@@ -103,6 +103,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse
 mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec = mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };

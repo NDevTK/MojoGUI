@@ -103,6 +103,11 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.AgentProcessBroker.$interfaceName = 'remoting.mojom.AgentProcessBroker';
 mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: AgentProcess
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [

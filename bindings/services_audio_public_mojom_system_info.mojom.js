@@ -115,6 +115,9 @@ mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = { 
 mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
+mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
+mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec = mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };

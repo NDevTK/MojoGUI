@@ -99,6 +99,14 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider.$interfaceName = 'cros
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: JpegAcceleratorProvider
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_Params', [

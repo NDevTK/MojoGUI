@@ -97,6 +97,11 @@ mojo.internal.bindings.mojo_base.mojom.BinderSpec = { $ : {} };
 mojo.internal.bindings.mojo_base.mojom.Binder.$interfaceName = 'mojo_base.mojom.Binder';
 mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: Binder
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec, 'mojo_base.mojom.Binder_Bind_Params', [

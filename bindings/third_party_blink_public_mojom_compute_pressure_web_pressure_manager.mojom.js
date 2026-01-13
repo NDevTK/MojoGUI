@@ -104,6 +104,9 @@ mojo.internal.bindings.blink.mojom.WebPressureClient.$interfaceName = 'blink.moj
 mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec = mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec = mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec || { $: mojo.internal.Enum().$ };

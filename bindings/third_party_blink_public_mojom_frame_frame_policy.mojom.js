@@ -96,6 +96,15 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink.mojom.FramePolicySpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DeferredFetchPolicySpec = mojo.internal.bindings.blink.mojom.DeferredFetchPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DocumentPolicyFeatureSpec = mojo.internal.bindings.blink.mojom.DocumentPolicyFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PolicyValueSpec = mojo.internal.bindings.blink.mojom.PolicyValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec = mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec || { $: mojo.internal.OpaqueStruct.$ };

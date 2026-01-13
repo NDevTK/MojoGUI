@@ -98,6 +98,11 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest.$interfaceNam
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = { $: {} };
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
+mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
+mojo.internal.bindings.metrics.mojom.SampledProfileSpec = mojo.internal.bindings.metrics.mojom.SampledProfileSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: CallStackProfileCollectorTest
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params', [

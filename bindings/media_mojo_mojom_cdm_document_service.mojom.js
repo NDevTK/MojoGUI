@@ -109,6 +109,9 @@ mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSp
 mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CdmEventSpec = mojo.internal.bindings.media.mojom.CdmEventSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };

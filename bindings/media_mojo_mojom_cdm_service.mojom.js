@@ -110,6 +110,12 @@ mojo.internal.bindings.media.mojom.CdmServiceBroker.$interfaceName = 'media.mojo
 mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CdmFactorySpec = mojo.internal.bindings.media.mojom.CdmFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };

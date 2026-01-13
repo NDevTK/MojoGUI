@@ -94,6 +94,11 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: SafeBaseName
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, 'mojo_base.mojom.SafeBaseName', [

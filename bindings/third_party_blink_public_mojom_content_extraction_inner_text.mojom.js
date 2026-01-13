@@ -102,6 +102,14 @@ mojo.internal.bindings.blink.mojom.InnerTextAgent.$interfaceName = 'blink.mojom.
 mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec = mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: NodeLocationType
 mojo.internal.bindings.blink.mojom.NodeLocationType = {
   kStart: 0,

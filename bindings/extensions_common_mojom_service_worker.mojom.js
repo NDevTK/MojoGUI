@@ -99,6 +99,29 @@ mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSp
 mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.ChannelTypeSpec = mojo.internal.bindings.extensions.mojom.ChannelTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec = mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.MessagePortSpec = mojo.internal.bindings.extensions.mojom.MessagePortSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.MessagePortHostSpec = mojo.internal.bindings.extensions.mojom.MessagePortHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.PermissionSetSpec = mojo.internal.bindings.extensions.mojom.PermissionSetSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.PortIdSpec = mojo.internal.bindings.extensions.mojom.PortIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec = mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ServiceWorker
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec, 'extensions.mojom.ServiceWorker_UpdatePermissions_Params', [

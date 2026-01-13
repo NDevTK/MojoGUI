@@ -114,6 +114,17 @@ mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotificati
 mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.NotificationDataSpec = mojo.internal.bindings.blink.mojom.NotificationDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.NotificationResourcesSpec = mojo.internal.bindings.blink.mojom.NotificationResourcesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings.blink.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: PersistentNotificationError
 mojo.internal.bindings.blink.mojom.PersistentNotificationError = {
   NONE: 0,

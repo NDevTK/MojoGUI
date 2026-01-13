@@ -105,6 +105,11 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureSender.$interfaceName
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.content_capture = mojo.internal.bindings.content_capture || {};
+mojo.internal.bindings.content_capture.mojom = mojo.internal.bindings.content_capture.mojom || {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ContentCaptureReceiver
 mojo.internal.Struct(
     mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [

@@ -110,6 +110,9 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyF
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mime_handler = mojo.internal.bindings.extensions.mime_handler || {};
+mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

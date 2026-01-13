@@ -107,6 +107,14 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = { $: {} 
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec = mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.RectSpec = mojo.internal.bindings.arc.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: PrivacyApplication
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec, 'arc.mojom.PrivacyApplication', [

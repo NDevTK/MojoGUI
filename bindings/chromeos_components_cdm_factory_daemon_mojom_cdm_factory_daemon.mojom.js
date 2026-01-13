@@ -122,6 +122,34 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.OemCryptoServiceSpec = mojo.internal.bindings.arc.mojom.OemCryptoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
+mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
+mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
+mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
+mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec = mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
+mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: CreateCdmStatus
 mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatus = {
   kSuccess: 0,

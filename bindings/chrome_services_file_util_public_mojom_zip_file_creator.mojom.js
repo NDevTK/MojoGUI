@@ -105,6 +105,9 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreator.$interfaceName = 'chrome.mojo
 mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
+mojo.internal.bindings.filesystem.mojom = mojo.internal.bindings.filesystem.mojom || {};
+mojo.internal.bindings.filesystem.mojom.DirectorySpec = mojo.internal.bindings.filesystem.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };

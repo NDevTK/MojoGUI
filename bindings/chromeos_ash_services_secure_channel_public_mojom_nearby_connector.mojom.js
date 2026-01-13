@@ -119,6 +119,16 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector.$interfaceName =
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
+mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
+mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
+mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
+mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec = mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.ash.secure_channel.mojom.kServiceId = "secure_channel";
 
 // Enum: NearbyConnectionStep

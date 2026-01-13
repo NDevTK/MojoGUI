@@ -99,6 +99,11 @@ mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec =
 mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.GeopositionResultSpec = mojo.internal.bindings.device.mojom.GeopositionResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: Geolocation
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec, 'device.mojom.Geolocation_SetHighAccuracyHint_Params', [

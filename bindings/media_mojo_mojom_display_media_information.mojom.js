@@ -96,6 +96,11 @@ mojo.internal.bindings.media.mojom.DisplayCaptureSurfaceTypeSpec = { $: mojo.int
 mojo.internal.bindings.media.mojom.CursorCaptureTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CaptureHandleSpec = mojo.internal.bindings.media.mojom.CaptureHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: DisplayCaptureSurfaceType
 mojo.internal.bindings.media.mojom.DisplayCaptureSurfaceType = {
   MONITOR: 0,

@@ -102,6 +102,12 @@ mojo.internal.bindings.blink.mojom.ShareService_Share_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SerializedBlobSpec = mojo.internal.bindings.blink.mojom.SerializedBlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ShareErrorSpec = mojo.internal.bindings.blink.mojom.ShareErrorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec = mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec || { $: mojo.internal.OpaqueStruct.$ };

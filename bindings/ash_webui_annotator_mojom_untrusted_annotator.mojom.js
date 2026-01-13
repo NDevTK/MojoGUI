@@ -110,6 +110,12 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryS
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory';
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.annotator = mojo.internal.bindings.ash.annotator || {};
+mojo.internal.bindings.ash.annotator.mojom = mojo.internal.bindings.ash.annotator.mojom || {};
+mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec = mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: UntrustedAnnotatorPage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Clear_Params', [

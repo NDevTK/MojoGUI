@@ -109,6 +109,13 @@ mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec = { $: {
 mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mantis.mojom.MantisProcessorSpec = mojo.internal.bindings.mantis.mojom.MantisProcessorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };

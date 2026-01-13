@@ -126,6 +126,9 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_List
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
+mojo.internal.bindings.discardable_memory.mojom = mojo.internal.bindings.discardable_memory.mojom || {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -141,6 +144,9 @@ mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.paint_preview = mojo.internal.bindings.paint_preview || {};
+mojo.internal.bindings.paint_preview.mojom = mojo.internal.bindings.paint_preview.mojom || {};
+mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec = mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };

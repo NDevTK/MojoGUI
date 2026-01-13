@@ -116,6 +116,12 @@ mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec = mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec = mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: ReadTensorResult
 mojo.internal.Union(

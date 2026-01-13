@@ -110,6 +110,9 @@ mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.moj
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.prefs = mojo.internal.bindings.prefs || {};
+mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: EnforcementLevel
 mojo.internal.bindings.prefs.mojom.EnforcementLevel = {

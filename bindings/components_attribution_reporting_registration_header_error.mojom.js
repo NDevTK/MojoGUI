@@ -95,6 +95,20 @@ mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attr
 mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: {} };
 mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec = mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationErrorSpec = mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationErrorSpec = mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationErrorSpec || { $: mojo.internal.Enum().$ };
+
 // Union: RegistrationHeaderErrorDetails
 mojo.internal.Union(
     mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, 'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {

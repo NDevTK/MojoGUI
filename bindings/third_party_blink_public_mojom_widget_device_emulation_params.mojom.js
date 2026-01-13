@@ -98,6 +98,9 @@ mojo.internal.bindings.blink.mojom.EmulatedScreenTypeSpec = { $: mojo.internal.E
 mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec = mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
 mojo.internal.bindings.display.mojom.ScreenOrientationSpec = mojo.internal.bindings.display.mojom.ScreenOrientationSpec || { $: mojo.internal.Enum().$ };

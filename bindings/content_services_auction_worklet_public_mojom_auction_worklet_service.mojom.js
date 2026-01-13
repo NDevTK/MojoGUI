@@ -111,6 +111,27 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWor
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.InProgressAuctionDownloadSpec = mojo.internal.bindings.auction_worklet.mojom.InProgressAuctionDownloadSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.SellerWorkletSpec = mojo.internal.bindings.auction_worklet.mojom.SellerWorkletSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };

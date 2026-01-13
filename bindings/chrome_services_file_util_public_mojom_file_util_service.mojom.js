@@ -101,6 +101,17 @@ mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_Para
 mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
+mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
+mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec = mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
+mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec = mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: FileUtilService
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec, 'chrome.mojom.FileUtilService_BindZipFileCreator_Params', [

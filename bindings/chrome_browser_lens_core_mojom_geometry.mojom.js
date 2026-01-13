@@ -101,6 +101,9 @@ mojo.internal.bindings.lens.mojom.GeometrySpec = { $: {} };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.lens.mojom.PolygonSpec = mojo.internal.bindings.lens.mojom.PolygonSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: CoordinateType
 mojo.internal.bindings.lens.mojom.CoordinateType = {

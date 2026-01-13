@@ -106,7 +106,13 @@ mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroun
 // External type stubs (from imports)
 mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec = mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec = mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };

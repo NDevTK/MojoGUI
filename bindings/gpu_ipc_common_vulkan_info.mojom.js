@@ -95,6 +95,23 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.VulkanInfoSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: VulkanPhysicalDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec, 'gpu.mojom.VulkanPhysicalDeviceInfo', [

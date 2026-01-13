@@ -100,6 +100,14 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Respons
 mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.ImageSkiaSpec = mojo.internal.bindings.gfx.mojom.ImageSkiaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec = mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ImageTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Params', [

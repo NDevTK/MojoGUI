@@ -173,6 +173,11 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEv
 mojo.internal.bindings.bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.UUIDSpec = mojo.internal.bindings.bluetooth.mojom.UUIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.bluetooth.mojom.kHCISuccess = 0x0000;
 
 mojo.internal.bindings.bluetooth.mojom.kHCIConnectionTimeout = 0x0008;

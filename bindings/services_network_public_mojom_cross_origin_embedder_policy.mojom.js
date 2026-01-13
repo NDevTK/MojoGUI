@@ -102,6 +102,9 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorp
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.RequestDestinationSpec = mojo.internal.bindings.network.mojom.RequestDestinationSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

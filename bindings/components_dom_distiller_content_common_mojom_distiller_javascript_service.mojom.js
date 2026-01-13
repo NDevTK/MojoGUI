@@ -100,6 +100,14 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStor
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = { $: {} };
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.dom_distiller = mojo.internal.bindings.dom_distiller || {};
+mojo.internal.bindings.dom_distiller.mojom = mojo.internal.bindings.dom_distiller.mojom || {};
+mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec = mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dom_distiller = mojo.internal.bindings.dom_distiller || {};
+mojo.internal.bindings.dom_distiller.mojom = mojo.internal.bindings.dom_distiller.mojom || {};
+mojo.internal.bindings.dom_distiller.mojom.ThemeSpec = mojo.internal.bindings.dom_distiller.mojom.ThemeSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: DistillerJavaScriptService
 mojo.internal.Struct(
     mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_Params', [

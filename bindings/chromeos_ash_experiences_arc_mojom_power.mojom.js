@@ -127,6 +127,11 @@ mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpe
 mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.AnrTypeSpec = mojo.internal.bindings.arc.mojom.AnrTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: CpuRestrictionState
 mojo.internal.bindings.arc.mojom.CpuRestrictionState = {
   CPU_RESTRICTION_FOREGROUND: 0,

@@ -96,6 +96,9 @@ mojo.internal.bindings.content_settings = mojo.internal.bindings.content_setting
 mojo.internal.bindings.blink.mojom.WebRtcIpHandlingUrlEntrySpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec = mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
 mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec || { $: mojo.internal.OpaqueStruct.$ };

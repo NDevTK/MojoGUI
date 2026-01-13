@@ -100,6 +100,12 @@ mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.PermissionSetSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec = mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.URLPatternSetSpec = mojo.internal.bindings.extensions.mojom.URLPatternSetSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };

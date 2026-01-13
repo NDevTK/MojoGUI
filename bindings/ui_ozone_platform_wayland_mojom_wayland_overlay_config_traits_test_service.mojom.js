@@ -98,6 +98,11 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestService.$interfaceName = 'wl.moj
 mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = { $: {} };
 mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
+mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
+mojo.internal.bindings.wl.mojom.TransformUnionSpec = mojo.internal.bindings.wl.mojom.TransformUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ConfigTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params', [

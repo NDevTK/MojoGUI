@@ -127,6 +127,12 @@ mojo.internal.bindings.filesystem.mojom.Directory_WriteFile_ParamsSpec = { $: {}
 mojo.internal.bindings.filesystem.mojom.Directory_WriteFile_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
+mojo.internal.bindings.filesystem.mojom = mojo.internal.bindings.filesystem.mojom || {};
+mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec = mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
+mojo.internal.bindings.filesystem.mojom = mojo.internal.bindings.filesystem.mojom || {};
+mojo.internal.bindings.filesystem.mojom.FileInformationSpec = mojo.internal.bindings.filesystem.mojom.FileInformationSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };

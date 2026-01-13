@@ -102,6 +102,23 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailabl
 mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = { $: {} };
 mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec = mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec = mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec = mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec = mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec = mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: DataAvailableCallsite
 mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsite = {
   kBlink: 0,

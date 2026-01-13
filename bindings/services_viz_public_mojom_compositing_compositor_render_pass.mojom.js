@@ -109,6 +109,24 @@ mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkPathSpec = mojo.internal.bindings.skia.mojom.SkPathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec = mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec = mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.DrawQuadSpec = mojo.internal.bindings.viz.mojom.DrawQuadSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FilterOperationsSpec = mojo.internal.bindings.viz.mojom.FilterOperationsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec = mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: CompositorRenderPass
 mojo.internal.Struct(

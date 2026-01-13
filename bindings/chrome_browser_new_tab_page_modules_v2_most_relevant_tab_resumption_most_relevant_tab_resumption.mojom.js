@@ -106,6 +106,12 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_Restor
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption = mojo.internal.bindings.ntp.most_relevant_tab_resumption || {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom || {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: ScoredURLUserAction
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserAction = {
   kUnknown: 0,

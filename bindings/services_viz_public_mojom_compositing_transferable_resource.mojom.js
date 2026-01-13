@@ -122,6 +122,9 @@ mojo.internal.bindings.skia.mojom.AlphaTypeSpec = mojo.internal.bindings.skia.mo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SurfaceOriginSpec = mojo.internal.bindings.skia.mojom.SurfaceOriginSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.ResourceIdSpec = mojo.internal.bindings.viz.mojom.ResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SynchronizationType
 mojo.internal.bindings.viz.mojom.SynchronizationType = {

@@ -116,6 +116,27 @@ mojo.internal.bindings.gfx.mojom.Vector2dSpec = mojo.internal.bindings.gfx.mojom
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec = mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.EventPointerTypeSpec = mojo.internal.bindings.ui.mojom.EventPointerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.EventTypeSpec = mojo.internal.bindings.ui.mojom.EventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec = mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec = mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.LatencyInfoSpec = mojo.internal.bindings.ui.mojom.LatencyInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec = mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec || { $: mojo.internal.Enum().$ };
 
 // Union: GestureDataDetails
 mojo.internal.Union(

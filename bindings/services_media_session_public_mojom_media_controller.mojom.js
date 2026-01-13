@@ -139,6 +139,24 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaCon
 mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec = mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaMetadataSpec = mojo.internal.bindings.media_session.mojom.MediaMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaPositionSpec = mojo.internal.bindings.media_session.mojom.MediaPositionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec = mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec = mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec = mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -116,6 +116,12 @@ mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_Param
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SessionStorageNamespaceSpec = mojo.internal.bindings.blink.mojom.SessionStorageNamespaceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.StorageAreaSpec = mojo.internal.bindings.blink.mojom.StorageAreaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink.mojom.StorageKeySpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SessionStorageCloneType

@@ -107,6 +107,26 @@ mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsB
 mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
+mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
+mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
+mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowSpec = mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
+mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
+mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostSpec = mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
+mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
+mojo.internal.bindings.system_media_controls.mojom = mojo.internal.bindings.system_media_controls.mojom || {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
+mojo.internal.bindings.system_media_controls.mojom = mojo.internal.bindings.system_media_controls.mojom || {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: CutCopyPasteCommand
 mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommand = {
   kCut: 0,

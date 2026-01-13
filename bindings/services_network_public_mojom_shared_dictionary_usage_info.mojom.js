@@ -95,6 +95,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.network.mojom.SharedDictionaryUsageInfoSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec = mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: SharedDictionaryUsageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryUsageInfoSpec, 'network.mojom.SharedDictionaryUsageInfo', [

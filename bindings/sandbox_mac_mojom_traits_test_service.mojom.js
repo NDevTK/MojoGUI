@@ -99,6 +99,12 @@ mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService.$interfaceName = 'san
 mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec = { $: {} };
 mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.sandbox.mac = mojo.internal.bindings.sandbox.mac || {};
+mojo.internal.bindings.sandbox.mac.mojom = mojo.internal.bindings.sandbox.mac.mojom || {};
+mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec = mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: TraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params', [

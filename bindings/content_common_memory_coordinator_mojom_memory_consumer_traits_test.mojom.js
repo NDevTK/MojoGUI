@@ -98,6 +98,11 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest.$interfaceName = '
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec = mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MemoryConsumerTraitsTest
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params', [

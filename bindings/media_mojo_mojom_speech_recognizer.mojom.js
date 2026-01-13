@@ -123,6 +123,23 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_Par
 mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.WebSpeechRecognitionResultSpec = mojo.internal.bindings.media.mojom.WebSpeechRecognitionResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: AvailabilityStatus
 mojo.internal.bindings.media.mojom.AvailabilityStatus = {
   kUnavailable: 0,

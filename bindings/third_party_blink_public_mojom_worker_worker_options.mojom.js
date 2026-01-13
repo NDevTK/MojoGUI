@@ -96,6 +96,9 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink.mojom.WorkerOptionsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScriptTypeSpec = mojo.internal.bindings.blink.mojom.ScriptTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CredentialsModeSpec = mojo.internal.bindings.network.mojom.CredentialsModeSpec || { $: mojo.internal.Enum().$ };

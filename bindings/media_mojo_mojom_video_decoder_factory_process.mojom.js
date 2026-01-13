@@ -104,6 +104,12 @@ mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDec
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec = mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.InterfaceFactorySpec = mojo.internal.bindings.media.mojom.InterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VideoDecoderFactoryProcess
 mojo.internal.Struct(

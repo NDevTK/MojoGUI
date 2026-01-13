@@ -179,6 +179,30 @@ mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkPathSpec = mojo.internal.bindings.skia.mojom.SkPathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec = mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FilterOperationsSpec = mojo.internal.bindings.viz.mojom.FilterOperationsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.LayerExtraSpec = mojo.internal.bindings.viz.mojom.LayerExtraSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.RegionCaptureBoundsSpec = mojo.internal.bindings.viz.mojom.RegionCaptureBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec = mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SurfaceRangeSpec = mojo.internal.bindings.viz.mojom.SurfaceRangeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TransferableResourceSpec = mojo.internal.bindings.viz.mojom.TransferableResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: LayerExtra
 mojo.internal.Union(

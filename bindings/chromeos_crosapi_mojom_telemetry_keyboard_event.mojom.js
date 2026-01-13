@@ -101,6 +101,14 @@ mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: moj
 mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.BoolValueSpec = mojo.internal.bindings.crosapi.mojom.BoolValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: TelemetryKeyboardConnectionType
 mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionType = {
   kUnmappedEnumField: 0,

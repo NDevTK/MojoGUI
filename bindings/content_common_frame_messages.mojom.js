@@ -96,6 +96,11 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: DidCommitProvisionalLoadInterfaceParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, 'content.mojom.DidCommitProvisionalLoadInterfaceParams', [

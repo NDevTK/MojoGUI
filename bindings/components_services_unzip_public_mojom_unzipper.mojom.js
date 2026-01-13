@@ -128,6 +128,9 @@ mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.moj
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: UnzipOptions
 mojo.internal.Struct(

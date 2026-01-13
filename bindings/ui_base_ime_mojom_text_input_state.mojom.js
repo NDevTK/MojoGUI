@@ -107,6 +107,24 @@ mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.Rec
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigString16Spec = mojo.internal.bindings.mojo_base.mojom.BigString16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ImeTextSpanSpec = mojo.internal.bindings.ui.mojom.ImeTextSpanSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.TextInputActionSpec = mojo.internal.bindings.ui.mojom.TextInputActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.TextInputModeSpec = mojo.internal.bindings.ui.mojom.TextInputModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.TextInputTypeSpec = mojo.internal.bindings.ui.mojom.TextInputTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.VirtualKeyboardPolicySpec = mojo.internal.bindings.ui.mojom.VirtualKeyboardPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.VirtualKeyboardVisibilityRequestSpec = mojo.internal.bindings.ui.mojom.VirtualKeyboardVisibilityRequestSpec || { $: mojo.internal.Enum().$ };
 
 // Struct: ImeTextSpanInfo
 mojo.internal.Struct(

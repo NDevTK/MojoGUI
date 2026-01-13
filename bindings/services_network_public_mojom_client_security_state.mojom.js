@@ -95,6 +95,17 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.ClientSecurityStateSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec = mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec = mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpaceSpec = mojo.internal.bindings.network.mojom.IPAddressSpaceSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: PrivateNetworkRequestPolicy
 mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicy = {
   kAllow: 0,

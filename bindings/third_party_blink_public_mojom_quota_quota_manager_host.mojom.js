@@ -98,6 +98,14 @@ mojo.internal.bindings.blink.mojom.QuotaManagerHost.$interfaceName = 'blink.mojo
 mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec = mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.UsageBreakdownSpec = mojo.internal.bindings.blink.mojom.UsageBreakdownSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: QuotaManagerHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params', [

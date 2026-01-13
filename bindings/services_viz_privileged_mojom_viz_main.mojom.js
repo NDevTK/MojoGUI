@@ -111,6 +111,9 @@ mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec = { $: {} 
 mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
+mojo.internal.bindings.discardable_memory.mojom = mojo.internal.bindings.discardable_memory.mojom || {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec = mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec || { $: mojo.internal.Enum().$ };
@@ -120,6 +123,30 @@ mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindi
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec = mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameSinkManagerSpec = mojo.internal.bindings.viz.mojom.FrameSinkManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameSinkManagerClientSpec = mojo.internal.bindings.viz.mojom.FrameSinkManagerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuHostSpec = mojo.internal.bindings.viz.mojom.GpuHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuLoggingSpec = mojo.internal.bindings.viz.mojom.GpuLoggingSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuServiceSpec = mojo.internal.bindings.viz.mojom.GpuServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceSpec = mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.VizDebugOutputSpec = mojo.internal.bindings.viz.mojom.VizDebugOutputSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: FrameSinkManagerParams
 mojo.internal.Struct(

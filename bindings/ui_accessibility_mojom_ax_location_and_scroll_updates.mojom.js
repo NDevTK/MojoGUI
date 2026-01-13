@@ -96,6 +96,11 @@ mojo.internal.bindings.ax.mojom.AXLocationChangeSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AXScrollChangeSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec = mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: AXLocationChange
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXLocationChangeSpec, 'ax.mojom.AXLocationChange', [

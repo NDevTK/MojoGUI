@@ -95,6 +95,11 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.gfx.mojom.SelectionBoundSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: SelectionBoundType
 mojo.internal.bindings.gfx.mojom.SelectionBoundType = {
   LEFT: 0,

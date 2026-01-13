@@ -95,6 +95,14 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.TransformDataSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.TransformSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec = mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.TransformDataSpec = mojo.internal.bindings.gfx.mojom.TransformDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Union: TransformData
 mojo.internal.Union(
     mojo.internal.bindings.gfx.mojom.TransformDataSpec, 'gfx.mojom.TransformData', {

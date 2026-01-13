@@ -107,6 +107,21 @@ mojo.internal.bindings.media.mojom.KeySystemSupport.$interfaceName = 'media.mojo
 mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioCodecSpec = mojo.internal.bindings.media.mojom.AudioCodecSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CdmSessionTypeSpec = mojo.internal.bindings.media.mojom.CdmSessionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.EncryptionSchemeSpec = mojo.internal.bindings.media.mojom.EncryptionSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCodecSpec = mojo.internal.bindings.media.mojom.VideoCodecSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoCodecProfileSpec = mojo.internal.bindings.media.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.VersionSpec = mojo.internal.bindings.mojo_base.mojom.VersionSpec || { $: mojo.internal.OpaqueStruct.$ };

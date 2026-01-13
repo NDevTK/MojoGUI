@@ -135,6 +135,50 @@ mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParams
 mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIProofreaderSpec = mojo.internal.bindings.blink.mojom.AIProofreaderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIRewriterSpec = mojo.internal.bindings.blink.mojom.AIRewriterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIRewriterCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AIRewriterCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AISummarizerSpec = mojo.internal.bindings.blink.mojom.AISummarizerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIWriterSpec = mojo.internal.bindings.blink.mojom.AIWriterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverSpec = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec = mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: ModelAvailabilityCheckResult
 mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResult = {
   kAvailable: 0,

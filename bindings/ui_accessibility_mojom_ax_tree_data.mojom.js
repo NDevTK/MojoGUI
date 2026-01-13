@@ -94,6 +94,14 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.AXTreeDataSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeIDSpec = mojo.internal.bindings.ax.mojom.AXTreeIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.TextAffinitySpec = mojo.internal.bindings.ax.mojom.TextAffinitySpec || { $: mojo.internal.Enum().$ };
+
 // Struct: AXTreeData
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXTreeDataSpec, 'ax.mojom.AXTreeData', [

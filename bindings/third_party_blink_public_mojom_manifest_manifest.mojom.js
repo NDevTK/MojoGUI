@@ -133,6 +133,18 @@ mojo.internal.bindings.blink.mojom.ManifestErrorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DisplayModeSpec = mojo.internal.bindings.blink.mojom.DisplayModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.HomeTabUnionSpec = mojo.internal.bindings.blink.mojom.HomeTabUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ManifestLaunchHandlerSpec = mojo.internal.bindings.blink.mojom.ManifestLaunchHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec = mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec = mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec || { $: mojo.internal.Enum().$ };

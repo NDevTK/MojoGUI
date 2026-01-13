@@ -106,6 +106,9 @@ mojo.internal.bindings.gfx.mojom.SwapTimingsSpec = mojo.internal.bindings.gfx.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.BeginFrameIdSpec = mojo.internal.bindings.viz.mojom.BeginFrameIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: FrameTimingDetails
 mojo.internal.Struct(

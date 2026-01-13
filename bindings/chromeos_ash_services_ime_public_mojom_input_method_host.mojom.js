@@ -135,6 +135,26 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestion
 mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec = mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec = mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec = mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec = mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };

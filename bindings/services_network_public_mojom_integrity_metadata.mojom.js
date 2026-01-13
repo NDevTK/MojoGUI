@@ -94,6 +94,11 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.IntegrityMetadataSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IntegrityAlgorithmSpec = mojo.internal.bindings.network.mojom.IntegrityAlgorithmSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: IntegrityMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IntegrityMetadataSpec, 'network.mojom.IntegrityMetadata', [

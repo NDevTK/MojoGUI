@@ -104,6 +104,14 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListener.$interfaceName = '
 mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec = mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec = mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: ScreenOrientation
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_Params', [

@@ -106,6 +106,30 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeade
 mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = { $: {} };
 mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
+mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.data_decoder.mojom.CborParserSpec = mojo.internal.bindings.data_decoder.mojom.CborParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
+mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.data_decoder.mojom.GzipperSpec = mojo.internal.bindings.data_decoder.mojom.GzipperSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
+mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
+mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
+mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.data_decoder.mojom.XmlParserSpec = mojo.internal.bindings.data_decoder.mojom.XmlParserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.facilitated = mojo.internal.bindings.payments.facilitated || {};
+mojo.internal.bindings.payments.facilitated.mojom = mojo.internal.bindings.payments.facilitated.mojom || {};
+mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorSpec = mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.web_package = mojo.internal.bindings.web_package || {};
+mojo.internal.bindings.web_package.mojom = mojo.internal.bindings.web_package.mojom || {};
+mojo.internal.bindings.web_package.mojom.WebBundleParserFactorySpec = mojo.internal.bindings.web_package.mojom.WebBundleParserFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: DataDecoderService
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params', [

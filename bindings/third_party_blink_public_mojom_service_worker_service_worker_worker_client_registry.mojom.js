@@ -98,6 +98,11 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry.$interfaceN
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ServiceWorkerWorkerClientRegistry
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_Params', [

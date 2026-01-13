@@ -107,6 +107,11 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry.$interfaceName 
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.MetaTagSpec = mojo.internal.bindings.blink.mojom.MetaTagSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: PaidContentMetadataObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec, 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params', [

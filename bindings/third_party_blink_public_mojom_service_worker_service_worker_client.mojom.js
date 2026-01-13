@@ -100,6 +100,9 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerClientQueryOptionsSpec = { $: {}
 mojo.internal.bindings.blink.mojom.ServiceWorkerClientInfoSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RequestContextFrameTypeSpec = mojo.internal.bindings.blink.mojom.RequestContextFrameTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };

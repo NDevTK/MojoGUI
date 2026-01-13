@@ -100,6 +100,14 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Re
 mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.AdvertisementSpec = mojo.internal.bindings.sharing.mojom.AdvertisementSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.FrameSpec = mojo.internal.bindings.sharing.mojom.FrameSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: NearbySharingDecoder
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Params', [

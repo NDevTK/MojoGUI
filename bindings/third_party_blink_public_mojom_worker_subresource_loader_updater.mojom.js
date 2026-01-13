@@ -97,6 +97,11 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater.$interfaceName = 'blink.mojom.SubresourceLoaderUpdater';
 mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec = mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SubresourceLoaderUpdater
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec, 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params', [

@@ -99,6 +99,14 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec
 mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DataElementFileSpec = mojo.internal.bindings.blink.mojom.DataElementFileSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: FileBackedBlobFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlob_Params', [

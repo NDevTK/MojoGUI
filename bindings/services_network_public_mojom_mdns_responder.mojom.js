@@ -100,6 +100,11 @@ mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_Response
 mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MdnsResponder
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_Params', [

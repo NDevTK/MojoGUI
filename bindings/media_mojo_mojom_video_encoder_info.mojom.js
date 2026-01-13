@@ -100,6 +100,9 @@ mojo.internal.bindings.media.mojom.VideoEncoderInfoSpec = { $: {} };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoPixelFormatSpec = mojo.internal.bindings.media.mojom.VideoPixelFormatSpec || { $: mojo.internal.Enum().$ };
 
 // Struct: ResolutionRateLimit
 mojo.internal.Struct(

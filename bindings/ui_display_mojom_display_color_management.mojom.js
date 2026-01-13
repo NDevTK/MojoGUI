@@ -99,6 +99,9 @@ mojo.internal.bindings.display.mojom.ColorTemperatureAdjustmentSpec = { $: {} };
 mojo.internal.bindings.display.mojom.GammaAdjustmentSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.GammaRampRGBEntrySpec = mojo.internal.bindings.display.mojom.GammaRampRGBEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec = mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec || { $: mojo.internal.OpaqueStruct.$ };

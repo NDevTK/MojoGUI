@@ -95,6 +95,11 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.SpeechAudioErrorDetailsSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCodeSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCodeSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: SpeechAudioErrorDetails
 mojo.internal.bindings.media.mojom.SpeechAudioErrorDetails = {
   kNone: 0,

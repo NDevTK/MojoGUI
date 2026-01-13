@@ -95,6 +95,14 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.CALayerContentSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.CALayerParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.CALayerContentSpec = mojo.internal.bindings.gfx.mojom.CALayerContentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Union: CALayerContent
 mojo.internal.Union(
     mojo.internal.bindings.gfx.mojom.CALayerContentSpec, 'gfx.mojom.CALayerContent', {

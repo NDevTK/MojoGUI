@@ -121,6 +121,18 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePer
 mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.JapaneseDictionarySpec = mojo.internal.bindings.ash.ime.mojom.JapaneseDictionarySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec = mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec = mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigStringSpec = mojo.internal.bindings.mojo_base.mojom.BigStringSpec || { $: mojo.internal.OpaqueStruct.$ };

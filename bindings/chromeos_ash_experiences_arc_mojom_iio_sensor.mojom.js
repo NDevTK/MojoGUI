@@ -104,6 +104,12 @@ mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.sensors = mojo.internal.bindings.chromeos.sensors || {};
+mojo.internal.bindings.chromeos.sensors.mojom = mojo.internal.bindings.chromeos.sensors.mojom || {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: IioSensorHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec, 'arc.mojom.IioSensorHost_RegisterSensorHalClient_Params', [

@@ -101,6 +101,11 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_R
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = { $: {} };
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.enterprise_companion = mojo.internal.bindings.enterprise_companion || {};
+mojo.internal.bindings.enterprise_companion.mojom = mojo.internal.bindings.enterprise_companion.mojom || {};
+mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec = mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: Status
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, 'enterprise_companion.mojom.Status', [

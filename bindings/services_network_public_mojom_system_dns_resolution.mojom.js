@@ -98,6 +98,14 @@ mojo.internal.bindings.network.mojom.SystemDnsResolver.$interfaceName = 'network
 mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.AddressFamilySpec = mojo.internal.bindings.network.mojom.AddressFamilySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.AddressListSpec = mojo.internal.bindings.network.mojom.AddressListSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SystemDnsResolver
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [

@@ -101,6 +101,11 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.BroadcastChannelProvider.$interfaceName = 'blink.mojom.BroadcastChannelProvider';
 mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CloneableMessageSpec = mojo.internal.bindings.blink.mojom.CloneableMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: BroadcastChannelClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec, 'blink.mojom.BroadcastChannelClient_OnMessage_Params', [

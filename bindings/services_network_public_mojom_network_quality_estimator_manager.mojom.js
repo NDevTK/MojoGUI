@@ -106,6 +106,9 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotif
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec = mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: NetworkQualityEstimatorManagerClient
 mojo.internal.Struct(

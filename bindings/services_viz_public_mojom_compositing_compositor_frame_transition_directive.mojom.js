@@ -105,6 +105,12 @@ mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec = mojo.internal.bindi
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec = mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec = mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: CompositorFrameTransitionDirectiveType
 mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveType = {

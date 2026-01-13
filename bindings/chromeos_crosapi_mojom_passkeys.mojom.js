@@ -109,6 +109,17 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsS
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.AccountKeySpec = mojo.internal.bindings.crosapi.mojom.AccountKeySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec = mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: UserVerificationRequirement
 mojo.internal.bindings.crosapi.mojom.UserVerificationRequirement = {
   kDiscouraged: 0,

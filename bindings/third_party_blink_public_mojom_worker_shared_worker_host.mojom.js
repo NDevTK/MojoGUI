@@ -102,6 +102,20 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpe
 mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec = mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebFeatureSpec = mojo.internal.bindings.blink.mojom.WebFeatureSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: SharedWorkerHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnConnected_Params', [

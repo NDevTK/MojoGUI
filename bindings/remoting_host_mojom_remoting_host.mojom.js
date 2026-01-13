@@ -125,6 +125,9 @@ mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindi
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.network.mojom.IPEndPointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec = mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: TransportRouteType
 mojo.internal.bindings.remoting.mojom.TransportRouteType = {

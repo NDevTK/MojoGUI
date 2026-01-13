@@ -97,6 +97,11 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher.$interfaceName = 'blink.mojom.RendererPreferenceWatcher';
 mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RendererPreferencesSpec = mojo.internal.bindings.blink.mojom.RendererPreferencesSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: RendererPreferenceWatcher
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec, 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params', [

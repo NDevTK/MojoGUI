@@ -170,6 +170,15 @@ mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_b
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec = mojo.internal.bindings.viz.mojom.SubtreeCaptureIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec = mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: BufferFormatPreference
 mojo.internal.bindings.viz.mojom.BufferFormatPreference = {

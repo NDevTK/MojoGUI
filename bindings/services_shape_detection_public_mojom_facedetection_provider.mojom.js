@@ -97,6 +97,14 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderSpec = { $ : {
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider.$interfaceName = 'shape_detection.mojom.FaceDetectionProvider';
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: FaceDetectionProvider
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec, 'shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_Params', [

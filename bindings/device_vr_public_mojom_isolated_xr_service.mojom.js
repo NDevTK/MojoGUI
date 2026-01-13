@@ -148,6 +148,33 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceHost.$interfaceName = 'device
 mojo.internal.bindings.device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRDepthOptionsSpec = mojo.internal.bindings.device.mojom.XRDepthOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRDeviceIdSpec = mojo.internal.bindings.device.mojom.XRDeviceIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRRenderInfoSpec = mojo.internal.bindings.device.mojom.XRRenderInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRSessionSpec = mojo.internal.bindings.device.mojom.XRSessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRSessionFeatureSpec = mojo.internal.bindings.device.mojom.XRSessionFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRSessionModeSpec = mojo.internal.bindings.device.mojom.XRSessionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRTrackedImageSpec = mojo.internal.bindings.device.mojom.XRTrackedImageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.XRVisibilityStateSpec = mojo.internal.bindings.device.mojom.XRVisibilityStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_test = mojo.internal.bindings.device_test || {};
+mojo.internal.bindings.device_test.mojom = mojo.internal.bindings.device_test.mojom || {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -163,6 +190,9 @@ mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojo
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.device.mojom.kXrSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kXrCompositing;
 

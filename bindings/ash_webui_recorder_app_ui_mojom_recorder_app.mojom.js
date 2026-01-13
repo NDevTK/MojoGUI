@@ -145,6 +145,14 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioW
 mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -157,6 +165,9 @@ mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec = mojo.internal.b
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec = mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec || { $: mojo.internal.Enum().$ };

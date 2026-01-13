@@ -144,6 +144,18 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.int
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
+mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
+mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec = mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
+mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
+mojo.internal.bindings.performance_manager.mojom.LifecycleStateSpec = mojo.internal.bindings.performance_manager.mojom.LifecycleStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
+mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
+mojo.internal.bindings.performance_manager.mojom.V8ContextDescriptionSpec = mojo.internal.bindings.performance_manager.mojom.V8ContextDescriptionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
+mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
+mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec = mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: CoordinationUnitType
 mojo.internal.bindings.performance_manager.mojom.CoordinationUnitType = {

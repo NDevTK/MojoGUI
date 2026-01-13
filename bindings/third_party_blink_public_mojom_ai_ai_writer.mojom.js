@@ -103,6 +103,14 @@ mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AILanguageCodeSpec = mojo.internal.bindings.blink.mojom.AILanguageCodeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: AIWriterTone
 mojo.internal.bindings.blink.mojom.AIWriterTone = {
   kFormal: 0,

@@ -100,6 +100,14 @@ mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = { $: {} 
 mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec = { $: {} };
 mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: UrlTest
 mojo.internal.Struct(
     mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec, 'url.mojom.UrlTest_BounceUrl_Params', [

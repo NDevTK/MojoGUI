@@ -102,6 +102,23 @@ mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec 
 mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.CapabilitySetSpec = mojo.internal.bindings.service_manager.mojom.CapabilitySetSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.ConnectorSpec = mojo.internal.bindings.service_manager.mojom.ConnectorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.IdentitySpec = mojo.internal.bindings.service_manager.mojom.IdentitySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.ProcessMetadataSpec = mojo.internal.bindings.service_manager.mojom.ProcessMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.ServiceControlSpec = mojo.internal.bindings.service_manager.mojom.ServiceControlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: BindSourceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec, 'service_manager.mojom.BindSourceInfo', [

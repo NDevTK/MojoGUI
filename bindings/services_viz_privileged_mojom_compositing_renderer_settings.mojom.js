@@ -97,6 +97,11 @@ mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.RendererSettingsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.OverlayStrategySpec = mojo.internal.bindings.viz.mojom.OverlayStrategySpec || { $: mojo.internal.Enum().$ };
+
 mojo.internal.bindings.viz.mojom.kInvalidDisplayId = -1;
 
 // Struct: OcclusionCullerSettings

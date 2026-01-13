@@ -130,6 +130,12 @@ mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSp
 mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
+mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec = mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
+mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.chromecast.mojom.RemoteInterfacesSpec = mojo.internal.bindings.chromecast.mojom.RemoteInterfacesSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };

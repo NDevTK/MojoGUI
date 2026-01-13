@@ -101,6 +101,11 @@ mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec = { $ :
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter.$interfaceName = 'network.mojom.CrossOriginOpenerPolicyReporter';
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SourceLocationSpec = mojo.internal.bindings.network.mojom.SourceLocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: CoopAccessReportType
 mojo.internal.bindings.network.mojom.CoopAccessReportType = {
   kAccessFromCoopPageToOpener: 0,

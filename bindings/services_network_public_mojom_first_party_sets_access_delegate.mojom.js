@@ -100,6 +100,14 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate.$interfaceName
 mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec = mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec = mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: FirstPartySetsAccessDelegateParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec, 'network.mojom.FirstPartySetsAccessDelegateParams', [

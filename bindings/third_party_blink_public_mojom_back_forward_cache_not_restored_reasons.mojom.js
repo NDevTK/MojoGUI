@@ -98,6 +98,9 @@ mojo.internal.bindings.blink.mojom.BFCacheBlockingDetailedReasonSpec = { $: {} }
 mojo.internal.bindings.blink.mojom.BackForwardCacheNotRestoredReasonsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec = mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

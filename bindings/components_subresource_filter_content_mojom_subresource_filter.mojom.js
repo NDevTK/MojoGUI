@@ -114,6 +114,15 @@ mojo.internal.bindings.blink.mojom.FrameAdEvidenceSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec = mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.subresource_filter = mojo.internal.bindings.subresource_filter || {};
+mojo.internal.bindings.subresource_filter.mojom = mojo.internal.bindings.subresource_filter.mojom || {};
+mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec = mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.subresource_filter = mojo.internal.bindings.subresource_filter || {};
+mojo.internal.bindings.subresource_filter.mojom = mojo.internal.bindings.subresource_filter.mojom || {};
+mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec = mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.subresource_filter = mojo.internal.bindings.subresource_filter || {};
+mojo.internal.bindings.subresource_filter.mojom = mojo.internal.bindings.subresource_filter.mojom || {};
+mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec = mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SubresourceFilterAgent
 mojo.internal.Struct(

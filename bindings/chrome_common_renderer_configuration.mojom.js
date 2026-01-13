@@ -116,6 +116,9 @@ mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_Param
 mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };

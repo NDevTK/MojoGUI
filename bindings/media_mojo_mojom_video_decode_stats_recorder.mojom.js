@@ -98,6 +98,14 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder.$interfaceName = 'me
 mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PredictionFeaturesSpec = mojo.internal.bindings.media.mojom.PredictionFeaturesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PredictionTargetsSpec = mojo.internal.bindings.media.mojom.PredictionTargetsSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: VideoDecodeStatsRecorder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params', [

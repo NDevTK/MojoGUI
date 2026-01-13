@@ -109,6 +109,11 @@ mojo.internal.bindings.media.mojom.AudioLogFactorySpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioLogFactory.$interfaceName = 'media.mojom.AudioLogFactory';
 mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: AudioLogComponent
 mojo.internal.bindings.media.mojom.AudioLogComponent = {
   kInputController: 0,

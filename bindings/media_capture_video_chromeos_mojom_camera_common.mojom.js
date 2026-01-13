@@ -135,6 +135,14 @@ mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpe
 mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.Camera3DeviceOpsSpec = mojo.internal.bindings.cros.mojom.Camera3DeviceOpsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraMetadataSpec = mojo.internal.bindings.cros.mojom.CameraMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.cros.mojom.CAMERA_DEVICE_API_VERSION_3_0 = 0x300;
 
 mojo.internal.bindings.cros.mojom.CAMERA_DEVICE_API_VERSION_3_1 = 0x301;

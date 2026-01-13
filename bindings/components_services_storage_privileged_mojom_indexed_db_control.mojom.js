@@ -120,12 +120,39 @@ mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsS
 mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.IDBFactorySpec = mojo.internal.bindings.blink.mojom.IDBFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketClientInfoSpec = mojo.internal.bindings.storage.mojom.BucketClientInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketIdSpec = mojo.internal.bindings.storage.mojom.BucketIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketLocatorSpec = mojo.internal.bindings.storage.mojom.BucketLocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec = mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec = mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerSpec = mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec = mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ForceCloseReason
 mojo.internal.bindings.storage.mojom.ForceCloseReason = {

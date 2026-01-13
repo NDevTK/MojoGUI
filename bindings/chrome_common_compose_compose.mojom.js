@@ -144,6 +144,11 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog.$interfaceName = 'co
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.compose = mojo.internal.bindings.compose || {};
+mojo.internal.bindings.compose.mojom = mojo.internal.bindings.compose.mojom || {};
+mojo.internal.bindings.compose.mojom.ComposeStatusSpec = mojo.internal.bindings.compose.mojom.ComposeStatusSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: InputMode
 mojo.internal.bindings.compose.mojom.InputMode = {
   kUnset: 0,

@@ -102,6 +102,12 @@ mojo.internal.bindings.skia.mojom.InlineBitmapSpec = { $: {} };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.BitmapN32ImageInfoSpec = mojo.internal.bindings.skia.mojom.BitmapN32ImageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.ImageInfoSpec = mojo.internal.bindings.skia.mojom.ImageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: BitmapN32
 mojo.internal.Struct(

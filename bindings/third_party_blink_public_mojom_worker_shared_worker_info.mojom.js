@@ -98,6 +98,12 @@ mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.i
 mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec = mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WorkerOptionsSpec = mojo.internal.bindings.blink.mojom.WorkerOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec || { $: mojo.internal.OpaqueStruct.$ };

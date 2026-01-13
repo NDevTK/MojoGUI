@@ -163,6 +163,10 @@ mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.Rec
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
+mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DrmDevice
 mojo.internal.Struct(

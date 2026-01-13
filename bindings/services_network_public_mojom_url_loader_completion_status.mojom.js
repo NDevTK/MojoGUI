@@ -100,6 +100,21 @@ mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec = { $: {} };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.BlockedByResponseReasonSpec = mojo.internal.bindings.network.mojom.BlockedByResponseReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CorsErrorStatusSpec = mojo.internal.bindings.network.mojom.CorsErrorStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec = mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SSLInfoSpec = mojo.internal.bindings.network.mojom.SSLInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec = mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec || { $: mojo.internal.Enum().$ };
 
 // Struct: BlockedByResponseReasonWrapper
 mojo.internal.Struct(

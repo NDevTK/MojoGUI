@@ -103,6 +103,12 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_Par
 mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
+mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
+mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec = mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec || { $: mojo.internal.OpaqueStruct.$ };

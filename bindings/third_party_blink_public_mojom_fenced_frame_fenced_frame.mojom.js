@@ -101,6 +101,9 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = { 
 mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FramePolicySpec = mojo.internal.bindings.blink.mojom.FramePolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };

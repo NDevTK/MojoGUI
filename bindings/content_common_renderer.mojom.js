@@ -126,6 +126,9 @@ mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_
 mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};
+mojo.internal.bindings.IPC.mojom = mojo.internal.bindings.IPC.mojom || {};
+mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec = mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.OriginTrialsSettingsSpec = mojo.internal.bindings.blink.mojom.OriginTrialsSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -135,6 +138,15 @@ mojo.internal.bindings.blink.mojom.PerformanceTierSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec = mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec = mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.content.mojom.ScrollerStyleSpec = mojo.internal.bindings.content.mojom.ScrollerStyleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec = mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec || { $: mojo.internal.Enum().$ };

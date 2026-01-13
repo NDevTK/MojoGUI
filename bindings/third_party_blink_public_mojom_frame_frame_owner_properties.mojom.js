@@ -94,6 +94,17 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ColorSchemeSpec = mojo.internal.bindings.blink.mojom.ColorSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec = mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScrollbarModeSpec = mojo.internal.bindings.blink.mojom.ScrollbarModeSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: FrameOwnerProperties
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec, 'blink.mojom.FrameOwnerProperties', [

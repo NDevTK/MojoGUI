@@ -94,6 +94,17 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.EarlyHintsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IPAddressSpaceSpec = mojo.internal.bindings.network.mojom.IPAddressSpaceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ParsedHeadersSpec = mojo.internal.bindings.network.mojom.ParsedHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ReferrerPolicySpec = mojo.internal.bindings.network.mojom.ReferrerPolicySpec || { $: mojo.internal.Enum().$ };
+
 // Struct: EarlyHints
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.EarlyHintsSpec, 'network.mojom.EarlyHints', [

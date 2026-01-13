@@ -99,6 +99,17 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost.$interfaceName
 mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RendererEvictionReasonSpec = mojo.internal.bindings.blink.mojom.RendererEvictionReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec = mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeatureSpec = mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeatureSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: BlockingDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlockingDetailsSpec, 'blink.mojom.BlockingDetails', [

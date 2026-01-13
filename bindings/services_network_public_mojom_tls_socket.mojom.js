@@ -97,6 +97,11 @@ mojo.internal.bindings.network.mojom.TLSClientSocket = {};
 mojo.internal.bindings.network.mojom.TLSClientSocketSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.TLSClientSocket.$interfaceName = 'network.mojom.TLSClientSocket';
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SSLVersionSpec = mojo.internal.bindings.network.mojom.SSLVersionSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: TLSClientSocketOptions
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [

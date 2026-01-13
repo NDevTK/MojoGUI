@@ -99,6 +99,11 @@ mojo.internal.bindings.audio.mojom.LogFactoryManagerSpec = { $ : {} };
 mojo.internal.bindings.audio.mojom.LogFactoryManager.$interfaceName = 'audio.mojom.LogFactoryManager';
 mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioLogFactorySpec = mojo.internal.bindings.media.mojom.AudioLogFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: LogFactoryManager
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec, 'audio.mojom.LogFactoryManager_SetLogFactory_Params', [

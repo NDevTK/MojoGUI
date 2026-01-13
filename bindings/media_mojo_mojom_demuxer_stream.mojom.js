@@ -103,6 +103,17 @@ mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec = mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.DecoderBufferSpec = mojo.internal.bindings.media.mojom.DecoderBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec = mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: Type
 mojo.internal.bindings.media.mojom.Type = {
 };

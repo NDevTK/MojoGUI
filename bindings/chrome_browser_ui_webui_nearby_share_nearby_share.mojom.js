@@ -163,6 +163,12 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNot
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
+mojo.internal.bindings.nearby_share.mojom = mojo.internal.bindings.nearby_share.mojom || {};
+mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec = mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
+mojo.internal.bindings.nearby_share.mojom = mojo.internal.bindings.nearby_share.mojom || {};
+mojo.internal.bindings.nearby_share.mojom.ShareTypeSpec = mojo.internal.bindings.nearby_share.mojom.ShareTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

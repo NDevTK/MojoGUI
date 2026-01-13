@@ -109,6 +109,12 @@ mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.Rec
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.MailboxSpec = mojo.internal.bindings.gpu.mojom.MailboxSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec = mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TextureReleaserSpec = mojo.internal.bindings.viz.mojom.TextureReleaserSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: CopyOutputResultFormat
 mojo.internal.bindings.viz.mojom.CopyOutputResultFormat = {

@@ -101,6 +101,12 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_Re
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = { $: {} };
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
+mojo.internal.bindings.ntp.calendar = mojo.internal.bindings.ntp.calendar || {};
+mojo.internal.bindings.ntp.calendar.mojom = mojo.internal.bindings.ntp.calendar.mojom || {};
+mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec = mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: GoogleCalendarPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec, 'ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_Params', [

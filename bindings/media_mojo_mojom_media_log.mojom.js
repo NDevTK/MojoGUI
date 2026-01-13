@@ -97,6 +97,11 @@ mojo.internal.bindings.media.mojom.MediaLogSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaLog.$interfaceName = 'media.mojom.MediaLog';
 mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.MediaLogRecordSpec = mojo.internal.bindings.media.mojom.MediaLogRecordSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MediaLog
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec, 'media.mojom.MediaLog_AddLogRecord_Params', [

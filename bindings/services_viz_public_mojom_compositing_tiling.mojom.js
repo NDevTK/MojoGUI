@@ -116,6 +116,12 @@ mojo.internal.bindings.gfx.mojom.Vector2dFSpec = mojo.internal.bindings.gfx.mojo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mojom.SkColor4fSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TileContentsSpec = mojo.internal.bindings.viz.mojom.TileContentsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TransferableResourceSpec = mojo.internal.bindings.viz.mojom.TransferableResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: TileContents
 mojo.internal.Union(

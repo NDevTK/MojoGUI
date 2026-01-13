@@ -108,6 +108,9 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBl
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SiteForCookiesSpec = mojo.internal.bindings.network.mojom.SiteForCookiesSpec || { $: mojo.internal.OpaqueStruct.$ };

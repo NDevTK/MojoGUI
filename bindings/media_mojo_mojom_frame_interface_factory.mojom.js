@@ -110,6 +110,15 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponsePa
 mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.CdmStorageSpec = mojo.internal.bindings.media.mojom.CdmStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistrySpec = mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistrySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.ProvisionFetcherSpec = mojo.internal.bindings.media.mojom.ProvisionFetcherSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };

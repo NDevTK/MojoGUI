@@ -105,6 +105,17 @@ mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec = { 
 mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DataElementSpec = mojo.internal.bindings.blink.mojom.DataElementSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SerializedBlobSpec = mojo.internal.bindings.blink.mojom.SerializedBlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ProgressClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec, 'blink.mojom.ProgressClient_OnProgress_Params', [

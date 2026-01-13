@@ -96,6 +96,11 @@ mojo.internal.bindings.network.mojom.PinSetSpec = { $: {} };
 mojo.internal.bindings.network.mojom.PinSetInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.PinListSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SHA256HashValueSpec = mojo.internal.bindings.network.mojom.SHA256HashValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: PinSet
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.PinSetSpec, 'network.mojom.PinSet', [

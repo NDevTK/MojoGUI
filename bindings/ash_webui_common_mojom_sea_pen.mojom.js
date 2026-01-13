@@ -137,6 +137,22 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMo
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
+mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec = mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
+mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateChipSpec = mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateChipSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
+mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateIdSpec = mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.personalization_app = mojo.internal.bindings.ash.personalization_app || {};
+mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.ash.personalization_app.mojom || {};
+mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOptionSpec = mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOptionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };

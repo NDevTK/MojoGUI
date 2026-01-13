@@ -111,7 +111,16 @@ mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_P
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.StorageAreaSpec = mojo.internal.bindings.blink.mojom.StorageAreaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink.mojom.StorageKeySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec = mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec = mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: LocalStorageControl
 mojo.internal.Struct(

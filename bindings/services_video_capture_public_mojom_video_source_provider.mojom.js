@@ -111,6 +111,21 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponsePar
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec = mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverSpec = mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.ProducerSpec = mojo.internal.bindings.video_capture.mojom.ProducerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceSpec = mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceSpec = mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: GetSourceInfosResult
 mojo.internal.bindings.video_capture.mojom.GetSourceInfosResult = {

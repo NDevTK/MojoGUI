@@ -107,6 +107,12 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseP
 mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: BuiltinModelId
 mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelId = {
   UNSUPPORTED_UNKNOWN: 0,

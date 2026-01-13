@@ -100,6 +100,16 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder.$interfaceName = 
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.quick_start = mojo.internal.bindings.ash.quick_start || {};
+mojo.internal.bindings.ash.quick_start.mojom = mojo.internal.bindings.ash.quick_start.mojom || {};
+mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec = mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.quick_start = mojo.internal.bindings.ash.quick_start || {};
+mojo.internal.bindings.ash.quick_start.mojom = mojo.internal.bindings.ash.quick_start.mojom || {};
+mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec = mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: QuickStartDecoder
 mojo.internal.Struct(
     mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_Params', [

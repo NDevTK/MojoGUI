@@ -98,6 +98,11 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent.$interfaceNam
 mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec = { $: {} };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
+mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec = mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ContentSettingsAgent
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Params', [

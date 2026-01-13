@@ -125,6 +125,9 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpda
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tracked_element = mojo.internal.bindings.tracked_element || {};
+mojo.internal.bindings.tracked_element.mojom = mojo.internal.bindings.tracked_element.mojom || {};
+mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: HelpBubbleArrowPosition
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPosition = {

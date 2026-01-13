@@ -99,6 +99,11 @@ mojo.internal.bindings.tracing.mojom.TracedProcess.$interfaceName = 'tracing.moj
 mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
+mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
+mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec = mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: ConnectToTracingRequest
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, 'tracing.mojom.ConnectToTracingRequest', [

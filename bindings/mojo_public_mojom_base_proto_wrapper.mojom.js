@@ -94,6 +94,11 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: ProtoWrapper
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, 'mojo_base.mojom.ProtoWrapper', [

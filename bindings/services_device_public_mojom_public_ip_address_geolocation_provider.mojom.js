@@ -99,6 +99,12 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider.$interfac
 mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.device.mojom.GeolocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.GeolocationClientIdSpec = mojo.internal.bindings.device.mojom.GeolocationClientIdSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec || { $: mojo.internal.OpaqueStruct.$ };

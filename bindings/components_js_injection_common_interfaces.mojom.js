@@ -127,6 +127,12 @@ mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaSc
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.js_injection = mojo.internal.bindings.js_injection || {};
+mojo.internal.bindings.js_injection.mojom = mojo.internal.bindings.js_injection.mojom || {};
+mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec = mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.js_injection = mojo.internal.bindings.js_injection || {};
+mojo.internal.bindings.js_injection.mojom = mojo.internal.bindings.js_injection.mojom || {};
+mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec = mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };

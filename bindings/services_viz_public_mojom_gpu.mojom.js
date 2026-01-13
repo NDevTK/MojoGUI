@@ -106,6 +106,9 @@ mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = { 
 mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec = mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -115,6 +118,9 @@ mojo.internal.bindings.gpu.mojom.GpuInfoSpec = mojo.internal.bindings.gpu.mojom.
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec = mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Gpu
 mojo.internal.Struct(

@@ -99,6 +99,14 @@ mojo.internal.bindings.blink.mojom.GeolocationService.$interfaceName = 'blink.mo
 mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings.blink.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.device.mojom.GeolocationSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: GeolocationService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_Params', [

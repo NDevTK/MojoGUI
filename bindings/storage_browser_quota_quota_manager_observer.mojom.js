@@ -98,6 +98,14 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserver.$interfaceName = 'stor
 mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketInfoSpec = mojo.internal.bindings.storage.mojom.BucketInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketLocatorSpec = mojo.internal.bindings.storage.mojom.BucketLocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: QuotaManagerObserver
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params', [

@@ -111,6 +111,9 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetA
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
+mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: AccessToken
 mojo.internal.Struct(

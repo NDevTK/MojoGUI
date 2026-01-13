@@ -107,6 +107,9 @@ mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
 mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ReferrerSpec = mojo.internal.bindings.blink.mojom.ReferrerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.NoVarySearchSpec = mojo.internal.bindings.network.mojom.NoVarySearchSpec || { $: mojo.internal.OpaqueStruct.$ };

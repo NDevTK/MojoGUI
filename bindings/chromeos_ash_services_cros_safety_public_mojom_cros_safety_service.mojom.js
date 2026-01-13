@@ -103,6 +103,16 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSaf
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
+mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
+mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: GetCloudSafetySessionResult
 mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResult = {
   kOk: 0,

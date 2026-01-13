@@ -97,6 +97,23 @@ mojo.internal.bindings.blink.mojom.SharedWorkerConnectorSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.SharedWorkerConnector.$interfaceName = 'blink.mojom.SharedWorkerConnector';
 mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BlobURLTokenSpec = mojo.internal.bindings.blink.mojom.BlobURLTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SharedWorkerClientSpec = mojo.internal.bindings.blink.mojom.SharedWorkerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec = mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec = mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SharedWorkerConnector
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec, 'blink.mojom.SharedWorkerConnector_Connect_Params', [

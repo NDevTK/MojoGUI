@@ -171,6 +171,29 @@ mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec = 
 mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.DeviceSpec = mojo.internal.bindings.bluetooth.mojom.DeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec = mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPermissionsSpec = mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPermissionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPropertiesSpec = mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec = mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.LocalCharacteristicReadResultSpec = mojo.internal.bindings.bluetooth.mojom.LocalCharacteristicReadResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.UUIDSpec = mojo.internal.bindings.bluetooth.mojom.UUIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: ConnectResult
 mojo.internal.bindings.bluetooth.mojom.ConnectResult = {
   SUCCESS: 0,

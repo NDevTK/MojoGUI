@@ -142,6 +142,36 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_
 mojo.internal.bindings.autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec = mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec = mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FillIdSpec = mojo.internal.bindings.autofill.mojom.FillIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FocusedFieldTypeSpec = mojo.internal.bindings.autofill.mojom.FocusedFieldTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FormDataSpec = mojo.internal.bindings.autofill.mojom.FormDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.FormRendererIdSpec = mojo.internal.bindings.autofill.mojom.FormRendererIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec = mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.SubmissionSourceSpec = mojo.internal.bindings.autofill.mojom.SubmissionSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };

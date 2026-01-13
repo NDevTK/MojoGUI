@@ -116,6 +116,21 @@ mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ReportResult_Response
 mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.ComponentAuctionOtherSellerSpec = mojo.internal.bindings.auction_worklet.mojom.ComponentAuctionOtherSellerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec = mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.RealTimeReportingContributionSpec = mojo.internal.bindings.auction_worklet.mojom.RealTimeReportingContributionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.RejectReasonSpec = mojo.internal.bindings.auction_worklet.mojom.RejectReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
+mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AdCurrencySpec = mojo.internal.bindings.blink.mojom.AdCurrencySpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -125,6 +140,9 @@ mojo.internal.bindings.blink.mojom.AdDescriptorSpec = mojo.internal.bindings.bli
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };

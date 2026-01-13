@@ -105,6 +105,9 @@ mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_Par
 mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec = mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec = mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec || { $: mojo.internal.OpaqueStruct.$ };

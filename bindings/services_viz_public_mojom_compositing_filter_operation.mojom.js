@@ -110,6 +110,9 @@ mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.TileModeSpec = mojo.internal.bindings.skia.mojom.TileModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.PaintFilterSpec = mojo.internal.bindings.viz.mojom.PaintFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: FilterType
 mojo.internal.bindings.viz.mojom.FilterType = {

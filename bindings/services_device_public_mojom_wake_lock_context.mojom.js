@@ -97,6 +97,17 @@ mojo.internal.bindings.device.mojom.WakeLockContextSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.WakeLockContext.$interfaceName = 'device.mojom.WakeLockContext';
 mojo.internal.bindings.device.mojom.WakeLockContext_GetWakeLock_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.WakeLockSpec = mojo.internal.bindings.device.mojom.WakeLockSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.WakeLockReasonSpec = mojo.internal.bindings.device.mojom.WakeLockReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.WakeLockTypeSpec = mojo.internal.bindings.device.mojom.WakeLockTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: WakeLockContext
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WakeLockContext_GetWakeLock_ParamsSpec, 'device.mojom.WakeLockContext_GetWakeLock_Params', [

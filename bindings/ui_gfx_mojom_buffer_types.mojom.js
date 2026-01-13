@@ -97,6 +97,11 @@ mojo.internal.bindings.gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: BufferFormat
 mojo.internal.bindings.gfx.mojom.BufferFormat = {
   R_8: 0,

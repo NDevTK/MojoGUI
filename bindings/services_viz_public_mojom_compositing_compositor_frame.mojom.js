@@ -94,6 +94,17 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.CompositorFrameSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec = mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorRenderPassSpec = mojo.internal.bindings.viz.mojom.CompositorRenderPassSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TransferableResourceSpec = mojo.internal.bindings.viz.mojom.TransferableResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: CompositorFrame
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSpec, 'viz.mojom.CompositorFrame', [

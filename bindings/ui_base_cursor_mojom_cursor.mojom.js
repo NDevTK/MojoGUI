@@ -103,6 +103,9 @@ mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.Po
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.CursorTypeSpec = mojo.internal.bindings.ui.mojom.CursorTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Struct: Cursor
 mojo.internal.Struct(

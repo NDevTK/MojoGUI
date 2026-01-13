@@ -100,6 +100,17 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDe
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
+mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.shape_detection.mojom.TextDetectionSpec = mojo.internal.bindings.shape_detection.mojom.TextDetectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kShapeDetection;
 
 mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;

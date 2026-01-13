@@ -121,6 +121,15 @@ mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec = { $:
 mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.DebugDataTypeSpec = mojo.internal.bindings.attribution_reporting.mojom.DebugDataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfigSpec = mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfigSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
+mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.attribution_reporting.mojom.TriggerDataMatchingSpec = mojo.internal.bindings.attribution_reporting.mojom.TriggerDataMatchingSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };

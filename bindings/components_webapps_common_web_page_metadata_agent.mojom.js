@@ -98,6 +98,11 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent.$interfaceName = 'weba
 mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec = { $: {} };
 mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.webapps = mojo.internal.bindings.webapps || {};
+mojo.internal.bindings.webapps.mojom = mojo.internal.bindings.webapps.mojom || {};
+mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec = mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: WebPageMetadataAgent
 mojo.internal.Struct(
     mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_Params', [

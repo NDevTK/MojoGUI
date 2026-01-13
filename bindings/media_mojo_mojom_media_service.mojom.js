@@ -98,6 +98,14 @@ mojo.internal.bindings.media.mojom.MediaServiceSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.MediaService.$interfaceName = 'media.mojom.MediaService';
 mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.InterfaceFactorySpec = mojo.internal.bindings.media.mojom.InterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
 mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kGpu;

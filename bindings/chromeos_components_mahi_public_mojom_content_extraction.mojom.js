@@ -121,6 +121,9 @@ mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.moj
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
+mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ResponseStatus
 mojo.internal.bindings.mahi.mojom.ResponseStatus = {

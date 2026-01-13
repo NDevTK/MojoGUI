@@ -98,6 +98,11 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService.$interfac
 mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
+mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
+mojo.internal.bindings.media_router.mojom.MediaSinkSpec = mojo.internal.bindings.media_router.mojom.MediaSinkSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MediaRouterTraitsTestService
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params', [

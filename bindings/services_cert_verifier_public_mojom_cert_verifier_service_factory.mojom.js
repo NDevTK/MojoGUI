@@ -124,6 +124,18 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatfor
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
+mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
+mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec = mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
+mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
+mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
+mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };

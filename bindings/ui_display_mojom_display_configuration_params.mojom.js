@@ -96,6 +96,9 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.DisplayModeSpec = mojo.internal.bindings.display.mojom.DisplayModeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -132,6 +132,12 @@ mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.interna
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec = mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
+mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
+mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
+mojo.internal.bindings.tracing.mojom.SystemTracingServiceSpec = mojo.internal.bindings.tracing.mojom.SystemTracingServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: LoggingSettings
 mojo.internal.Struct(

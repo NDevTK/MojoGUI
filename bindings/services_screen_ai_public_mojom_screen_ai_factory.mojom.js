@@ -118,6 +118,12 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec = mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
+mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
+mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
+mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec = mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ScreenAIServiceShutdownHandler
 mojo.internal.Struct(

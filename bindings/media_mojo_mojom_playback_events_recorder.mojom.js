@@ -110,6 +110,12 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_P
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PipelineStatisticsSpec = mojo.internal.bindings.media.mojom.PipelineStatisticsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PipelineStatusSpec = mojo.internal.bindings.media.mojom.PipelineStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PlaybackEventsRecorder
 mojo.internal.Struct(

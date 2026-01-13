@@ -98,6 +98,11 @@ mojo.internal.bindings.device.mojom.BatteryMonitor.$interfaceName = 'device.mojo
 mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.BatteryStatusSpec = mojo.internal.bindings.device.mojom.BatteryStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: BatteryMonitor
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_Params', [

@@ -128,6 +128,18 @@ mojo.internal.bindings.ash.mojom.ButtonRemappingSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.KeyEventSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.AcceleratorActionSpec = mojo.internal.bindings.ash.mojom.AcceleratorActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.ButtonSpec = mojo.internal.bindings.ash.mojom.ButtonSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.RemappingActionSpec = mojo.internal.bindings.ash.mojom.RemappingActionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.VKeySpec = mojo.internal.bindings.ash.mojom.VKeySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec = mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec || { $: mojo.internal.Enum().$ };

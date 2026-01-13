@@ -100,6 +100,9 @@ mojo.internal.bindings.payments.mojom.ItemDetailsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec = mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

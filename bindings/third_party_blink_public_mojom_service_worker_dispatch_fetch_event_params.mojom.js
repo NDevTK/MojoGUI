@@ -95,6 +95,17 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.blink.mojom.DispatchFetchEventParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec = mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderClientSpec = mojo.internal.bindings.network.mojom.URLLoaderClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: DispatchFetchEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DispatchFetchEventParamsSpec, 'blink.mojom.DispatchFetchEventParams', [

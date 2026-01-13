@@ -98,6 +98,9 @@ mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec = { 
 mojo.internal.bindings.network.mojom.PermissionsPolicySpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec = mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };

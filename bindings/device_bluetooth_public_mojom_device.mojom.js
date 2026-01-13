@@ -120,6 +120,11 @@ mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponsePar
 mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.UUIDSpec = mojo.internal.bindings.bluetooth.mojom.UUIDSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: Property
 mojo.internal.bindings.bluetooth.mojom.Property = {
   NONE: 0,

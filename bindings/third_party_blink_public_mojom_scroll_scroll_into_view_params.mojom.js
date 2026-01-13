@@ -99,6 +99,12 @@ mojo.internal.bindings.blink.mojom.FocusedEditableParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ScrollIntoViewParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec = mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ScrollTypeSpec = mojo.internal.bindings.blink.mojom.ScrollTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeFSpec = mojo.internal.bindings.gfx.mojom.SizeFSpec || { $: mojo.internal.OpaqueStruct.$ };

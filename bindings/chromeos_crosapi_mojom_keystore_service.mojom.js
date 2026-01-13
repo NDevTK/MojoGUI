@@ -161,6 +161,50 @@ mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificat
 mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec = mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec = mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec = mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec = mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec = mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec = mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec = mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.KeystoreErrorSpec = mojo.internal.bindings.crosapi.mojom.KeystoreErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec = mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: KeystoreType
 mojo.internal.bindings.crosapi.mojom.KeystoreType = {
   kUser: 0,

@@ -120,6 +120,9 @@ mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.moj
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.on_device_translation = mojo.internal.bindings.on_device_translation || {};
+mojo.internal.bindings.on_device_translation.mojom = mojo.internal.bindings.on_device_translation.mojom || {};
+mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec = mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kOnDeviceTranslation;
 

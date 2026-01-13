@@ -174,6 +174,12 @@ mojo.internal.bindings.new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpe
 mojo.internal.bindings.most_visited = mojo.internal.bindings.most_visited || {};
 mojo.internal.bindings.most_visited.mojom = mojo.internal.bindings.most_visited.mojom || {};
 mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
+mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
+mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
+mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ntp_tiles = mojo.internal.bindings.ntp_tiles || {};
 mojo.internal.bindings.ntp_tiles.mojom = mojo.internal.bindings.ntp_tiles.mojom || {};
 mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec = mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec || { $: mojo.internal.Enum().$ };

@@ -98,6 +98,20 @@ mojo.internal.bindings.network.mojom.URLLoaderFactory.$interfaceName = 'network.
 mojo.internal.bindings.network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderFactory_Clone_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec = mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderSpec = mojo.internal.bindings.network.mojom.URLLoaderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLLoaderClientSpec = mojo.internal.bindings.network.mojom.URLLoaderClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.URLRequestSpec = mojo.internal.bindings.network.mojom.URLRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 mojo.internal.bindings.network.mojom.kURLLoadOptionNone = 0;
 
 mojo.internal.bindings.network.mojom.kURLLoadOptionSendSSLInfoWithResponse = 1;

@@ -102,6 +102,15 @@ mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_Para
 mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CookieOrLineWithAccessResultSpec = mojo.internal.bindings.network.mojom.CookieOrLineWithAccessResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec = mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SiteForCookiesSpec = mojo.internal.bindings.network.mojom.SiteForCookiesSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };

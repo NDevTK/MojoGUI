@@ -107,6 +107,15 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.media_perception = mojo.internal.bindings.chromeos.media_perception || {};
+mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.chromeos.media_perception.mojom || {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MediaPerceptionService
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [

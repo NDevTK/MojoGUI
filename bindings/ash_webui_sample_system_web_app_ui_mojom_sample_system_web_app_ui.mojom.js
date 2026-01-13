@@ -111,6 +111,16 @@ mojo.internal.bindings.ash.mojom.sample_swa.Page.$interfaceName = 'ash.mojom.sam
 mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: Preferences
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec, 'ash.mojom.sample_swa.Preferences', [

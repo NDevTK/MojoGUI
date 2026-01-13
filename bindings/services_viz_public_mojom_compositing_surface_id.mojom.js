@@ -94,6 +94,14 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.SurfaceIdSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec = mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: SurfaceId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceIdSpec, 'viz.mojom.SurfaceId', [

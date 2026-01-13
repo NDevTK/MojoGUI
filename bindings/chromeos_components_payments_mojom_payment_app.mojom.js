@@ -105,6 +105,24 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentA
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payments || {};
+mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
+mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec = mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payments || {};
+mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
+mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec = mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payments || {};
+mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
+mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec = mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payments || {};
+mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: PaymentAppInstance
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_Params', [

@@ -97,6 +97,11 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec = { $ : {
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder.$interfaceName = 'media.mojom.SpeechRecognitionAudioForwarder';
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioDataS16Spec = mojo.internal.bindings.media.mojom.AudioDataS16Spec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: SpeechRecognitionAudioForwarder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec, 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params', [

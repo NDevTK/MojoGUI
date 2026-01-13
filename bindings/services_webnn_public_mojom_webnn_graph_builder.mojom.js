@@ -110,6 +110,21 @@ mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec = mojo.internal
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec = mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.DataTypeSpec = mojo.internal.bindings.webnn.mojom.DataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.DeviceSpec = mojo.internal.bindings.webnn.mojom.DeviceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.GraphInfoSpec = mojo.internal.bindings.webnn.mojom.GraphInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: CreateGraphSuccess
 mojo.internal.Struct(

@@ -99,6 +99,21 @@ mojo.internal.bindings.display.mojom.DisplaySnapshotColorInfoSpec = { $: {} };
 mojo.internal.bindings.display.mojom.DisplaySnapshotSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec = mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.DisplayModeSpec = mojo.internal.bindings.display.mojom.DisplayModeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.PanelOrientationSpec = mojo.internal.bindings.display.mojom.PanelOrientationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec = mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display = mojo.internal.bindings.display || {};
+mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };

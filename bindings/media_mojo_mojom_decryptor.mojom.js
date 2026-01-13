@@ -115,6 +115,23 @@ mojo.internal.bindings.media.mojom.FrameResourceReleaser = {};
 mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.FrameResourceReleaser.$interfaceName = 'media.mojom.FrameResourceReleaser';
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioBufferSpec = mojo.internal.bindings.media.mojom.AudioBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec = mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.DecoderBufferSpec = mojo.internal.bindings.media.mojom.DecoderBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec = mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoFrameSpec = mojo.internal.bindings.media.mojom.VideoFrameSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: Status
 mojo.internal.bindings.media.mojom.Status = {
 };

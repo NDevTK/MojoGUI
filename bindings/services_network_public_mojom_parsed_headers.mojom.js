@@ -95,6 +95,47 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.OriginAgentClusterValueSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.ParsedHeadersSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec = mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec = mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec = mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec = mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.IntegrityPolicySpec = mojo.internal.bindings.network.mojom.IntegrityPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.LinkHeaderSpec = mojo.internal.bindings.network.mojom.LinkHeaderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.LoadingModeSpec = mojo.internal.bindings.network.mojom.LoadingModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec = mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TimingAllowOriginSpec = mojo.internal.bindings.network.mojom.TimingAllowOriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec = mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.XFrameOptionsValueSpec = mojo.internal.bindings.network.mojom.XFrameOptionsValueSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: OriginAgentClusterValue
 mojo.internal.bindings.network.mojom.OriginAgentClusterValue = {
   kAbsent: 0,

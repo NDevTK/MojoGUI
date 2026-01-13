@@ -108,10 +108,54 @@ mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
+mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
+mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
+mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
+mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.quick_start = mojo.internal.bindings.ash.quick_start || {};
+mojo.internal.bindings.ash.quick_start.mojom = mojo.internal.bindings.ash.quick_start.mojom || {};
+mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderSpec = mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.wifi_direct = mojo.internal.bindings.ash.wifi_direct || {};
+mojo.internal.bindings.ash.wifi_direct.mojom = mojo.internal.bindings.ash.wifi_direct.mojom || {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.bluetooth.mojom.AdapterSpec = mojo.internal.bindings.bluetooth.mojom.AdapterSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.network_config = mojo.internal.bindings.chromeos.network_config || {};
+mojo.internal.bindings.chromeos.network_config.mojom = mojo.internal.bindings.chromeos.network_config.mojom || {};
+mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigSpec = mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.nearby = mojo.internal.bindings.nearby || {};
 mojo.internal.bindings.nearby.connections = mojo.internal.bindings.nearby.connections || {};
 mojo.internal.bindings.nearby.connections.mojom = mojo.internal.bindings.nearby.connections.mojom || {};
 mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec = mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby = mojo.internal.bindings.nearby || {};
+mojo.internal.bindings.nearby.connections = mojo.internal.bindings.nearby.connections || {};
+mojo.internal.bindings.nearby.connections.mojom = mojo.internal.bindings.nearby.connections.mojom || {};
+mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsSpec = mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec = mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.MdnsManagerSpec = mojo.internal.bindings.sharing.mojom.MdnsManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.NearbySharingDecoderSpec = mojo.internal.bindings.sharing.mojom.NearbySharingDecoderSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec = mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec = mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: WifiLanDependencies
 mojo.internal.Struct(

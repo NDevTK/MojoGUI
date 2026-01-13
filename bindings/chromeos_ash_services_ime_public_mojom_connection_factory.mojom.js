@@ -101,6 +101,24 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Resp
 mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec = mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: ConnectionFactory
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params', [

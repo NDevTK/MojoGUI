@@ -128,6 +128,11 @@ mojo.internal.bindings.arc.mojom.CameraInstance.$interfaceName = 'arc.mojom.Came
 mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.cros.mojom.CameraHalClientSpec = mojo.internal.bindings.cros.mojom.CameraHalClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: CameraDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec, 'arc.mojom.CameraDeviceInfo', [

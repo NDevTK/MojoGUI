@@ -109,6 +109,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec = mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.RequestDestinationSpec = mojo.internal.bindings.network.mojom.RequestDestinationSpec || { $: mojo.internal.Enum().$ };

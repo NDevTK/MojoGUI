@@ -172,6 +172,14 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRouti
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: DiagnosticsRoutineEnum
 mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineEnum = {
   kUnknown: 15,

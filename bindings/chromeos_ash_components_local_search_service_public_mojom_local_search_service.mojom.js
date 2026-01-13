@@ -107,6 +107,12 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService.$interf
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = { $: {} };
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
+mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
+mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec = mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: IndexId
 mojo.internal.bindings.ash.local_search_service.mojom.IndexId = {
   kCrosSettings: 0,

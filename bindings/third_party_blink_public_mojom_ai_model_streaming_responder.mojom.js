@@ -102,6 +102,11 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = 
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec = mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: ModelStreamingResponseStatus
 mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatus = {
   kOngoing: 0,

@@ -98,6 +98,11 @@ mojo.internal.bindings.blink.mojom.Translator.$interfaceName = 'blink.mojom.Tran
 mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: Translator
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec, 'blink.mojom.Translator_Translate_Params', [

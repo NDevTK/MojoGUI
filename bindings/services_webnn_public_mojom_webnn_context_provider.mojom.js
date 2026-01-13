@@ -107,6 +107,21 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_Respo
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec = mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec = mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.CreateContextResultSpec = mojo.internal.bindings.webnn.mojom.CreateContextResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.DeviceSpec = mojo.internal.bindings.webnn.mojom.DeviceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.ErrorSpec = mojo.internal.bindings.webnn.mojom.ErrorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.WebNNContextSpec = mojo.internal.bindings.webnn.mojom.WebNNContextSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: PowerPreference
 mojo.internal.bindings.webnn.mojom.PowerPreference = {

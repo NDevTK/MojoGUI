@@ -97,6 +97,11 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactorySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory.$interfaceName = 'blink.mojom.KeepAliveHandleFactory';
 mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec = mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: KeepAliveHandleFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec, 'blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_Params', [

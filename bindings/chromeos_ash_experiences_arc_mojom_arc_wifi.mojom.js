@@ -111,6 +111,11 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec = { $: 
 mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.SecurityTypeSpec = mojo.internal.bindings.arc.mojom.SecurityTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: WifiScanResult
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WifiScanResultSpec, 'arc.mojom.WifiScanResult', [

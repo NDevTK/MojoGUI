@@ -114,6 +114,18 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ResponseP
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketClientInfoSpec = mojo.internal.bindings.storage.mojom.BucketClientInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.BucketIdSpec = mojo.internal.bindings.storage.mojom.BucketIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec = mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
+mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec = mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: IdbPartitionMetadata
 mojo.internal.Struct(

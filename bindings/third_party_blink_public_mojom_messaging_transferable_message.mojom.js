@@ -94,6 +94,29 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.TransferableMessageSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.CloneableMessageSpec = mojo.internal.bindings.blink.mojom.CloneableMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DelegatedCapabilitySpec = mojo.internal.bindings.blink.mojom.DelegatedCapabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SerializedArrayBufferContentsSpec = mojo.internal.bindings.blink.mojom.SerializedArrayBufferContentsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.SerializedStaticBitmapImageSpec = mojo.internal.bindings.blink.mojom.SerializedStaticBitmapImageSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.TaskAttributionIdSpec = mojo.internal.bindings.blink.mojom.TaskAttributionIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec = mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: TransferableMessage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TransferableMessageSpec, 'blink.mojom.TransferableMessage', [

@@ -112,6 +112,14 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpe
 mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
+mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
+mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec = mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
+mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
+mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec = mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.settings = mojo.internal.bindings.chromeos.settings || {};
 mojo.internal.bindings.chromeos.settings.mojom = mojo.internal.bindings.chromeos.settings.mojom || {};

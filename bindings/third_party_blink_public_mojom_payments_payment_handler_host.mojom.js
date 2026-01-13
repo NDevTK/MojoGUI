@@ -105,6 +105,20 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_Re
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.AddressErrorsSpec = mojo.internal.bindings.payments.mojom.AddressErrorsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.PaymentAddressSpec = mojo.internal.bindings.payments.mojom.PaymentAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec = mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
+mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec = mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Struct: PaymentHandlerMethodData
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, 'payments.mojom.PaymentHandlerMethodData', [

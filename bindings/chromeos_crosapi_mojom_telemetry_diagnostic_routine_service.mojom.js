@@ -153,6 +153,30 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutin
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInquirySpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInquirySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInquiryReplySpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInquiryReplySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInteractionSpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInteractionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec = mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };

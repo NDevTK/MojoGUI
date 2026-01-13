@@ -104,6 +104,12 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMe
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.NodeIdSpec = mojo.internal.bindings.tabs_api.mojom.NodeIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec = mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TabStripExperimentService
 mojo.internal.Struct(

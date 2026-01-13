@@ -98,6 +98,11 @@ mojo.internal.bindings.media.mojom.VideoDecodePerfHistory.$interfaceName = 'medi
 mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.PredictionFeaturesSpec = mojo.internal.bindings.media.mojom.PredictionFeaturesSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: VideoDecodePerfHistory
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params', [

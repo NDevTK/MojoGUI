@@ -99,6 +99,11 @@ mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = { $: 
 mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.device.mojom.NFCSpec = mojo.internal.bindings.device.mojom.NFCSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: NFCProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec, 'device.mojom.NFCProvider_GetNFCForHost_Params', [

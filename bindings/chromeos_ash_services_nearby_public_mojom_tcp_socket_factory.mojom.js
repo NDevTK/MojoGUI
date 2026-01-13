@@ -120,7 +120,19 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec = mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SocketObserverSpec = mojo.internal.bindings.network.mojom.SocketObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.TCPServerSocketSpec = mojo.internal.bindings.network.mojom.TCPServerSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec = mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TcpSocketFactory
 mojo.internal.Struct(

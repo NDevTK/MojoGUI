@@ -95,6 +95,29 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AXBitsetDataSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.AXNodeDataSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec = mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.FloatAttributeSpec = mojo.internal.bindings.ax.mojom.FloatAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.IntAttributeSpec = mojo.internal.bindings.ax.mojom.IntAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.IntListAttributeSpec = mojo.internal.bindings.ax.mojom.IntListAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.RoleSpec = mojo.internal.bindings.ax.mojom.RoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.StringAttributeSpec = mojo.internal.bindings.ax.mojom.StringAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.StringListAttributeSpec = mojo.internal.bindings.ax.mojom.StringListAttributeSpec || { $: mojo.internal.Enum().$ };
+
 // Struct: AXBitsetData
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXBitsetDataSpec, 'ax.mojom.AXBitsetData', [

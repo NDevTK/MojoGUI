@@ -108,6 +108,21 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
+mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
+mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec = mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
+mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
+mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec = mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
+mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
+mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec = mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec = mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec || { $: mojo.internal.Enum().$ };

@@ -98,6 +98,9 @@ mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum
 mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec = mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec || { $: mojo.internal.OpaqueStruct.$ };

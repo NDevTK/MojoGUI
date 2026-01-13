@@ -147,6 +147,12 @@ mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
+mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.DXGIInfoSpec = mojo.internal.bindings.gfx.mojom.DXGIInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -168,6 +174,9 @@ mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec = mojo.internal.bin
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.VideoMemoryUsageStatsSpec = mojo.internal.bindings.gpu.mojom.VideoMemoryUsageStatsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -180,6 +189,9 @@ mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bind
 mojo.internal.bindings.persistent_cache = mojo.internal.bindings.persistent_cache || {};
 mojo.internal.bindings.persistent_cache.mojom = mojo.internal.bindings.persistent_cache.mojom || {};
 mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec = mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: GpuService
 mojo.internal.Struct(

@@ -97,6 +97,11 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserverSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.BeginFrameObserver.$interfaceName = 'viz.mojom.BeginFrameObserver';
 mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec = mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: BeginFrameObserver
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec, 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params', [

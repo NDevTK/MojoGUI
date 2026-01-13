@@ -100,6 +100,11 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Res
 mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec = { $: {} };
 mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.file_suggestion = mojo.internal.bindings.file_suggestion || {};
+mojo.internal.bindings.file_suggestion.mojom = mojo.internal.bindings.file_suggestion.mojom || {};
+mojo.internal.bindings.file_suggestion.mojom.FileSpec = mojo.internal.bindings.file_suggestion.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: DriveSuggestionHandler
 mojo.internal.Struct(
     mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Params', [

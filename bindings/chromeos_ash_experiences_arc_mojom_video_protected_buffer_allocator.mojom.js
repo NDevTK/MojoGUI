@@ -102,6 +102,14 @@ mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtected
 mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.HalPixelFormatSpec = mojo.internal.bindings.arc.mojom.HalPixelFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.SizeSpec = mojo.internal.bindings.arc.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: VideoProtectedBufferAllocator
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec, 'arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_Params', [

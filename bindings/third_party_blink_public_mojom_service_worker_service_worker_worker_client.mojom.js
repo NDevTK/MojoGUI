@@ -97,6 +97,11 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient.$interfaceName = 'blink.mojom.ServiceWorkerWorkerClient';
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec || { $: mojo.internal.Enum().$ };
+
 // Interface: ServiceWorkerWorkerClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params', [

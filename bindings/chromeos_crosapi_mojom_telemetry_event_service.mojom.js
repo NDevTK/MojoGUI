@@ -131,6 +131,23 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_Para
 mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec = mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: State
 mojo.internal.bindings.crosapi.mojom.State = {
   kUnmappedEnumField: 0,

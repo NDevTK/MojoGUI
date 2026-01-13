@@ -100,6 +100,9 @@ mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec = { $: {} };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};
+mojo.internal.bindings.os_crypt_async.mojom = mojo.internal.bindings.os_crypt_async.mojom || {};
+mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec = mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec || { $: mojo.internal.Enum().$ };
 
 // Struct: Key
 mojo.internal.Struct(

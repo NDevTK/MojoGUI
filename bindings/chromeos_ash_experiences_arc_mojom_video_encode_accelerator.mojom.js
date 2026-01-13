@@ -122,6 +122,23 @@ mojo.internal.bindings.arc.mojom.VideoEncodeClient.$interfaceName = 'arc.mojom.V
 mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.BitrateSpec = mojo.internal.bindings.arc.mojom.BitrateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.SizeSpec = mojo.internal.bindings.arc.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec = mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec = mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec = mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: VideoFrameStorageType
 mojo.internal.bindings.arc.mojom.VideoFrameStorageType = {
   SHMEM: 0,

@@ -120,6 +120,36 @@ mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec
 mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec = mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.FrameTokenSpec = mojo.internal.bindings.blink.mojom.FrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec = mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec = mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec = mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec = mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RendererPreferencesSpec = mojo.internal.bindings.blink.mojom.RendererPreferencesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec = mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec = mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.WebPreferencesSpec = mojo.internal.bindings.blink.mojom.WebPreferencesSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.color = mojo.internal.bindings.color || {};
 mojo.internal.bindings.color.mojom = mojo.internal.bindings.color.mojom || {};
 mojo.internal.bindings.color.mojom.RendererColorIdSpec = mojo.internal.bindings.color.mojom.RendererColorIdSpec || { $: mojo.internal.Enum().$ };

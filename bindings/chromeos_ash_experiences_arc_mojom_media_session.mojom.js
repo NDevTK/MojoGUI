@@ -99,6 +99,11 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstance.$interfaceName = 'arc.mojo
 mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
+mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: MediaSessionInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_EnableAudioFocus_Params', [

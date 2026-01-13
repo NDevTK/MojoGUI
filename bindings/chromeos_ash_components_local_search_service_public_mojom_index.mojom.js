@@ -113,6 +113,22 @@ mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_Para
 mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
+mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
+mojo.internal.bindings.ash.local_search_service.mojom.DataSpec = mojo.internal.bindings.ash.local_search_service.mojom.DataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
+mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
+mojo.internal.bindings.ash.local_search_service.mojom.ResponseStatusSpec = mojo.internal.bindings.ash.local_search_service.mojom.ResponseStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
+mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
+mojo.internal.bindings.ash.local_search_service.mojom.ResultSpec = mojo.internal.bindings.ash.local_search_service.mojom.ResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
+mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
+mojo.internal.bindings.ash.local_search_service.mojom.SearchParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.SearchParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };

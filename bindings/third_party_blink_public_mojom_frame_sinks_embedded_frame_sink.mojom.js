@@ -117,6 +117,18 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSink
 // External type stubs (from imports)
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkBundleIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};

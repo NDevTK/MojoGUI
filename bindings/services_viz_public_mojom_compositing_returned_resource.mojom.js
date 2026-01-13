@@ -103,6 +103,9 @@ mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec = mojo.internal.bindings.gfx
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec = mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.ResourceIdSpec = mojo.internal.bindings.viz.mojom.ResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: ReturnedResource
 mojo.internal.Struct(

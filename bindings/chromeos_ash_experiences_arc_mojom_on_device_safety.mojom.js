@@ -108,6 +108,12 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_Resp
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
+mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: GetArcSafetySessionResult
 mojo.internal.bindings.arc.mojom.GetArcSafetySessionResult = {
   kOk: 0,

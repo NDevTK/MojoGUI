@@ -108,6 +108,11 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec = { $ : {} };
 mojo.internal.bindings.service_manager.mojom.ServiceManager.$interfaceName = 'service_manager.mojom.ServiceManager';
 mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.service_manager.mojom.IdentitySpec = mojo.internal.bindings.service_manager.mojom.IdentitySpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Enum: InstanceState
 mojo.internal.bindings.service_manager.mojom.InstanceState = {
   kCreated: 0,

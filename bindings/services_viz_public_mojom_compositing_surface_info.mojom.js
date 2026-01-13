@@ -99,6 +99,9 @@ mojo.internal.bindings.viz.mojom.SurfaceInfoSpec = { $: {} };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SurfaceIdSpec = mojo.internal.bindings.viz.mojom.SurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: SurfaceInfo
 mojo.internal.Struct(
