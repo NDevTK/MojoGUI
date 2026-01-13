@@ -47,7 +47,89 @@
             recordLearnedOrdinal(interfaceName, id, hash);
             return originalMap.apply(this, arguments);
         };
-        // console.log(`[Learner] Patched Receiver for ${interfaceName}`);
+
+        // --- GENERIC HEURISTIC DISCOVERY (ROUTER PEEK) ---
+        // Dynamically recover from ordinal collisions by inspecting traffic before dispatch.
+        const originalBind = cls.prototype.bind;
+        cls.prototype.bind = function (handle) {
+            // 1. Allow normal bind to proceed (sets up Router and Endpoint)
+            originalBind.apply(this, arguments);
+
+            // 2. Intercept the Router's incoming receiver
+            const router = this.router_;
+            if (router && router.incomingReceiver_) {
+                const originalAccept = router.incomingReceiver_.accept;
+                const receiverInstance = this; // 'this' is the Receiver instance
+
+                router.incomingReceiver_.accept = function (message) {
+                    try {
+                        const header = message.header;
+                        if (!header) return originalAccept.call(this, message);
+
+                        const currentId = receiverInstance.ordinalMap.get(header.ordinal);
+
+                        // Optimization: Lazy-load specs for this interface on first use.
+                        if (!receiverInstance._cachedSpecs) {
+                            receiverInstance._cachedSpecs = [];
+                            // Attempt to locate specs in the global mojo namespace matching this interface
+                            if (global.mojo && global.mojo.internal && global.mojo.internal.bindings) {
+                                const parts = interfaceName.split('.');
+                                let scoped = global.mojo.internal.bindings;
+                                for (const p of parts) { if (!scoped) break; scoped = scoped[p]; }
+
+                                if (scoped) {
+                                    // Found the module. Collect ALL ParamsSpecs.
+                                    for (const key in scoped) {
+                                        if (key.endsWith('_ParamsSpec')) {
+                                            receiverInstance._cachedSpecs.push(scoped[key]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Heuristic Size Matching
+                        if (message.payload instanceof DataView && message.payload.byteLength >= 4) {
+                            const size = message.payload.getUint32(0, true); // Struct size
+
+                            if (receiverInstance._cachedSpecs) {
+                                const matchingSpecs = receiverInstance._cachedSpecs.filter(spec =>
+                                    spec.$ && spec.$.structSpec && spec.$.structSpec.versions.some(v => v.packedSize === size)
+                                );
+
+                                // If exactly one spec matches this size, we have a candidate.
+                                if (matchingSpecs.length === 1) {
+                                    if (global.MojoBindings && global.MojoBindings._indexData) {
+                                        const parts = interfaceName.split('.');
+                                        const ifaceNameShort = parts[parts.length - 1];
+                                        const ifaceMod = parts.slice(0, -1).join('.');
+                                        const ifaceDef = global.MojoBindings._indexData.interfaces.find(i => i.name === ifaceNameShort && i.module === ifaceMod);
+
+                                        if (ifaceDef && ifaceDef.methods) {
+                                            const specName = matchingSpecs[0].$.structSpec.name;
+                                            const prefix = `${ifaceNameShort}_`;
+                                            const suffix = `_Params`;
+
+                                            if (specName.startsWith(prefix) && specName.endsWith(suffix)) {
+                                                const methodNameCamel = specName.substring(prefix.length, specName.length - suffix.length);
+                                                const targetMethodIndex = ifaceDef.methods.findIndex(m => m.name.toLowerCase() === methodNameCamel.toLowerCase());
+
+                                                if (targetMethodIndex !== -1 && currentId !== targetMethodIndex) {
+                                                    console.warn(`[Heuristic] Fix Ordinal ${header.ordinal}: ${currentId} -> ${targetMethodIndex} (${ifaceDef.methods[targetMethodIndex].name})`);
+                                                    receiverInstance.ordinalMap.set(header.ordinal, targetMethodIndex);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } catch (e) { }
+
+                    return originalAccept.call(this, message);
+                };
+            }
+        };
     }
 
     // --- HOOK: mojoScrambler.getOrdinals (The Sync) ---
@@ -98,10 +180,10 @@
                     }
                 };
                 Router.prototype._safeguard_patched = true;
-                // console.log("[MojoGUI] Router safeguards installed");
             }
         }
     }
+
     // Attempt patch immediately and after delay
     patchRouterSafeguards();
     setTimeout(patchRouterSafeguards, 1000);
@@ -279,7 +361,7 @@
             if (result.Interface && result.Interface.Remote) result.Remote = result.Interface.Remote;
             else result.Remote = MojoProxy.resolveInterface(name + "Remote");
             if (result.Interface && result.Interface.Receiver) result.Receiver = result.Interface.Receiver;
-            else result.Receiver = MojoProxy.resolveInterface(name + "Receiver") || MojoProxy.resolveInterface(name + "Binding");
+            else result.Receiver = MojoProxy.resolveInterface(name + "Receiver") || MojoProxy.resolveInterface(name + "Receiver") || MojoProxy.resolveInterface(name + "Binding");
             return result;
         }
 
