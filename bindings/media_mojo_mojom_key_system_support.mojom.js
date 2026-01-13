@@ -122,7 +122,7 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.VideoCodecInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmCapabilitySpec = { $: {} };
 mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec = { $: {} };

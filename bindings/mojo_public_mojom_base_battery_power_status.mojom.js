@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: BatteryPowerStatus
 mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatus = {

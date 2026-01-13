@@ -124,7 +124,7 @@ mojo.internal.bindings.ash.personalization_app.mojom = mojo.internal.bindings.as
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.personalization_app.mojom.MantaStatusCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.personalization_app.mojom.MantaStatusCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenQuerySpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenThumbnailSpec = { $: {} };
 mojo.internal.bindings.ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec = { $: {} };

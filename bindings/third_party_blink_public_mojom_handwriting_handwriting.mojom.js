@@ -123,9 +123,9 @@ mojo.internal.bindings.handwriting.mojom = mojo.internal.bindings.handwriting.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.handwriting.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.handwriting.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.handwriting.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.handwriting.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec = { $: {} };
 mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec = { $: {} };

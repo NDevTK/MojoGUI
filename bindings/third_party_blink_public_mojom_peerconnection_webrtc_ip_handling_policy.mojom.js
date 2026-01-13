@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WebRtcIpHandlingPolicy
 mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicy = {

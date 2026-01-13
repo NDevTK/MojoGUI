@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.LockModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.LockModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WaitModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.LockInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LockHandle = {};
 mojo.internal.bindings.blink.mojom.LockHandleSpec = { $ : {} };

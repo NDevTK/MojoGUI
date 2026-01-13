@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair || {};
 mojo.internal.bindings.ash.quick_pair.mojom = mojo.internal.bindings.ash.quick_pair.mojom || {};
 
-mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec = { $: {} };
 mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec = { $: {} };
 mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec = { $: {} };

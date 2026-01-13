@@ -123,8 +123,8 @@ mojo.internal.bindings.side_panel.customize_chrome = mojo.internal.bindings.side
 mojo.internal.bindings.side_panel.customize_chrome.mojom = mojo.internal.bindings.side_panel.customize_chrome.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec = { $: {} };
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory = {};

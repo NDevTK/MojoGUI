@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec = { $: {} };

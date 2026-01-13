@@ -122,8 +122,8 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FindOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage = {};
 mojo.internal.bindings.blink.mojom.FindInPageSpec = { $ : {} };

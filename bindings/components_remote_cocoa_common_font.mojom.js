@@ -121,8 +121,8 @@
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.SystemFontSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.remote_cocoa.mojom.FontWeightSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remote_cocoa.mojom.SystemFontSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.FontWeightSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remote_cocoa.mojom.FontNameSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.FontSpec = { $: {} };
 

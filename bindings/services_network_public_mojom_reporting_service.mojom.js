@@ -123,7 +123,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.ReportingApiReportSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ReportingApiObserver = {};

@@ -121,10 +121,10 @@
  mojo.internal.bindings.compose = mojo.internal.bindings.compose || {};
 mojo.internal.bindings.compose.mojom = mojo.internal.bindings.compose.mojom || {};
 
-mojo.internal.bindings.compose.mojom.InputModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.compose.mojom.StyleModifierSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.compose.mojom.CloseReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.compose.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.compose.mojom.InputModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.compose.mojom.StyleModifierSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.compose.mojom.CloseReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.compose.mojom.UserFeedbackSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.compose.mojom.ComposeResponseSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.PartialComposeResponseSpec = { $: {} };
 mojo.internal.bindings.compose.mojom.ComposeStateSpec = { $: {} };

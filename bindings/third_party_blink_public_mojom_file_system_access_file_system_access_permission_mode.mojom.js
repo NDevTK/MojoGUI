@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: FileSystemAccessPermissionMode
 mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionMode = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec = { $ : {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor.$interfaceName = 'chromeos.machine_learning.mojom.GraphExecutor';

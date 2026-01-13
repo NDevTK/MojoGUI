@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo.native = mojo.internal.bindings.mojo.native || {};
 
-mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo.native.SerializedHandleSpec = { $: {} };
 mojo.internal.bindings.mojo.native.NativeStructSpec = { $: {} };
 

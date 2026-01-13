@@ -122,8 +122,8 @@
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec = { $: {} };

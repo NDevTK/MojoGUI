@@ -121,8 +121,8 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AnrTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.AnrSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.AnrTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AnrSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.AnrSpec = { $: {} };
 
 // Enum: AnrType

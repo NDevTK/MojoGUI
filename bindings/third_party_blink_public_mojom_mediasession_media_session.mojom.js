@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 
-mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = { $: {} };

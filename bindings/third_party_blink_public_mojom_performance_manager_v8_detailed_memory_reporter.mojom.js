@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec = { $: {} };

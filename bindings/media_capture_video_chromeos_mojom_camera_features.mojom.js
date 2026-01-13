@@ -121,7 +121,7 @@
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 
-mojo.internal.bindings.cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec = { $: {} };
 

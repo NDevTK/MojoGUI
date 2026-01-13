@@ -121,9 +121,9 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClient = {};
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClientSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetworkChangeManagerClient.$interfaceName = 'network.mojom.NetworkChangeManagerClient';

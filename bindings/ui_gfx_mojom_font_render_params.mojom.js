@@ -121,8 +121,8 @@
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.HintingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gfx.mojom.HintingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Hinting
 mojo.internal.bindings.gfx.mojom.Hinting = {

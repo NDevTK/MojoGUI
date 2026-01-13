@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SelectionMenuBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SelectionMenuBehaviorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SelectionMenuBehavior
 mojo.internal.bindings.blink.mojom.SelectionMenuBehavior = {

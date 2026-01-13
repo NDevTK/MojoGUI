@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient = {};
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient.$interfaceName = 'blink.mojom.AIManagerCreateWriterClient';

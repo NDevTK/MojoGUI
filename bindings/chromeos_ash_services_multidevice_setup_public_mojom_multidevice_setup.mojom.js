@@ -122,11 +122,11 @@
 mojo.internal.bindings.ash.multidevice_setup = mojo.internal.bindings.ash.multidevice_setup || {};
 mojo.internal.bindings.ash.multidevice_setup.mojom = mojo.internal.bindings.ash.multidevice_setup.mojom || {};
 
-mojo.internal.bindings.ash.multidevice_setup.mojom.CameraRollOptInEntryPointSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.multidevice_setup.mojom.EventTypeForDebuggingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.multidevice_setup.mojom.CameraRollOptInEntryPointSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice_setup.mojom.EventTypeForDebuggingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.multidevice_setup.mojom.HostDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate = {};
 mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateSpec = { $ : {} };

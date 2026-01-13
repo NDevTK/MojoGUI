@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AncestorFrameTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AncestorFrameTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AncestorFrameType
 mojo.internal.bindings.blink.mojom.AncestorFrameType = {

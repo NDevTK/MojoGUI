@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.FaviconIconTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FaviconIconTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FaviconURLSpec = { $: {} };
 
 // External type stubs (from imports)

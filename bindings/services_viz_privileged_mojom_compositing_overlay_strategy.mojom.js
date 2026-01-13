@@ -121,7 +121,7 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
-mojo.internal.bindings.viz.mojom.OverlayStrategySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.OverlayStrategySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: OverlayStrategy
 mojo.internal.bindings.viz.mojom.OverlayStrategy = {

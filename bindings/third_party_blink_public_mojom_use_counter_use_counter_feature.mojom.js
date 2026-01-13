@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.UseCounterFeatureTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.UseCounterFeatureTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.UseCounterFeatureSpec = { $: {} };
 
 // Enum: UseCounterFeatureType

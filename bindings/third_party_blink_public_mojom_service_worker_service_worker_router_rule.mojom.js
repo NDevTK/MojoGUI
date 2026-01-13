@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec = { $: {} };

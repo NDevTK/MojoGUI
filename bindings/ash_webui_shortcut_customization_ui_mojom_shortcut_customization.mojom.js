@@ -124,9 +124,9 @@ mojo.internal.bindings.ash.shortcut_customization.mojom = mojo.internal.bindings
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.ash.shortcut_customization.mojom.UserActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.shortcut_customization.mojom.SubactionsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.shortcut_customization.mojom.UserActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.shortcut_customization.mojom.SubactionsSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorResultDataSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.SimpleAcceleratorSpec = { $: {} };
 mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver = {};

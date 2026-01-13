@@ -123,9 +123,9 @@ mojo.internal.bindings.device_test.mojom = mojo.internal.bindings.device_test.mo
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.device_test.mojom.EyeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device_test.mojom.ControllerRoleSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device_test.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device_test.mojom.EyeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_test.mojom.ControllerRoleSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_test.mojom.EventTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device_test.mojom.ColorSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.ViewDataSpec = { $: {} };
 mojo.internal.bindings.device_test.mojom.DeviceConfigSpec = { $: {} };

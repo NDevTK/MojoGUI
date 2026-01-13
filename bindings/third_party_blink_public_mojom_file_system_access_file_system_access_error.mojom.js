@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec = { $: {} };
 
 // External type stubs (from imports)

@@ -122,13 +122,13 @@
 mojo.internal.bindings.dlp_internals.mojom = mojo.internal.bindings.dlp_internals.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dlp_internals.mojom.LevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dlp_internals.mojom.ComponentSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dlp_internals.mojom.ModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.LevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.ComponentSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec = { $: {} };
 mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec = { $: {} };
 mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec = { $: {} };

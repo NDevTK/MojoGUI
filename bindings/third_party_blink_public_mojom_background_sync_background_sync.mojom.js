@@ -121,10 +121,10 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.BackgroundSyncStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.BackgroundSyncEventLastChanceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundSyncStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundSyncEventLastChanceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService = {};

@@ -122,8 +122,8 @@
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.SandboxSupport = {};
 mojo.internal.bindings.content.mojom.SandboxSupportSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.SandboxSupport.$interfaceName = 'content.mojom.SandboxSupport';

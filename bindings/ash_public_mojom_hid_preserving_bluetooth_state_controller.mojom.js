@@ -121,7 +121,7 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 
-mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController = {};
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController.$interfaceName = 'ash.mojom.HidPreservingBluetoothStateController';

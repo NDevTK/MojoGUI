@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityTokenResponseSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService = {};
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceSpec = { $ : {} };

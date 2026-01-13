@@ -121,9 +121,9 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ColorPlaneLayoutSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoFrameLayoutSpec = { $: {} };

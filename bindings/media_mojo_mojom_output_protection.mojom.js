@@ -121,8 +121,8 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.LinkTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.OutputProtection = {};
 mojo.internal.bindings.media.mojom.OutputProtectionSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.OutputProtection.$interfaceName = 'media.mojom.OutputProtection';

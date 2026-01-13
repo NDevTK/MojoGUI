@@ -122,8 +122,8 @@
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.service_manager.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.service_manager.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.service_manager.mojom.ConnectResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.service_manager.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.service_manager.mojom.IdentitySpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ServiceInfoSpec = { $: {} };
 mojo.internal.bindings.service_manager.mojom.ProcessMetadata = {};

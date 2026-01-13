@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ServiceWorkerFetchHandlerType
 mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerType = {

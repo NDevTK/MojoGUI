@@ -123,8 +123,8 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.BlobDataItemSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.BlobDataItemReader = {};
 mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec = { $ : {} };

@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.global_media_controls.mojom.DeviceSpec = { $: {} };
 mojo.internal.bindings.global_media_controls.mojom.DeviceListHost = {};
 mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec = { $ : {} };

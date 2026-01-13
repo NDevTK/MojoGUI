@@ -124,7 +124,7 @@ mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.echo.mojom.EchoService = {};
 mojo.internal.bindings.echo.mojom.EchoServiceSpec = { $ : {} };
 mojo.internal.bindings.echo.mojom.EchoService.$interfaceName = 'echo.mojom.EchoService';

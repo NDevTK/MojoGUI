@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: StoreSourceResult
 mojo.internal.bindings.attribution_reporting.mojom.StoreSourceResult = {

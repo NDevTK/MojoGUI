@@ -121,7 +121,7 @@
  mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
 
-mojo.internal.bindings.autofill.mojom.EntityTypeNameSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.autofill.mojom.EntityTypeNameSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: EntityTypeName
 mojo.internal.bindings.autofill.mojom.EntityTypeName = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.media.mojom.AacOutputFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.AacOutputFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec = { $: {} };

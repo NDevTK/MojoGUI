@@ -124,7 +124,7 @@ mojo.internal.bindings.url_rewrite = mojo.internal.bindings.url_rewrite || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver = {};
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver.$interfaceName = 'chromecast.mojom.CastWebContentsObserver';

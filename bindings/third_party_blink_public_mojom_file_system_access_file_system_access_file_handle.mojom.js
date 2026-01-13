@@ -122,8 +122,8 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleLockModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleLockModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleFileSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessRegularFileSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle = {};

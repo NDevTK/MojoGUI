@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.SecurityTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SecurityType
 mojo.internal.bindings.arc.mojom.SecurityType = {

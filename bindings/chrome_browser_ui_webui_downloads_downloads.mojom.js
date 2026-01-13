@@ -123,10 +123,10 @@ mojo.internal.bindings.downloads.mojom = mojo.internal.bindings.downloads.mojom 
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.downloads.mojom.DangerTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.downloads.mojom.TailoredWarningTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.downloads.mojom.StateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.downloads.mojom.SafeBrowsingStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.downloads.mojom.DangerTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.downloads.mojom.TailoredWarningTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.downloads.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.downloads.mojom.SafeBrowsingStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.downloads.mojom.DataSpec = { $: {} };
 mojo.internal.bindings.downloads.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.downloads.mojom.PageHandlerFactorySpec = { $ : {} };
@@ -197,6 +197,7 @@ mojo.internal.bindings.downloads.mojom.DangerType = {
   kDeepScannedOpenedDangerous: 16,
   kBlockedScanFailed: 17,
   kForcedSaveToGdrive: 18,
+  kForcedSaveToOnedrive: 19,
 };
 
 // Enum: TailoredWarningType

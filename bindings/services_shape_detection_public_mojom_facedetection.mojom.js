@@ -123,7 +123,7 @@ mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_dete
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.shape_detection.mojom.LandmarkSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec = { $: {} };

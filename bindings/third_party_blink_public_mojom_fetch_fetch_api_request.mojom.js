@@ -124,9 +124,9 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.RequestContextTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FetchCacheModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FetchPriorityHintSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.RequestContextTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FetchCacheModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FetchPriorityHintSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FetchAPIRequestHeadersSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FetchAPIRequestBodySpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec = { $: {} };

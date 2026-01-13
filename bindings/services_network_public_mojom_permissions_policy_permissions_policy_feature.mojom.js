@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PermissionsPolicyFeature
 mojo.internal.bindings.network.mojom.PermissionsPolicyFeature = {

@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WebDXFeature
 mojo.internal.bindings.blink.mojom.WebDXFeature = {
@@ -544,4 +544,5 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kTranslationApi: 416,
   kDRAFT_MetaTextScale: 417,
   kJpegxl: 418,
+  kPartitionedCookies: 419,
 };

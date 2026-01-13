@@ -121,8 +121,8 @@
  mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
 
-mojo.internal.bindings.display.mojom.PositionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.OffsetReferenceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.display.mojom.PositionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.OffsetReferenceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.display.mojom.DisplayPlacementSpec = { $: {} };
 mojo.internal.bindings.display.mojom.DisplayLayoutSpec = { $: {} };
 

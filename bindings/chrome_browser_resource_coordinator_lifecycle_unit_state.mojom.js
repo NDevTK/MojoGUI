@@ -120,9 +120,9 @@
 
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 
-mojo.internal.bindings.mojom.LifecycleUnitStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mojom.LifecycleUnitLoadingStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojom.LifecycleUnitStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojom.LifecycleUnitLoadingStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: LifecycleUnitState
 mojo.internal.bindings.mojom.LifecycleUnitState = {

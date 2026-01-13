@@ -122,7 +122,7 @@
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.ChooserEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.ChooserEventTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FakeBluetoothChooser = {};
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec = { $ : {} };

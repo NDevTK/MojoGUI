@@ -122,8 +122,8 @@
 mojo.internal.bindings.history_sync_optin.mojom = mojo.internal.bindings.history_sync_optin.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_sync_optin.mojom.LaunchContextSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.history_sync_optin.mojom.LaunchContextSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec = { $: {} };
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec = { $ : {} };

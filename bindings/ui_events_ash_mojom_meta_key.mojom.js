@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.MetaKeySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.MetaKeySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: MetaKey
 mojo.internal.bindings.ui.mojom.MetaKey = {

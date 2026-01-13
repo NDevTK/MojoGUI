@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.FeatureSessionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.FeatureSessionTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: FeatureSessionType
 mojo.internal.bindings.extensions.mojom.FeatureSessionType = {

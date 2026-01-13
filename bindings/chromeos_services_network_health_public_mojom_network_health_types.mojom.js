@@ -123,7 +123,7 @@ mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos
 mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec = { $: {} };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec = { $: {} };

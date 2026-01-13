@@ -121,7 +121,7 @@
  mojo.internal.bindings.related_website_sets = mojo.internal.bindings.related_website_sets || {};
 mojo.internal.bindings.related_website_sets.mojom = mojo.internal.bindings.related_website_sets.mojom || {};
 
-mojo.internal.bindings.related_website_sets.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.related_website_sets.mojom.SiteTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec = { $: {} };
 mojo.internal.bindings.related_website_sets.mojom.MemberSpec = { $: {} };
 mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetSpec = { $: {} };

@@ -121,9 +121,9 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.VirtualKeyboardPolicySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.VirtualKeyboardVisibilityRequestSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.VirtualKeyboardModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.VirtualKeyboardPolicySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.VirtualKeyboardVisibilityRequestSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.VirtualKeyboardModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: VirtualKeyboardPolicy
 mojo.internal.bindings.ui.mojom.VirtualKeyboardPolicy = {

@@ -124,7 +124,7 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.cc.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cc.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec = { $: {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec = { $: {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver = {};

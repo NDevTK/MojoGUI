@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: APIPermissionID
 mojo.internal.bindings.extensions.mojom.APIPermissionID = {

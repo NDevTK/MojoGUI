@@ -122,7 +122,7 @@
 mojo.internal.bindings.bookmark_bar.mojom = mojo.internal.bindings.bookmark_bar.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec = { $: {} };
 mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec = { $ : {} };

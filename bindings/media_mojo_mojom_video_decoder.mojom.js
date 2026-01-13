@@ -162,7 +162,7 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojom.SyncTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec = mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec = mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
@@ -248,7 +248,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec, 'media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_Params', [
       mojo.internal.StructField('arg_release_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_export_result', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -277,8 +277,8 @@ mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRemote = class {
   close() {
     this.proxy.close();
   }
-  releaseVideoFrame(arg_release_token, arg_release_sync_token) {
-    return this.$.releaseVideoFrame(arg_release_token, arg_release_sync_token);
+  releaseVideoFrame(arg_release_token, arg_release_export_result) {
+    return this.$.releaseVideoFrame(arg_release_token, arg_release_export_result);
   }
 };
 
@@ -290,12 +290,12 @@ mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRemoteCallHandler = c
     ]);
   }
 
-  releaseVideoFrame(arg_release_token, arg_release_sync_token) {
+  releaseVideoFrame(arg_release_token, arg_release_export_result) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec,
       null,
-      [arg_release_token, arg_release_sync_token],
+      [arg_release_token, arg_release_export_result],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseVideoFrame');
-          const result = this.impl.releaseVideoFrame(params.arg_release_token, params.arg_release_sync_token);
+          const result = this.impl.releaseVideoFrame(params.arg_release_token, params.arg_release_export_result);
           break;
         }
       }

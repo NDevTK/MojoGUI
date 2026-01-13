@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec = { $: {} };

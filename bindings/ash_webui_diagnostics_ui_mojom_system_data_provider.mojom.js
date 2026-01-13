@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics 
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec = { $: {} };

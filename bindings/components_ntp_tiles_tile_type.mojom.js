@@ -121,7 +121,7 @@
  mojo.internal.bindings.ntp_tiles = mojo.internal.bindings.ntp_tiles || {};
 mojo.internal.bindings.ntp_tiles.mojom = mojo.internal.bindings.ntp_tiles.mojom || {};
 
-mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TileType
 mojo.internal.bindings.ntp_tiles.mojom.TileType = {

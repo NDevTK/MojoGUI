@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.BucketDurabilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.BucketDurabilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.UsageBreakdownSpec = { $: {} };
 
 // Enum: BucketDurability

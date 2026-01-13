@@ -122,13 +122,13 @@
 mojo.internal.bindings.ash.hotspot_config = mojo.internal.bindings.ash.hotspot_config || {};
 mojo.internal.bindings.ash.hotspot_config.mojom = mojo.internal.bindings.ash.hotspot_config.mojom || {};
 
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec = { $: {} };
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig = {};

@@ -122,7 +122,7 @@
 mojo.internal.bindings.payments.facilitated = mojo.internal.bindings.payments.facilitated || {};
 mojo.internal.bindings.payments.facilitated.mojom = mojo.internal.bindings.payments.facilitated.mojom || {};
 
-mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator = {};
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorSpec = { $ : {} };
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator.$interfaceName = 'payments.facilitated.mojom.PixCodeValidator';

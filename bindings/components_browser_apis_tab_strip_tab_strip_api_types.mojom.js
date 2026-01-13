@@ -121,7 +121,7 @@
  mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 
-mojo.internal.bindings.tabs_api.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tabs_api.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.tabs_api.mojom.NodeIdSpec = { $: {} };
 mojo.internal.bindings.tabs_api.mojom.PositionSpec = { $: {} };
 

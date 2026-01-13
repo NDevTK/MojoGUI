@@ -121,7 +121,7 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 
-mojo.internal.bindings.ash.mojom.VKeySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.mojom.VKeySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: VKey
 mojo.internal.bindings.ash.mojom.VKey = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription = {};
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec = { $ : {} };

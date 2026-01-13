@@ -121,8 +121,8 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.SSLVersionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.SSLVersionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.SSLConfigSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SSLConfigClient = {};
 mojo.internal.bindings.network.mojom.SSLConfigClientSpec = { $ : {} };

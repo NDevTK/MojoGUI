@@ -122,7 +122,7 @@
 mojo.internal.bindings.history.mojom = mojo.internal.bindings.history.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history.mojom.FilteringBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.history.mojom.FilteringBehaviorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history.mojom.QueryStateSpec = { $: {} };
 mojo.internal.bindings.history.mojom.HistoryQuerySpec = { $: {} };
 mojo.internal.bindings.history.mojom.DebugInfoSpec = { $: {} };

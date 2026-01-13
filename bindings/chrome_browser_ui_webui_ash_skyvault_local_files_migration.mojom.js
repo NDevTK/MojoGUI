@@ -122,8 +122,8 @@
 mojo.internal.bindings.policy.local_user_files = mojo.internal.bindings.policy.local_user_files || {};
 mojo.internal.bindings.policy.local_user_files.mojom = mojo.internal.bindings.policy.local_user_files.mojom || {};
 
-mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec = { $: {} };
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec = { $ : {} };

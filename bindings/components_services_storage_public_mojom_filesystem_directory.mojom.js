@@ -122,10 +122,10 @@
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.storage.mojom.GetEntriesModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.storage.mojom.FileOpenModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.storage.mojom.FileReadAccessSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.storage.mojom.FileWriteAccessSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.GetEntriesModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FileOpenModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FileReadAccessSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FileWriteAccessSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.StrictRelativePathSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.PathAccessInfoSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.FileLock = {};

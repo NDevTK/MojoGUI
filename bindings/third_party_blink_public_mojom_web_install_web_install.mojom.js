@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.InstallOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WebInstallService = {};
 mojo.internal.bindings.blink.mojom.WebInstallServiceSpec = { $ : {} };

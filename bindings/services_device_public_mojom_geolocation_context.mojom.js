@@ -122,7 +122,7 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GeolocationContext = {};
 mojo.internal.bindings.device.mojom.GeolocationContextSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.GeolocationContext.$interfaceName = 'device.mojom.GeolocationContext';

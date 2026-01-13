@@ -121,7 +121,7 @@
  mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
-mojo.internal.bindings.cc.mojom.RenderSurfaceReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cc.mojom.RenderSurfaceReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RenderSurfaceReason
 mojo.internal.bindings.cc.mojom.RenderSurfaceReason = {

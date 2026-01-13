@@ -123,8 +123,8 @@ mojo.internal.bindings.chromeos.mojo_service_manager = mojo.internal.bindings.ch
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom = mojo.internal.bindings.chromeos.mojo_service_manager.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec = { $: {} };
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec = { $: {} };

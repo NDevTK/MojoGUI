@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor = {};
 mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec = { $ : {} };

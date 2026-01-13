@@ -122,10 +122,10 @@
 mojo.internal.bindings.ash.audio_config = mojo.internal.bindings.ash.audio_config || {};
 mojo.internal.bindings.ash.audio_config.mojom = mojo.internal.bindings.ash.audio_config.mojom || {};
 
-mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = { $: {} };
 mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec = { $: {} };
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec = { $: {} };

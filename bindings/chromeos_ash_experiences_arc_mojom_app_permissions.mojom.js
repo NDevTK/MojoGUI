@@ -121,8 +121,8 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.PermissionStateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppPermissionsInstance = {};
 mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec = { $ : {} };

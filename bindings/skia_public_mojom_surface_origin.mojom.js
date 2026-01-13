@@ -121,7 +121,7 @@
  mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 
-mojo.internal.bindings.skia.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.skia.mojom.SurfaceOriginSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SurfaceOrigin
 mojo.internal.bindings.skia.mojom.SurfaceOrigin = {

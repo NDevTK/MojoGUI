@@ -122,8 +122,8 @@
 mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec = { $: {} };
 mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec = { $: {} };

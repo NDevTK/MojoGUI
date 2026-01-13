@@ -125,11 +125,11 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.most_visited = mojo.internal.bindings.most_visited || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.new_tab_page.mojom.NtpBackgroundImageSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.new_tab_page.mojom.OptInStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.new_tab_page.mojom.NtpBackgroundImageSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.new_tab_page.mojom.OptInStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec = { $: {} };
 mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec = { $: {} };
 mojo.internal.bindings.new_tab_page.mojom.ThemeSpec = { $: {} };

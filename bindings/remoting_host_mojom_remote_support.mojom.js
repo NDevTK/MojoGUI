@@ -122,7 +122,7 @@
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec = { $: {} };

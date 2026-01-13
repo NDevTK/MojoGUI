@@ -123,11 +123,11 @@ mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.ModelFileSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec = { $: {} };

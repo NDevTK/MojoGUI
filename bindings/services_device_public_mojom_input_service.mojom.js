@@ -121,8 +121,8 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.InputDeviceInfoSpec = { $: {} };
 mojo.internal.bindings.device.mojom.InputDeviceManagerClient = {};
 mojo.internal.bindings.device.mojom.InputDeviceManagerClientSpec = { $ : {} };

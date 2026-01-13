@@ -123,8 +123,8 @@ mojo.internal.bindings.app_home.mojom = mojo.internal.bindings.app_home.mojom ||
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.web_app = mojo.internal.bindings.web_app || {};
 
-mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.app_home.mojom.AppInfoSpec = { $: {} };
 mojo.internal.bindings.app_home.mojom.ClickEventSpec = { $: {} };
 mojo.internal.bindings.app_home.mojom.PageHandlerFactory = {};

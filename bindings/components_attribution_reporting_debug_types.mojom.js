@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.DebugDataTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.DebugDataTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DebugDataType
 mojo.internal.bindings.attribution_reporting.mojom.DebugDataType = {

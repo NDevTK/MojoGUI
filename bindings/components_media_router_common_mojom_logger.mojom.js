@@ -121,7 +121,7 @@
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media_router.mojom.Logger = {};
 mojo.internal.bindings.media_router.mojom.LoggerSpec = { $ : {} };
 mojo.internal.bindings.media_router.mojom.Logger.$interfaceName = 'media_router.mojom.Logger';

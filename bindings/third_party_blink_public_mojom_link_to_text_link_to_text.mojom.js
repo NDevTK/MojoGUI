@@ -122,8 +122,8 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver = {};
 mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver.$interfaceName = 'blink.mojom.TextFragmentReceiver';

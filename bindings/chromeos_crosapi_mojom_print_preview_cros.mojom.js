@@ -125,7 +125,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.MediaSizeSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec = { $: {} };

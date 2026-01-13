@@ -121,8 +121,8 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ReferrerPolicy
 mojo.internal.bindings.network.mojom.ReferrerPolicy = {

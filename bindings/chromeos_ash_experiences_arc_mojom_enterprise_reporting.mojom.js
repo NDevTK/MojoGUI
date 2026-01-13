@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHost = {};
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHost.$interfaceName = 'arc.mojom.EnterpriseReportingHost';

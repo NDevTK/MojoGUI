@@ -123,10 +123,10 @@ mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.CertificateTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.CertificateTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.InspectionResultSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec = { $: {} };

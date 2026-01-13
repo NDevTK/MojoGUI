@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.WebFeatureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.WebFeatureSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WebFeature
 mojo.internal.bindings.blink.mojom.WebFeature = {

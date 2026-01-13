@@ -122,12 +122,12 @@
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.cros.mojom.CameraEffectSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.GpuApiSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.SetEffectResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.BlurLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.SegmentationModelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.InferenceBackendSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.CameraEffectSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.GpuApiSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.SetEffectResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.BlurLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.SegmentationModelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.InferenceBackendSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.EffectsConfigSpec = { $: {} };
 
 // External type stubs (from imports)

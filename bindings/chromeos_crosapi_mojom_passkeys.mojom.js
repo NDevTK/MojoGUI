@@ -121,9 +121,9 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec = { $: {} };

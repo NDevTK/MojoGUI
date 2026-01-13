@@ -123,7 +123,7 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec = { $: {} };

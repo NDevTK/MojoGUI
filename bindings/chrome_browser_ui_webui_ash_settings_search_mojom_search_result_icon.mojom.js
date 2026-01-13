@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
 
-mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SearchResultIcon
 mojo.internal.bindings.ash.settings.mojom.SearchResultIcon = {

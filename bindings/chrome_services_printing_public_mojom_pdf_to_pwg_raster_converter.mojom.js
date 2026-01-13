@@ -122,8 +122,8 @@
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter = {};
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec = { $ : {} };

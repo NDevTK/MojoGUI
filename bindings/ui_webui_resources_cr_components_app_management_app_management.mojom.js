@@ -122,13 +122,13 @@
 mojo.internal.bindings.app_management.mojom = mojo.internal.bindings.app_management.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.app_management.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_management.mojom.PermissionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_management.mojom.TriStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_management.mojom.InstallReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_management.mojom.InstallSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_management.mojom.WindowModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.app_management.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.app_management.mojom.AppTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_management.mojom.PermissionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_management.mojom.TriStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_management.mojom.InstallReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_management.mojom.InstallSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_management.mojom.WindowModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_management.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.app_management.mojom.PermissionValueSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PermissionSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.RunOnOsLoginSpec = { $: {} };

@@ -123,9 +123,9 @@ mojo.internal.bindings.ash.printing = mojo.internal.bindings.ash.printing || {};
 mojo.internal.bindings.ash.printing.print_preview = mojo.internal.bindings.ash.printing.print_preview || {};
 mojo.internal.bindings.ash.printing.print_preview.mojom = mojo.internal.bindings.ash.printing.print_preview.mojom || {};
 
-mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec = { $: {} };
 mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec = { $: {} };
 mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec = { $: {} };

@@ -122,7 +122,7 @@
 mojo.internal.bindings.chrome.file_util = mojo.internal.bindings.chrome.file_util || {};
 mojo.internal.bindings.chrome.file_util.mojom = mojo.internal.bindings.chrome.file_util.mojom || {};
 
-mojo.internal.bindings.chrome.file_util.mojom.ExtractionResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.file_util.mojom.ExtractionResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ExtractionResult
 mojo.internal.bindings.chrome.file_util.mojom.ExtractionResult = {

@@ -124,8 +124,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec = { $: {} };

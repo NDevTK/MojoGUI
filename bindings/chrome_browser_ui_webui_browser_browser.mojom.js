@@ -124,8 +124,8 @@ mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.webui_browser.mojom.FullscreenContextSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.webui_browser.mojom.SecurityIconSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webui_browser.mojom.FullscreenContextSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webui_browser.mojom.SecurityIconSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.webui_browser.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory.$interfaceName = 'webui_browser.mojom.PageHandlerFactory';

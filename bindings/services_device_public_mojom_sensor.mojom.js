@@ -121,8 +121,8 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.ReportingModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.SensorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.ReportingModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.SensorReadingRawSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SensorConfigurationSpec = { $: {} };
 mojo.internal.bindings.device.mojom.Sensor = {};

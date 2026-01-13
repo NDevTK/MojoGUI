@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.screens_common = mojo.internal.bindings.ash.screens_c
 mojo.internal.bindings.ash.screens_common.mojom = mojo.internal.bindings.ash.screens_common.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler = {};
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.AiIntroPageHandler';

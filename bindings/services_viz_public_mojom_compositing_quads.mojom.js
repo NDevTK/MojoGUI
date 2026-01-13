@@ -125,8 +125,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.OverlayPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.OverlayPrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.DrawQuadStateSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec = { $: {} };

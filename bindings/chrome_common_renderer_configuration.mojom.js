@@ -124,7 +124,7 @@ mojo.internal.bindings.content_settings = mojo.internal.bindings.content_setting
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.DynamicParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.StaticParamsSpec = { $: {} };

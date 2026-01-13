@@ -121,7 +121,7 @@
  mojo.internal.bindings.browser_command = mojo.internal.bindings.browser_command || {};
 mojo.internal.bindings.browser_command.mojom = mojo.internal.bindings.browser_command.mojom || {};
 
-mojo.internal.bindings.browser_command.mojom.CommandSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.browser_command.mojom.CommandSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser_command.mojom.ClickInfoSpec = { $: {} };
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory = {};
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec = { $ : {} };

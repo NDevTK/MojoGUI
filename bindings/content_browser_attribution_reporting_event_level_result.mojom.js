@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.EventLevelResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.EventLevelResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: EventLevelResult
 mojo.internal.bindings.attribution_reporting.mojom.EventLevelResult = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.SessionStorageControl = {};
 mojo.internal.bindings.storage.mojom.SessionStorageControlSpec = { $ : {} };

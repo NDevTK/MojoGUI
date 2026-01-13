@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: StorageAccessApiStatus
 mojo.internal.bindings.network.mojom.StorageAccessApiStatus = {

@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojom.ProcessCountInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.SiteInstanceInfoSpec = { $: {} };
 mojo.internal.bindings.mojom.FrameInfoSpec = { $: {} };

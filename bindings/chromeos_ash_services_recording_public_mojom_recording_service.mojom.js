@@ -126,7 +126,7 @@ mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.recording.mojom.RecordingStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.recording.mojom.RecordingStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate = {};
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec = { $ : {} };
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate.$interfaceName = 'recording.mojom.DriveFsQuotaDelegate';

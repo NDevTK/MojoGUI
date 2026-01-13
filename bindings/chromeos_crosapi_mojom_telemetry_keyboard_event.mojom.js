@@ -121,12 +121,12 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = { $: {} };
 

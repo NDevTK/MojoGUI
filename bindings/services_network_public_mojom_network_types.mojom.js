@@ -121,9 +121,9 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.ConnectionInfoSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CTPolicyComplianceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ConnectionInfoSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CTPolicyComplianceSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ConnectionInfo
 mojo.internal.bindings.network.mojom.ConnectionInfo = {

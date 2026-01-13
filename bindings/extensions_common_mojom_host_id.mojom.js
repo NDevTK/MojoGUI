@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.HostTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.HostTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.extensions.mojom.HostIDSpec = { $: {} };
 
 // Enum: HostType

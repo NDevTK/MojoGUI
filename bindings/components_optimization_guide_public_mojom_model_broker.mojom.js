@@ -123,8 +123,8 @@ mojo.internal.bindings.optimization_guide.mojom = mojo.internal.bindings.optimiz
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 
-mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec = { $: {} };
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution = {};

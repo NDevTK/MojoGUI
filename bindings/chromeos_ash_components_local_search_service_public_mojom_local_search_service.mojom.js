@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.loc
 mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter = {};
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec = { $ : {} };
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter.$interfaceName = 'ash.local_search_service.mojom.SearchMetricsReporter';

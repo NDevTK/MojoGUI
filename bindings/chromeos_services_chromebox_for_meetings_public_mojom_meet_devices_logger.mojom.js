@@ -122,9 +122,9 @@
 mojo.internal.bindings.chromeos.cfm = mojo.internal.bindings.chromeos.cfm || {};
 mojo.internal.bindings.chromeos.cfm.mojom = mojo.internal.bindings.chromeos.cfm.mojom || {};
 
-mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver = {};
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec = { $ : {} };

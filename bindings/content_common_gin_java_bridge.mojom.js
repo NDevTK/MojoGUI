@@ -123,7 +123,7 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.GinJavaBridge = {};
 mojo.internal.bindings.content.mojom.GinJavaBridgeSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.GinJavaBridge.$interfaceName = 'content.mojom.GinJavaBridge';

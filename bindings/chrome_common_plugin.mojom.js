@@ -124,7 +124,7 @@ mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.PluginInfoSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginParamSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.PluginHost = {};

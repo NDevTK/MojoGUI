@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver = {};

@@ -121,11 +121,11 @@
  mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
 
-mojo.internal.bindings.bluetooth.mojom.CentralStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.bluetooth.mojom.WriteTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.bluetooth.mojom.GATTOperationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.bluetooth.mojom.CharacteristicOperationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.bluetooth.mojom.DescriptorOperationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.bluetooth.mojom.CentralStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.WriteTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.GATTOperationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.CharacteristicOperationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.DescriptorOperationTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.bluetooth.mojom.AppearanceSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.PowerSpec = { $: {} };
 mojo.internal.bindings.bluetooth.mojom.ServiceDataMapSpec = { $: {} };

@@ -122,7 +122,7 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.arc.mojom.DecoderStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.DecoderStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.DecoderBufferSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.BufferSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.VideoDecoderConfigSpec = { $: {} };

@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PdfNupConverter = {};
 mojo.internal.bindings.printing.mojom.PdfNupConverterSpec = { $ : {} };
 mojo.internal.bindings.printing.mojom.PdfNupConverter.$interfaceName = 'printing.mojom.PdfNupConverter';

@@ -122,8 +122,8 @@
 mojo.internal.bindings.chromeos.settings = mojo.internal.bindings.chromeos.settings || {};
 mojo.internal.bindings.chromeos.settings.mojom = mojo.internal.bindings.chromeos.settings.mojom || {};
 
-mojo.internal.bindings.chromeos.settings.mojom.SectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.settings.mojom.SubpageSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.settings.mojom.SectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.settings.mojom.SubpageSpec = { $: mojo.internal.Enum().$ };
 
 mojo.internal.bindings.chromeos.settings.mojom.kNetworkSectionPath = "internet";
 

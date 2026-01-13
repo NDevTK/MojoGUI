@@ -122,11 +122,11 @@
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.crosapi.mojom.AccountTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.AccountTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.AccessTokenResultSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountKeySpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.AccountSpec = { $: {} };

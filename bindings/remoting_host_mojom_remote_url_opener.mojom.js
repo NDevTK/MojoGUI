@@ -122,7 +122,7 @@
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.remoting.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remoting.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpener = {};
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpener.$interfaceName = 'remoting.mojom.RemoteUrlOpener';

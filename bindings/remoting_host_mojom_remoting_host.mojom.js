@@ -123,7 +123,7 @@ mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.TransportRouteSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.RemotingHostControl = {};
 mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = { $ : {} };

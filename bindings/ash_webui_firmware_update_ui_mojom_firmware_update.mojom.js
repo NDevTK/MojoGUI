@@ -123,10 +123,10 @@ mojo.internal.bindings.ash.firmware_update = mojo.internal.bindings.ash.firmware
 mojo.internal.bindings.ash.firmware_update.mojom = mojo.internal.bindings.ash.firmware_update.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec = { $: {} };
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 
-mojo.internal.bindings.ash.mojom.AcceleratorActionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.mojom.AcceleratorActionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AcceleratorAction
 mojo.internal.bindings.ash.mojom.AcceleratorAction = {

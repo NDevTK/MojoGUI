@@ -122,8 +122,8 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.DecryptStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.CdmContextEventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.DecryptStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmContextEventSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.CdmContextEventCallback = {};
 mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.CdmContextEventCallback.$interfaceName = 'media.mojom.CdmContextEventCallback';

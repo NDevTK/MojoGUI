@@ -121,7 +121,7 @@
  mojo.internal.bindings.on_device_translation_internals = mojo.internal.bindings.on_device_translation_internals || {};
 mojo.internal.bindings.on_device_translation_internals.mojom = mojo.internal.bindings.on_device_translation_internals.mojom || {};
 
-mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec = { $: {} };
 mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec = { $ : {} };

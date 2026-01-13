@@ -122,9 +122,9 @@
 mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.display.mojom.RotationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.TouchSupportSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.AccelerometerSupportSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.display.mojom.RotationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.TouchSupportSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.AccelerometerSupportSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.display.mojom.DisplaySpec = { $: {} };
 
 // External type stubs (from imports)

@@ -121,9 +121,9 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.NSRawTypeNameFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.NSRawTypeNameFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.NDEFErrorSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NDEFRecordSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NDEFMessageSpec = { $: {} };

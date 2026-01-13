@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AILanguageCodeSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec = { $: {} };
 

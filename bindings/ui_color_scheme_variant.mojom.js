@@ -121,7 +121,7 @@
  mojo.internal.bindings.color = mojo.internal.bindings.color || {};
 mojo.internal.bindings.color.mojom = mojo.internal.bindings.color.mojom || {};
 
-mojo.internal.bindings.color.mojom.SchemeVariantSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.color.mojom.SchemeVariantSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SchemeVariant
 mojo.internal.bindings.color.mojom.SchemeVariant = {

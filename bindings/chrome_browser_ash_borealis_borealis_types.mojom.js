@@ -121,7 +121,7 @@
  mojo.internal.bindings.borealis = mojo.internal.bindings.borealis || {};
 mojo.internal.bindings.borealis.mojom = mojo.internal.bindings.borealis.mojom || {};
 
-mojo.internal.bindings.borealis.mojom.InstallResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.borealis.mojom.InstallResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: InstallResult
 mojo.internal.bindings.borealis.mojom.InstallResult = {

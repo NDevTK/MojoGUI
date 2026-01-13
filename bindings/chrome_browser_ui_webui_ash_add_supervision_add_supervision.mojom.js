@@ -121,7 +121,7 @@
  mojo.internal.bindings.add_supervision = mojo.internal.bindings.add_supervision || {};
 mojo.internal.bindings.add_supervision.mojom = mojo.internal.bindings.add_supervision.mojom || {};
 
-mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler = {};
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec = { $ : {} };
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler.$interfaceName = 'add_supervision.mojom.AddSupervisionHandler';

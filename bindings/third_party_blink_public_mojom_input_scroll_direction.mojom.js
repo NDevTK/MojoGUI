@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScrollDirection
 mojo.internal.bindings.blink.mojom.ScrollDirection = {

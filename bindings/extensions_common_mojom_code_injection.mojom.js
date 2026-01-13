@@ -123,7 +123,7 @@ mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojo
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.OperationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.OperationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.extensions.mojom.CodeInjectionSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.JSSourceSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.CSSSourceSpec = { $: {} };

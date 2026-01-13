@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.CommitResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CommitResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CommitResult
 mojo.internal.bindings.blink.mojom.CommitResult = {

@@ -127,7 +127,7 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehaviorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget = {};

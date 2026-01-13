@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcShellCommandSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ArcShellCommandSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance = {};

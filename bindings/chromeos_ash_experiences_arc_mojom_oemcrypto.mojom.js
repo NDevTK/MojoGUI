@@ -121,15 +121,15 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.OemCryptoResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoCipherModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoLicenseTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoAlgorithmSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoUsageEntryStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoRsaPaddingSchemeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoHdcpCapabilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoProvisioningMethodSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.OemCryptoPrivateKeySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.OemCryptoResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoCipherModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoLicenseTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoAlgorithmSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoUsageEntryStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoRsaPaddingSchemeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoHdcpCapabilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoProvisioningMethodSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OemCryptoPrivateKeySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.OemCryptoSecureBufferSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.OemCryptoSubstringSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.OemCryptoKeyObjectV14Spec = { $: {} };

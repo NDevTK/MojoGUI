@@ -122,9 +122,9 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.CorsPortMatchModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CorsDomainMatchModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CorsOriginAccessMatchPrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CorsOriginPatternSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CorsOriginAccessPatternsSpec = { $: {} };
 

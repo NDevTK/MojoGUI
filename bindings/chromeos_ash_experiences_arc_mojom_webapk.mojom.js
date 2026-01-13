@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WebApkInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.WebApkInstance = {};

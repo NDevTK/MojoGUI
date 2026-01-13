@@ -121,7 +121,7 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.ResourceScaleFactorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ResourceScaleFactorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ResourceScaleFactor
 mojo.internal.bindings.crosapi.mojom.ResourceScaleFactor = {

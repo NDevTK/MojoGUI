@@ -123,8 +123,8 @@ mojo.internal.bindings.history_clusters.mojom = mojo.internal.bindings.history_c
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_clusters.mojom.AnnotationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.history_clusters.mojom.InteractionStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.history_clusters.mojom.AnnotationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.InteractionStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec = { $: {} };
 mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec = { $: {} };

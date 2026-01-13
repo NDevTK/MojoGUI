@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.ResolverTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ResolverTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.RuleSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheOpenEntryResultSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SimpleCacheEntry = {};

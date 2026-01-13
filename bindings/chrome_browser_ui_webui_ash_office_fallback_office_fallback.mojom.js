@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.office_fallback = mojo.internal.bindings.ash.office_fallback || {};
 mojo.internal.bindings.ash.office_fallback.mojom = mojo.internal.bindings.ash.office_fallback.mojom || {};
 
-mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory.$interfaceName = 'ash.office_fallback.mojom.PageHandlerFactory';

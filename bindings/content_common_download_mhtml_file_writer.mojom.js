@@ -122,7 +122,7 @@
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.MhtmlFileWriter = {};

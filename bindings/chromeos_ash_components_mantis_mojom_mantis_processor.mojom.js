@@ -121,9 +121,9 @@
  mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
 mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
 
-mojo.internal.bindings.mantis.mojom.MantisErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.mantis.mojom.SegmentationModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mantis.mojom.MantisErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.SegmentationModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mantis.mojom.MantisResultSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.TouchPointSpec = { $: {} };
 mojo.internal.bindings.mantis.mojom.MantisProcessor = {};

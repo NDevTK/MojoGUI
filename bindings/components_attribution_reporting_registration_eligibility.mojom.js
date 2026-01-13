@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RegistrationEligibility
 mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibility = {

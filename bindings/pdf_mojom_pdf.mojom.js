@@ -125,8 +125,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec = { $: {} };
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler = {};
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec = { $ : {} };

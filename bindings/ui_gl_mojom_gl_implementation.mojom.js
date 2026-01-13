@@ -121,8 +121,8 @@
  mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
 mojo.internal.bindings.gl.mojom = mojo.internal.bindings.gl.mojom || {};
 
-mojo.internal.bindings.gl.mojom.GLImplementationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gl.mojom.ANGLEImplementationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gl.mojom.GLImplementationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gl.mojom.ANGLEImplementationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec = { $: {} };
 
 // Enum: GLImplementation

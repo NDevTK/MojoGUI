@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerClientTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ServiceWorkerClientLifecycleStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ServiceWorkerClientTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerClientLifecycleStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ServiceWorkerClientQueryOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerClientInfoSpec = { $: {} };
 

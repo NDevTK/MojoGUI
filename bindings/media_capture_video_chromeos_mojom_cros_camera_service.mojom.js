@@ -123,10 +123,10 @@ mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.cros.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.CameraAutoFramingStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.KioskVisionErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CameraAutoFramingStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.KioskVisionErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.KioskVisionDetectionSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.KioskVisionTrackSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.KioskVisionAppearanceSpec = { $: {} };

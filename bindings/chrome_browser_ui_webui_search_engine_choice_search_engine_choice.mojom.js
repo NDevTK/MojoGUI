@@ -121,7 +121,7 @@
  mojo.internal.bindings.search_engine_choice = mojo.internal.bindings.search_engine_choice || {};
 mojo.internal.bindings.search_engine_choice.mojom = mojo.internal.bindings.search_engine_choice.mojom || {};
 
-mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory.$interfaceName = 'search_engine_choice.mojom.PageHandlerFactory';

@@ -123,7 +123,7 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.arc.mojom.PurchaseStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.PurchaseStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DigitalGoodsInstance = {};
 mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec = { $ : {} };

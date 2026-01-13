@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.language = mojo.internal.bindings.ash.language || {};
 mojo.internal.bindings.ash.language.mojom = mojo.internal.bindings.ash.language.mojom || {};
 
-mojo.internal.bindings.ash.language.mojom.FeatureIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.language.mojom.PackStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.language.mojom.FeatureIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.language.mojom.PackStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec = { $: {} };
 mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec = { $: {} };
 mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver = {};

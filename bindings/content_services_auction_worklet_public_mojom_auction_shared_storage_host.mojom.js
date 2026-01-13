@@ -122,7 +122,7 @@
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost = {};
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostSpec = { $ : {} };
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost.$interfaceName = 'auction_worklet.mojom.AuctionSharedStorageHost';

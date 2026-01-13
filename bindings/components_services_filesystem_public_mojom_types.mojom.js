@@ -122,8 +122,8 @@
 mojo.internal.bindings.filesystem.mojom = mojo.internal.bindings.filesystem.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.filesystem.mojom.WhenceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.filesystem.mojom.WhenceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.filesystem.mojom.TimespecOrNowSpec = { $: {} };
 mojo.internal.bindings.filesystem.mojom.FileInformationSpec = { $: {} };
 mojo.internal.bindings.filesystem.mojom.DirectoryEntrySpec = { $: {} };

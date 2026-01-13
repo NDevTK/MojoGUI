@@ -121,8 +121,8 @@
  mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 
-mojo.internal.bindings.heap_profiling.mojom.StackModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.heap_profiling.mojom.StackModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec = { $: {} };
 mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec = { $: {} };
 mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec = { $: {} };

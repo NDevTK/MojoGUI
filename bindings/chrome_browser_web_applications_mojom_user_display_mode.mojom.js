@@ -121,7 +121,7 @@
  mojo.internal.bindings.web_app = mojo.internal.bindings.web_app || {};
 mojo.internal.bindings.web_app.mojom = mojo.internal.bindings.web_app.mojom || {};
 
-mojo.internal.bindings.web_app.mojom.UserDisplayModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.web_app.mojom.UserDisplayModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: UserDisplayMode
 mojo.internal.bindings.web_app.mojom.UserDisplayMode = {

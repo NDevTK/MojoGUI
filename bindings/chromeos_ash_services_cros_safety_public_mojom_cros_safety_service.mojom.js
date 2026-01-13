@@ -122,8 +122,8 @@
 mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
 
-mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService = {};
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec = { $ : {} };
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService.$interfaceName = 'ash.cros_safety.mojom.CrosSafetyService';

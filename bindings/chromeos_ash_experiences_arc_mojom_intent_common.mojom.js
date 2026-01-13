@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.ActivityNameSpec = { $: {} };
 
 // Enum: ActionType

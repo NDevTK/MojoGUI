@@ -122,7 +122,7 @@
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
 mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
 
-mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec = { $: {} };
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService = {};
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec = { $ : {} };

@@ -122,8 +122,8 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.ProviderStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.ProviderStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.AccessPointDataSpec = { $: {} };
 mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec = { $: {} };

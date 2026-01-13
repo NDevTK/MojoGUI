@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: MenuSourceType
 mojo.internal.bindings.ui.mojom.MenuSourceType = {

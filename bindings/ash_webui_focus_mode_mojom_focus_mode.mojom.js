@@ -124,7 +124,7 @@ mojo.internal.bindings.ash.focus_mode.mojom = mojo.internal.bindings.ash.focus_m
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec = { $: {} };
 mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec = { $: {} };
 mojo.internal.bindings.ash.focus_mode.mojom.MediaClient = {};

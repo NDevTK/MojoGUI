@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FormControlTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: FormControlType
 mojo.internal.bindings.blink.mojom.FormControlType = {

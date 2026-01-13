@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.screens_login = mojo.internal.bindings.ash.screens_lo
 mojo.internal.bindings.ash.screens_login.mojom = mojo.internal.bindings.ash.screens_login.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler = {};
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler';

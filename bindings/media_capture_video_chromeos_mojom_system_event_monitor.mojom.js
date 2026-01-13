@@ -122,9 +122,9 @@
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.cros.mojom.LidStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.LidStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.CrosDisplayObserver = {};
 mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CrosDisplayObserver.$interfaceName = 'cros.mojom.CrosDisplayObserver';

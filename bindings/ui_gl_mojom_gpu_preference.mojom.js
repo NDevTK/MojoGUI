@@ -121,7 +121,7 @@
  mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
 mojo.internal.bindings.gl.mojom = mojo.internal.bindings.gl.mojom || {};
 
-mojo.internal.bindings.gl.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gl.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: GpuPreference
 mojo.internal.bindings.gl.mojom.GpuPreference = {

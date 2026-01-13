@@ -122,14 +122,14 @@
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec = { $: {} };
 mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec = { $: {} };

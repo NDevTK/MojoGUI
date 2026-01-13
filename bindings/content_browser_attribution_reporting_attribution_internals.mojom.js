@@ -124,7 +124,7 @@ mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attributio
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.attribution_internals.mojom.AttributabilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_internals.mojom.AttributabilitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.attribution_internals.mojom.WebUIReportDataSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.NetworkStatusSpec = { $: {} };
 mojo.internal.bindings.attribution_internals.mojom.ReportStatusSpec = { $: {} };

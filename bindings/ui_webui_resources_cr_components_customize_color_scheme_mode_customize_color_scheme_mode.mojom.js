@@ -121,7 +121,7 @@
  mojo.internal.bindings.customize_color_scheme_mode = mojo.internal.bindings.customize_color_scheme_mode || {};
 mojo.internal.bindings.customize_color_scheme_mode.mojom = mojo.internal.bindings.customize_color_scheme_mode.mojom || {};
 
-mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory = {};
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory';

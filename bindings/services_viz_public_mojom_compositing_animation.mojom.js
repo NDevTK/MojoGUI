@@ -125,9 +125,9 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.TimingStepPositionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.AnimationDirectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.AnimationFillModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.TimingStepPositionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.AnimationDirectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.AnimationFillModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.TimingFunctionSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.TransformOperationSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec = { $: {} };

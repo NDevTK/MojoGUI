@@ -122,9 +122,9 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec = { $: {} };

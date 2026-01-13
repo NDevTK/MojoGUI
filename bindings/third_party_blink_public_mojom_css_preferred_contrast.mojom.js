@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PreferredContrastSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PreferredContrastSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PreferredContrast
 mojo.internal.bindings.blink.mojom.PreferredContrast = {

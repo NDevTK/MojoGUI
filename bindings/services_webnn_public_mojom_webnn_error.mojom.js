@@ -121,7 +121,7 @@
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 
-mojo.internal.bindings.webnn.mojom.CodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webnn.mojom.CodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webnn.mojom.ErrorSpec = { $: {} };
 
 // Enum: Code

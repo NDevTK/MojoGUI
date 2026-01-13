@@ -124,8 +124,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.tenor = mojo.internal.bindings.tenor || {};
 
-mojo.internal.bindings.emoji_picker.mojom.FeatureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.emoji_picker.mojom.CategorySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.emoji_picker.mojom.FeatureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.emoji_picker.mojom.CategorySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec = { $: {} };
 mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec = { $: {} };
 mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory = {};

@@ -123,7 +123,7 @@ mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_dete
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetection = {};
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionSpec = { $ : {} };

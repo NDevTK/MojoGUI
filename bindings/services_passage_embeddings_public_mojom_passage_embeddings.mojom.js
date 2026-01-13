@@ -123,7 +123,7 @@ mojo.internal.bindings.passage_embeddings.mojom = mojo.internal.bindings.passage
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = { $: {} };
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec = { $: {} };

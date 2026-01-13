@@ -121,7 +121,7 @@
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 
-mojo.internal.bindings.lens.mojom.PageContentTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.PageContentTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PageContentType
 mojo.internal.bindings.lens.mojom.PageContentType = {

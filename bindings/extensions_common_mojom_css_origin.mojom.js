@@ -121,7 +121,7 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.CSSOriginSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.CSSOriginSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CSSOrigin
 mojo.internal.bindings.extensions.mojom.CSSOrigin = {

@@ -123,7 +123,7 @@ mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifie
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.cert_verifier.mojom.CertificateTrustSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cert_verifier.mojom.CertificateTrustSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec = { $: {} };

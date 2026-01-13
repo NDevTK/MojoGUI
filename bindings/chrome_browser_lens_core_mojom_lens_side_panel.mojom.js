@@ -122,7 +122,7 @@
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory = {};
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory.$interfaceName = 'lens.mojom.LensSidePanelPageHandlerFactory';

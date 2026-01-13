@@ -123,11 +123,11 @@ mojo.internal.bindings.ash.scanning = mojo.internal.bindings.ash.scanning || {};
 mojo.internal.bindings.ash.scanning.mojom = mojo.internal.bindings.ash.scanning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec = { $: {} };
 mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec = { $: {} };
 mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec = { $: {} };

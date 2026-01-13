@@ -121,7 +121,7 @@
  mojo.internal.bindings.compose = mojo.internal.bindings.compose || {};
 mojo.internal.bindings.compose.mojom = mojo.internal.bindings.compose.mojom || {};
 
-mojo.internal.bindings.compose.mojom.ComposeStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.compose.mojom.ComposeStatusSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ComposeStatus
 mojo.internal.bindings.compose.mojom.ComposeStatus = {

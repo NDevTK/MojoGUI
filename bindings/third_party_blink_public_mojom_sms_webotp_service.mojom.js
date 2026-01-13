@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SmsStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SmsStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.WebOTPService = {};
 mojo.internal.bindings.blink.mojom.WebOTPServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WebOTPService.$interfaceName = 'blink.mojom.WebOTPService';

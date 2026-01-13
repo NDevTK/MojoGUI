@@ -122,13 +122,13 @@
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec = { $: {} };
 mojo.internal.bindings.ash.ime.mojom.JpUnused = {};
 mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec = { $ : {} };

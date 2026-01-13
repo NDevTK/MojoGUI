@@ -121,7 +121,7 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 
-mojo.internal.bindings.ash.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.mojom.SetWallpaperResultSpec = { $: {} };
 mojo.internal.bindings.ash.mojom.WallpaperSettingsSpec = { $: {} };
 

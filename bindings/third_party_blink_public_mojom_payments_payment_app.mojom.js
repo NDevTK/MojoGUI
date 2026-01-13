@@ -123,10 +123,10 @@ mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom ||
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.payments.mojom.PaymentDelegationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.PaymentDelegationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec = { $: {} };

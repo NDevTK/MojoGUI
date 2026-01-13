@@ -125,7 +125,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.color = mojo.internal.bindings.color || {};
 
-mojo.internal.bindings.blink.mojom.PagehideDispatchSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PagehideDispatchSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec = { $: {} };

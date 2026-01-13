@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: InputEventResultSource
 mojo.internal.bindings.blink.mojom.InputEventResultSource = {

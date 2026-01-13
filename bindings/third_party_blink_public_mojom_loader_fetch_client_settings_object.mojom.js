@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec = { $: {} };
 
 // External type stubs (from imports)

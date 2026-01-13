@@ -123,8 +123,8 @@ mojo.internal.bindings.help_bubble.mojom = mojo.internal.bindings.help_bubble.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.tracked_element = mojo.internal.bindings.tracked_element || {};
 
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.ProgressSpec = { $: {} };
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec = { $: {} };

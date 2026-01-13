@@ -121,7 +121,7 @@
  mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};
 mojo.internal.bindings.os_crypt_async.mojom = mojo.internal.bindings.os_crypt_async.mojom || {};
 
-mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Algorithm
 mojo.internal.bindings.os_crypt_async.mojom.Algorithm = {

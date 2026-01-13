@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: WebClientHintsType
 mojo.internal.bindings.network.mojom.WebClientHintsType = {

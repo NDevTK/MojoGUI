@@ -121,7 +121,7 @@
  mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
 
-mojo.internal.bindings.display.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.display.mojom.ScreenOrientationSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScreenOrientation
 mojo.internal.bindings.display.mojom.ScreenOrientation = {

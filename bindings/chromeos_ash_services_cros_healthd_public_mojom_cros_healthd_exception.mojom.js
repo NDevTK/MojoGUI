@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 
-mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.SupportStatusSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.UnsupportedReasonSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.ExceptionSpec = { $: {} };

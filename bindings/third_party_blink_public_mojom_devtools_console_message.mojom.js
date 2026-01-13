@@ -121,9 +121,9 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ConsoleMessageSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ConsoleMessageCategorySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ConsoleMessageSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ConsoleMessageCategorySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ConsoleMessageLevel
 mojo.internal.bindings.blink.mojom.ConsoleMessageLevel = {

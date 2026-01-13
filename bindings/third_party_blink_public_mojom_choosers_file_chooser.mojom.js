@@ -123,7 +123,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileChooserParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NativeFileInfoSpec = { $: {} };

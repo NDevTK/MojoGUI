@@ -121,9 +121,9 @@
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 
-mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.SupportedRanksSpec = { $: {} };
 mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec = { $: {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec = { $: {} };

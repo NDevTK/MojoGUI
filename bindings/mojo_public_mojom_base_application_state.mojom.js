@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo_base.mojom.ApplicationStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo_base.mojom.ApplicationStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ApplicationState
 mojo.internal.bindings.mojo_base.mojom.ApplicationState = {

@@ -122,7 +122,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec = { $: {} };
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter = {};
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterSpec = { $ : {} };

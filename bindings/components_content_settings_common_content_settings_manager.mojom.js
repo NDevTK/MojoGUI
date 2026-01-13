@@ -124,7 +124,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content_settings.mojom.StorageTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content_settings.mojom.StorageTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager = {};
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec = { $ : {} };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager.$interfaceName = 'content_settings.mojom.ContentSettingsManager';

@@ -123,7 +123,7 @@ mojo.internal.bindings.webapps.mojom = mojo.internal.bindings.webapps.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec = { $: {} };
 mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec = { $: {} };
 

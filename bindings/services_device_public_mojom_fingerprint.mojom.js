@@ -121,10 +121,10 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.FingerprintErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.BiometricTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.ScanResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.FingerprintErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.BiometricTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.FingerprintMessageSpec = { $: {} };
 mojo.internal.bindings.device.mojom.FingerprintObserver = {};
 mojo.internal.bindings.device.mojom.FingerprintObserverSpec = { $ : {} };

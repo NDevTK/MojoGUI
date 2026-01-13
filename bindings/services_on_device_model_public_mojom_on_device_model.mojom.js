@@ -123,10 +123,10 @@ mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.on_device_model.mojom.TokenSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.PrioritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.TokenSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.PrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.InputPieceSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec = { $: {} };
 mojo.internal.bindings.on_device_model.mojom.AdaptationAssetsSpec = { $: {} };

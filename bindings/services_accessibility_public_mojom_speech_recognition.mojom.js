@@ -121,7 +121,7 @@
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
-mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec = { $: {} };

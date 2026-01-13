@@ -122,8 +122,8 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.PressureSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.PressureStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.PressureSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.PressureStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.PressureUpdateSpec = { $: {} };
 mojo.internal.bindings.device.mojom.PressureDataSpec = { $: {} };
 

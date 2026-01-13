@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationErrorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SourceRegistrationError
 mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationError = {

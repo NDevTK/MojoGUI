@@ -123,8 +123,8 @@ mojo.internal.bindings.web_package.mojom = mojo.internal.bindings.web_package.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.web_package.mojom.BundleFormatVersionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.web_package.mojom.BundleFormatVersionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.web_package.mojom.SignatureInfoSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockParseErrorSpec = { $: {} };
 mojo.internal.bindings.web_package.mojom.BundleMetadataParseErrorSpec = { $: {} };

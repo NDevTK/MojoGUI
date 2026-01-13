@@ -121,12 +121,12 @@
  mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
 
-mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.HDCPStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.PanelOrientationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.HDCPStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.PanelOrientationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.display.mojom.ModesetFlagsSpec = { $: {} };
 
 // Enum: DisplayConnectionType

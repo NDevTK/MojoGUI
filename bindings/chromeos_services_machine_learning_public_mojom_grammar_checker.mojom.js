@@ -122,7 +122,7 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = { $: {} };

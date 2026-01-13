@@ -126,8 +126,8 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AcceleratorSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FormRendererIdSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FieldRendererIdSpec = { $: {} };

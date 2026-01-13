@@ -121,13 +121,13 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.ScanFailureModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ScannerOperationResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.OptionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.OptionUnitSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.OptionConstraintTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.OptionConfigurabilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ScanFailureModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ScannerOperationResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.OptionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.OptionUnitSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.OptionConstraintTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.OptionConfigurabilitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.OptionValueSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.OptionConstraintRestrictionSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.ScannerInfoSpec = { $: {} };

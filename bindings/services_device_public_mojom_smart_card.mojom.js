@@ -122,12 +122,12 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.SmartCardSuccessSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.SmartCardErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.SmartCardShareModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.SmartCardProtocolSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.SmartCardDispositionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.SmartCardConnectionStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.SmartCardSuccessSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.SmartCardErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.SmartCardShareModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.SmartCardProtocolSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.SmartCardDispositionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.SmartCardConnectionStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.SmartCardResultSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardStatusChangeResultSpec = { $: {} };
 mojo.internal.bindings.device.mojom.SmartCardListReadersResultSpec = { $: {} };

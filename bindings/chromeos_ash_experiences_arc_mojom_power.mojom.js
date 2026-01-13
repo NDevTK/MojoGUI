@@ -121,10 +121,10 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.IdleStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.IdleStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.PowerHost = {};
 mojo.internal.bindings.arc.mojom.PowerHostSpec = { $ : {} };

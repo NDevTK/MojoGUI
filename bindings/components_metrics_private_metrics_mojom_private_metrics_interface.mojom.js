@@ -122,7 +122,7 @@
 mojo.internal.bindings.metrics.private_metrics = mojo.internal.bindings.metrics.private_metrics || {};
 mojo.internal.bindings.metrics.private_metrics.mojom = mojo.internal.bindings.metrics.private_metrics.mojom || {};
 
-mojo.internal.bindings.metrics.private_metrics.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.metrics.private_metrics.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.metrics.private_metrics.mojom.PrivateMetricsEntrySpec = { $: {} };
 
 // Enum: Type

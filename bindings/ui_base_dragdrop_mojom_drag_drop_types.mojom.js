@@ -121,8 +121,8 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.DragEventSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.DragOperationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.DragEventSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.DragOperationSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DragEventSource
 mojo.internal.bindings.ui.mojom.DragEventSource = {

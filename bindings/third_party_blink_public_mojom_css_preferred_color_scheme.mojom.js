@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: PreferredColorScheme
 mojo.internal.bindings.blink.mojom.PreferredColorScheme = {

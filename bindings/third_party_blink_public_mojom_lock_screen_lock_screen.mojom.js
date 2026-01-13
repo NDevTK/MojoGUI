@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.LockScreenServiceStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.LockScreenServiceStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.LockScreenService = {};
 mojo.internal.bindings.blink.mojom.LockScreenServiceSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.LockScreenService.$interfaceName = 'blink.mojom.LockScreenService';

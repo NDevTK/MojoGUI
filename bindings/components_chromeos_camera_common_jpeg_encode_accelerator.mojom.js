@@ -122,7 +122,7 @@
 mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator = {};
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = { $ : {} };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator.$interfaceName = 'chromeos_camera.mojom.JpegEncodeAccelerator';

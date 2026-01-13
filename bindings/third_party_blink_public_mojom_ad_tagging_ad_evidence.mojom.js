@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FilterListResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.FrameCreationStackEvidenceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FilterListResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FrameCreationStackEvidenceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FrameAdEvidenceSpec = { $: {} };
 
 // Enum: FilterListResult

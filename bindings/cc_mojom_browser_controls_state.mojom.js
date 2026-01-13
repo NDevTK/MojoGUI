@@ -121,7 +121,7 @@
  mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
-mojo.internal.bindings.cc.mojom.BrowserControlsStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cc.mojom.BrowserControlsStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: BrowserControlsState
 mojo.internal.bindings.cc.mojom.BrowserControlsState = {

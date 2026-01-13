@@ -121,7 +121,7 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.attribution_reporting.mojom.SourceTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SourceType
 mojo.internal.bindings.attribution_reporting.mojom.SourceType = {

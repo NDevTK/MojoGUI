@@ -121,8 +121,8 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec = { $: {} };
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter = {};

@@ -123,8 +123,8 @@ mojo.internal.bindings.whats_new.mojom = mojo.internal.bindings.whats_new.mojom 
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.whats_new.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.whats_new.mojom.PageHandlerFactory.$interfaceName = 'whats_new.mojom.PageHandlerFactory';

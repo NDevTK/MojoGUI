@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.MenuItemSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PopupMenuClient = {};
 mojo.internal.bindings.blink.mojom.PopupMenuClientSpec = { $ : {} };

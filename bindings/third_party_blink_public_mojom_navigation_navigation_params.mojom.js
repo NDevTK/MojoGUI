@@ -125,10 +125,10 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.NavigationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.NavigationTypeForNavigationApiSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ForceHistoryPushSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ParentResourceTimingAccessSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.NavigationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NavigationTypeForNavigationApiSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ForceHistoryPushSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ParentResourceTimingAccessSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.BeginNavigationParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NavigationTimingSpec = { $: {} };

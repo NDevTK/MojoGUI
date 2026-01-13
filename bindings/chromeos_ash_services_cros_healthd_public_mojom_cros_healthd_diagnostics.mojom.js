@@ -122,15 +122,15 @@
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec = { $: {} };

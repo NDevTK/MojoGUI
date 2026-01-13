@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.enhanced_network_tts = mojo.internal.bindings.ash.enhanced_network_tts || {};
 mojo.internal.bindings.ash.enhanced_network_tts.mojom = mojo.internal.bindings.ash.enhanced_network_tts.mojom || {};
 
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec = { $: {} };
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec = { $: {} };

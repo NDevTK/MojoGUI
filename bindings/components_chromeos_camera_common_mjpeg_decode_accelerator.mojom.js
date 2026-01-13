@@ -124,7 +124,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec = { $: {} };
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator = {};
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = { $ : {} };

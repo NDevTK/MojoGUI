@@ -122,11 +122,11 @@
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.GamepadMappingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.GamepadHandSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.GamepadHapticsResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.GamepadMappingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHandSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHapticsResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GamepadQuaternionSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadVectorSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GamepadButtonSpec = { $: {} };

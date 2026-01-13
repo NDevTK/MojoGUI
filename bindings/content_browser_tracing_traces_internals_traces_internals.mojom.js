@@ -123,9 +123,9 @@ mojo.internal.bindings.traces_internals.mojom = mojo.internal.bindings.traces_in
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.ScenarioSpec = { $: {} };
 mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec = { $: {} };

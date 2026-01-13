@@ -126,8 +126,8 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec = { $: {} };
 mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView = {};
 mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec = { $ : {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.MediaPlayerActionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.MediaPlayerActionSpec = { $: {} };
 
 // Enum: MediaPlayerActionType

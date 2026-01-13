@@ -122,8 +122,8 @@
 mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory = {};
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec = { $ : {} };
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory.$interfaceName = 'metrics.mojom.ChildHistogramFetcherFactory';

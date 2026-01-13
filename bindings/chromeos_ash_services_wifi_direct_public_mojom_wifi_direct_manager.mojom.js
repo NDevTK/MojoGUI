@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.wifi_direct = mojo.internal.bindings.ash.wifi_direct || {};
 mojo.internal.bindings.ash.wifi_direct.mojom = mojo.internal.bindings.ash.wifi_direct.mojom || {};
 
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = { $: {} };
 mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec = { $: {} };
 mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = { $: {} };

@@ -121,9 +121,9 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AISummarizer = {};
 mojo.internal.bindings.blink.mojom.AISummarizerSpec = { $ : {} };

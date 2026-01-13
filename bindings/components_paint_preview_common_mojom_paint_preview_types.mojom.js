@@ -122,8 +122,8 @@
 mojo.internal.bindings.paint_preview.mojom = mojo.internal.bindings.paint_preview.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.paint_preview.mojom.RecordingPersistenceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.paint_preview.mojom.ClipCoordOverrideSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.paint_preview.mojom.RecordingPersistenceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.paint_preview.mojom.ClipCoordOverrideSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec = { $: {} };
 
 // External type stubs (from imports)

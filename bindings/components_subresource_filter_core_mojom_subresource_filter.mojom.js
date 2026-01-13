@@ -122,9 +122,9 @@
 mojo.internal.bindings.subresource_filter.mojom = mojo.internal.bindings.subresource_filter.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec = { $: {} };
 mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec = { $: {} };
 mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver = {};

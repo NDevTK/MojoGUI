@@ -123,10 +123,10 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.AsrSwitchResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.SpeechRecognitionModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media.mojom.RecognizerClientTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.AsrSwitchResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.SpeechRecognitionModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RecognizerClientTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.HypothesisPartsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaTimestampRangeSpec = { $: {} };
 mojo.internal.bindings.media.mojom.TimingInformationSpec = { $: {} };

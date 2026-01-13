@@ -122,11 +122,11 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CSPDispositionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesForSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CSPDispositionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesForSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CSPSourceSpec = { $: {} };

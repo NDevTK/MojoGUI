@@ -122,8 +122,8 @@
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.crosapi.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.ClipboardHistoryItemDescriptorSpec = { $: {} };
 
 // External type stubs (from imports)

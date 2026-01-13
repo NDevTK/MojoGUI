@@ -122,7 +122,7 @@
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.status_area_internals = mojo.internal.bindings.ash.mojom.status_area_internals || {};
 
-mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler = {};
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler.$interfaceName = 'ash.mojom.status_area_internals.PageHandler';

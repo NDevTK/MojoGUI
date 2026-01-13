@@ -123,10 +123,10 @@ mojo.internal.bindings.nearby_share.mojom = mojo.internal.bindings.nearby_share.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.nearby_share.mojom.StartDiscoveryResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share.mojom.StartDiscoveryResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec = { $: {} };

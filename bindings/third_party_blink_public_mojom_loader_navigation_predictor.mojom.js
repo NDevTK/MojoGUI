@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AnchorElementClickSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = { $: {} };

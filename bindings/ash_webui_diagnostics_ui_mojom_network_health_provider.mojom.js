@@ -122,12 +122,12 @@
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec = { $: {} };
 mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec = { $: {} };

@@ -123,9 +123,9 @@ mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.SerializationFormatSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.extensions.mojom.ChannelTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.extensions.mojom.SerializationFormatSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions.mojom.ChannelTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.extensions.mojom.MessageDataSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.PortIdSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec = { $: {} };

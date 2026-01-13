@@ -125,10 +125,10 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.media_router.mojom.SinkIconTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media_router.mojom.RouteControllerTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media_router.mojom.SeveritySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.media_router.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media_router.mojom.SinkIconTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_router.mojom.RouteControllerTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_router.mojom.SeveritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_router.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media_router.mojom.MediaSinkExtraDataSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.ProviderStateSpec = { $: {} };
 mojo.internal.bindings.media_router.mojom.MediaSinkSpec = { $: {} };

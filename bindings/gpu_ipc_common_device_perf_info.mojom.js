@@ -121,8 +121,8 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.Direct3DFeatureLevelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.HasDiscreteGpuSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.Direct3DFeatureLevelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.HasDiscreteGpuSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec = { $: {} };
 
 // Enum: Direct3DFeatureLevel

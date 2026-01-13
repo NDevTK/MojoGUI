@@ -121,8 +121,8 @@
  mojo.internal.bindings.crostini = mojo.internal.bindings.crostini || {};
 mojo.internal.bindings.crostini.mojom = mojo.internal.bindings.crostini.mojom || {};
 
-mojo.internal.bindings.crostini.mojom.InstallerStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crostini.mojom.InstallerErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crostini.mojom.InstallerStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crostini.mojom.InstallerErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec = { $: {} };
 
 // Enum: InstallerState

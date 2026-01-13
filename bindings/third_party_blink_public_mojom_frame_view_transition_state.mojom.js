@@ -123,8 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec = { $: {} };

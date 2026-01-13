@@ -122,8 +122,8 @@
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromecast.mojom.SettingsClient = {};
 mojo.internal.bindings.chromecast.mojom.SettingsClientSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.SettingsClient.$interfaceName = 'chromecast.mojom.SettingsClient';

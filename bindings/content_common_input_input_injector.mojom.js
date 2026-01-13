@@ -124,10 +124,10 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.content.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content.mojom.InputEventPatternSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.InputEventPatternSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SyntheticPinchSpec = { $: {} };

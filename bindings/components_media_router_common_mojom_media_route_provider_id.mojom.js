@@ -121,7 +121,7 @@
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.MediaRouteProviderIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media_router.mojom.MediaRouteProviderIdSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: MediaRouteProviderId
 mojo.internal.bindings.media_router.mojom.MediaRouteProviderId = {

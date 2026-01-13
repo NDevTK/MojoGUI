@@ -121,7 +121,7 @@
  mojo.internal.bindings.sensor = mojo.internal.bindings.sensor || {};
 mojo.internal.bindings.sensor.mojom = mojo.internal.bindings.sensor.mojom || {};
 
-mojo.internal.bindings.sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec = { $: {} };
 mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec = { $: {} };
 mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec = { $: {} };

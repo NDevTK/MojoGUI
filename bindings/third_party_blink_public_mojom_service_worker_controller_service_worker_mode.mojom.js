@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ControllerServiceWorkerMode
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerMode = {

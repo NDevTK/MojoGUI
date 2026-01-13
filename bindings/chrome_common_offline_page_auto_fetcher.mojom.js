@@ -121,7 +121,7 @@
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher = {};
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher.$interfaceName = 'chrome.mojom.OfflinePageAutoFetcher';

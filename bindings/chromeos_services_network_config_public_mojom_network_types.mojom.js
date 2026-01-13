@@ -122,13 +122,13 @@
 mojo.internal.bindings.chromeos.network_config = mojo.internal.bindings.chromeos.network_config || {};
 mojo.internal.bindings.chromeos.network_config.mojom = mojo.internal.bindings.chromeos.network_config.mojom || {};
 
-mojo.internal.bindings.chromeos.network_config.mojom.ConnectionStateTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.network_config.mojom.DeviceStateTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.network_config.mojom.IPConfigTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.network_config.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.network_config.mojom.OncSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.network_config.mojom.PolicySourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.network_config.mojom.PortalStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.network_config.mojom.ConnectionStateTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_config.mojom.DeviceStateTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_config.mojom.IPConfigTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_config.mojom.NetworkTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_config.mojom.OncSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_config.mojom.PolicySourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_config.mojom.PortalStateSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ConnectionStateType
 mojo.internal.bindings.chromeos.network_config.mojom.ConnectionStateType = {

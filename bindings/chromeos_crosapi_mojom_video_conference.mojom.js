@@ -123,9 +123,9 @@ mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec = { $: {} };

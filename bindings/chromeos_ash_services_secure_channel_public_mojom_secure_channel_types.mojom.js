@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_ch
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec = { $: {} };
 mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener = {};

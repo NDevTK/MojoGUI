@@ -121,8 +121,8 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.HashAlgorithmSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.HashAlgorithmSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.DigitallySignedSpec = { $: {} };
 
 // Enum: HashAlgorithm

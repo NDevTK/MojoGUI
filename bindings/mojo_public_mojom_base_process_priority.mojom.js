@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ProcessPriority
 mojo.internal.bindings.mojo_base.mojom.ProcessPriority = {

@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ObservedFeature = {};
 mojo.internal.bindings.blink.mojom.ObservedFeatureSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ObservedFeature.$interfaceName = 'blink.mojom.ObservedFeature';

@@ -126,10 +126,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.searchbox.mojom.ToolModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.searchbox.mojom.SideTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.searchbox.mojom.RenderTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.searchbox.mojom.ToolModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.searchbox.mojom.SideTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.searchbox.mojom.RenderTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec = { $: {} };
 mojo.internal.bindings.searchbox.mojom.ActionSpec = { $: {} };

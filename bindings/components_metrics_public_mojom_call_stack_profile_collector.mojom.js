@@ -122,7 +122,7 @@
 mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.metrics.mojom.ProfileTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.metrics.mojom.ProfileTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.metrics.mojom.SampledProfileSpec = { $: {} };
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollector = {};
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec = { $ : {} };

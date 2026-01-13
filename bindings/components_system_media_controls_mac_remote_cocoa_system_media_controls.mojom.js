@@ -123,7 +123,7 @@ mojo.internal.bindings.system_media_controls.mojom = mojo.internal.bindings.syst
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 
-mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls = {};
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec = { $ : {} };
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls.$interfaceName = 'system_media_controls.mojom.SystemMediaControls';

@@ -124,7 +124,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec = { $: {} };

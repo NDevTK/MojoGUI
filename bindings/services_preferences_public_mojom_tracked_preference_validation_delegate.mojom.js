@@ -122,7 +122,7 @@
 mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate = {};
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec = { $ : {} };
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate.$interfaceName = 'prefs.mojom.TrackedPreferenceValidationDelegate';

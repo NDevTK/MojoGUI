@@ -121,9 +121,9 @@
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 
-mojo.internal.bindings.cros.mojom.CameraFacingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.TorchModeStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.CameraFacingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.TorchModeStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.CameraResourceCostSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraInfoSpec = { $: {} };
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacks = {};

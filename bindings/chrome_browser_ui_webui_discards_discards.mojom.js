@@ -124,8 +124,8 @@ mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.PageInfoSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.FrameInfoSpec = { $: {} };

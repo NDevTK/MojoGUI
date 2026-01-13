@@ -123,9 +123,9 @@ mojo.internal.bindings.side_panel.mojom = mojo.internal.bindings.side_panel.mojo
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.side_panel.mojom.ActionSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.mojom.SortOrderSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.side_panel.mojom.ViewTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.mojom.ActionSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.mojom.SortOrderSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.mojom.ViewTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.side_panel.mojom.BookmarksTreeNodeSpec = { $: {} };
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerFactory = {};
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerFactorySpec = { $ : {} };

@@ -121,7 +121,7 @@
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 
-mojo.internal.bindings.webnn.mojom.DeviceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webnn.mojom.DeviceSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: Device
 mojo.internal.bindings.webnn.mojom.Device = {

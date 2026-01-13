@@ -122,7 +122,7 @@
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.glic.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.glic.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.FrePageHandlerFactory = {};
 mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.glic.mojom.FrePageHandlerFactory.$interfaceName = 'glic.mojom.FrePageHandlerFactory';

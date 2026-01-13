@@ -123,7 +123,7 @@ mojo.internal.bindings.action_chips.mojom = mojo.internal.bindings.action_chips.
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.action_chips.mojom.TabInfoSpec = { $: {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipSpec = { $: {} };
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler = {};

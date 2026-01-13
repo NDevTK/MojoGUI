@@ -122,7 +122,7 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.VideoCaptureResultSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoCaptureObserver = {};
 mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec = { $ : {} };

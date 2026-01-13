@@ -127,11 +127,11 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 
-mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.AppShimInfoSpec = { $: {} };

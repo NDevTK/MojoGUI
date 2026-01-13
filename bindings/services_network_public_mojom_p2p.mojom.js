@@ -122,9 +122,9 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PPacketInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PPortRangeSpec = { $: {} };

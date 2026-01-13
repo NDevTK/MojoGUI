@@ -123,7 +123,7 @@ mojo.internal.bindings.mirroring.mojom = mojo.internal.bindings.mirroring.mojom 
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mirroring.mojom.SessionParametersSpec = { $: {} };
 
 // External type stubs (from imports)

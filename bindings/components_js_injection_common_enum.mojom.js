@@ -121,7 +121,7 @@
  mojo.internal.bindings.js_injection = mojo.internal.bindings.js_injection || {};
 mojo.internal.bindings.js_injection.mojom = mojo.internal.bindings.js_injection.mojom || {};
 
-mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: DocumentInjectionTime
 mojo.internal.bindings.js_injection.mojom.DocumentInjectionTime = {

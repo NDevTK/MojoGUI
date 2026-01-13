@@ -122,10 +122,10 @@
 mojo.internal.bindings.nearby_share.mojom = mojo.internal.bindings.nearby_share.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.nearby_share.mojom.DataUsageSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.nearby_share.mojom.VisibilitySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.nearby_share.mojom.DeviceNameValidationResultSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.nearby_share.mojom.DataUsageSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share.mojom.VisibilitySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share.mojom.DeviceNameValidationResultSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.nearby_share.mojom.ContactIdentifierSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.ContactRecordSpec = { $: {} };
 mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver = {};

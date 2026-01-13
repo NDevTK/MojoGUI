@@ -125,8 +125,8 @@ mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.tab_strip_internals.mojom.TypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.tab_strip_internals.mojom.LayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tab_strip_internals.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tab_strip_internals.mojom.LayoutSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.tab_strip_internals.mojom.DataSpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec = { $: {} };
 mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec = { $: {} };

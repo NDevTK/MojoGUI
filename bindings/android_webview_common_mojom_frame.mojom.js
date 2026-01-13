@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.android_webview.mojom.HitTestDataSpec = { $: {} };
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame = {};
 mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec = { $ : {} };

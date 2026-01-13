@@ -121,7 +121,7 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 
-mojo.internal.bindings.content.mojom.RendererTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.RendererTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RendererType
 mojo.internal.bindings.content.mojom.RendererType = {

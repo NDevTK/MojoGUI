@@ -121,7 +121,7 @@
  mojo.internal.bindings.ntp_promo = mojo.internal.bindings.ntp_promo || {};
 mojo.internal.bindings.ntp_promo.mojom = mojo.internal.bindings.ntp_promo.mojom || {};
 
-mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.PromoSpec = { $: {} };
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler = {};

@@ -123,7 +123,7 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.IndexedDBObserver = {};
 mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec = { $ : {} };
 mojo.internal.bindings.storage.mojom.IndexedDBObserver.$interfaceName = 'storage.mojom.IndexedDBObserver';

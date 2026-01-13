@@ -122,8 +122,8 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.NetLogExporter = {};
 mojo.internal.bindings.network.mojom.NetLogExporterSpec = { $ : {} };
 mojo.internal.bindings.network.mojom.NetLogExporter.$interfaceName = 'network.mojom.NetLogExporter';

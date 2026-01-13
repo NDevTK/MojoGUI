@@ -121,7 +121,7 @@
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojom.ACMatchClassificationSpec = { $: {} };
 mojo.internal.bindings.mojom.SignalsSpec = { $: {} };
 mojo.internal.bindings.mojom.AutocompleteMatchSpec = { $: {} };

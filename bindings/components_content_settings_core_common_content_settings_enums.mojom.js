@@ -121,10 +121,10 @@
  mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
 
-mojo.internal.bindings.content_settings.mojom.TpcdMetadataRuleSourceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content_settings.mojom.TpcdMetadataCohortSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content_settings.mojom.SessionModelSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.content_settings.mojom.ProviderTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content_settings.mojom.TpcdMetadataRuleSourceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings.mojom.TpcdMetadataCohortSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings.mojom.SessionModelSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings.mojom.ProviderTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TpcdMetadataRuleSource
 mojo.internal.bindings.content_settings.mojom.TpcdMetadataRuleSource = {

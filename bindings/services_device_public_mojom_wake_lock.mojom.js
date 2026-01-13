@@ -121,8 +121,8 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.WakeLockTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.device.mojom.WakeLockReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.WakeLockTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.WakeLockReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.WakeLock = {};
 mojo.internal.bindings.device.mojom.WakeLockSpec = { $ : {} };
 mojo.internal.bindings.device.mojom.WakeLock.$interfaceName = 'device.mojom.WakeLock';

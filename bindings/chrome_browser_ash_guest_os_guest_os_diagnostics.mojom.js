@@ -122,7 +122,7 @@
 mojo.internal.bindings.guest_os.mojom = mojo.internal.bindings.guest_os.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.guest_os.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.guest_os.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec = { $: {} };
 mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec = { $: {} };
 mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec = { $: {} };

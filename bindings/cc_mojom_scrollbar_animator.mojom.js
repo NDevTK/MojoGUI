@@ -121,7 +121,7 @@
  mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
-mojo.internal.bindings.cc.mojom.ScrollbarAnimatorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cc.mojom.ScrollbarAnimatorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ScrollbarAnimator
 mojo.internal.bindings.cc.mojom.ScrollbarAnimator = {

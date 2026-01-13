@@ -124,7 +124,7 @@ mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FileSystemTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FileSystemInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FileSystemCancellableOperation = {};
 mojo.internal.bindings.blink.mojom.FileSystemCancellableOperationSpec = { $ : {} };

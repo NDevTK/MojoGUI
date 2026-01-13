@@ -122,9 +122,9 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec = { $: {} };
 mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec = { $: {} };

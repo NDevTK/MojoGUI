@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.PeerConnectionManager = {};
 mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec = { $ : {} };

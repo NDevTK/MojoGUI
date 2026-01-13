@@ -122,9 +122,9 @@
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.payments.mojom.ItemTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.payments.mojom.CreateDigitalGoodsResponseCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.ItemTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.CreateDigitalGoodsResponseCodeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.payments.mojom.ItemDetailsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec = { $: {} };
 

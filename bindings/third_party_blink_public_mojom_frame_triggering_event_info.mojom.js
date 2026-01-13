@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.TriggeringEventInfoSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.TriggeringEventInfoSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: TriggeringEventInfo
 mojo.internal.bindings.blink.mojom.TriggeringEventInfo = {

@@ -121,7 +121,7 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
-mojo.internal.bindings.device.mojom.XRDeviceIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.XRDeviceIdSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: XRDeviceId
 mojo.internal.bindings.device.mojom.XRDeviceId = {

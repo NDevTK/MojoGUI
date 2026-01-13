@@ -123,10 +123,10 @@ mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.cros.mojom.EffectSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.StreamTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.cros.mojom.CaptureIntentSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.EffectSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.StreamTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CaptureIntentSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider = {};
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderSpec = { $ : {} };
 mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider.$interfaceName = 'cros.mojom.CameraAppDeviceProvider';

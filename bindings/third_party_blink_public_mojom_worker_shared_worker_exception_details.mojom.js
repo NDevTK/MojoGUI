@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec = { $: {} };
 
 // External type stubs (from imports)

@@ -121,7 +121,7 @@
  mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
-mojo.internal.bindings.cc.mojom.LayerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cc.mojom.LayerTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: LayerType
 mojo.internal.bindings.cc.mojom.LayerType = {

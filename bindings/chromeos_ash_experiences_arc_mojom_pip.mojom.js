@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.PipHost = {};
 mojo.internal.bindings.arc.mojom.PipHostSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.PipHost.$interfaceName = 'arc.mojom.PipHost';

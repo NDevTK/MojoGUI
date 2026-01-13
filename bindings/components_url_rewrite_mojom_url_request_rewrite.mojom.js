@@ -122,7 +122,7 @@
 mojo.internal.bindings.url_rewrite.mojom = mojo.internal.bindings.url_rewrite.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec = { $: {} };
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec = { $: {} };
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec = { $: {} };

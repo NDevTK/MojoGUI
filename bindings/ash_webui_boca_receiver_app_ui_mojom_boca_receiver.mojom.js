@@ -123,7 +123,7 @@ mojo.internal.bindings.ash.boca_receiver = mojo.internal.bindings.ash.boca_recei
 mojo.internal.bindings.ash.boca_receiver.mojom = mojo.internal.bindings.ash.boca_receiver.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.ash.boca_receiver.mojom.ConnectionClosedReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.boca_receiver.mojom.ConnectionClosedReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec = { $: {} };
 mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec = { $: {} };

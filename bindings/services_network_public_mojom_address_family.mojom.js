@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.AddressFamilySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.AddressFamilySpec = { $: mojo.internal.Enum().$ };
 
 // Enum: AddressFamily
 mojo.internal.bindings.network.mojom.AddressFamily = {

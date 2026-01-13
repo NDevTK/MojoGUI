@@ -123,11 +123,11 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.gpu.mojom.VulkanImplementationNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.WebGPUAdapterNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.WebGPUPowerPreferenceSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.GrContextTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevelSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.VulkanImplementationNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.WebGPUAdapterNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.WebGPUPowerPreferenceSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.GrContextTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevelSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.GpuPreferencesSpec = { $: {} };
 
 // External type stubs (from imports)

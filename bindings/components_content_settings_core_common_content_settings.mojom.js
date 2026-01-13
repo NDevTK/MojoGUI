@@ -122,7 +122,7 @@
 mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.content_settings.mojom.ContentSettingSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content_settings.mojom.ContentSettingSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content_settings.mojom.PatternPartsSpec = { $: {} };
 mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec = { $: {} };
 mojo.internal.bindings.content_settings.mojom.RuleMetaDataSpec = { $: {} };

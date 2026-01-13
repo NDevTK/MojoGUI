@@ -122,9 +122,9 @@
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.tracing.mojom.ConsoleOutputSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.tracing.mojom.BufferFillPolicySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.tracing.mojom.TracingClientPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tracing.mojom.ConsoleOutputSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tracing.mojom.BufferFillPolicySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tracing.mojom.TracingClientPrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.tracing.mojom.ChunksToMoveSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ChunkPatchSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.ChunksToPatchSpec = { $: {} };

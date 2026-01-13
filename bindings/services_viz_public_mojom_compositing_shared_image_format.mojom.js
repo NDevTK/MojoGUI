@@ -121,9 +121,9 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
-mojo.internal.bindings.viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.ChannelFormatSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.SharedImageFormatSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.MultiplanarFormatSpec = { $: {} };
 

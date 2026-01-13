@@ -123,8 +123,8 @@ mojo.internal.bindings.data_sharing.mojom = mojo.internal.bindings.data_sharing.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.data_sharing.mojom.GroupActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.data_sharing.mojom.GroupActionProgressSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.data_sharing.mojom.GroupActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.data_sharing.mojom.GroupActionProgressSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.data_sharing.mojom.ReadGroupsParamsSpec = { $: {} };
 mojo.internal.bindings.data_sharing.mojom.ReadGroupParamsSpec = { $: {} };
 mojo.internal.bindings.data_sharing.mojom.ReadGroupsResultSpec = { $: {} };

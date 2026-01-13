@@ -124,8 +124,8 @@ mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.viz.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.viz.mojom.ResourceSourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.ResourceSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.MetadataOverrideSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.TransferableResourceSpec = { $: {} };
 

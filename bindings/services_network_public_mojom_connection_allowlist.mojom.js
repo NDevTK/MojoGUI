@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec = { $: {} };
 

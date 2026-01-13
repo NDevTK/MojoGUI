@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.HandwritingGestureResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.HandwritingGestureResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: HandwritingGestureResult
 mojo.internal.bindings.blink.mojom.HandwritingGestureResult = {

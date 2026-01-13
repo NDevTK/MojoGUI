@@ -122,9 +122,9 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec = { $: {} };

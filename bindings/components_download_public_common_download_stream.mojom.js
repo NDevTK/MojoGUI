@@ -121,7 +121,7 @@
  mojo.internal.bindings.download = mojo.internal.bindings.download || {};
 mojo.internal.bindings.download.mojom = mojo.internal.bindings.download.mojom || {};
 
-mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec = { $: {} };
 mojo.internal.bindings.download.mojom.DownloadStreamClient = {};
 mojo.internal.bindings.download.mojom.DownloadStreamClientSpec = { $ : {} };

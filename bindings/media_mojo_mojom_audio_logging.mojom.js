@@ -121,7 +121,7 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
-mojo.internal.bindings.media.mojom.AudioLogComponentSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.AudioLogComponentSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.AudioLog = {};
 mojo.internal.bindings.media.mojom.AudioLogSpec = { $ : {} };
 mojo.internal.bindings.media.mojom.AudioLog.$interfaceName = 'media.mojom.AudioLog';

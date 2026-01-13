@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstance = {};
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec = { $ : {} };
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstance.$interfaceName = 'arc.mojom.CompatibilityModeInstance';

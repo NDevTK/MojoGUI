@@ -121,7 +121,7 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 
-mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ui.mojom.ClickModifiersSpec = { $: {} };
 
 // Enum: WindowOpenDisposition

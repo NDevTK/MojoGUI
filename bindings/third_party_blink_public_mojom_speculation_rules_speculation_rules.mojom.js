@@ -123,10 +123,10 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.SpeculationHost = {};
 mojo.internal.bindings.blink.mojom.SpeculationHostSpec = { $ : {} };

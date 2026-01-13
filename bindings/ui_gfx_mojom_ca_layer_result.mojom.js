@@ -121,7 +121,7 @@
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.CALayerResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gfx.mojom.CALayerResultSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: CALayerResult
 mojo.internal.bindings.gfx.mojom.CALayerResult = {

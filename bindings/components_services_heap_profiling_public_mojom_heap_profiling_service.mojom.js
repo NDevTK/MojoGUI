@@ -122,7 +122,7 @@
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.heap_profiling.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.heap_profiling.mojom.ProcessTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.heap_profiling.mojom.ProfilingService = {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceSpec = { $ : {} };
 mojo.internal.bindings.heap_profiling.mojom.ProfilingService.$interfaceName = 'heap_profiling.mojom.ProfilingService';

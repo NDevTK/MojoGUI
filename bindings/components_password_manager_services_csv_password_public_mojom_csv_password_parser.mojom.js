@@ -123,7 +123,7 @@ mojo.internal.bindings.password_manager.mojom = mojo.internal.bindings.password_
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.password_manager.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.password_manager.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordSequenceSpec = { $: {} };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec = { $: {} };
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParser = {};

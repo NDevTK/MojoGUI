@@ -121,7 +121,7 @@
  mojo.internal.bindings.webui_toolbar = mojo.internal.bindings.webui_toolbar || {};
 mojo.internal.bindings.webui_toolbar.mojom = mojo.internal.bindings.webui_toolbar.mojom || {};
 
-mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory.$interfaceName = 'webui_toolbar.mojom.PageHandlerFactory';

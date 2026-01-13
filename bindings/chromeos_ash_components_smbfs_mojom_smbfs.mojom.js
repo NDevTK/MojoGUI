@@ -121,9 +121,9 @@
  mojo.internal.bindings.smbfs = mojo.internal.bindings.smbfs || {};
 mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
 
-mojo.internal.bindings.smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.smbfs.mojom.SourceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.smbfs.mojom.SourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.smbfs.mojom.PasswordSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec = { $: {} };
 mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec = { $: {} };

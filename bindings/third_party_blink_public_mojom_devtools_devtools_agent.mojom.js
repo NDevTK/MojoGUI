@@ -124,7 +124,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DevToolsMessageSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.DevToolsAgent = {};

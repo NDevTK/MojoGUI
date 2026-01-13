@@ -121,8 +121,8 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.blink.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ServiceWorkerErrorType
 mojo.internal.bindings.blink.mojom.ServiceWorkerErrorType = {

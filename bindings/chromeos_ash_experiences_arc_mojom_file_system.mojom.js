@@ -123,9 +123,9 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.arc.mojom.ChangeTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.SelectFilesActionTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.FileSelectorEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ChangeTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.SelectFilesActionTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.FileSelectorEventTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.MediaStoreMetadataSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.DocumentSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.RootSpec = { $: {} };

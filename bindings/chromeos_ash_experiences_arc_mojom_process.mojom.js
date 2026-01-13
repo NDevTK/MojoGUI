@@ -122,8 +122,8 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.memory_instrumentation = mojo.internal.bindings.memory_instrumentation || {};
 
-mojo.internal.bindings.arc.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.arc.mojom.PressureLevelSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ProcessStateSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PressureLevelSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec = { $: {} };

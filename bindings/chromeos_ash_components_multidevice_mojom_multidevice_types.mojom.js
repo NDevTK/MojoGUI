@@ -123,8 +123,8 @@ mojo.internal.bindings.ash.multidevice = mojo.internal.bindings.ash.multidevice 
 mojo.internal.bindings.ash.multidevice.mojom = mojo.internal.bindings.ash.multidevice.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec = { $: {} };
 mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec = { $: {} };
 

@@ -121,7 +121,7 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ReclaimTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ReclaimTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.ReclaimRequestSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ReclaimResultSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MemoryInstance = {};

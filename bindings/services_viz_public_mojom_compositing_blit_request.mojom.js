@@ -123,7 +123,7 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.LetterboxingBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.LetterboxingBehaviorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.BlitRequestSpec = { $: {} };
 
 // External type stubs (from imports)

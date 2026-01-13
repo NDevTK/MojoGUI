@@ -121,7 +121,7 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = { $: {} };

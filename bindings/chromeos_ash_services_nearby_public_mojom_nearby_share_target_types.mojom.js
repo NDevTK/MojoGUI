@@ -121,7 +121,7 @@
  mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
 mojo.internal.bindings.nearby_share.mojom = mojo.internal.bindings.nearby_share.mojom || {};
 
-mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: ShareTargetType
 mojo.internal.bindings.nearby_share.mojom.ShareTargetType = {

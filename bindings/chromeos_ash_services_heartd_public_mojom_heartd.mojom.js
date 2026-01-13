@@ -122,9 +122,9 @@
 mojo.internal.bindings.ash.heartd = mojo.internal.bindings.ash.heartd || {};
 mojo.internal.bindings.ash.heartd.mojom = mojo.internal.bindings.ash.heartd.mojom || {};
 
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec = { $: {} };
 mojo.internal.bindings.ash.heartd.mojom.ActionSpec = { $: {} };
 mojo.internal.bindings.ash.heartd.mojom.HeartdControl = {};

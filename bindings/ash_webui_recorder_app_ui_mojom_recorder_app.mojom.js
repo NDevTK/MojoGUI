@@ -125,7 +125,7 @@ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 
-mojo.internal.bindings.ash.recorder_app.mojom.ModelStateTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.recorder_app.mojom.ModelStateTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.ModelInfoSpec = { $: {} };
 mojo.internal.bindings.ash.recorder_app.mojom.MicrophoneInfoSpec = { $: {} };

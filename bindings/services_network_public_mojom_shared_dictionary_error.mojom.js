@@ -121,7 +121,7 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 
-mojo.internal.bindings.network.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.SharedDictionaryErrorSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: SharedDictionaryError
 mojo.internal.bindings.network.mojom.SharedDictionaryError = {

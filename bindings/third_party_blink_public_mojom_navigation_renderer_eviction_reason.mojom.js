@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.RendererEvictionReasonSpec = { $: mojo.internal.Enum().$ };
 
 // Enum: RendererEvictionReason
 mojo.internal.bindings.blink.mojom.RendererEvictionReason = {

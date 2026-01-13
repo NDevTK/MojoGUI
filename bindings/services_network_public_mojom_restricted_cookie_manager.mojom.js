@@ -123,8 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.CookieMatchTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.CookieMatchTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.CookiesResponseSpec = { $: {} };
 mojo.internal.bindings.network.mojom.RestrictedCookieManager = {};

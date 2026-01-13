@@ -122,8 +122,8 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.network.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.network.mojom.CorsErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.CorsPreflightPolicySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CorsErrorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CorsErrorStatusSpec = { $: {} };
 
 // External type stubs (from imports)

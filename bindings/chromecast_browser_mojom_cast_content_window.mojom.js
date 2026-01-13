@@ -122,8 +122,8 @@
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver = {};
 mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec = { $ : {} };
 mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver.$interfaceName = 'chromecast.mojom.CastContentWindowObserver';

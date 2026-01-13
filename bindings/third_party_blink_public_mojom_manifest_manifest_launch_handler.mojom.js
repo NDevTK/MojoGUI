@@ -121,7 +121,7 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ClientModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.ClientModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ManifestLaunchHandlerSpec = { $: {} };
 
 // Enum: ClientMode

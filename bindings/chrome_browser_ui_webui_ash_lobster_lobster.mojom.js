@@ -123,8 +123,8 @@ mojo.internal.bindings.lobster.mojom = mojo.internal.bindings.lobster.mojom || {
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.lobster.mojom.ResponseSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.CandidateSpec = { $: {} };
 mojo.internal.bindings.lobster.mojom.ErrorSpec = { $: {} };

@@ -122,7 +122,7 @@
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.viz.mojom.ContentFrameIntervalTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.viz.mojom.ContentFrameIntervalTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.ContentFrameIntervalInfoSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec = { $: {} };
 

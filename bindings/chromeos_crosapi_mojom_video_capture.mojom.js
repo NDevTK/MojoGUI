@@ -124,8 +124,8 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.crosapi.mojom.DeviceAccessResultCodeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.crosapi.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.DeviceAccessResultCodeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.VideoRotationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.GpuMemoryBufferPlatformHandleSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.VideoBufferHandleSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.NativePixmapHandleSpec = { $: {} };

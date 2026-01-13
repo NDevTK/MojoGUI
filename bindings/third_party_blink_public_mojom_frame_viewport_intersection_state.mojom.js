@@ -122,7 +122,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.ViewportIntersectionStateSpec = { $: {} };
 
 // External type stubs (from imports)
