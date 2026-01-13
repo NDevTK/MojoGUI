@@ -139,11 +139,11 @@ mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.netw
 // Struct: IfAddrMsg
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IfAddrMsgSpec, 'network.mojom.IfAddrMsg', [
-      mojo.internal.StructField('arg_ifa_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ifa_family', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ifa_prefixlen', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ifa_flags', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ifa_scope', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ifa_family', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ifa_prefixlen', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ifa_flags', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ifa_scope', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ifa_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

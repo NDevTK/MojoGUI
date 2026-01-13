@@ -145,9 +145,9 @@ mojo.internal.bindings.viz.mojom.ContentFrameIntervalType = {
 // Struct: ContentFrameIntervalInfo
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ContentFrameIntervalInfoSpec, 'viz.mojom.ContentFrameIntervalInfo', [
-      mojo.internal.StructField('arg_frame_interval', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.viz.mojom.ContentFrameIntervalTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duplicate_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.ContentFrameIntervalTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duplicate_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -155,10 +155,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec, 'viz.mojom.FrameIntervalInputs', [
       mojo.internal.StructField('arg_frame_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_interval_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ContentFrameIntervalInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_major_scroll_speed_in_pixels_per_second', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_user_input', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_input', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_only_content_frame_interval_updates', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_user_input', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_input', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_only_content_frame_interval_updates', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_major_scroll_speed_in_pixels_per_second', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_interval_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ContentFrameIntervalInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

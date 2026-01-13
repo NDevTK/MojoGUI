@@ -205,11 +205,11 @@ mojo.internal.bindings.blink.mojom.PagehideDispatch = {
 // Struct: PageLifecycleState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec, 'blink.mojom.PageLifecycleState', [
-      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pagehide_dispatch', 4, 0, mojo.internal.bindings.blink.mojom.PagehideDispatchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_frozen', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_in_back_forward_cache', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_eviction_enabled', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_frozen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_in_back_forward_cache', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_eviction_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 4, 0, mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pagehide_dispatch', 8, 0, mojo.internal.bindings.blink.mojom.PagehideDispatchSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -217,9 +217,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec, 'blink.mojom.PageRestoreParams', [
       mojo.internal.StructField('arg_navigation_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_transition_state', 8, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pending_history_list_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_current_history_list_length', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_history_list_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_current_history_list_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_view_transition_state', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -235,9 +235,9 @@ mojo.internal.Struct(
 // Struct: PrerenderPageActivationParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec, 'blink.mojom.PrerenderPageActivationParams', [
-      mojo.internal.StructField('arg_activation_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_view_transition_state', 8, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_was_user_activated', 16, 0, mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_user_activated', 0, 0, mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_view_transition_state', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -298,14 +298,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec, 'blink.mojom.PageBroadcast_CreateRemoteMainFrame_Params', [
-      mojo.internal.StructField('arg_opener_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_opener_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_replication_state', 24, 0, mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_frame_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_metrics_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_remote_frame_interfaces', 48, 0, mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_main_frame_interfaces', 56, 0, mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_loading', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_loading', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_frame_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_metrics_token', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_remote_frame_interfaces', 56, 0, mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_main_frame_interfaces', 64, 0, mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 

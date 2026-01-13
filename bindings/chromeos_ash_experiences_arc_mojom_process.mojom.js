@@ -202,11 +202,11 @@ mojo.internal.bindings.arc.mojom.PressureLevel = {
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec, 'arc.mojom.RunningAppProcessInfo', [
       mojo.internal.StructField('arg_process_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_last_activity_time', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_process_state', 28, 0, mojo.internal.bindings.arc.mojom.ProcessStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_focused', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process_state', 12, 0, mojo.internal.bindings.arc.mojom.ProcessStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packages', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_focused', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_last_activity_time', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -235,8 +235,8 @@ mojo.internal.Struct(
 // Interface: ProcessInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec, 'arc.mojom.ProcessInstance_KillProcess_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -276,29 +276,29 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec, 'arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_Params', [
-      mojo.internal.StructField('arg_reclaim_target', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.bindings.arc.mojom.ProcessStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 0, 0, mojo.internal.bindings.arc.mojom.ProcessStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reclaim_target', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec, 'arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParams', [
-      mojo.internal.StructField('arg_reclaimed', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_killed', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_killed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reclaimed', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec, 'arc.mojom.ProcessInstance_ApplyHostMemoryPressure_Params', [
-      mojo.internal.StructField('arg_reclaim_target', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.bindings.arc.mojom.PressureLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 0, 0, mojo.internal.bindings.arc.mojom.PressureLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reclaim_target', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec, 'arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParams', [
-      mojo.internal.StructField('arg_reclaimed', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_killed', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_killed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reclaimed', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

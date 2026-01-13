@@ -147,35 +147,35 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_bitmap_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_favicon', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_bypass_cache', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_favicon', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bypass_cache', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_bitmap_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_ResponseParams', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_image_sizes', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_http_status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_image_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_Params', [
-      mojo.internal.StructField('arg_preferred_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ax_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_bitmap_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ax_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_bitmap_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_bypass_cache', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParams', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_image_sizes', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_http_status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_image_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

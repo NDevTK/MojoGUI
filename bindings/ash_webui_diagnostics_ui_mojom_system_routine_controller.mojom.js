@@ -195,17 +195,17 @@ mojo.internal.Union(
 // Struct: PowerRoutineResult
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
-      mojo.internal.StructField('arg_percent_change', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_simple_result', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_elapsed_seconds', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_simple_result', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_elapsed_seconds', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_change', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RoutineResultInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -389,8 +389,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
-      mojo.internal.StructField('arg_runner', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_runner', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

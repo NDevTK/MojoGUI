@@ -182,8 +182,8 @@ mojo.internal.Union(
 // Struct: Exception
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ExceptionSpec, 'ash.cros_healthd.mojom.Exception', [
-      mojo.internal.StructField('arg_debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -196,7 +196,7 @@ mojo.internal.Struct(
 // Struct: Unsupported
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.UnsupportedSpec, 'ash.cros_healthd.mojom.Unsupported', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UnsupportedReasonSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_debug_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UnsupportedReasonSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);

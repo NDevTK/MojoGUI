@@ -498,16 +498,16 @@ mojo.internal.Union(
 // Struct: TelemetryDiagnosticMemoryRoutineArgument
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticMemoryRoutineArgument', [
-      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
-      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryDiagnosticVolumeButtonRoutineArgument
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgumentSpec, 'crosapi.mojom.TelemetryDiagnosticVolumeButtonRoutineArgument', [
-      mojo.internal.StructField('arg_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.crosapi.mojom.ButtonTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.crosapi.mojom.ButtonTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -552,8 +552,8 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfoSpec, 'crosapi.mojom.TelemetryDiagnosticNetworkBandwidthRoutineRunningInfo', [
-      mojo.internal.StructField('arg_speed_kbps', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.crosapi.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.crosapi.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_speed_kbps', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -593,8 +593,8 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticRoutineStateWaiting
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateWaiting', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInteractionSpec, null, true, 1, undefined),
     ],
     [[0, 24], [1, 40]]);
@@ -650,16 +650,16 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticRoutineStateFinished
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateFinishedSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateFinished', [
-      mojo.internal.StructField('arg_detail', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_passed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_passed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_detail', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineDetailSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: TelemetryDiagnosticRoutineState
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineState', [
-      mojo.internal.StructField('arg_state_union', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_percentage', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percentage', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state_union', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateUnionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1110,7 +1110,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_routine_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_observer', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

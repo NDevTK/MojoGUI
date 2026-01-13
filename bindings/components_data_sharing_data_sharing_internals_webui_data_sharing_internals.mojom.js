@@ -337,8 +337,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec, 'data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.data_sharing.mojom.GroupDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.data_sharing.mojom.GroupDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -561,10 +561,10 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerRequest = mojo.in
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'data_sharing_internals.mojom.Page_OnLogMessageAdded_Params', [
       mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_source', 24, 0, mojo.internal.bindings.logger_common.mojom.LogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_line', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_log_source', 8, 0, mojo.internal.bindings.logger_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_line', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

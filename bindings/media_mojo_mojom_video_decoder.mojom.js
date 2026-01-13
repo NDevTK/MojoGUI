@@ -221,10 +221,10 @@ mojo.internal.Struct(
 // Struct: SupportedVideoDecoderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, 'media.mojom.SupportedVideoDecoderConfig', [
-      mojo.internal.StructField('arg_coded_size_min', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size_max', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile_min', 16, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile_max', 20, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_min', 0, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_max', 4, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size_min', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size_max', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_allow_encrypted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_require_encrypted', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -437,19 +437,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ParamsSpec, 'media.mojom.VideoDecoder_Initialize_Params', [
-      mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.bindings.media.mojom.CdmSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_low_delay', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_low_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm', 16, 0, mojo.internal.bindings.media.mojom.CdmSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'media.mojom.VideoDecoder_Initialize_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecoderStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_decode_requests', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder_type', 12, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_bitstream_conversion', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_transcryption', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_transcryption', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_decode_requests', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder_type', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -888,8 +888,8 @@ mojo.internal.bindings.media.mojom.VideoDecoderRequest = mojo.internal.bindings.
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'media.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
       mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_can_read_without_stalling', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_read_without_stalling', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_release_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

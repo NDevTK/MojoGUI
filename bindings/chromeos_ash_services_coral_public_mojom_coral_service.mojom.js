@@ -275,8 +275,8 @@ mojo.internal.Struct(
 // Struct: TitleGenerationOptions
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, 'coral.mojom.TitleGenerationOptions', [
-      mojo.internal.StructField('arg_language_code', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_max_characters', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_characters', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_language_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

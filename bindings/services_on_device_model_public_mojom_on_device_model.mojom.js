@@ -361,9 +361,9 @@ mojo.internal.Struct(
 // Struct: SessionParams
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, 'on_device_model.mojom.SessionParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_tokens', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_k', 12, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_max_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_k', 4, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_capabilities', 8, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_temperature', 16, 0, mojo.internal.Float, 0, false, 1, undefined),
     ],
     [[0, 24], [1, 32]]);
@@ -394,10 +394,10 @@ mojo.internal.Struct(
 // Struct: AudioData
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.AudioDataSpec, 'on_device_model.mojom.AudioData', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_rate', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_rate', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -419,17 +419,17 @@ mojo.internal.Struct(
 // Struct: DevicePerformanceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec, 'on_device_model.mojom.DevicePerformanceInfo', [
-      mojo.internal.StructField('arg_vram_mb', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_performance_class', 8, 0, mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_performance_class', 0, 0, mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vram_mb', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.DeviceInfoSpec, 'on_device_model.mojom.DeviceInfo', [
-      mojo.internal.StructField('arg_driver_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_driver_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_supports_fp16', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -883,7 +883,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec, 'on_device_model.mojom.Session_AsrStream_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AsrStreamOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_responder', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

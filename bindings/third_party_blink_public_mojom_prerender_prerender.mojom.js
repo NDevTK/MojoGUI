@@ -152,9 +152,9 @@ mojo.internal.bindings.blink.mojom.PrerenderTriggerType = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec, 'blink.mojom.PrerenderAttributes', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer', 8, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger_type', 24, 0, mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger_type', 8, 0, mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

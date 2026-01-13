@@ -208,16 +208,16 @@ mojo.internal.Union(
 // Struct: SearchResult
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.SearchResultSpec, 'ash.settings.mojom.SearchResult', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_canonical_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_path_with_parameters', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_settings_page_hierarchy', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 56, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_rank', 60, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 64, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_generated_from_text_match', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_canonical_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_path_with_parameters', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_rank', 28, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_generated_from_text_match', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 52, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 56, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
     ],
     [[0, 80]]);
 

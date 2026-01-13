@@ -146,8 +146,8 @@ mojo.internal.bindings.device.mojom.PressureSourceSpec = mojo.internal.bindings.
 // Interface: WebPressureManager
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

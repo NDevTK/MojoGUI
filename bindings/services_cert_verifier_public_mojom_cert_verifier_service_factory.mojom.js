@@ -195,8 +195,8 @@ mojo.internal.bindings.cert_verifier.mojom.CertificateTrust = {
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, 'cert_verifier.mojom.CertVerifierCreationParams', [
       mojo.internal.StructField('arg_initial_additional_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ct_policy', 8, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wait_for_update', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_wait_for_update', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ct_policy', 16, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -246,11 +246,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_updater', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_params', 24, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_updater', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_params', 16, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_Params', [

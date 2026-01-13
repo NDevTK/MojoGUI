@@ -180,8 +180,8 @@ mojo.internal.Struct(
 // Struct: Action
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_failure_count', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_count', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 4, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -464,11 +464,11 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRequest = mojo.internal.bin
 // Interface: HeartbeatService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
-      mojo.internal.StructField('arg_argument', 0, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_ResponseParams', [

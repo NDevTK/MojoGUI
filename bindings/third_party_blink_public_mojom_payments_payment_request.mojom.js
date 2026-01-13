@@ -318,8 +318,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_rp_id', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_extensions', 56, 0, mojo.internal.bindings.blink.mojom.AuthenticationExtensionsClientInputsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_browser_bound_pub_key_cred_params', 64, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PublicKeyCredentialParametersSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_entities_logos', 72, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentEntityLogoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_opt_out', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_opt_out', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_entities_logos', 80, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentEntityLogoSpec, false), null, false, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -344,11 +344,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, 'payments.mojom.PaymentMethodData', [
       mojo.internal.StructField('arg_supported_method', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_stringified_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_networks', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.BasicCardNetworkSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_payment_confirmation', 24, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_environment', 32, 0, mojo.internal.bindings.payments.mojom.AndroidPayEnvironmentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_google_play_services_version', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_api_version', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_environment', 16, 0, mojo.internal.bindings.payments.mojom.AndroidPayEnvironmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_google_play_services_version', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_api_version', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_networks', 32, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.BasicCardNetworkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_payment_confirmation', 40, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationRequestSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -378,11 +378,11 @@ mojo.internal.Struct(
 // Struct: PaymentOptions
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentOptionsSpec, 'payments.mojom.PaymentOptions', [
-      mojo.internal.StructField('arg_shipping_type', 0, 0, mojo.internal.bindings.payments.mojom.PaymentShippingTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_payer_name', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_payer_email', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_payer_phone', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_shipping', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_payer_name', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_payer_email', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_payer_phone', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_shipping', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shipping_type', 4, 0, mojo.internal.bindings.payments.mojom.PaymentShippingTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -420,8 +420,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestClient_OnError_ParamsSpec, 'payments.mojom.PaymentRequestClient_OnError_Params', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.payments.mojom.PaymentErrorReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.payments.mojom.PaymentErrorReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

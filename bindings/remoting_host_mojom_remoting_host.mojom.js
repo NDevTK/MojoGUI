@@ -169,9 +169,9 @@ mojo.internal.bindings.remoting.mojom.TransportRouteType = {
 // Struct: TransportRoute
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.TransportRouteSpec, 'remoting.mojom.TransportRoute', [
-      mojo.internal.StructField('arg_remote_address', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_address', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -192,9 +192,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec, 'remoting.mojom.RemotingHostControl_BindChromotingHostServices_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_peer_pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_peer_pid', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.remoting.mojom.RemotingHostControlPendingReceiver = class {
   constructor(handle) {
@@ -452,9 +452,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Params', [
-      mojo.internal.StructField('arg_desktop_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

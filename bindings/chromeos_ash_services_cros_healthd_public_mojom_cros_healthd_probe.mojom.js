@@ -1195,8 +1195,8 @@ mojo.internal.Union(
 // Struct: ProbeError
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ProbeErrorSpec, 'ash.cros_healthd.mojom.ProbeError', [
-      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_msg', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1212,21 +1212,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ProcessInfoSpec, 'ash.cros_healthd.mojom.ProcessInfo', [
       mojo.internal.StructField('arg_command', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uptime_ticks', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes_read', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes_written', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_read_system_calls', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_write_system_calls', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_bytes_read', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_bytes_written', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cancelled_bytes_written', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_user_id', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 76, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_memory_kib', 80, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resident_memory_kib', 84, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_free_memory_kib', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 92, 0, mojo.internal.Int8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_nice', 93, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_user_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 12, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_nice', 13, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uptime_ticks', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_memory_kib', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resident_memory_kib', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_free_memory_kib', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_read', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_written', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_read_system_calls', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_write_system_calls', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_bytes_read', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_bytes_written', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cancelled_bytes_written', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_name', 96, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('arg_parent_process_id', 104, 0, mojo.internal.Uint32, 0, false, 1, undefined),
       mojo.internal.StructField('arg_process_group_id', 108, 0, mojo.internal.Uint32, 0, false, 1, undefined),
@@ -1258,66 +1258,66 @@ mojo.internal.Struct(
 // Struct: NvmeDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.NvmeDeviceInfoSpec, 'ash.cros_healthd.mojom.NvmeDeviceInfo', [
-      mojo.internal.StructField('arg_firmware_rev', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subsystem_vendor', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subsystem_device', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pcie_rev', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subsystem_vendor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subsystem_device', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pcie_rev', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_firmware_rev', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: EmmcDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.EmmcDeviceInfoSpec, 'ash.cros_healthd.mojom.EmmcDeviceInfo', [
-      mojo.internal.StructField('arg_pnm', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fwrev', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_manfid', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_prv', 18, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manfid', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_prv', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pnm', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fwrev', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: UfsDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.UfsDeviceInfoSpec, 'ash.cros_healthd.mojom.UfsDeviceInfo', [
-      mojo.internal.StructField('arg_fwrev', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_jedec_manfid', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_jedec_manfid', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fwrev', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NonRemovableBlockDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.NonRemovableBlockDeviceInfoSpec, 'ash.cros_healthd.mojom.NonRemovableBlockDeviceInfo', [
-      mojo.internal.StructField('arg_vendor_id', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceVendorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceProductSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_revision', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceRevisionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_firmware_version', 48, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceFirmwareSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes_read_since_last_boot', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes_written_since_last_boot', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_read_time_seconds_since_last_boot', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_write_time_seconds_since_last_boot', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_io_time_seconds_since_last_boot', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_discard_time_seconds_since_last_boot', 104, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint64Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_name', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 120, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_read_since_last_boot', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_written_since_last_boot', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_read_time_seconds_since_last_boot', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_write_time_seconds_since_last_boot', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_io_time_seconds_since_last_boot', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_discard_time_seconds_since_last_boot', 40, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint64Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 48, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceVendorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 64, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceProductSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_revision', 80, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceRevisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_firmware_version', 112, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceFirmwareSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 128, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 136, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purpose', 144, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StorageDevicePurposeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_serial', 148, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_id', 152, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_purpose', 136, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StorageDevicePurposeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_id', 140, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_rotational_$flag', 141, 0, mojo.internal.Bool, false, false, 3, { isPrimary: true, linkedValueFieldName: 'arg_is_rotational_$value', originalFieldName: 'arg_is_rotational' }),
+      mojo.internal.StructField('arg_is_rotational_$value', 141, 1, mojo.internal.Bool, false, false, 3, { isPrimary: false, linkedValueFieldName: 'arg_is_rotational_$flag', originalFieldName: 'arg_is_rotational' }),
+      mojo.internal.StructField('arg_path', 144, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_serial', 152, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_device_info', 160, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BlockDeviceInfoSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_firmware_string', 176, 0, mojo.internal.String, null, true, 2, undefined),
-      mojo.internal.StructField('arg_is_rotational_$flag', 184, 0, mojo.internal.Bool, false, false, 3, { isPrimary: true, linkedValueFieldName: 'arg_is_rotational_$value', originalFieldName: 'arg_is_rotational' }),
-      mojo.internal.StructField('arg_is_rotational_$value', 184, 1, mojo.internal.Bool, false, false, 3, { isPrimary: false, linkedValueFieldName: 'arg_is_rotational_$flag', originalFieldName: 'arg_is_rotational' }),
     ],
-    [[0, 168], [1, 184], [2, 192], [3, 200]]);
+    [[0, 168], [1, 184], [2, 192], [3, 152]]);
 
 // Struct: CpuInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CpuInfoSpec, 'ash.cros_healthd.mojom.CpuInfo', [
-      mojo.internal.StructField('arg_physical_cpus', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.PhysicalCpuInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_temperature_channels', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.CpuTemperatureChannelSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_keylocker_info', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.KeylockerInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_num_total_threads', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_architecture', 28, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CpuArchitectureEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_num_total_threads', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_architecture', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CpuArchitectureEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_cpus', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.PhysicalCpuInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_temperature_channels', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.CpuTemperatureChannelSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keylocker_info', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.KeylockerInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_virtualization', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.VirtualizationInfoSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_vulnerabilities', 40, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.ash.cros_healthd.mojom.VulnerabilityInfoSpec, false), null, true, 1, undefined),
     ],
@@ -1326,17 +1326,17 @@ mojo.internal.Struct(
 // Struct: VirtualizationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.VirtualizationInfoSpec, 'ash.cros_healthd.mojom.VirtualizationInfo', [
-      mojo.internal.StructField('arg_smt_control', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.SMTControlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_kvm_device', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_smt_active', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_kvm_device', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_smt_active', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_smt_control', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.SMTControlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: VulnerabilityInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.VulnerabilityInfoSpec, 'ash.cros_healthd.mojom.VulnerabilityInfo', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1369,16 +1369,16 @@ mojo.internal.Struct(
 // Struct: LogicalCpuInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.LogicalCpuInfoSpec, 'ash.cros_healthd.mojom.LogicalCpuInfo', [
-      mojo.internal.StructField('arg_user_time_user_hz', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_system_time_user_hz', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_idle_time_user_hz', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_c_states', 24, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.CpuCStateInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_clock_speed_khz', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scaling_max_frequency_khz', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scaling_current_frequency_khz', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_core_id', 44, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_max_clock_speed_khz', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scaling_max_frequency_khz', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scaling_current_frequency_khz', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_core_id', 12, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_user_time_user_hz', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_system_time_user_hz', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_idle_time_user_hz', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_c_states', 40, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.CpuCStateInfoSpec, false), null, false, 0, undefined),
     ],
-    [[0, 56], [1, 56]]);
+    [[0, 56], [1, 24]]);
 
 // Struct: CpuCStateInfo
 mojo.internal.Struct(
@@ -1407,10 +1407,21 @@ mojo.internal.Struct(
 // Struct: MemoryInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.MemoryInfoSpec, 'ash.cros_healthd.mojom.MemoryInfo', [
-      mojo.internal.StructField('arg_page_faults_since_last_boot', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_total_memory_kib', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_free_memory_kib', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_available_memory_kib', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_memory_kib', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_free_memory_kib', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_available_memory_kib', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffers_kib_$flag', 12, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_buffers_kib_$value', originalFieldName: 'arg_buffers_kib' }),
+      mojo.internal.StructField('arg_page_cache_kib_$flag', 12, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_page_cache_kib_$value', originalFieldName: 'arg_page_cache_kib' }),
+      mojo.internal.StructField('arg_shared_memory_kib_$flag', 12, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_shared_memory_kib_$value', originalFieldName: 'arg_shared_memory_kib' }),
+      mojo.internal.StructField('arg_active_memory_kib_$flag', 12, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_active_memory_kib_$value', originalFieldName: 'arg_active_memory_kib' }),
+      mojo.internal.StructField('arg_inactive_memory_kib_$flag', 12, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_inactive_memory_kib_$value', originalFieldName: 'arg_inactive_memory_kib' }),
+      mojo.internal.StructField('arg_total_swap_memory_kib_$flag', 12, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_total_swap_memory_kib_$value', originalFieldName: 'arg_total_swap_memory_kib' }),
+      mojo.internal.StructField('arg_free_swap_memory_kib_$flag', 12, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_free_swap_memory_kib_$value', originalFieldName: 'arg_free_swap_memory_kib' }),
+      mojo.internal.StructField('arg_cached_swap_memory_kib_$flag', 12, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_cached_swap_memory_kib_$value', originalFieldName: 'arg_cached_swap_memory_kib' }),
+      mojo.internal.StructField('arg_total_slab_memory_kib_$flag', 13, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_total_slab_memory_kib_$value', originalFieldName: 'arg_total_slab_memory_kib' }),
+      mojo.internal.StructField('arg_reclaimable_slab_memory_kib_$flag', 13, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_reclaimable_slab_memory_kib_$value', originalFieldName: 'arg_reclaimable_slab_memory_kib' }),
+      mojo.internal.StructField('arg_unreclaimable_slab_memory_kib_$flag', 13, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_unreclaimable_slab_memory_kib_$value', originalFieldName: 'arg_unreclaimable_slab_memory_kib' }),
+      mojo.internal.StructField('arg_page_faults_since_last_boot', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_memory_encryption_info', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.MemoryEncryptionInfoSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_buffers_kib_$value', 32, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_buffers_kib_$flag', originalFieldName: 'arg_buffers_kib' }),
       mojo.internal.StructField('arg_page_cache_kib_$value', 40, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_page_cache_kib_$flag', originalFieldName: 'arg_page_cache_kib' }),
@@ -1423,19 +1434,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_total_slab_memory_kib_$value', 96, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_total_slab_memory_kib_$flag', originalFieldName: 'arg_total_slab_memory_kib' }),
       mojo.internal.StructField('arg_reclaimable_slab_memory_kib_$value', 104, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_reclaimable_slab_memory_kib_$flag', originalFieldName: 'arg_reclaimable_slab_memory_kib' }),
       mojo.internal.StructField('arg_unreclaimable_slab_memory_kib_$value', 112, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_unreclaimable_slab_memory_kib_$flag', originalFieldName: 'arg_unreclaimable_slab_memory_kib' }),
-      mojo.internal.StructField('arg_buffers_kib_$flag', 120, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_buffers_kib_$value', originalFieldName: 'arg_buffers_kib' }),
-      mojo.internal.StructField('arg_page_cache_kib_$flag', 120, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_page_cache_kib_$value', originalFieldName: 'arg_page_cache_kib' }),
-      mojo.internal.StructField('arg_shared_memory_kib_$flag', 120, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_shared_memory_kib_$value', originalFieldName: 'arg_shared_memory_kib' }),
-      mojo.internal.StructField('arg_active_memory_kib_$flag', 120, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_active_memory_kib_$value', originalFieldName: 'arg_active_memory_kib' }),
-      mojo.internal.StructField('arg_inactive_memory_kib_$flag', 120, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_inactive_memory_kib_$value', originalFieldName: 'arg_inactive_memory_kib' }),
-      mojo.internal.StructField('arg_total_swap_memory_kib_$flag', 120, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_total_swap_memory_kib_$value', originalFieldName: 'arg_total_swap_memory_kib' }),
-      mojo.internal.StructField('arg_free_swap_memory_kib_$flag', 120, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_free_swap_memory_kib_$value', originalFieldName: 'arg_free_swap_memory_kib' }),
-      mojo.internal.StructField('arg_cached_swap_memory_kib_$flag', 120, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_cached_swap_memory_kib_$value', originalFieldName: 'arg_cached_swap_memory_kib' }),
-      mojo.internal.StructField('arg_total_slab_memory_kib_$flag', 121, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_total_slab_memory_kib_$value', originalFieldName: 'arg_total_slab_memory_kib' }),
-      mojo.internal.StructField('arg_reclaimable_slab_memory_kib_$flag', 121, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_reclaimable_slab_memory_kib_$value', originalFieldName: 'arg_reclaimable_slab_memory_kib' }),
-      mojo.internal.StructField('arg_unreclaimable_slab_memory_kib_$flag', 121, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_unreclaimable_slab_memory_kib_$value', originalFieldName: 'arg_unreclaimable_slab_memory_kib' }),
     ],
-    [[0, 32], [1, 40], [2, 136]]);
+    [[0, 32], [1, 40], [2, 128]]);
 
 // Struct: MemoryEncryptionInfo
 mojo.internal.Struct(
@@ -1478,29 +1478,29 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothAdapterInfoSpec, 'ash.cros_healthd.mojom.BluetoothAdapterInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_num_connected_devices', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_powered', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_powered', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_discoverable', 16, 1, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_discovering', 16, 2, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_num_connected_devices', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_connected_devices', 24, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothDeviceInfoSpec, false), null, true, 1, undefined),
       mojo.internal.StructField('arg_uuids', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 1, undefined),
       mojo.internal.StructField('arg_modalias', 40, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_discoverable', 48, 0, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_discovering', 48, 1, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_service_allow_list', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
-      mojo.internal.StructField('arg_deprecated_capabilities', 64, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_service_allow_list', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+      mojo.internal.StructField('arg_deprecated_capabilities', 56, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec, null, true, 2, undefined),
     ],
-    [[0, 32], [1, 64], [2, 80]]);
+    [[0, 32], [1, 56], [2, 72]]);
 
 // Struct: BluetoothDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothDeviceInfoSpec, 'ash.cros_healthd.mojom.BluetoothDeviceInfo', [
       mojo.internal.StructField('arg_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_appearance', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_modalias', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_rssi', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableInt16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_mtu', 40, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_uuids', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 56, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_appearance', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_modalias', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rssi', 40, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableInt16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_mtu', 48, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_uuids', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_battery_percentage', 64, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint8Spec, null, true, 1, undefined),
       mojo.internal.StructField('arg_bluetooth_class', 72, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 2, undefined),
     ],
@@ -1529,10 +1529,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_marketing_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_os_version', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.OsVersionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_boot_mode', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BootModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_efi_platform_size', 28, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EfiPlatformSizeSpec, null, false, 2, undefined),
       mojo.internal.StructField('arg_oem_name', 32, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_efi_platform_size', 40, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EfiPlatformSizeSpec, null, false, 2, undefined),
     ],
-    [[0, 40], [1, 48], [2, 56]]);
+    [[0, 40], [1, 48], [2, 40]]);
 
 // Struct: OsVersion
 mojo.internal.Struct(
@@ -1587,31 +1587,31 @@ mojo.internal.Struct(
 // Struct: PsrInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.PsrInfoSpec, 'ash.cros_healthd.mojom.PsrInfo', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oem_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oem_make', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oem_model', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacture_country', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oem_data', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_events', 56, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.PsrEventSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_state', 64, 0, mojo.internal.bindings.ash.cros_healthd.mojom.LogStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_start_date', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uptime_seconds', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_s5_counter', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_s4_counter', 80, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_s3_counter', 84, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_warm_reset_counter', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_supported', 92, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_log_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.LogStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_start_date', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_make', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_model', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacture_country', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_data', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uptime_seconds', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_s5_counter', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_s4_counter', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_s3_counter', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_warm_reset_counter', 80, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_supported', 84, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_events', 88, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.PsrEventSpec, false), null, false, 0, undefined),
     ],
-    [[0, 104], [1, 104]]);
+    [[0, 104], [1, 96]]);
 
 // Struct: WirelessInterfaceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.WirelessInterfaceInfoSpec, 'ash.cros_healthd.mojom.WirelessInterfaceInfo', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wireless_link_info', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.WirelessLinkInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_power_management_on', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_power_management_on', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_wireless_link_info', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.WirelessLinkInfoSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1622,23 +1622,23 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tx_bit_rate_mbps', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_rx_bit_rate_mbps', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_tx_power_dBm', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_link_quality', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_level_dBm', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encyption_on', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_encyption_on', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_link_quality', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_level_dBm', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: AudioInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.AudioInfoSpec, 'ash.cros_healthd.mojom.AudioInfo', [
-      mojo.internal.StructField('arg_output_volume', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_output_device_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_device_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_gain', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_underruns', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_severe_underruns', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_output_mute', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_input_mute', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_output_mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_input_mute', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_input_gain', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output_volume', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output_device_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_device_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_underruns', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_severe_underruns', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_output_nodes', 40, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.AudioNodeInfoSpec, false), null, true, 1, undefined),
       mojo.internal.StructField('arg_input_nodes', 48, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.AudioNodeInfoSpec, false), null, true, 1, undefined),
     ],
@@ -1689,38 +1689,38 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_shutdown_timestamp', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_shutdown_reason', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_tpm_initialization_seconds', 40, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableDoubleSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_power_on_to_kernel_seconds_$value', 48, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_power_on_to_kernel_seconds_$flag', originalFieldName: 'arg_power_on_to_kernel_seconds' }),
-      mojo.internal.StructField('arg_kernel_to_pre_startup_seconds_$value', 56, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_kernel_to_pre_startup_seconds_$flag', originalFieldName: 'arg_kernel_to_pre_startup_seconds' }),
-      mojo.internal.StructField('arg_kernel_to_post_startup_seconds_$value', 64, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_kernel_to_post_startup_seconds_$flag', originalFieldName: 'arg_kernel_to_post_startup_seconds' }),
-      mojo.internal.StructField('arg_startup_to_chrome_exec_seconds_$value', 72, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_startup_to_chrome_exec_seconds_$flag', originalFieldName: 'arg_startup_to_chrome_exec_seconds' }),
-      mojo.internal.StructField('arg_chrome_exec_to_login_seconds_$value', 80, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_chrome_exec_to_login_seconds_$flag', originalFieldName: 'arg_chrome_exec_to_login_seconds' }),
-      mojo.internal.StructField('arg_power_on_to_kernel_seconds_$flag', 88, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_power_on_to_kernel_seconds_$value', originalFieldName: 'arg_power_on_to_kernel_seconds' }),
-      mojo.internal.StructField('arg_kernel_to_pre_startup_seconds_$flag', 88, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_kernel_to_pre_startup_seconds_$value', originalFieldName: 'arg_kernel_to_pre_startup_seconds' }),
-      mojo.internal.StructField('arg_kernel_to_post_startup_seconds_$flag', 88, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_kernel_to_post_startup_seconds_$value', originalFieldName: 'arg_kernel_to_post_startup_seconds' }),
-      mojo.internal.StructField('arg_startup_to_chrome_exec_seconds_$flag', 88, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_startup_to_chrome_exec_seconds_$value', originalFieldName: 'arg_startup_to_chrome_exec_seconds' }),
-      mojo.internal.StructField('arg_chrome_exec_to_login_seconds_$flag', 88, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_chrome_exec_to_login_seconds_$value', originalFieldName: 'arg_chrome_exec_to_login_seconds' }),
+      mojo.internal.StructField('arg_power_on_to_kernel_seconds_$flag', 48, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_power_on_to_kernel_seconds_$value', originalFieldName: 'arg_power_on_to_kernel_seconds' }),
+      mojo.internal.StructField('arg_kernel_to_pre_startup_seconds_$flag', 48, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_kernel_to_pre_startup_seconds_$value', originalFieldName: 'arg_kernel_to_pre_startup_seconds' }),
+      mojo.internal.StructField('arg_kernel_to_post_startup_seconds_$flag', 48, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_kernel_to_post_startup_seconds_$value', originalFieldName: 'arg_kernel_to_post_startup_seconds' }),
+      mojo.internal.StructField('arg_startup_to_chrome_exec_seconds_$flag', 48, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_startup_to_chrome_exec_seconds_$value', originalFieldName: 'arg_startup_to_chrome_exec_seconds' }),
+      mojo.internal.StructField('arg_chrome_exec_to_login_seconds_$flag', 48, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_chrome_exec_to_login_seconds_$value', originalFieldName: 'arg_chrome_exec_to_login_seconds' }),
+      mojo.internal.StructField('arg_power_on_to_kernel_seconds_$value', 56, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_power_on_to_kernel_seconds_$flag', originalFieldName: 'arg_power_on_to_kernel_seconds' }),
+      mojo.internal.StructField('arg_kernel_to_pre_startup_seconds_$value', 64, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_kernel_to_pre_startup_seconds_$flag', originalFieldName: 'arg_kernel_to_pre_startup_seconds' }),
+      mojo.internal.StructField('arg_kernel_to_post_startup_seconds_$value', 72, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_kernel_to_post_startup_seconds_$flag', originalFieldName: 'arg_kernel_to_post_startup_seconds' }),
+      mojo.internal.StructField('arg_startup_to_chrome_exec_seconds_$value', 80, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_startup_to_chrome_exec_seconds_$flag', originalFieldName: 'arg_startup_to_chrome_exec_seconds' }),
+      mojo.internal.StructField('arg_chrome_exec_to_login_seconds_$value', 88, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_chrome_exec_to_login_seconds_$flag', originalFieldName: 'arg_chrome_exec_to_login_seconds' }),
     ],
     [[0, 48], [1, 56], [2, 104]]);
 
 // Struct: BusDevice
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.BusDeviceSpec, 'ash.cros_healthd.mojom.BusDevice', [
-      mojo.internal.StructField('arg_bus_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BusInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_class', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BusDeviceClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_class', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BusDeviceClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bus_info', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BusInfoSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: PciBusInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.PciBusInfoSpec, 'ash.cros_healthd.mojom.PciBusInfo', [
-      mojo.internal.StructField('arg_driver', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_class_id', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subclass_id', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_prog_if_id', 14, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_class_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subclass_id', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_prog_if_id', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 6, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_driver', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_sub_vendor_id', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 1, undefined),
       mojo.internal.StructField('arg_sub_device_id', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 1, undefined),
     ],
@@ -1729,15 +1729,15 @@ mojo.internal.Struct(
 // Struct: UsbBusInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.UsbBusInfoSpec, 'ash.cros_healthd.mojom.UsbBusInfo', [
-      mojo.internal.StructField('arg_interfaces', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_class_id', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subclass_id', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_id', 14, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_class_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subclass_id', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_id', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 6, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_interfaces', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_fwupd_firmware_version_info', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_spec_speed', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbSpecSpeedSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbVersionSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_version', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbVersionSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_spec_speed', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbSpecSpeedSpec, null, false, 2, undefined),
     ],
     [[0, 24], [1, 32], [2, 48]]);
 
@@ -1752,11 +1752,11 @@ mojo.internal.Struct(
 // Struct: UsbBusInterfaceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec, 'ash.cros_healthd.mojom.UsbBusInterfaceInfo', [
-      mojo.internal.StructField('arg_driver', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_interface_number', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_class_id', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subclass_id', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_id', 11, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_class_id', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subclass_id', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_id', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_driver', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1775,13 +1775,13 @@ mojo.internal.Struct(
 // Struct: TpmVersion
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.TpmVersionSpec, 'ash.cros_healthd.mojom.TpmVersion', [
-      mojo.internal.StructField('arg_spec_level', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_firmware_version', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_specific', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gsc_version', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TpmGSCVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_family', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tpm_model', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gsc_version', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TpmGSCVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_family', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_spec_level', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tpm_model', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_firmware_version', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_specific', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -1799,8 +1799,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.TpmDictionaryAttackSpec, 'ash.cros_healthd.mojom.TpmDictionaryAttack', [
       mojo.internal.StructField('arg_counter', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_threshold', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_lockout_seconds_remaining', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_lockout_in_effect', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_lockout_in_effect', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_lockout_seconds_remaining', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1864,6 +1864,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.EmbeddedDisplayInfoSpec, 'ash.cros_healthd.mojom.EmbeddedDisplayInfo', [
       mojo.internal.StructField('arg_privacy_screen_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_privacy_screen_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_input_type', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DisplayInputTypeSpec, null, false, 2, undefined),
       mojo.internal.StructField('arg_display_width', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 1, undefined),
       mojo.internal.StructField('arg_display_height', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 1, undefined),
       mojo.internal.StructField('arg_resolution_horizontal', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 1, undefined),
@@ -1876,9 +1877,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_manufacture_year', 80, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 2, undefined),
       mojo.internal.StructField('arg_edid_version', 88, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('arg_display_name', 96, 0, mojo.internal.String, null, true, 2, undefined),
-      mojo.internal.StructField('arg_input_type', 104, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DisplayInputTypeSpec, null, false, 2, undefined),
     ],
-    [[0, 16], [1, 56], [2, 120]]);
+    [[0, 16], [1, 56], [2, 112]]);
 
 // Struct: ExternalDisplayInfo
 mojo.internal.Struct(
@@ -1894,8 +1894,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_manufacture_week', 64, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint8Spec, null, true, 1, undefined),
       mojo.internal.StructField('arg_manufacture_year', 72, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint16Spec, null, true, 1, undefined),
       mojo.internal.StructField('arg_edid_version', 80, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_display_name', 88, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_input_type', 96, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DisplayInputTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_input_type', 88, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DisplayInputTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_display_name', 96, 0, mojo.internal.String, null, true, 1, undefined),
     ],
     [[0, 48], [1, 112]]);
 
@@ -1906,18 +1906,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_fw_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tx_speed_gbs', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rx_speed_gbs', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_authorized', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tx_speed_gbs', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rx_speed_gbs', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_authorized', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_device_fw_version', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: ThunderboltBusInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltBusInfoSpec, 'ash.cros_healthd.mojom.ThunderboltBusInfo', [
-      mojo.internal.StructField('arg_thunderbolt_interfaces', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltBusInterfaceInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_security_level', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltSecurityLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security_level', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltSecurityLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thunderbolt_interfaces', 4, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltBusInterfaceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1954,9 +1954,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.InputDeviceSpec, 'ash.cros_healthd.mojom.InputDevice', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_location', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_type', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_location', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

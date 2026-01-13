@@ -135,8 +135,8 @@ mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojo
 // Struct: AXRelativeBounds
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, 'ax.mojom.AXRelativeBounds', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transform', 8, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_offset_container_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset_container_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transform', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

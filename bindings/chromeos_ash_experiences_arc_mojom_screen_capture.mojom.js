@@ -463,9 +463,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_format_modifier', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_graphics_buffer', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_format', 12, 0, mojo.internal.bindings.gfx.mojom.BufferFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_graphics_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_format', 4, 0, mojo.internal.bindings.gfx.mojom.BufferFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_format_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_stride', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

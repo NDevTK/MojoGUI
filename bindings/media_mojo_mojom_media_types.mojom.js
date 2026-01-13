@@ -614,8 +614,8 @@ mojo.internal.Struct(
 // Struct: VideoAspectRatio
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoAspectRatioSpec, 'media.mojom.VideoAspectRatio', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -636,14 +636,14 @@ mojo.internal.Struct(
 // Struct: AudioDecoderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, 'media.mojom.AudioDecoderConfig', [
-      mojo.internal.StructField('arg_extra_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_seek_preroll', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 16, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_format', 20, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_layout', 24, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_samples_per_second', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_scheme', 32, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec_delay', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_format', 4, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_layout', 8, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_samples_per_second', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_scheme', 24, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec_delay', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_seek_preroll', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_profile', 40, 0, mojo.internal.bindings.media.mojom.AudioCodecProfileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_target_output_channel_layout', 44, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_target_output_sample_format', 48, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
@@ -654,19 +654,19 @@ mojo.internal.Struct(
 // Struct: VideoDecoderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, 'media.mojom.VideoDecoderConfig', [
-      mojo.internal.StructField('arg_transformation', 0, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_natural_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aspect_ratio', 32, 0, mojo.internal.bindings.media.mojom.VideoAspectRatioSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_space_info', 48, 0, mojo.internal.bindings.media.mojom.VideoColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hdr_metadata', 56, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 64, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 68, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_scheme', 76, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_alpha', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 4, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_alpha', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_transformation', 16, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_natural_size', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aspect_ratio', 48, 0, mojo.internal.bindings.media.mojom.VideoAspectRatioSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_scheme', 64, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space_info', 72, 0, mojo.internal.bindings.media.mojom.VideoColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hdr_metadata', 80, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -683,11 +683,11 @@ mojo.internal.Struct(
 // Struct: DecryptConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DecryptConfigSpec, 'media.mojom.DecryptConfig', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_iv', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsamples', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_pattern', 24, 0, mojo.internal.bindings.media.mojom.EncryptionPatternSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_encryption_scheme', 32, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_scheme', 0, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_iv', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subsamples', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_pattern', 32, 0, mojo.internal.bindings.media.mojom.EncryptionPatternSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -707,10 +707,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DataDecoderBufferSpec, 'media.mojom.DataDecoderBuffer', [
       mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypt_config', 16, 0, mojo.internal.bindings.media.mojom.DecryptConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_side_data', 24, 0, mojo.internal.bindings.media.mojom.DecoderBufferSideDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_data_size', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_key_frame', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_key_frame', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypt_config', 24, 0, mojo.internal.bindings.media.mojom.DecryptConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_side_data', 32, 0, mojo.internal.bindings.media.mojom.DecoderBufferSideDataSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -724,14 +724,14 @@ mojo.internal.Struct(
 // Struct: AudioBuffer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioBufferSpec, 'media.mojom.AudioBuffer', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_format', 16, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_layout', 20, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_rate', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end_of_stream', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_format', 0, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_layout', 4, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_rate', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_of_stream', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -746,69 +746,69 @@ mojo.internal.Struct(
 // Struct: VideoFrameMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoFrameMetadataSpec, 'media.mojom.VideoFrameMetadata', [
-      mojo.internal.StructField('arg_capture_begin_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_capture_end_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_capture_update_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_source_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_region_capture_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_capture_version', 40, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_duration', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_rate', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reference_time', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_transformation', 72, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tracking_token', 80, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor', 88, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_page_scale_factor', 96, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_root_scroll_offset_x', 104, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_root_scroll_offset_y', 112, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_visible_height', 120, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_decode_begin_time', 128, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_decode_end_time', 136, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_processing_time', 144, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_rtp_timestamp', 152, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receive_time', 160, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wallclock_frame_duration', 168, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_sequence_$value', 176, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_sequence_$flag', originalFieldName: 'arg_frame_sequence' }),
-      mojo.internal.StructField('arg_source_id_$value', 184, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_source_id_$flag', originalFieldName: 'arg_source_id' }),
-      mojo.internal.StructField('arg_capture_counter', 192, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_background_blur', 196, 0, mojo.internal.bindings.media.mojom.EffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_overlay', 200, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_capture_counter', 200, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_copy_required', 200, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_end_of_stream', 200, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_frame_rate', 200, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_interactive_content', 200, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_read_lock_fences_enabled', 200, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_in_surface_view', 200, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_wants_promotion_hint', 201, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_video', 201, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_hw_protected', 201, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_detiling', 201, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_webgpu_compatible', 201, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_power_efficient', 201, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_device_scale_factor', 201, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_page_scale_factor', 201, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_root_scroll_offset_x', 202, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_root_scroll_offset_y', 202, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_top_controls_visible_height', 202, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_rtp_timestamp', 202, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sequence_$flag', 202, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_frame_sequence_$value', originalFieldName: 'arg_frame_sequence' }),
-      mojo.internal.StructField('arg_source_id_$flag', 202, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_source_id_$value', originalFieldName: 'arg_source_id' }),
+      mojo.internal.StructField('arg_allow_overlay', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_capture_counter', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_copy_required', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_end_of_stream', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_frame_rate', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_interactive_content', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_read_lock_fences_enabled', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_in_surface_view', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_wants_promotion_hint', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_protected_video', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_hw_protected', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_detiling', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_webgpu_compatible', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_power_efficient', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_device_scale_factor', 1, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_page_scale_factor', 1, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_root_scroll_offset_x', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_root_scroll_offset_y', 2, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_top_controls_visible_height', 2, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_rtp_timestamp', 2, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sequence_$flag', 2, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_frame_sequence_$value', originalFieldName: 'arg_frame_sequence' }),
+      mojo.internal.StructField('arg_source_id_$flag', 2, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_source_id_$value', originalFieldName: 'arg_source_id' }),
+      mojo.internal.StructField('arg_capture_counter', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_begin_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_capture_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_capture_update_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_region_capture_rect', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_capture_version', 48, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_duration', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_rate', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reference_time', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_transformation', 80, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tracking_token', 88, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 96, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_scale_factor', 104, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_root_scroll_offset_x', 112, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_root_scroll_offset_y', 120, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_visible_height', 128, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_decode_begin_time', 136, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_decode_end_time', 144, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_processing_time', 152, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rtp_timestamp', 160, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_time', 168, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wallclock_frame_duration', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_sequence_$value', 184, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_sequence_$flag', originalFieldName: 'arg_frame_sequence' }),
+      mojo.internal.StructField('arg_source_id_$value', 192, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_source_id_$flag', originalFieldName: 'arg_source_id' }),
+      mojo.internal.StructField('arg_background_blur', 200, 0, mojo.internal.bindings.media.mojom.EffectStateSpec, null, false, 0, undefined),
     ],
     [[0, 216]]);
 
 // Struct: VideoFrame
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoFrameSpec, 'media.mojom.VideoFrame', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_natural_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 48, 0, mojo.internal.bindings.media.mojom.VideoFrameMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_space', 56, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hdr_metadata', 64, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 72, 0, mojo.internal.bindings.media.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.media.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_natural_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 40, 0, mojo.internal.bindings.media.mojom.VideoFrameDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 56, 0, mojo.internal.bindings.media.mojom.VideoFrameMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 64, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hdr_metadata', 72, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -832,8 +832,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SharedImageVideoFrameDataSpec, 'media.mojom.SharedImageVideoFrameData', [
       mojo.internal.StructField('arg_shared_image', 0, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ycbcr_data', 16, 0, mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_mappable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mappable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ycbcr_data', 24, 0, mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -856,10 +856,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DmabufVideoFrameDataSpec, 'media.mojom.DmabufVideoFrameData', [
       mojo.internal.StructField('arg_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.ColorPlaneLayoutSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_addr_align', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fds', 24, 0, mojo.internal.Array(mojo.internal.OpaqueStruct, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_multi_planar', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_multi_planar', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_addr_align', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fds', 32, 0, mojo.internal.Array(mojo.internal.OpaqueStruct, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -868,21 +868,21 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.PipelineStatisticsSpec, 'media.mojom.PipelineStatistics', [
       mojo.internal.StructField('arg_audio_bytes_decoded', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_video_bytes_decoded', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_memory_usage', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_video_memory_usage', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_video_frames_decoded', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_video_frames_dropped', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_video_frames_decoded', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_video_frames_dropped', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_memory_usage', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_video_memory_usage', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: PredictionFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, 'media.mojom.PredictionFeatures', [
-      mojo.internal.StructField('arg_video_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frames_per_sec', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_key_system', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 24, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_hw_secure_codecs', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_hw_secure_codecs', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_video_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frames_per_sec', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_key_system', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -899,9 +899,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioPipelineInfoSpec, 'media.mojom.AudioPipelineInfo', [
       mojo.internal.StructField('arg_decoder_type', 0, 0, mojo.internal.bindings.media.mojom.AudioDecoderTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_type', 4, 0, mojo.internal.bindings.media.mojom.EncryptionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_platform_decoder', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_decrypting_demuxer_stream', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_platform_decoder', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_decrypting_demuxer_stream', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_type', 8, 0, mojo.internal.bindings.media.mojom.EncryptionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -909,21 +909,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoPipelineInfoSpec, 'media.mojom.VideoPipelineInfo', [
       mojo.internal.StructField('arg_decoder_type', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_type', 4, 0, mojo.internal.bindings.media.mojom.EncryptionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_platform_decoder', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_decrypting_demuxer_stream', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_platform_decoder', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_decrypting_demuxer_stream', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_type', 8, 0, mojo.internal.bindings.media.mojom.EncryptionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: StatusData
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.StatusDataSpec, 'media.mojom.StatusData', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frames', 32, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cause', 40, 0, mojo.internal.bindings.media.mojom.StatusDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_code', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_group', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frames', 24, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cause', 32, 0, mojo.internal.bindings.media.mojom.StatusDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 40, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 

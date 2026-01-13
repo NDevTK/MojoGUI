@@ -143,11 +143,11 @@ mojo.internal.Struct(
 // Struct: DmaBufVideoFrame
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.DmaBufVideoFrameSpec, 'chromeos_camera.mojom.DmaBufVideoFrame', [
-      mojo.internal.StructField('arg_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.media.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_width', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_height', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.media.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_width', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_height', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_modifier', 12, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_planes', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.Uint64, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_has_modifier', 32, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],
-    [[0, 32], [1, 48]]);
+    [[0, 32], [1, 40]]);

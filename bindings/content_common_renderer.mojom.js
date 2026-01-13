@@ -201,22 +201,22 @@ mojo.internal.bindings.content.mojom.RenderProcessVisibleState = {
 // Struct: UpdateScrollbarThemeParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec, 'content.mojom.UpdateScrollbarThemeParams', [
-      mojo.internal.StructField('arg_initial_button_delay', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_autoscroll_button_delay', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_scroller_style', 8, 0, mojo.internal.bindings.content.mojom.ScrollerStyleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_initial_button_delay', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_autoscroll_button_delay', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_jump_on_track_click', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_redraw', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_view_rubber_banding', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_initial_button_delay', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_autoscroll_button_delay', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_jump_on_track_click', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_redraw', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_view_rubber_banding', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_button_delay', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_autoscroll_button_delay', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_scroller_style', 12, 0, mojo.internal.bindings.content.mojom.ScrollerStyleSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: UpdateSystemColorInfoParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec, 'content.mojom.UpdateSystemColorInfoParams', [
-      mojo.internal.StructField('arg_accent_color_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_accent_color_$flag', originalFieldName: 'arg_accent_color' }),
-      mojo.internal.StructField('arg_accent_color_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_accent_color_$value', originalFieldName: 'arg_accent_color' }),
+      mojo.internal.StructField('arg_accent_color_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_accent_color_$value', originalFieldName: 'arg_accent_color' }),
+      mojo.internal.StructField('arg_accent_color_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_accent_color_$flag', originalFieldName: 'arg_accent_color' }),
     ],
     [[0, 16]]);
 
@@ -241,17 +241,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec, 'content.mojom.Renderer_OnNetworkConnectionChanged_Params', [
-      mojo.internal.StructField('arg_max_bandwidth_mbps', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_type', 8, 0, mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 0, 0, mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_bandwidth_mbps', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec, 'content.mojom.Renderer_OnNetworkQualityChanged_Params', [
-      mojo.internal.StructField('arg_http_rtt', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transport_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bandwidth_kbps', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_effective_connection_type', 24, 0, mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_effective_connection_type', 0, 0, mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_http_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transport_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bandwidth_kbps', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -346,8 +346,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cors_exempt_header_list', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_origin_trials_settings', 24, 0, mojo.internal.bindings.blink.mojom.OriginTrialsSettingsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_trace_id', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_performance_tier', 40, 0, mojo.internal.bindings.blink.mojom.PerformanceTierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_performance_tier', 32, 0, mojo.internal.bindings.blink.mojom.PerformanceTierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_id', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 

@@ -163,9 +163,9 @@ mojo.internal.Struct(
 // Interface: PostRequestObserver
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.PostRequestObserver_OnResponseStarted_Params', [
-      mojo.internal.StructField('arg_content_length_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
-      mojo.internal.StructField('arg_http_status_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_length_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_length_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
+      mojo.internal.StructField('arg_content_length_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
     ],
     [[0, 24]]);
 
@@ -178,12 +178,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec, 'updater.mojom.PostRequestObserver_OnRequestComplete_Params', [
       mojo.internal.StructField('arg_response_body', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_etag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_x_cup_server_proof', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_set_cookie', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_xheader_retry_after_sec_$value', 32, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_xheader_retry_after_sec_$flag', originalFieldName: 'arg_xheader_retry_after_sec' }),
-      mojo.internal.StructField('arg_net_error', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_xheader_retry_after_sec_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_xheader_retry_after_sec_$value', originalFieldName: 'arg_xheader_retry_after_sec' }),
+      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_xheader_retry_after_sec_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_xheader_retry_after_sec_$value', originalFieldName: 'arg_xheader_retry_after_sec' }),
+      mojo.internal.StructField('arg_header_etag', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_x_cup_server_proof', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_set_cookie', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_xheader_retry_after_sec_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_xheader_retry_after_sec_$flag', originalFieldName: 'arg_xheader_retry_after_sec' }),
     ],
     [[0, 56]]);
 
@@ -437,9 +437,9 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRequest = mojo.internal.
 // Interface: FileDownloadObserver
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnResponseStarted_Params', [
-      mojo.internal.StructField('arg_content_length_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
-      mojo.internal.StructField('arg_http_status_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_length_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_length_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
+      mojo.internal.StructField('arg_content_length_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
     ],
     [[0, 24]]);
 
@@ -451,9 +451,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnDownloadComplete_Params', [
-      mojo.internal.StructField('arg_content_size_$value', 0, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_size_$flag', originalFieldName: 'arg_content_size' }),
-      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_size_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_size_$value', originalFieldName: 'arg_content_size' }),
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_size_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_size_$value', originalFieldName: 'arg_content_size' }),
+      mojo.internal.StructField('arg_content_size_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_size_$flag', originalFieldName: 'arg_content_size' }),
     ],
     [[0, 24]]);
 

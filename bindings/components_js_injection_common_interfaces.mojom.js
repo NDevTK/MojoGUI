@@ -193,18 +193,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_js_object_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_js_world', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_origin_matcher', 24, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_js_world', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: JavaScriptExecutable
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec, 'js_injection.mojom.JavaScriptExecutable', [
-      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_matcher', 8, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_injection_time', 20, 0, mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_injection_time', 4, 0, mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_matcher', 16, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_js_world', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -213,8 +213,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec, 'js_injection.mojom.JsWebMessageArrayBufferValue', [
       mojo.internal.StructField('arg_array_buffer_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_byte_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_resizable_by_user_javascript', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_resizable_by_user_javascript', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_byte_length', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -156,9 +156,9 @@ mojo.internal.Struct(
 // Struct: V8ContextDescription
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.V8ContextDescriptionSpec, 'performance_manager.mojom.V8ContextDescription', [
-      mojo.internal.StructField('arg_execution_context_token', 0, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.bindings.blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_world_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_world_type', 32, 0, mojo.internal.bindings.performance_manager.mojom.V8ContextWorldTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.V8ContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_world_type', 8, 0, mojo.internal.bindings.performance_manager.mojom.V8ContextWorldTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_world_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_execution_context_token', 24, 0, mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);

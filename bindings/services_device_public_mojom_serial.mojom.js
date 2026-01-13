@@ -248,18 +248,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPortInfoSpec, 'device.mojom.SerialPortInfo', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alternate_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_usb_driver_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_instance_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 40, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 64, 0, mojo.internal.bindings.device.mojom.SerialPortTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 68, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 70, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_vendor_id', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_product_id', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_connected', 72, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.device.mojom.SerialPortTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 20, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_vendor_id', 22, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_product_id', 22, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connected', 22, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_alternate_path', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_usb_driver_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_instance_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 56, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 72, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -329,10 +329,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec, 'device.mojom.SerialPortManager_OpenPort_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_use_alternate_path', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_alternate_path', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watcher', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
 

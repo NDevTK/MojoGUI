@@ -375,10 +375,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec, 'crosapi.mojom.TelemetryUsbEventInfo', [
       mojo.internal.StructField('arg_vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vid', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 30, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vid', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 20, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -422,12 +422,12 @@ mojo.internal.Struct(
 // Struct: TelemetryTouchPointInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec, 'crosapi.mojom.TelemetryTouchPointInfo', [
-      mojo.internal.StructField('arg_pressure', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_touch_major', 8, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_touch_minor', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tracking_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tracking_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pressure', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_major', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_minor', 32, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -441,10 +441,10 @@ mojo.internal.Struct(
 // Struct: TelemetryTouchpadConnectedEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadConnectedEventInfo', [
-      mojo.internal.StructField('arg_buttons', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_pressure', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 16, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -458,24 +458,24 @@ mojo.internal.Struct(
 // Struct: TelemetryTouchscreenConnectedEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec, 'crosapi.mojom.TelemetryTouchscreenConnectedEventInfo', [
-      mojo.internal.StructField('arg_max_x_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_x_$flag', originalFieldName: 'arg_max_x' }),
-      mojo.internal.StructField('arg_max_y_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_y_$flag', originalFieldName: 'arg_max_y' }),
-      mojo.internal.StructField('arg_max_pressure_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_pressure_$flag', originalFieldName: 'arg_max_pressure' }),
-      mojo.internal.StructField('arg_max_x_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_x_$value', originalFieldName: 'arg_max_x' }),
-      mojo.internal.StructField('arg_max_y_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_y_$value', originalFieldName: 'arg_max_y' }),
-      mojo.internal.StructField('arg_max_pressure_$flag', 12, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_pressure_$value', originalFieldName: 'arg_max_pressure' }),
+      mojo.internal.StructField('arg_max_x_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_x_$value', originalFieldName: 'arg_max_x' }),
+      mojo.internal.StructField('arg_max_y_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_y_$value', originalFieldName: 'arg_max_y' }),
+      mojo.internal.StructField('arg_max_pressure_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_pressure_$value', originalFieldName: 'arg_max_pressure' }),
+      mojo.internal.StructField('arg_max_x_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_x_$flag', originalFieldName: 'arg_max_x' }),
+      mojo.internal.StructField('arg_max_y_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_y_$flag', originalFieldName: 'arg_max_y' }),
+      mojo.internal.StructField('arg_max_pressure_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_pressure_$flag', originalFieldName: 'arg_max_pressure' }),
     ],
     [[0, 24]]);
 
 // Struct: TelemetryStylusTouchPointInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec, 'crosapi.mojom.TelemetryStylusTouchPointInfo', [
-      mojo.internal.StructField('arg_x_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_x_$flag', originalFieldName: 'arg_x' }),
-      mojo.internal.StructField('arg_y_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_y_$flag', originalFieldName: 'arg_y' }),
-      mojo.internal.StructField('arg_pressure_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_pressure_$flag', originalFieldName: 'arg_pressure' }),
-      mojo.internal.StructField('arg_x_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_x_$value', originalFieldName: 'arg_x' }),
-      mojo.internal.StructField('arg_y_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_y_$value', originalFieldName: 'arg_y' }),
-      mojo.internal.StructField('arg_pressure_$flag', 12, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_pressure_$value', originalFieldName: 'arg_pressure' }),
+      mojo.internal.StructField('arg_x_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_x_$value', originalFieldName: 'arg_x' }),
+      mojo.internal.StructField('arg_y_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_y_$value', originalFieldName: 'arg_y' }),
+      mojo.internal.StructField('arg_pressure_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_pressure_$value', originalFieldName: 'arg_pressure' }),
+      mojo.internal.StructField('arg_x_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_x_$flag', originalFieldName: 'arg_x' }),
+      mojo.internal.StructField('arg_y_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_y_$flag', originalFieldName: 'arg_y' }),
+      mojo.internal.StructField('arg_pressure_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_pressure_$flag', originalFieldName: 'arg_pressure' }),
     ],
     [[0, 24]]);
 
@@ -489,12 +489,12 @@ mojo.internal.Struct(
 // Struct: TelemetryStylusConnectedEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec, 'crosapi.mojom.TelemetryStylusConnectedEventInfo', [
-      mojo.internal.StructField('arg_max_x_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_x_$flag', originalFieldName: 'arg_max_x' }),
-      mojo.internal.StructField('arg_max_y_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_y_$flag', originalFieldName: 'arg_max_y' }),
-      mojo.internal.StructField('arg_max_pressure_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_pressure_$flag', originalFieldName: 'arg_max_pressure' }),
-      mojo.internal.StructField('arg_max_x_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_x_$value', originalFieldName: 'arg_max_x' }),
-      mojo.internal.StructField('arg_max_y_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_y_$value', originalFieldName: 'arg_max_y' }),
-      mojo.internal.StructField('arg_max_pressure_$flag', 12, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_pressure_$value', originalFieldName: 'arg_max_pressure' }),
+      mojo.internal.StructField('arg_max_x_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_x_$value', originalFieldName: 'arg_max_x' }),
+      mojo.internal.StructField('arg_max_y_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_y_$value', originalFieldName: 'arg_max_y' }),
+      mojo.internal.StructField('arg_max_pressure_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_pressure_$value', originalFieldName: 'arg_max_pressure' }),
+      mojo.internal.StructField('arg_max_x_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_x_$flag', originalFieldName: 'arg_max_x' }),
+      mojo.internal.StructField('arg_max_y_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_y_$flag', originalFieldName: 'arg_max_y' }),
+      mojo.internal.StructField('arg_max_pressure_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_pressure_$flag', originalFieldName: 'arg_max_pressure' }),
     ],
     [[0, 24]]);
 
@@ -667,8 +667,8 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRequest = mojo.intern
 // Interface: TelemetryEventService
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec, 'crosapi.mojom.TelemetryEventService_AddEventObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 8, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

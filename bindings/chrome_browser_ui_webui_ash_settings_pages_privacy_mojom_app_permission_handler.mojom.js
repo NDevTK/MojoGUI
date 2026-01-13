@@ -160,8 +160,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec, 'ash.settings.app_permission.mojom.App', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions', 16, 0, mojo.internal.Map(mojo.internal.bindings.app_management.mojom.PermissionTypeSpec, mojo.internal.bindings.app_management.mojom.PermissionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.app_management.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.app_management.mojom.AppTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 24, 0, mojo.internal.Map(mojo.internal.bindings.app_management.mojom.PermissionTypeSpec, mojo.internal.bindings.app_management.mojom.PermissionSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -174,10 +174,10 @@ mojo.internal.bindings.history.mojom.FilteringBehavior = {
 // Struct: QueryState
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.QueryStateSpec, 'history.mojom.QueryState', [
-      mojo.internal.StructField('arg_search_term', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_after', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_incremental', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_querying', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_incremental', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_querying', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_search_term', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_after', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -192,9 +192,9 @@ mojo.internal.Struct(
 // Struct: DebugInfo
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.DebugInfoSpec, 'history.mojom.DebugInfo', [
-      mojo.internal.StructField('arg_visit_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_typed_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_url_in_local_database', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_url_in_local_database', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_typed_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -212,16 +212,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_type', 64, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_date_time_of_day', 72, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_date_relative_day', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_readableTimestamp', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_snippet', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_icon_url_for_uma', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug', 112, 0, mojo.internal.bindings.history.mojom.DebugInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_host_filtering_behavior', 120, 0, mojo.internal.bindings.history.mojom.FilteringBehaviorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected', 124, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_starred', 124, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_blocked_visit', 124, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_url_in_remote_user_data', 124, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_actor_visit', 124, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selected', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_starred', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_visit', 88, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_url_in_remote_user_data', 88, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_actor_visit', 88, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_host_filtering_behavior', 92, 0, mojo.internal.bindings.history.mojom.FilteringBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_readableTimestamp', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_snippet', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_icon_url_for_uma', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug', 120, 0, mojo.internal.bindings.history.mojom.DebugInfoSpec, null, true, 0, undefined),
     ],
     [[0, 136]]);
 
@@ -260,9 +260,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec, 'history.mojom.PageHandler_QueryHistory_Params', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_time_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_begin_time_$flag', originalFieldName: 'arg_begin_time' }),
-      mojo.internal.StructField('arg_max_results', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_time_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_begin_time_$value', originalFieldName: 'arg_begin_time' }),
+      mojo.internal.StructField('arg_max_results', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_begin_time_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_begin_time_$value', originalFieldName: 'arg_begin_time' }),
+      mojo.internal.StructField('arg_begin_time_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_begin_time_$flag', originalFieldName: 'arg_begin_time' }),
     ],
     [[0, 32]]);
 

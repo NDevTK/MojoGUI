@@ -138,11 +138,11 @@ mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec = mojo.internal.bind
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DXGIOutputDescSpec, 'gfx.mojom.DXGIOutputDesc', [
       mojo.internal.StructField('arg_device_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_primaries', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_luminance', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_luminance', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_full_frame_luminance', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_hdr_enabled', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_hdr_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_min_luminance', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_primaries', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_luminance', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_full_frame_luminance', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

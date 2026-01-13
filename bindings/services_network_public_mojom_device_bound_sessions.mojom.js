@@ -369,9 +369,9 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionAccess
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessSpec, 'network.mojom.DeviceBoundSessionAccess', [
-      mojo.internal.StructField('arg_session_key', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookies', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_access_type', 16, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_access_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_key', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookies', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -387,9 +387,9 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionScope
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpec, 'network.mojom.DeviceBoundSessionScope', [
-      mojo.internal.StructField('arg_specifications', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_site', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_site', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_specifications', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -419,18 +419,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_same_site', 24, 0, mojo.internal.bindings.network.mojom.CookieSameSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_http_only', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_http_only', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_same_site', 28, 0, mojo.internal.bindings.network.mojom.CookieSameSiteSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: DeviceBoundSessionUrlRuleDisplay
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, 'network.mojom.DeviceBoundSessionUrlRuleDisplay', [
-      mojo.internal.StructField('arg_host_pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path_prefix', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rule_type', 16, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rule_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path_prefix', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -438,8 +438,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, 'network.mojom.DeviceBoundSessionInclusionRulesDisplay', [
       mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_rules', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_site', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_site', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url_rules', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -459,17 +459,17 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionCreationDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec, 'network.mojom.DeviceBoundSessionCreationDetails', [
-      mojo.internal.StructField('arg_new_session_display', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_fetch_error', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetch_error', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DeviceBoundSessionRefreshDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec, 'network.mojom.DeviceBoundSessionRefreshDetails', [
-      mojo.internal.StructField('arg_new_session_display', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_refresh_result', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fetch_error', 12, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_refresh_result', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetch_error', 4, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_was_fully_proactive_refresh', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -484,19 +484,19 @@ mojo.internal.Struct(
 // Struct: DeviceBoundSessionChallengeDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeDetailsSpec, 'network.mojom.DeviceBoundSessionChallengeDetails', [
-      mojo.internal.StructField('arg_challenge', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_challenge_result', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_challenge_result', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DeviceBoundSessionEvent
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionEventSpec, 'network.mojom.DeviceBoundSessionEvent', [
-      mojo.internal.StructField('arg_event_type_details', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionEventTypeDetailsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_site', 24, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_succeeded', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_event_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_succeeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type_details', 32, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionEventTypeDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -514,17 +514,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteSession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_Params', [
-      mojo.internal.StructField('arg_created_after_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_created_before_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_filter', 16, 0, mojo.internal.bindings.network.mojom.ClearDataFilterSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_reason', 24, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_created_after_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_created_before_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.bindings.network.mojom.ClearDataFilterSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

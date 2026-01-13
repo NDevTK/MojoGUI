@@ -132,7 +132,7 @@ mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindi
 // Struct: AlternativeErrorPageOverrideInfo
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AlternativeErrorPageOverrideInfoSpec, 'content.mojom.AlternativeErrorPageOverrideInfo', [
-      mojo.internal.StructField('arg_alternative_error_page_params', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alternative_error_page_params', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -160,20 +160,20 @@ mojo.internal.Struct(
 // Struct: ImageAnnotationScore
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec, 'chromeos.machine_learning.mojom.ImageAnnotationScore', [
-      mojo.internal.StructField('arg_mid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_DEPRECATED_confidence', 20, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_score', 32, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_DEPRECATED_confidence', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_score', 24, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 1, undefined),
     ],
     [[0, 32], [1, 48]]);
 
 // Struct: ImageAnnotationResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec, 'chromeos.machine_learning.mojom.ImageAnnotationResult', [
-      mojo.internal.StructField('arg_annotations', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_annotations', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

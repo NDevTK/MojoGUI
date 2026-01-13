@@ -181,8 +181,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityLocationChange_Params', [
       mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 24, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

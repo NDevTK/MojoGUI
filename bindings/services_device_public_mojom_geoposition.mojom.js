@@ -186,8 +186,8 @@ mojo.internal.Struct(
 // Struct: GeopositionError
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeopositionErrorSpec, 'device.mojom.GeopositionError', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_technical', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_technical', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);

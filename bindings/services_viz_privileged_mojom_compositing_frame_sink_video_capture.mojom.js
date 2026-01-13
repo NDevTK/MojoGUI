@@ -234,8 +234,8 @@ mojo.internal.Union(
 // Struct: VideoCaptureTarget
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec, 'viz.mojom.VideoCaptureTarget', [
-      mojo.internal.StructField('arg_sub_target', 0, 0, mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_id', 16, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_target', 8, 0, mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -856,8 +856,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_Params', [
-      mojo.internal.StructField('arg_majority_damaged_pixel_min_ratio', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_majority_damaged_pixel_min_ratio', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -887,10 +887,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_CreateOverlay_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stacking_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stacking_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemote), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerPendingReceiver = class {
   constructor(handle) {

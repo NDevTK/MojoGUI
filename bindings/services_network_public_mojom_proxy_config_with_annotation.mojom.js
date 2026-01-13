@@ -548,8 +548,8 @@ mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRequest = mojo.inter
 // Interface: ProxyErrorClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec, 'network.mojom.ProxyErrorClient_OnPACScriptError_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

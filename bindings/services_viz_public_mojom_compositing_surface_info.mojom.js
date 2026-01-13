@@ -136,7 +136,7 @@ mojo.internal.bindings.viz.mojom.SurfaceIdSpec = mojo.internal.bindings.viz.mojo
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceInfoSpec, 'viz.mojom.SurfaceInfo', [
       mojo.internal.StructField('arg_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size_in_pixels', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size_in_pixels', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

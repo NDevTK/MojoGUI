@@ -137,8 +137,8 @@ mojo.internal.bindings.media.mojom.VideoBufferHandleSpec = mojo.internal.binding
 // Interface: Producer
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 8, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

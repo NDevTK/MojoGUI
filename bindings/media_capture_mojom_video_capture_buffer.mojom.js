@@ -197,20 +197,20 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoFrameInfoSpec, 'media.mojom.VideoFrameInfo', [
       mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.media.mojom.VideoFrameMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_space', 32, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_strides', 40, 0, mojo.internal.bindings.media.mojom.PlaneStridesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pixel_format', 48, 0, mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_premapped', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_format', 16, 0, mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_premapped', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strides', 48, 0, mojo.internal.bindings.media.mojom.PlaneStridesSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: ReadyBuffer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ReadyBufferSpec, 'media.mojom.ReadyBuffer', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.media.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

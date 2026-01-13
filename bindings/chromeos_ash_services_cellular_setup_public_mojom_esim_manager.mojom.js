@@ -222,16 +222,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_nickname', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_provider', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_activation_code', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 48, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 40, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_code', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: QRCode
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.QRCodeSpec, 'ash.cellular_setup.mojom.QRCode', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -807,8 +807,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParams', [
-      mojo.internal.StructField('arg_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ESimOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profiles', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfilePropertiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -833,8 +833,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, 'ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParams', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ProfileInstallResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

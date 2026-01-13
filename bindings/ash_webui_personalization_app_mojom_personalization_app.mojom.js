@@ -512,10 +512,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.GooglePhotosAlbumSpec, 'ash.personalization_app.mojom.GooglePhotosAlbum', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preview', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_photo_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_shared', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_photo_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_shared', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_preview', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -569,22 +569,22 @@ mojo.internal.Struct(
 // Struct: CurrentWallpaper
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.CurrentWallpaperSpec, 'ash.personalization_app.mojom.CurrentWallpaper', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_content', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_layout', 32, 0, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 36, 0, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_content', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: SampleColorScheme
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.SampleColorSchemeSpec, 'ash.personalization_app.mojom.SampleColorScheme', [
-      mojo.internal.StructField('arg_primary', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secondary', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tertiary', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scheme', 24, 0, mojo.internal.bindings.ash.style.mojom.ColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.bindings.ash.style.mojom.ColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_primary', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tertiary', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -607,10 +607,10 @@ mojo.internal.Struct(
 // Struct: DefaultUserImage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.DefaultUserImageSpec, 'ash.personalization_app.mojom.DefaultUserImage', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_info', 16, 0, mojo.internal.bindings.ash.personalization_app.mojom.DeprecatedSourceInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_info', 24, 0, mojo.internal.bindings.ash.personalization_app.mojom.DeprecatedSourceInfoSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -630,12 +630,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.personalization_app.mojom.AmbientModeAlbumSpec, 'ash.personalization_app.mojom.AmbientModeAlbum', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_photos', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_topic_source', 36, 0, mojo.internal.bindings.ash.personalization_app.mojom.TopicSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_checked', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_checked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_photos', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_topic_source', 32, 0, mojo.internal.bindings.ash.personalization_app.mojom.TopicSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 56]]);
 

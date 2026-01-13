@@ -314,8 +314,8 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryRequest = mojo.inte
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec, 'webui_toolbar.mojom.PageHandler_Reload_Params', [
-      mojo.internal.StructField('arg_flags', 0, 0, mojo.internal.Array(mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ignore_cache', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ignore_cache', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Array(mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

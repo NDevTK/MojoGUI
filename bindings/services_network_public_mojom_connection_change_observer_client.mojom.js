@@ -141,10 +141,10 @@ mojo.internal.bindings.network.mojom.NetworkChangeEvent = {
 // Struct: ConnectionKeepAliveConfig
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec, 'network.mojom.ConnectionKeepAliveConfig', [
-      mojo.internal.StructField('arg_quic_connection_options', 0, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_idle_timeout_in_seconds', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ping_interval_in_seconds', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_connection_keep_alive', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_idle_timeout_in_seconds', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ping_interval_in_seconds', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_connection_keep_alive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_quic_connection_options', 16, 0, mojo.internal.String, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

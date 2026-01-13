@@ -146,14 +146,14 @@ mojo.internal.bindings.ax.mojom.EventIntentSpec = mojo.internal.bindings.ax.mojo
 // Struct: AXTreeUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, 'ax.mojom.AXTreeUpdate', [
-      mojo.internal.StructField('arg_tree_data', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nodes', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXNodeDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_intents', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.EventIntentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tree_checks', 24, 0, mojo.internal.bindings.ax.mojom.AXTreeChecksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_node_id_to_clear', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_root_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event_from', 40, 0, mojo.internal.bindings.ax.mojom.EventFromSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_from_action', 44, 0, mojo.internal.bindings.ax.mojom.ActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_tree_data', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_tree_data', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id_to_clear', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tree_data', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_from', 20, 0, mojo.internal.bindings.ax.mojom.EventFromSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nodes', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXNodeDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_from_action', 32, 0, mojo.internal.bindings.ax.mojom.ActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_intents', 40, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.EventIntentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tree_checks', 48, 0, mojo.internal.bindings.ax.mojom.AXTreeChecksSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);

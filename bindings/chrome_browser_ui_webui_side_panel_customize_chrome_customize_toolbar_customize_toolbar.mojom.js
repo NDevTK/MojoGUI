@@ -193,20 +193,20 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryId = {
 // Struct: Action
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec, 'side_panel.customize_chrome.mojom.Action', [
-      mojo.internal.StructField('arg_display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 20, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pinned', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_enterprise_controlled_pinned_state', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_enterprise_controlled_pinned_state', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 16, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: Category
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec, 'side_panel.customize_chrome.mojom.Category', [
-      mojo.internal.StructField('arg_display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

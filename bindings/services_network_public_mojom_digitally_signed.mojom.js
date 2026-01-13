@@ -147,8 +147,8 @@ mojo.internal.bindings.network.mojom.SignatureAlgorithm = {
 // Struct: DigitallySigned
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DigitallySignedSpec, 'network.mojom.DigitallySigned', [
-      mojo.internal.StructField('arg_signature', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_hash_algorithm', 8, 0, mojo.internal.bindings.network.mojom.HashAlgorithmSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signature_algorithm', 12, 0, mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hash_algorithm', 0, 0, mojo.internal.bindings.network.mojom.HashAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature_algorithm', 4, 0, mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

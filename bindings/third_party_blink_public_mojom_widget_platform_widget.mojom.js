@@ -405,8 +405,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_Params', [
       mojo.internal.StructField('arg_tooltip_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction_hint', 16, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction_hint', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -424,10 +424,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec, 'blink.mojom.WidgetHost_SelectionBoundsChanged_Params', [
       mojo.internal.StructField('arg_anchor_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor_dir', 24, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_dir', 28, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_dir', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_dir', 12, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_anchor_first', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -435,15 +435,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec, 'blink.mojom.WidgetHost_CreateFrameSink_Params', [
       mojo.internal.StructField('arg_compositor_frame_sink_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_frame_sink_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_input_router_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_frame_sink_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_input_router_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec, 'blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_Params', [
       mojo.internal.StructField('arg_render_frame_metadata_observer_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_frame_metadata_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_frame_metadata_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -950,8 +950,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
-      mojo.internal.StructField('arg_record_tab_switch_time_request', 0, 0, mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_was_evicted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_was_evicted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_record_tab_switch_time_request', 8, 0, mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1455,15 +1455,15 @@ mojo.internal.bindings.blink.mojom.WidgetRequest = mojo.internal.bindings.blink.
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec, 'blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_from_viz', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_viz', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec, 'blink.mojom.RenderInputRouterClient_ShowContextMenu_Params', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_type', 8, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_type', 0, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

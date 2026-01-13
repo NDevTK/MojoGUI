@@ -521,8 +521,8 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRequest = mojo.internal.b
 // Interface: JsChannelBindingProvider
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec, 'chromecast.mojom.JsChannelBindingProvider_Register_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.JsChannelClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.JsChannelClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

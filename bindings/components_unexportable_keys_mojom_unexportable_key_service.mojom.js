@@ -186,9 +186,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_subject_public_key_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_wrapped_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_tag', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_algorithm', 40, 0, mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm', 24, 0, mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 

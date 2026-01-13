@@ -561,8 +561,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParams', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

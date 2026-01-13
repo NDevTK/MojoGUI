@@ -138,9 +138,9 @@ mojo.internal.bindings.gpu.mojom.CommandBufferNamespace = {
 // Struct: SyncToken
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SyncTokenSpec, 'gpu.mojom.SyncToken', [
-      mojo.internal.StructField('arg_command_buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_release_count', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_namespace_id', 16, 0, mojo.internal.bindings.gpu.mojom.CommandBufferNamespaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_verified_flush', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_verified_flush', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_namespace_id', 4, 0, mojo.internal.bindings.gpu.mojom.CommandBufferNamespaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command_buffer_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_count', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);

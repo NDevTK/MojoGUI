@@ -126,9 +126,9 @@ mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec = { $: {} };
 // Struct: VulkanYCbCrInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec, 'gpu.mojom.VulkanYCbCrInfo', [
-      mojo.internal.StructField('arg_external_format', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_image_format', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggested_ycbcr_model', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_format', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggested_ycbcr_model', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_external_format', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_suggested_ycbcr_range', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_suggested_xchroma_offset', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_suggested_ychroma_offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),

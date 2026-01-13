@@ -245,17 +245,17 @@ mojo.internal.Struct(
 // Struct: ServiceEvent
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec, 'chromeos.mojo_service_manager.mojom.ServiceEvent', [
-      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dispatcher', 8, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dispatcher', 16, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: Error
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec, 'chromeos.mojo_service_manager.mojom.Error', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

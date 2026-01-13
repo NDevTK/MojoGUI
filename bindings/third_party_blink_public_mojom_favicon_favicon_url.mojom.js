@@ -146,8 +146,8 @@ mojo.internal.bindings.blink.mojom.FaviconIconType = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FaviconURLSpec, 'blink.mojom.FaviconURL', [
       mojo.internal.StructField('arg_icon_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_sizes', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_type', 16, 0, mojo.internal.bindings.blink.mojom.FaviconIconTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_default_icon', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_type', 8, 0, mojo.internal.bindings.blink.mojom.FaviconIconTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_default_icon', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

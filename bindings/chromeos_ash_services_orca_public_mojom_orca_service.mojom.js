@@ -281,8 +281,8 @@ mojo.internal.Struct(
 // Struct: TextQueryError
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec, 'ash.orca.mojom.TextQueryError', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_code', 8, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -312,8 +312,8 @@ mojo.internal.Struct(
 // Struct: TriggerContext
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
-      mojo.internal.StructField('arg_preset_type_selected', 0, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_freeform_selected', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_freeform_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_preset_type_selected', 4, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2368,10 +2368,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_editor_config', 32, 0, mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, null, true, 9, undefined),
+      mojo.internal.StructField('arg_event_sink', 20, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_editor_config', 24, 0, mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, null, true, 9, undefined),
     ],
-    [[0, 40], [9, 48]]);
+    [[0, 32], [9, 40]]);
 
 mojo.internal.bindings.ash.orca.mojom.OrcaServicePendingReceiver = class {
   constructor(handle) {

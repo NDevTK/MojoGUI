@@ -400,9 +400,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ActivityIconSpec, 'arc.mojom.ActivityIcon', [
       mojo.internal.StructField('arg_activity', 0, 0, mojo.internal.bindings.arc.mojom.ActivityNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_png_data', 24, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 40, undefined),
     ],
     [[0, 32], [40, 40]]);
@@ -422,8 +422,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_activity', 8, 0, mojo.internal.bindings.arc.mojom.ActivityNameSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_action_intent', 24, 0, mojo.internal.bindings.arc.mojom.IntentInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmap_icon', 32, 0, mojo.internal.bindings.arc.mojom.ArcBitmapSpec, null, true, 23, undefined),
-      mojo.internal.StructField('arg_text_classifier_action', 40, 0, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('arg_text_classifier_action', 32, 0, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('arg_bitmap_icon', 40, 0, mojo.internal.bindings.arc.mojom.ArcBitmapSpec, null, true, 23, undefined),
     ],
     [[0, 40], [23, 56]]);
 
@@ -472,10 +472,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CaptionStyleSpec, 'arc.mojom.CaptionStyle', [
       mojo.internal.StructField('arg_user_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_color', 8, 0, mojo.internal.bindings.arc.mojom.CaptionColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.arc.mojom.CaptionColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_font_scale', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text_shadow_type', 28, 0, mojo.internal.bindings.arc.mojom.CaptionTextShadowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_font_scale', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text_shadow_type', 12, 0, mojo.internal.bindings.arc.mojom.CaptionTextShadowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_color', 16, 0, mojo.internal.bindings.arc.mojom.CaptionColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.bindings.arc.mojom.CaptionColorSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1921,9 +1921,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec, 'arc.mojom.IntentHelperInstance_HandleCameraResult_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_intent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 12, 0, mojo.internal.bindings.arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_intent_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 4, 0, mojo.internal.bindings.arc.mojom.CameraIntentActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

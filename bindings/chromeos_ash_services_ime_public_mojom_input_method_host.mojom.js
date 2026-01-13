@@ -271,9 +271,9 @@ mojo.internal.Struct(
 // Struct: SuggestionsRequest
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec, 'ash.ime.mojom.SuggestionsRequest', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_completion_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 16, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_completion_candidates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -380,9 +380,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_num_before_cursor', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_after_cursor', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

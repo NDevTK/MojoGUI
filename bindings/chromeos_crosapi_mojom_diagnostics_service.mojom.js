@@ -325,17 +325,17 @@ mojo.internal.Struct(
 // Struct: DiagnosticsNonInteractiveRoutineUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdateSpec, 'crosapi.mojom.DiagnosticsNonInteractiveRoutineUpdate', [
-      mojo.internal.StructField('arg_status_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DiagnosticsRoutineUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateSpec, 'crosapi.mojom.DiagnosticsRoutineUpdate', [
-      mojo.internal.StructField('arg_routine_update_union', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_progress_percent', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_percent', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_update_union', 16, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRoutineUpdateUnionSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -409,8 +409,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_Params', [
-      mojo.internal.StructField('arg_expected_power_type', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_expected_status', 8, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_status', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsAcPowerStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_power_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

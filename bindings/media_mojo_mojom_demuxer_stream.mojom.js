@@ -159,10 +159,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_config', 8, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -174,10 +174,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec, 'media.mojom.DemuxerStream_Read_ResponseParams', [
-      mojo.internal.StructField('arg_batch_buffers', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.DecoderBufferSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_config', 8, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_buffers', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.DecoderBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

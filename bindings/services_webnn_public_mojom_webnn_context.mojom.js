@@ -196,8 +196,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec, 'webnn.mojom.WebNNContext_CreateTensor_Params', [
-      mojo.internal.StructField('arg_tensor_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tensor_info', 16, 0, mojo.internal.bindings.webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tensor_info', 0, 0, mojo.internal.bindings.webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tensor_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

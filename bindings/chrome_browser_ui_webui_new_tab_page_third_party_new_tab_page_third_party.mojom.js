@@ -149,13 +149,13 @@ mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojo
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec, 'new_tab_page_third_party.mojom.Theme', [
       mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_background', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_tiling', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_position', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_most_visited', 40, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dark', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_custom_background', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dark', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_custom_background', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_background', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_tiling', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_position', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_most_visited', 48, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
     ],
     [[0, 64]]);
 

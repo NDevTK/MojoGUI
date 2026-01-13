@@ -148,15 +148,15 @@ mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_
 // Struct: EligibilityState
 mojo.internal.Struct(
     mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec, 'aim_eligibility.mojom.EligibilityState', [
-      mojo.internal.StructField('arg_server_response_base64_encoded', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_server_response_base64_url_encoded', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_server_response_source', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_updated', 24, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_eligible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_eligible_by_policy', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_eligible_by_dse', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_eligible_by_server', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_server_eligibility_enabled', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_eligible_by_policy', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_eligible_by_dse', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_eligible_by_server', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_server_eligibility_enabled', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_server_response_base64_encoded', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_server_response_base64_url_encoded', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_server_response_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_updated', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

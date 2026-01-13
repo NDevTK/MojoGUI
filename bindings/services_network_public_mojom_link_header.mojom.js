@@ -164,10 +164,10 @@ mojo.internal.bindings.network.mojom.CrossOriginAttribute = {
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LinkHeaderSpec, 'network.mojom.LinkHeader', [
       mojo.internal.StructField('arg_href', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_rel', 16, 0, mojo.internal.bindings.network.mojom.LinkRelAttributeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_as', 20, 0, mojo.internal.bindings.network.mojom.LinkAsAttributeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cross_origin', 24, 0, mojo.internal.bindings.network.mojom.CrossOriginAttributeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fetch_priority', 28, 0, mojo.internal.bindings.network.mojom.FetchPriorityAttributeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rel', 8, 0, mojo.internal.bindings.network.mojom.LinkRelAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_as', 12, 0, mojo.internal.bindings.network.mojom.LinkAsAttributeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin', 16, 0, mojo.internal.bindings.network.mojom.CrossOriginAttributeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fetch_priority', 20, 0, mojo.internal.bindings.network.mojom.FetchPriorityAttributeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);

@@ -337,9 +337,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParams', [
-      mojo.internal.StructField('arg_remaining_time', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_date_and_time', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cloud_provider', 16, 0, mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cloud_provider', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remaining_time', 8, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_date_and_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

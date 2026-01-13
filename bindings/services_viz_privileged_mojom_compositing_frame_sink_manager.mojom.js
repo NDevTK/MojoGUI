@@ -273,26 +273,26 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.RootCompositorFrameSinkParamsSpec, 'viz.mojom.RootCompositorFrameSinkParams', [
       mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_widget', 8, 0, mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_settings', 16, 0, mojo.internal.bindings.viz.mojom.RendererSettingsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_frame_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_frame_sink_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_private', 40, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.DisplayPrivateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_compositing', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_send_swap_size_notifications', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_frame_rate_limit', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_create_input_receiver', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_refresh_rate', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_settings', 24, 0, mojo.internal.bindings.viz.mojom.RendererSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_frame_sink', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_frame_sink_client', 36, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_private', 44, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.DisplayPrivateRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_display_client', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.DisplayClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_external_begin_frame_controller', 56, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_external_begin_frame_controller_client', 64, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_refresh_rate', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_compositing', 76, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_send_swap_size_notifications', 76, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_frame_rate_limit', 76, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_create_input_receiver', 76, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_external_begin_frame_controller_client', 60, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemote), null, true, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 80]]);
 
 // Struct: CompositorDisplayLinkParams
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorDisplayLinkParamsSpec, 'viz.mojom.CompositorDisplayLinkParams', [
       mojo.internal.StructField('arg_external_begin_frame_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_external_begin_frame_controller_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_external_begin_frame_controller_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -338,7 +338,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec, 'viz.mojom.FrameSinkManager_CreateFrameSinkBundle_Params', [
       mojo.internal.StructField('arg_bundle_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkBundleIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkBundleRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -347,7 +347,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_bundle_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkBundleIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_compositor_frame_sink', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_frame_sink_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_frame_sink_client', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 32, 0, mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
@@ -386,9 +386,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec, 'viz.mojom.FrameSinkManager_CreateVideoCapturer_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_version_source', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_version_source', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec, 'viz.mojom.FrameSinkManager_EvictSurfaces_Params', [
@@ -418,15 +418,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec, 'viz.mojom.FrameSinkManager_RequestCopyOfOutput_Params', [
       mojo.internal.StructField('arg_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_exact_surface_id', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_exact_surface_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec, 'viz.mojom.FrameSinkManager_CacheBackBuffer_Params', [
-      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_root_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -473,8 +473,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec, 'viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_Params', [
-      mojo.internal.StructField('arg_render_input_routers', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_blocked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_render_input_routers', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1777,8 +1777,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec, 'viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_Params', [
       mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_activation_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_token', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

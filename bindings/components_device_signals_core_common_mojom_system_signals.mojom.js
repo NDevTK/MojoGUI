@@ -167,12 +167,12 @@ mojo.internal.bindings.device_signals.mojom.AntiVirusProductState = {
 // Struct: ExecutableMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, 'device_signals.mojom.ExecutableMetadata', [
-      mojo.internal.StructField('arg_public_keys_hashes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_version', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subject_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_running', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_os_verified', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_running', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_os_verified', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_public_keys_hashes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subject_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -180,9 +180,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec, 'device_signals.mojom.FileSystemItem', [
       mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sha256_hash', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_executable_metadata', 16, 0, mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_presence', 24, 0, mojo.internal.bindings.device_signals.mojom.PresenceValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presence', 8, 0, mojo.internal.bindings.device_signals.mojom.PresenceValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sha256_hash', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_executable_metadata', 24, 0, mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

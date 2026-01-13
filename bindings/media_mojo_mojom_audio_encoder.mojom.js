@@ -173,11 +173,11 @@ mojo.internal.Struct(
 // Struct: AudioEncoderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec, 'media.mojom.AudioEncoderConfig', [
-      mojo.internal.StructField('arg_aac', 0, 0, mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 8, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_rate', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bitrate', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_count', 20, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_count', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_rate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bitrate', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_aac', 16, 0, mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

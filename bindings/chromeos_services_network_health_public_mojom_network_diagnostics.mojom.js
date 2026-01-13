@@ -520,18 +520,18 @@ mojo.internal.Struct(
 // Struct: GoogleServicesConnectivityConnectionError
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError', [
-      mojo.internal.StructField('arg_proxy', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_connection_info', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_problem_type', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_problem_type', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_connection_info', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: GoogleServicesConnectivityProxyConnectionError
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError', [
-      mojo.internal.StructField('arg_proxy', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_info', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_problem_type', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_problem_type', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_info', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -554,13 +554,13 @@ mojo.internal.Struct(
 // Struct: RoutineResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, 'chromeos.network_diagnostics.mojom.RoutineResult', [
-      mojo.internal.StructField('arg_problems', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_verdict', 24, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_problems', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_result_value', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_source', 48, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
     ],
-    [[0, 40], [1, 56], [2, 64]]);
+    [[0, 40], [1, 56], [2, 16]]);
 
 // Interface: NetworkDiagnosticsRoutines
 mojo.internal.Struct(

@@ -179,11 +179,11 @@ mojo.internal.Struct(
 // Struct: SpellCheckResult
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, 'spellcheck.mojom.SpellCheckResult', [
-      mojo.internal.StructField('arg_replacements', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoration', 8, 0, mojo.internal.bindings.spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_should_hide_suggestion_menu', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_decoration', 0, 0, mojo.internal.bindings.spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_should_hide_suggestion_menu', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_replacements', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -587,8 +587,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

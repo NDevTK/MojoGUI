@@ -257,19 +257,19 @@ mojo.internal.Struct(
 // Struct: ChunkPatch
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, 'tracing.mojom.ChunkPatch', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ChunksToPatch
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ChunksToPatchSpec, 'tracing.mojom.ChunksToPatch', [
-      mojo.internal.StructField('arg_patches', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_writer_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_chunk_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_more_patches', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_target_buffer', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_chunk_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_more_patches', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_patches', 16, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -312,16 +312,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, 'tracing.mojom.DataSourceConfig', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_chrome_config', 16, 0, mojo.internal.bindings.tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interceptor_config', 24, 0, mojo.internal.bindings.tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_legacy_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_track_event_config_raw', 40, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_etw_config_raw', 48, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_metrics_config_raw', 56, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_samples_config_raw', 64, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_buffer', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_trace_duration_ms', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_duration_ms', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_chrome_config', 24, 0, mojo.internal.bindings.tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interceptor_config', 32, 0, mojo.internal.bindings.tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_legacy_config', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track_event_config_raw', 48, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_etw_config_raw', 56, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_metrics_config_raw', 64, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_histogram_samples_config_raw', 72, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -355,11 +355,11 @@ mojo.internal.Struct(
 // Struct: PerfettoBuiltinDataSource
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec, 'tracing.mojom.PerfettoBuiltinDataSource', [
-      mojo.internal.StructField('arg_primary_trace_clock_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_clock_snapshotting', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_trace_config', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_system_info', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_service_events', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_clock_snapshotting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_trace_config', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_system_info', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_service_events', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_trace_clock_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -377,10 +377,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_perfetto_builtin_data_source', 8, 0, mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffers', 16, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.BufferConfigSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_incremental_state_config', 24, 0, mojo.internal.bindings.tracing.mojom.IncrementalStateConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trace_uuid', 32, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_unique_session_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_write_into_file', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_write_into_file', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_uuid', 40, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unique_session_name', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -1323,7 +1323,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceRequest = mojo.internal.bind
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec, 'tracing.mojom.ConsumerHost_EnableTracing_Params', [
       mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_file', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
@@ -1332,17 +1332,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
       mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_filtering_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_unguessable_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_filtering_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1585,9 +1585,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParams', [
-      mojo.internal.StructField('arg_percent_full', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_data_loss', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data_loss', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_full', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

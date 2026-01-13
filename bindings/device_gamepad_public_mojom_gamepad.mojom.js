@@ -220,22 +220,22 @@ mojo.internal.Struct(
 // Struct: GamepadButton
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadButtonSpec, 'device.mojom.GamepadButton', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pressed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_touched', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_touched', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: GamepadTouch
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadTouchSpec, 'device.mojom.GamepadTouch', [
-      mojo.internal.StructField('arg_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_width', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_id', 28, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_surface_dimensions', 29, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_id', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_surface_dimensions', 5, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_height', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_width', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -261,17 +261,17 @@ mojo.internal.Struct(
 // Struct: Gamepad
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadSpec, 'device.mojom.Gamepad', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_axes', 16, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_buttons', 24, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.GamepadButtonSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_vibration_actuator', 32, 0, mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pose', 40, 0, mojo.internal.bindings.device.mojom.GamepadPoseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_touch_events', 48, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.GamepadTouchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mapping', 56, 0, mojo.internal.bindings.device.mojom.GamepadMappingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hand', 60, 0, mojo.internal.bindings.device.mojom.GamepadHandSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_connected', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mapping', 4, 0, mojo.internal.bindings.device.mojom.GamepadMappingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_axes', 24, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.GamepadButtonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vibration_actuator', 40, 0, mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pose', 48, 0, mojo.internal.bindings.device.mojom.GamepadPoseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hand', 56, 0, mojo.internal.bindings.device.mojom.GamepadHandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_id', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_events', 64, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.GamepadTouchSpec, false), null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -290,22 +290,22 @@ mojo.internal.Struct(
 // Interface: GamepadObserver
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec, 'device.mojom.GamepadObserver_GamepadConnected_Params', [
-      mojo.internal.StructField('arg_gamepad', 0, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gamepad', 8, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec, 'device.mojom.GamepadObserver_GamepadDisconnected_Params', [
-      mojo.internal.StructField('arg_gamepad', 0, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gamepad', 8, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec, 'device.mojom.GamepadObserver_GamepadRawInputChanged_Params', [
-      mojo.internal.StructField('arg_gamepad', 0, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gamepad', 8, 0, mojo.internal.bindings.device.mojom.GamepadSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -846,9 +846,9 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRequest = mojo.internal.bindin
 // Interface: GamepadHapticsManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec, 'device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pad_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 12, 0, mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pad_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

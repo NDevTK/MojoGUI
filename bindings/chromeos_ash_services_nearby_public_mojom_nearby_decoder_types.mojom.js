@@ -247,8 +247,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.AdvertisementSpec, 'sharing.mojom.Advertisement', [
       mojo.internal.StructField('arg_salt', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_encrypted_metadata_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 24, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 16, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -266,11 +266,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.FileMetadataSpec, 'sharing.mojom.FileMetadata', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 24, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 40, 0, mojo.internal.bindings.sharing.mojom.TypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.sharing.mojom.TypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 32, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -278,10 +278,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.TextMetadataSpec, 'sharing.mojom.TextMetadata', [
       mojo.internal.StructField('arg_text_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.sharing.mojom.TypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.sharing.mojom.TypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -289,9 +289,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec, 'sharing.mojom.WifiCredentialsMetadata', [
       mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_security_type', 24, 0, mojo.internal.bindings.sharing.mojom.SecurityTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_security_type', 8, 0, mojo.internal.bindings.sharing.mojom.SecurityTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

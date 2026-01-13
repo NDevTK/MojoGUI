@@ -126,7 +126,7 @@ mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec = { $: {} };
 // Struct: NavigationPreloadState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec, 'blink.mojom.NavigationPreloadState', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_header', 8, 0, mojo.internal.String, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -308,18 +308,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.ThemeSpec, 'new_tab_page.mojom.Theme', [
       mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_background_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_logo_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image_collection_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image', 32, 0, mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image_attribution_1', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image_attribution_2', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_image_attribution_url', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_most_visited', 64, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_baseline', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_gm3', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_custom_background', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_daily_refresh_enabled', 72, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dark', 72, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_baseline', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_gm3', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_custom_background', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_daily_refresh_enabled', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dark', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_logo_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_collection_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image', 40, 0, mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_attribution_1', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_attribution_2', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_attribution_url', 64, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_most_visited', 72, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -328,11 +328,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.ImageDoodleSpec, 'new_tab_page.mojom.ImageDoodle', [
       mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_animation_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_impression_log_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_animation_impression_log_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_width', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_impression_log_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_animation_impression_log_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -752,16 +752,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageClicked_Params', [
-      mojo.internal.StructField('arg_log_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleImageRendered_Params', [
-      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_log_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -775,9 +775,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnDoodleShared_Params', [
-      mojo.internal.StructField('arg_doodle_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_share_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_channel', 16, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_doodle_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -2316,8 +2316,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec, 'new_tab_page.mojom.Page_SetDisabledModules_Params', [
-      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_all', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_all', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

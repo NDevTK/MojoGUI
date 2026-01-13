@@ -155,7 +155,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_array_buffer_contents_array', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerializedArrayBufferContentsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_image_bitmap_contents_array', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerializedStaticBitmapImageSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_activation', 40, 0, mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_task_state_id', 48, 0, mojo.internal.bindings.blink.mojom.TaskAttributionIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_delegated_capability', 56, 0, mojo.internal.bindings.blink.mojom.DelegatedCapabilitySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_delegated_capability', 48, 0, mojo.internal.bindings.blink.mojom.DelegatedCapabilitySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_task_state_id', 56, 0, mojo.internal.bindings.blink.mojom.TaskAttributionIdSpec, null, true, 0, undefined),
     ],
     [[0, 72]]);

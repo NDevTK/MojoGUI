@@ -225,10 +225,10 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = mojo.internal.bind
 // Interface: GpuService
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec, 'viz.mojom.GpuService_EstablishGpuChannel_Params', [
-      mojo.internal.StructField('arg_client_tracing_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_gpu_host', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_extra_handles_validation', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_gpu_host', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_extra_handles_validation', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_client_tracing_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -243,23 +243,23 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_SetChannelClientPid_ParamsSpec, 'viz.mojom.GpuService_SetChannelClientPid_Params', [
-      mojo.internal.StructField('arg_client_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_pid', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec, 'viz.mojom.GpuService_SetChannelDiskCacheHandle_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_handle', 8, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec, 'viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_backend', 16, 0, mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_handle', 8, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_backend', 24, 0, mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -314,9 +314,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec, 'viz.mojom.GpuService_BindWebNNContextProvider_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec, 'viz.mojom.GpuService_GetVideoMemoryUsageStats_Params', [

@@ -274,9 +274,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MenuItemSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_item_font_size', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_item', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_right_aligned', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_right_aligned', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_item', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -613,8 +613,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec, 'remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParams', [
-      mojo.internal.StructField('arg_selected_item_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_selected_item_$flag', originalFieldName: 'arg_selected_item' }),
-      mojo.internal.StructField('arg_selected_item_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_selected_item_$value', originalFieldName: 'arg_selected_item' }),
+      mojo.internal.StructField('arg_selected_item_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_selected_item_$value', originalFieldName: 'arg_selected_item' }),
+      mojo.internal.StructField('arg_selected_item_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_selected_item_$flag', originalFieldName: 'arg_selected_item' }),
     ],
     [[0, 16]]);
 
@@ -1951,8 +1951,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec, 'remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_Params', [
       mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_native_event_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_commands', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.EditCommandSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_skip_if_unhandled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_skip_if_unhandled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_commands', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.EditCommandSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

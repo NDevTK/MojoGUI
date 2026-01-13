@@ -172,19 +172,19 @@ mojo.internal.bindings.filesystem.mojom.FsFileType = {
 // Struct: TimespecOrNow
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.TimespecOrNowSpec, 'filesystem.mojom.TimespecOrNow', [
-      mojo.internal.StructField('arg_seconds', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_now', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_now', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_seconds', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FileInformation
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.FileInformationSpec, 'filesystem.mojom.FileInformation', [
-      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_atime', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mtime', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ctime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_atime', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mtime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ctime', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 

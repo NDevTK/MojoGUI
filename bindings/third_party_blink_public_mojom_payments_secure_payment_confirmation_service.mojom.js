@@ -197,9 +197,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParams', [
-      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.blink.mojom.MakeCredentialAuthenticatorResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_dom_exception_details', 8, 0, mojo.internal.bindings.blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.blink.mojom.MakeCredentialAuthenticatorResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dom_exception_details', 16, 0, mojo.internal.bindings.blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

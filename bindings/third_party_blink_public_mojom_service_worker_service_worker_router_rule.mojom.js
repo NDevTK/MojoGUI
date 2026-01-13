@@ -198,10 +198,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec, 'blink.mojom.ServiceWorkerRouterRequestCondition', [
       mojo.internal.StructField('arg_method', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.network.mojom.RequestModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination', 12, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_mode', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_destination', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_mode', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_destination', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 12, 0, mojo.internal.bindings.network.mojom.RequestModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination', 16, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

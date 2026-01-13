@@ -158,10 +158,10 @@ mojo.internal.bindings.action_chips.mojom.ChipType = {
 // Struct: TabInfo
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -170,8 +170,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab', 16, 0, mojo.internal.bindings.action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab', 24, 0, mojo.internal.bindings.action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.action_chips.mojom.PageRequest = mojo.internal.bindings.a
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

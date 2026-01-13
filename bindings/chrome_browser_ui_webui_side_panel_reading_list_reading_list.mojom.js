@@ -183,16 +183,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_update_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_display_time_since_update', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_read', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_read', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_display_time_since_update', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: Window
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.WindowSpec, 'reading_list.mojom.Window', [
-      mojo.internal.StructField('arg_height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -378,8 +378,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec, 'reading_list.mojom.PageHandler_OpenURL_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_modifiers', 8, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mark_as_read', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mark_as_read', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_click_modifiers', 16, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

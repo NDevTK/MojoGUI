@@ -218,8 +218,8 @@ mojo.internal.Union(
 // Struct: NewScreencastPrecondition
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec, 'ash.projector.mojom.NewScreencastPrecondition', [
-      mojo.internal.StructField('arg_reasons', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reasons', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -227,9 +227,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec, 'ash.projector.mojom.PendingScreencast', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_created_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_progress', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_failed', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_progress', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_failed', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_created_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

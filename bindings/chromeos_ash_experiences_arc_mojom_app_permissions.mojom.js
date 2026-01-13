@@ -152,10 +152,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PermissionStateSpec, 'arc.mojom.PermissionState', [
       mojo.internal.StructField('arg_granted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_one_time', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
       mojo.internal.StructField('arg_details', 8, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_one_time', 16, 0, mojo.internal.Bool, false, false, 2, undefined),
     ],
-    [[0, 16], [1, 24], [2, 32]]);
+    [[0, 16], [1, 24], [2, 16]]);
 
 // Interface: AppPermissionsInstance
 mojo.internal.Struct(

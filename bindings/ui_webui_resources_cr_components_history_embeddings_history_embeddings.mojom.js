@@ -205,9 +205,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec, 'history_embeddings.mojom.SearchResult', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_items', 16, 0, mojo.internal.Array(mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_status', 24, 0, mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer_status', 8, 0, mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 24, 0, mojo.internal.Array(mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -233,12 +233,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec, 'history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_Params', [
-      mojo.internal.StructField('arg_queryWordCount', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_nonEmptyResults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_userClickedResult', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_answerShown', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_answerCitationClicked', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_otherHistoryResultClicked', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_nonEmptyResults', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_userClickedResult', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_answerShown', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_answerCitationClicked', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_otherHistoryResultClicked', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_queryWordCount', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -140,8 +140,8 @@ mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.O
 // Struct: OriginTrialFeatureState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OriginTrialFeatureStateSpec, 'blink.mojom.OriginTrialFeatureState', [
-      mojo.internal.StructField('arg_tokens', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tokens', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -192,10 +192,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_modifiers', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hdr_metadata', 48, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_planes_count', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_planes_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 48, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hdr_metadata', 56, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -225,9 +225,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_Params', [
       mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.gfx.mojom.FrameDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overlays', 16, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.gfx.mojom.FrameDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlays', 24, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -626,10 +626,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_Params', [
       mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_fence_handle', 8, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_presentation_infos', 16, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_result', 28, 0, mojo.internal.bindings.gfx.mojom.SwapResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_result', 12, 0, mojo.internal.bindings.gfx.mojom.SwapResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_fence_handle', 16, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_presentation_infos', 24, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

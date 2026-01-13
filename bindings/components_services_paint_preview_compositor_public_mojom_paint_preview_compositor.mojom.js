@@ -240,8 +240,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -255,8 +255,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParams', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -268,8 +268,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -282,8 +282,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParams', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -188,10 +188,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.input.mojom.TouchTransferStateSpec, 'input.mojom.TouchTransferState', [
       mojo.internal.StructField('arg_down_time_ms', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_root_widget_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_down_event', 16, 0, mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_web_contents_y_offset_pix', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_scale', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_would_have_handled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents_y_offset_pix', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dip_scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_would_have_handled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_down_event', 32, 0, mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -204,8 +204,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params', [
-      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_enable_zoom', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_enable_zoom', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -623,9 +623,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ack_source', 8, 0, mojo.internal.bindings.blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ack_result', 12, 0, mojo.internal.bindings.blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ack_source', 0, 0, mojo.internal.bindings.blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ack_result', 4, 0, mojo.internal.bindings.blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 8, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -642,8 +642,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params', [
-      mojo.internal.StructField('arg_ack_timeout_ts', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_responsive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_responsive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ack_timeout_ts', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

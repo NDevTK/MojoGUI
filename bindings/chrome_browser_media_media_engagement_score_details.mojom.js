@@ -142,9 +142,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsSpec, 'media.mojom.MediaEngagementScoreDetails', [
       mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_last_media_playback_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_visits', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_media_playbacks', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_visits', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_media_playbacks', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_last_media_playback_time', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_high', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -152,18 +152,18 @@ mojo.internal.Struct(
 // Struct: MediaEngagementConfig
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaEngagementConfigSpec, 'media.mojom.MediaEngagementConfig', [
-      mojo.internal.StructField('arg_high_score_lower_threshold', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_high_score_upper_threshold', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_autoplay_policy', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preload_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_score_min_visits', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_record_data', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_bypass_autoplay', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_preload_data', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_https_only', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_autoplay_disable_settings', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_pref_disable_unified_autoplay', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_custom_autoplay_policy', 36, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_score_min_visits', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_record_data', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_bypass_autoplay', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_preload_data', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_https_only', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_autoplay_disable_settings', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pref_disable_unified_autoplay', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_custom_autoplay_policy', 4, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_high_score_lower_threshold', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_high_score_upper_threshold', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_autoplay_policy', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preload_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

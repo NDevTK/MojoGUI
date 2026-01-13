@@ -504,10 +504,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaController_ObserveImages_ParamsSpec, 'media_session.mojom.MediaController_ObserveImages_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_size_px', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_desired_size_px', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_size_px', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_desired_size_px', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -2032,15 +2032,15 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRequest = mojo
 // Interface: MediaControllerImageObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec, 'media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_Params', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec, 'media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_Params', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap', 8, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

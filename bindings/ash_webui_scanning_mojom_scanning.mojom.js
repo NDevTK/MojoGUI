@@ -221,11 +221,11 @@ mojo.internal.bindings.ash.scanning.mojom.ScanResult = {
 // Struct: ScanSource
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec, 'ash.scanning.mojom.ScanSource', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_sizes', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolutions', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_modes', 24, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolutions', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -273,8 +273,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params', [
-      mojo.internal.StructField('arg_scanned_file_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scanned_file_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

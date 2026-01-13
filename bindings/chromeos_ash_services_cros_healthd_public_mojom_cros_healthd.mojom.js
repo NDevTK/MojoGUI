@@ -423,8 +423,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_Params', [
-      mojo.internal.StructField('arg_expected_power_type', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_expected_status', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_power_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -560,8 +560,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_Params', [
-      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 0, 0, mojo.internal.Uint32, 0, false, 10, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
-      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 4, 0, mojo.internal.Bool, false, false, 10, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 10, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 10, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
     ],
     [[0, 8], [10, 16]]);
 
@@ -784,9 +784,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_Params', [
-      mojo.internal.StructField('arg_replier', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 12, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_replier', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -3536,8 +3536,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -153,9 +153,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_requested_protocols', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_site_for_cookies', 16, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_agent', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_handshake_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_throttling_profile_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_access_api_status', 48, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_access_api_status', 32, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handshake_client', 36, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_throttling_profile_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 64]]);
 

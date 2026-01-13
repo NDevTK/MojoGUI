@@ -272,9 +272,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_existing_data', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_auto_close', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_existing_data', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_auto_close', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 4, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -329,8 +329,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParams', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleFileSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_result', 16, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleFileSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_access_handle_host', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);

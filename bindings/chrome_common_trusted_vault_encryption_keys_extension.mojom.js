@@ -133,8 +133,8 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrust
 // Struct: TrustedVaultKey
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec, 'chrome.mojom.TrustedVaultKey', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

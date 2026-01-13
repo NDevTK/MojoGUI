@@ -250,9 +250,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_Params', [
-      mojo.internal.StructField('arg_image_max_size_pixels', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_min_area_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_image_format', 12, 0, mojo.internal.bindings.chrome.mojom.ImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_min_area_pixels', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_format', 4, 0, mojo.internal.bindings.chrome.mojom.ImageFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_max_size_pixels', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_quality', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -329,10 +329,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_Params', [
       mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_paint_stability', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_paint_stability', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.bindings.chrome.mojom.ChromeRenderFramePendingReceiver = class {
   constructor(handle) {

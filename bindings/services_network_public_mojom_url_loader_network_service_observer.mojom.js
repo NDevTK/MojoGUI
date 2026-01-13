@@ -235,10 +235,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LoadInfoSpec, 'network.mojom.LoadInfo', [
       mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state_param', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_position', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_load_state', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_load_state', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state_param', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_position', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_size', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -512,15 +512,15 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRequest = mojo.in
 // Interface: SSLPrivateKey
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec, 'network.mojom.SSLPrivateKey_Sign_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, 'network.mojom.SSLPrivateKey_Sign_ResponseParams', [
-      mojo.internal.StructField('arg_signature', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -859,9 +859,9 @@ mojo.internal.bindings.network.mojom.AuthChallengeResponderRequest = mojo.intern
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ssl_info', 8, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fatal', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fatal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ssl_info', 16, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -882,12 +882,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_Params', [
       mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_auth_info', 16, 0, mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head_headers', 24, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_auth_challenge_responder', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_first_auth_attempt', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_first_auth_attempt', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_auth_info', 24, 0, mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_auth_challenge_responder', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -908,9 +908,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_header_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_partition_key', 16, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_load_flags', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_partitioned_state_allowed_only', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_load_flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_partitioned_state_allowed_only', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_partition_key', 24, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -932,9 +932,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_Params', [
-      mojo.internal.StructField('arg_recv_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sent_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_traffic_annotation_id_hash', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_network_traffic_annotation_id_hash', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_recv_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sent_bytes', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

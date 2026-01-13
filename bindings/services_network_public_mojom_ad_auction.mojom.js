@@ -140,8 +140,8 @@ mojo.internal.bindings.network.mojom.Type = {
 // Struct: AdAuctionEventRecord
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AdAuctionEventRecordSpec, 'network.mojom.AdAuctionEventRecord', [
-      mojo.internal.StructField('arg_providing_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_eligible_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_providing_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_eligible_origins', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

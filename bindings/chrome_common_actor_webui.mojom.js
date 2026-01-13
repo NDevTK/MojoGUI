@@ -241,21 +241,21 @@ mojo.internal.Struct(
 // Struct: Credential
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.CredentialSpec, 'actor.webui.mojom.Credential', [
-      mojo.internal.StructField('arg_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_site_or_app', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_origin', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_site_or_app', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_origin', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: SelectCredentialDialogRequest
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec, 'actor.webui.mojom.SelectCredentialDialogRequest', [
-      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.actor.webui.mojom.CredentialSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_icons', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_show_dialog', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_show_dialog', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_credentials', 8, 0, mojo.internal.Array(mojo.internal.bindings.actor.webui.mojom.CredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_icons', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -265,8 +265,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_error_reason', 4, 0, mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_permission_duration', 8, 0, mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_selected_credential_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_selected_credential_id_$flag', originalFieldName: 'arg_selected_credential_id' }),
-      mojo.internal.StructField('arg_selected_credential_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_selected_credential_id_$value', originalFieldName: 'arg_selected_credential_id' }),
+      mojo.internal.StructField('arg_selected_credential_id_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_selected_credential_id_$value', originalFieldName: 'arg_selected_credential_id' }),
+      mojo.internal.StructField('arg_selected_credential_id_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_selected_credential_id_$flag', originalFieldName: 'arg_selected_credential_id' }),
     ],
     [[0, 32]]);
 
@@ -291,8 +291,8 @@ mojo.internal.Struct(
 // Struct: SelectAutofillSuggestionsDialogRequest
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogRequest', [
-      mojo.internal.StructField('arg_form_filling_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_form_filling_requests', 8, 0, mojo.internal.Array(mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -306,8 +306,8 @@ mojo.internal.Struct(
 // Struct: SelectAutofillSuggestionsDialogResponse
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogResponse', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -336,8 +336,8 @@ mojo.internal.Struct(
 // Struct: NavigationConfirmationRequest
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec, 'actor.webui.mojom.NavigationConfirmationRequest', [
-      mojo.internal.StructField('arg_navigation_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

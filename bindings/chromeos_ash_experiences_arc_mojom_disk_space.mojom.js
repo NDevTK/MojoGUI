@@ -680,8 +680,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec, 'arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParams', [
-      mojo.internal.StructField('arg_applications_size', 0, 0, mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_succeeded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_applications_size', 8, 0, mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

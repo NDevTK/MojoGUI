@@ -258,8 +258,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -560,8 +560,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2493,9 +2493,9 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverRequest = mojo.internal.bind
 // Interface: StillCaptureResultObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec, 'cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_effect', 8, 0, mojo.internal.bindings.cros.mojom.EffectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_effect', 0, 0, mojo.internal.bindings.cros.mojom.EffectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 8, 0, mojo.internal.bindings.media.mojom.BlobSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

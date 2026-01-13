@@ -211,12 +211,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec, 'ash.firmware_update.mojom.FirmwareUpdate', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filepath', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_checksum', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 48, 0, mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_reboot', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_reboot', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 20, 0, mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_description', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filepath', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_checksum', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
 

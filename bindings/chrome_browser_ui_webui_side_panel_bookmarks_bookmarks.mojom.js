@@ -206,15 +206,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.BookmarksTreeNodeSpec, 'side_panel.mojom.BookmarksTreeNode', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_parent_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_children', 32, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.mojom.BookmarksTreeNodeSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_date_added_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_date_added_$flag', originalFieldName: 'arg_date_added' }),
-      mojo.internal.StructField('arg_date_last_used_$value', 48, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_date_last_used_$flag', originalFieldName: 'arg_date_last_used' }),
-      mojo.internal.StructField('arg_index', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_date_added_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_date_added_$value', originalFieldName: 'arg_date_added' }),
-      mojo.internal.StructField('arg_date_last_used_$flag', 60, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_date_last_used_$value', originalFieldName: 'arg_date_last_used' }),
-      mojo.internal.StructField('arg_unmodifiable', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_date_added_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_date_added_$value', originalFieldName: 'arg_date_added' }),
+      mojo.internal.StructField('arg_date_last_used_$flag', 20, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_date_last_used_$value', originalFieldName: 'arg_date_last_used' }),
+      mojo.internal.StructField('arg_unmodifiable', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_children', 40, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.mojom.BookmarksTreeNodeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_date_added_$value', 48, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_date_added_$flag', originalFieldName: 'arg_date_added' }),
+      mojo.internal.StructField('arg_date_last_used_$value', 56, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_date_last_used_$flag', originalFieldName: 'arg_date_last_used' }),
     ],
     [[0, 72]]);
 
@@ -489,9 +489,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_OpenBookmark_Params', [
       mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_click_modifiers', 8, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_folder_depth', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 20, 0, mojo.internal.bindings.side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_folder_depth', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 12, 0, mojo.internal.bindings.side_panel.mojom.ActionSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_modifiers', 16, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1735,9 +1735,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec, 'side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_Params', [
       mojo.internal.StructField('arg_old_parent_index', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_parent_index', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_old_node_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_new_node_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_old_node_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_new_node_index', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_new_parent_index', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

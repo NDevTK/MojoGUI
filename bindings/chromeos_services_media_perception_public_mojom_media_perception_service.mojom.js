@@ -149,7 +149,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.intern
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

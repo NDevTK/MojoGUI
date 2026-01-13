@@ -218,24 +218,24 @@ mojo.internal.Struct(
 // Struct: IdbTransactionMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec, 'storage.mojom.IdbTransactionMetadata', [
-      mojo.internal.StructField('arg_tid', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_client_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_age', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_runtime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tasks_scheduled', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tasks_completed', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_state_history', 56, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 64, 0, mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 68, 0, mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tid', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_token', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_age', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_runtime', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tasks_scheduled', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tasks_completed', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_state_history', 72, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec, false), null, false, 0, undefined),
     ],
     [[0, 88]]);
 
 // Struct: IdbTransactionMetadataStateHistory
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec, 'storage.mojom.IdbTransactionMetadataStateHistory', [
-      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -713,8 +713,8 @@ mojo.internal.Union(
 // Struct: MemoryRoutineArgument
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.MemoryRoutineArgumentSpec, 'ash.cros_healthd.mojom.MemoryRoutineArgument', [
-      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
-      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
     ],
     [[0, 16]]);
 
@@ -740,9 +740,9 @@ mojo.internal.Struct(
 // Struct: DiskReadRoutineArgument
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineArgumentSpec, 'ash.cros_healthd.mojom.DiskReadRoutineArgument', [
-      mojo.internal.StructField('arg_disk_read_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadTypeEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_size_mib', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadTypeEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_size_mib', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_disk_read_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -763,8 +763,8 @@ mojo.internal.Struct(
 // Struct: VolumeButtonRoutineArgument
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec, 'ash.cros_healthd.mojom.VolumeButtonRoutineArgument', [
-      mojo.internal.StructField('arg_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ButtonTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ButtonTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -865,8 +865,8 @@ mojo.internal.Struct(
 // Struct: RoutineState
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateSpec, 'ash.cros_healthd.mojom.RoutineState', [
-      mojo.internal.StructField('arg_state_union', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_percentage', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percentage', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state_union', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateUnionSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -886,16 +886,16 @@ mojo.internal.Struct(
 // Struct: NetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec, 'ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfo', [
-      mojo.internal.StructField('arg_speed_kbps', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_speed_kbps', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RoutineStateWaiting
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateWaitingSpec, 'ash.cros_healthd.mojom.RoutineStateWaiting', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineInteractionSpec, null, true, 1, undefined),
     ],
     [[0, 24], [1, 40]]);
@@ -941,8 +941,8 @@ mojo.internal.Struct(
 // Struct: RoutineStateFinished
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateFinishedSpec, 'ash.cros_healthd.mojom.RoutineStateFinished', [
-      mojo.internal.StructField('arg_detail', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineDetailSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_passed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_passed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_detail', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineDetailSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1031,14 +1031,14 @@ mojo.internal.Struct(
 // Struct: BluetoothPairingPeripheralInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec, 'ash.cros_healthd.mojom.BluetoothPairingPeripheralInfo', [
-      mojo.internal.StructField('arg_uuids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_failed_manufacturer_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pair_error', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.PairErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connect_error', 20, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ConnectErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_class_$value', 24, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_bluetooth_class_$flag', originalFieldName: 'arg_bluetooth_class' }),
-      mojo.internal.StructField('arg_address_type', 28, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AddressTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_class_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_bluetooth_class_$value', originalFieldName: 'arg_bluetooth_class' }),
-      mojo.internal.StructField('arg_is_address_valid', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pair_error', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.PairErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connect_error', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ConnectErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuids', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_class_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_bluetooth_class_$value', originalFieldName: 'arg_bluetooth_class' }),
+      mojo.internal.StructField('arg_is_address_valid', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_class_$value', 20, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_bluetooth_class_$flag', originalFieldName: 'arg_bluetooth_class' }),
+      mojo.internal.StructField('arg_address_type', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AddressTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failed_manufacturer_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -1084,9 +1084,9 @@ mojo.internal.Struct(
 // Struct: SensitiveSensorInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.SensitiveSensorInfoSpec, 'ash.cros_healthd.mojom.SensitiveSensorInfo', [
-      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_channels', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_types', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_channels', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1127,7 +1127,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineArgumentSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_routine_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_observer', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

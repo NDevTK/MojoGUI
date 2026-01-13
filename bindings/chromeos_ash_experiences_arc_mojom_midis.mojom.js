@@ -149,12 +149,12 @@ mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec = { $: {}
 // Struct: MidisDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, 'arc.mojom.MidisDeviceInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_card', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_num', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_subdevices', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_card', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_subdevices', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRequest = mojo.internal.bindings.arc
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
       mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

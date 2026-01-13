@@ -152,12 +152,12 @@ mojo.internal.Struct(
 // Struct: DateTimeDialogValue
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec, 'blink.mojom.DateTimeDialogValue', [
-      mojo.internal.StructField('arg_dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_step', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dialog_type', 40, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_type', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_step', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -170,8 +170,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParams', [
-      mojo.internal.StructField('arg_dialog_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

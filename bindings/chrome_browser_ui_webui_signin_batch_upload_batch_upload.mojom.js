@@ -143,10 +143,10 @@ mojo.internal.bindings.batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec = 
 // Struct: DataItem
 mojo.internal.Struct(
     mojo.internal.bindings.batch_upload.mojom.DataItemSpec, 'batch_upload.mojom.DataItem', [
-      mojo.internal.StructField('arg_icon_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subtitle', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subtitle', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

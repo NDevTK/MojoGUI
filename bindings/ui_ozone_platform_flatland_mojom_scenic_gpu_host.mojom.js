@@ -129,8 +129,8 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec =
 // Interface: ScenicGpuHost
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec, 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params', [
-      mojo.internal.StructField('arg_view_holder_token', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_window_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_view_holder_token', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

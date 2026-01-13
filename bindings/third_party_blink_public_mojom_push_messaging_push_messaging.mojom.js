@@ -164,8 +164,8 @@ mojo.internal.bindings.blink.mojom.PushErrorType = {
 // Struct: PushSubscriptionOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, 'blink.mojom.PushSubscriptionOptions', [
-      mojo.internal.StructField('arg_application_server_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_visible_only', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_user_visible_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_application_server_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -191,8 +191,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Subscribe_ResponseParams', [
-      mojo.internal.StructField('arg_subscription', 0, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.blink.mojom.PushRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PushRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -204,9 +204,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_ResponseParams', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error_type', 8, 0, mojo.internal.bindings.blink.mojom.PushErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_did_unsubscribe', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.blink.mojom.PushErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_did_unsubscribe', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -218,8 +218,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_ResponseParams', [
-      mojo.internal.StructField('arg_subscription', 0, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.blink.mojom.PushGetRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PushGetRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

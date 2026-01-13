@@ -533,8 +533,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.ax.android.mojom.AccessibilityCollectionInfoDataSpec, 'ax.android.mojom.AccessibilityCollectionInfoData', [
       mojo.internal.StructField('arg_row_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_column_count', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_mode', 8, 0, mojo.internal.bindings.ax.android.mojom.AccessibilitySelectionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_hierarchical', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_hierarchical', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_mode', 12, 0, mojo.internal.bindings.ax.android.mojom.AccessibilitySelectionModeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -563,8 +563,8 @@ mojo.internal.Struct(
 // Struct: AccessibilityActionInAndroid
 mojo.internal.Struct(
     mojo.internal.bindings.ax.android.mojom.AccessibilityActionInAndroidSpec, 'ax.android.mojom.AccessibilityActionInAndroid', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -572,43 +572,43 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ax.android.mojom.AccessibilityNodeInfoDataSpec, 'ax.android.mojom.AccessibilityNodeInfoData', [
       mojo.internal.StructField('arg_bounds_in_screen', 0, 0, mojo.internal.bindings.ax.android.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_boolean_properties', 8, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityBooleanPropertySpec, mojo.internal.Bool, false), null, true, 1, undefined),
-      mojo.internal.StructField('arg_string_properties', 16, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.String, false), null, true, 1, undefined),
-      mojo.internal.StructField('arg_int_properties', 24, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityIntPropertySpec, mojo.internal.Int32, false), null, true, 1, undefined),
-      mojo.internal.StructField('arg_int_list_properties', 32, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), null, true, 1, undefined),
-      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.Int32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_window_id', 12, 0, mojo.internal.Int32, 0, false, 12, undefined),
+      mojo.internal.StructField('arg_boolean_properties', 16, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityBooleanPropertySpec, mojo.internal.Bool, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_string_properties', 24, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.String, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_int_properties', 32, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityIntPropertySpec, mojo.internal.Int32, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_int_list_properties', 40, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), null, true, 1, undefined),
       mojo.internal.StructField('arg_string_list_properties', 48, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityStringListPropertySpec, mojo.internal.Array(mojo.internal.String, false), false), null, true, 3, undefined),
       mojo.internal.StructField('arg_spannable_string_properties', 56, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityStringPropertySpec, mojo.internal.Array(mojo.internal.bindings.ax.android.mojom.SpanEntrySpec, false), false), null, true, 5, undefined),
       mojo.internal.StructField('arg_collection_info', 64, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityCollectionInfoDataSpec, null, true, 5, undefined),
       mojo.internal.StructField('arg_collection_item_info', 72, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityCollectionItemInfoDataSpec, null, true, 5, undefined),
       mojo.internal.StructField('arg_range_info', 80, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityRangeInfoDataSpec, null, true, 5, undefined),
-      mojo.internal.StructField('arg_window_id', 88, 0, mojo.internal.Int32, 0, false, 12, undefined),
-      mojo.internal.StructField('arg_is_virtual_node', 92, 0, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('arg_is_virtual_node', 88, 0, mojo.internal.Bool, false, false, 20, undefined),
       mojo.internal.StructField('arg_standard_actions', 96, 0, mojo.internal.Array(mojo.internal.bindings.ax.android.mojom.AccessibilityActionInAndroidSpec, false), null, true, 24, undefined),
       mojo.internal.StructField('arg_custom_actions', 104, 0, mojo.internal.Array(mojo.internal.bindings.ax.android.mojom.AccessibilityActionInAndroidSpec, false), null, true, 24, undefined),
     ],
-    [[0, 16], [1, 56], [3, 64], [5, 96], [12, 104], [20, 104], [24, 120]]);
+    [[0, 16], [1, 56], [3, 64], [5, 96], [12, 24], [20, 104], [24, 120]]);
 
 // Struct: AccessibilityWindowInfoData
 mojo.internal.Struct(
     mojo.internal.bindings.ax.android.mojom.AccessibilityWindowInfoDataSpec, 'ax.android.mojom.AccessibilityWindowInfoData', [
-      mojo.internal.StructField('arg_bounds_in_screen', 0, 0, mojo.internal.bindings.ax.android.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_boolean_properties', 8, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowBooleanPropertySpec, mojo.internal.Bool, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_string_properties', 16, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowStringPropertySpec, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_int_properties', 24, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowIntPropertySpec, mojo.internal.Int32, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_int_list_properties', 32, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_window_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_root_node_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_window_type', 48, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityWindowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_root_node_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds_in_screen', 8, 0, mojo.internal.bindings.ax.android.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_type', 16, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityWindowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_boolean_properties', 24, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowBooleanPropertySpec, mojo.internal.Bool, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_string_properties', 32, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowStringPropertySpec, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_int_properties', 40, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowIntPropertySpec, mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_int_list_properties', 48, 0, mojo.internal.Map(mojo.internal.bindings.ax.android.mojom.AccessibilityWindowIntListPropertySpec, mojo.internal.Array(mojo.internal.Int32, false), false), null, true, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: AccessibilityEventData
 mojo.internal.Struct(
     mojo.internal.bindings.ax.android.mojom.AccessibilityEventDataSpec, 'ax.android.mojom.AccessibilityEventData', [
-      mojo.internal.StructField('arg_node_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.android.mojom.AccessibilityNodeInfoDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_type', 8, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.ax.android.mojom.AccessibilityEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_node_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.android.mojom.AccessibilityNodeInfoDataSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_notification_key', 16, 0, mojo.internal.String, null, true, 6, undefined),
       mojo.internal.StructField('arg_window_id', 24, 0, mojo.internal.Int32, 0, false, 6, undefined),
       mojo.internal.StructField('arg_task_id', 28, 0, mojo.internal.Int32, 0, false, 8, undefined),

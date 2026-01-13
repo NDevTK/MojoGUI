@@ -162,8 +162,8 @@ mojo.internal.Struct(
 // Struct: SubAppsServiceListResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
-      mojo.internal.StructField('arg_sub_apps_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_apps_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

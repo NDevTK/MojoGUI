@@ -269,26 +269,26 @@ mojo.internal.Union(
 // Struct: RemoteTypedArray
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec, 'blink.mojom.RemoteTypedArray', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: RemoteInvocationResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec, 'blink.mojom.RemoteInvocationResult', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: RemoteObjectHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec, 'blink.mojom.RemoteObjectHost_GetObject_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RemoteObjectRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_object_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RemoteObjectRemote), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec, 'blink.mojom.RemoteObjectHost_AcquireObject_Params', [

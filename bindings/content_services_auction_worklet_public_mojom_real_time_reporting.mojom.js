@@ -126,9 +126,9 @@ mojo.internal.bindings.auction_worklet.mojom.RealTimeReportingContributionSpec =
 // Struct: RealTimeReportingContribution
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.RealTimeReportingContributionSpec, 'auction_worklet.mojom.RealTimeReportingContribution', [
-      mojo.internal.StructField('arg_priority_weight', 0, 0, mojo.internal.Double, 1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_latency_threshold_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_latency_threshold_$flag', originalFieldName: 'arg_latency_threshold' }),
-      mojo.internal.StructField('arg_latency_threshold_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_latency_threshold_$value', originalFieldName: 'arg_latency_threshold' }),
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_latency_threshold_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_latency_threshold_$value', originalFieldName: 'arg_latency_threshold' }),
+      mojo.internal.StructField('arg_priority_weight', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
+      mojo.internal.StructField('arg_latency_threshold_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_latency_threshold_$flag', originalFieldName: 'arg_latency_threshold' }),
     ],
     [[0, 32]]);

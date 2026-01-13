@@ -181,12 +181,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_display_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_internal_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_platforms', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_required_features', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_instructions', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_followed_by_internal_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_added_milestone', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_added_milestone', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_platforms', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_required_features', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instructions', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_followed_by_internal_name', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 72, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), null, false, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -195,9 +195,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec, 'mojom.user_education_internals.WhatsNewModuleDemoPageInfo', [
       mojo.internal.StructField('arg_display_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_module_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_queue_position', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_browser_command', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_feature_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_browser_command', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_feature_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_queue_position', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -206,9 +206,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec, 'mojom.user_education_internals.WhatsNewEditionDemoPageInfo', [
       mojo.internal.StructField('arg_display_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_edition_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version_used', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_feature_enabled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_been_used', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_feature_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_been_used', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_version_used', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

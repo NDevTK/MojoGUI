@@ -596,9 +596,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_audio_pipe', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_video_pipe', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_audio_sender', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_sender', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_sender', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Remoter_Stop_ParamsSpec, 'media.mojom.Remoter_Stop_Params', [
@@ -1965,8 +1965,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_ReceiveFrame_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

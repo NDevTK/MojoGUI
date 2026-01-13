@@ -153,8 +153,8 @@ mojo.internal.Struct(
 // Struct: UkmRecorderParameters
 mojo.internal.Struct(
     mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec, 'ukm.mojom.UkmRecorderParameters', [
-      mojo.internal.StructField('arg_event_hash_bypass_list', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_event_hash_bypass_list', 8, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRequest = mojo.internal.bin
 mojo.internal.Struct(
     mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec, 'ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

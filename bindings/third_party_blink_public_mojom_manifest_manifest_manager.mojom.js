@@ -154,8 +154,8 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 // Struct: RequestManifestError
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec, 'blink.mojom.RequestManifestError', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -167,9 +167,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest', 8, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 16, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest', 16, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

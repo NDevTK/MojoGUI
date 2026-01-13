@@ -150,21 +150,21 @@ mojo.internal.bindings.arc.mojom.TtsEventType = {
 // Struct: TtsUtterance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TtsUtteranceSpec, 'arc.mojom.TtsUtterance', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pitch', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_utteranceId', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_voice_id', 28, 0, mojo.internal.Uint32, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_id', 4, 0, mojo.internal.Uint32, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pitch', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 40], [2, 40]]);
+    [[0, 40], [2, 16]]);
 
 // Struct: TtsVoice
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TtsVoiceSpec, 'arc.mojom.TtsVoice', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_network_connection_required', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_network_connection_required', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -177,11 +177,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TtsHost_OnTtsEvent_ParamsSpec, 'arc.mojom.TtsHost_OnTtsEvent_Params', [
-      mojo.internal.StructField('arg_error_msg', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_utteranceId', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event_type', 12, 0, mojo.internal.bindings.arc.mojom.TtsEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_char_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 4, 0, mojo.internal.bindings.arc.mojom.TtsEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_char_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -158,16 +158,16 @@ mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec = mojo.internal.bind
 // Struct: CopyOutputRequest
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CopyOutputRequestSpec, 'viz.mojom.CopyOutputRequest', [
-      mojo.internal.StructField('arg_send_result_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale_from', 8, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale_to', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_area', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_result_selection', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_blit_request', 48, 0, mojo.internal.bindings.viz.mojom.BlitRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_result_sender', 56, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CopyOutputResultSenderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_format', 64, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_destination', 68, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_format', 0, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_destination', 4, 0, mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_result_delay', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scale_from', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scale_to', 24, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_area', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result_selection', 48, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blit_request', 56, 0, mojo.internal.bindings.viz.mojom.BlitRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result_sender', 64, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CopyOutputResultSenderRemote), null, false, 0, undefined),
     ],
     [[0, 80]]);
 

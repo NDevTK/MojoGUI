@@ -215,8 +215,8 @@ mojo.internal.bindings.shopping_service.mojom.UserFeedback = {
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.PricePointSpec, 'shopping_service.mojom.PricePoint', [
       mojo.internal.StructField('arg_date', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_formatted_price', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_price', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_price', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_formatted_price', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -239,11 +239,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_typical_high_price', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_catalog_attributes', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_jackpot', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_history', 40, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.PricePointSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_locale', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_currency_code', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket', 64, 0, mojo.internal.bindings.shopping_service.mojom.PriceBucketSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_multiple_catalogs', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket', 40, 0, mojo.internal.bindings.shopping_service.mojom.PriceBucketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_multiple_catalogs', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_history', 48, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.PricePointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_currency_code', 64, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 80]]);
 

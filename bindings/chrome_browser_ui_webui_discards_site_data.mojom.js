@@ -163,11 +163,11 @@ mojo.internal.Struct(
 // Struct: SiteDataValue
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
-      mojo.internal.StructField('arg_updates_favicon_in_background', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates_title_in_background', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uses_audio_in_background', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_time_estimates', 24, 0, mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_last_loaded', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_last_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_updates_favicon_in_background', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates_title_in_background', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uses_audio_in_background', 24, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_time_estimates', 32, 0, mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -175,8 +175,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
       mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_dirty', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dirty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -150,9 +150,9 @@ mojo.internal.Struct(
 // Struct: GrammarCorrectionFragment
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, 'chromeos.machine_learning.mojom.GrammarCorrectionFragment', [
-      mojo.internal.StructField('arg_replacement', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_replacement', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -160,16 +160,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, 'chromeos.machine_learning.mojom.GrammarCheckerCandidate', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fragments', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fragments', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: GrammarCheckerResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec, 'chromeos.machine_learning.mojom.GrammarCheckerResult', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

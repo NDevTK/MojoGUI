@@ -147,20 +147,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_extensions', 8, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_features', 16, 0, mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_queue_families', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_sampler_ycbcr_conversion', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_protected_memory', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_sampler_ycbcr_conversion', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_protected_memory', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_queue_families', 32, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: VulkanInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VulkanInfoSpec, 'gpu.mojom.VulkanInfo', [
-      mojo.internal.StructField('arg_instance_extensions', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled_instance_extensions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_instance_layers', 16, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_devices', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_api_version', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_used_api_version', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_api_version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_used_api_version', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_extensions', 8, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled_instance_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_layers', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_devices', 32, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);

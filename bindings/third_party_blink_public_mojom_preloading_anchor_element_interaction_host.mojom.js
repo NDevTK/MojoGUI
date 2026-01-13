@@ -140,9 +140,9 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 // Struct: AnchorElementPointerData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, 'blink.mojom.AnchorElementPointerData', [
-      mojo.internal.StructField('arg_mouse_velocity', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_acceleration', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mouse_pointer', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mouse_pointer', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_velocity', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_acceleration', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

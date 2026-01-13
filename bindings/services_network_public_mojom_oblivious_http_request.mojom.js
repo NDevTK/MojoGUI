@@ -187,18 +187,18 @@ mojo.internal.Struct(
 // Struct: ObliviousHttpResponse
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ObliviousHttpResponseSpec, 'network.mojom.ObliviousHttpResponse', [
-      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_body', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_response_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_body', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ObliviousHttpPaddingParameters
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ObliviousHttpPaddingParametersSpec, 'network.mojom.ObliviousHttpPaddingParameters', [
-      mojo.internal.StructField('arg_exponential_mean', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_add_exponential_pad', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_pad_to_next_power_of_two', 2, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_add_exponential_pad', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pad_to_next_power_of_two', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exponential_mean', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

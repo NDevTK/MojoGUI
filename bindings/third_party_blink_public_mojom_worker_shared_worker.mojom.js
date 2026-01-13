@@ -135,8 +135,8 @@ mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bin
 // Interface: SharedWorker
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec, 'blink.mojom.SharedWorker_Connect_Params', [
-      mojo.internal.StructField('arg_message_port', 0, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -151,10 +151,10 @@ mojo.internal.bindings.performance_manager.mojom.Mode = {
 // Struct: WebMemoryAttribution
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec, 'performance_manager.mojom.WebMemoryAttribution', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_src', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scope', 24, 0, mojo.internal.bindings.performance_manager.mojom.ScopeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 0, 0, mojo.internal.bindings.performance_manager.mojom.ScopeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_src', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

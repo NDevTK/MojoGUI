@@ -168,11 +168,11 @@ mojo.internal.bindings.chrome.mojom.PluginStatus = {
 // Struct: PluginInfo
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.PluginInfoSpec, 'chrome.mojom.PluginInfo', [
-      mojo.internal.StructField('arg_plugin', 0, 0, mojo.internal.bindings.content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_actual_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_name', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 32, 0, mojo.internal.bindings.chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chrome.mojom.PluginStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_plugin', 8, 0, mojo.internal.bindings.content.mojom.WebPluginInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actual_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_identifier', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

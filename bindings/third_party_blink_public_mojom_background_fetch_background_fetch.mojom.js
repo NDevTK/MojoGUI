@@ -541,8 +541,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_ResponseParams', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -555,8 +555,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_ResponseParams', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -568,8 +568,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParams', [
-      mojo.internal.StructField('arg_developer_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_developer_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

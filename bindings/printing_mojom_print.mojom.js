@@ -338,10 +338,10 @@ mojo.internal.Struct(
 // Struct: IppClientInfo
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.IppClientInfoSpec, 'printing.mojom.IppClientInfo', [
-      mojo.internal.StructField('arg_client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_patches', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_string_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_type', 32, 0, mojo.internal.bindings.printing.mojom.ClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.printing.mojom.ClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_patches', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_string_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_version', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);

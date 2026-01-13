@@ -156,15 +156,15 @@ mojo.internal.bindings.network.mojom.Type = {
 // Struct: CookieAccessDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec, 'network.mojom.CookieAccessDetails', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_top_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_site_for_cookies', 24, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_list', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieOrLineWithAccessResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_request_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_setting_overrides', 48, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 56, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_tagged', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_tagged', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_for_cookies', 32, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_list', 40, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieOrLineWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_request_id', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cookie_setting_overrides', 56, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 

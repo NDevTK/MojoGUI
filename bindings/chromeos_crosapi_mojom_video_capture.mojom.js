@@ -295,10 +295,10 @@ mojo.internal.Struct(
 // Struct: GpuMemoryBufferHandle
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.GpuMemoryBufferHandleSpec, 'crosapi.mojom.GpuMemoryBufferHandle', [
-      mojo.internal.StructField('arg_platform_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stride', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stride', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_platform_handle', 16, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -306,21 +306,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.VideoFrameInfoSpec, 'crosapi.mojom.VideoFrameInfo', [
       mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reference_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pixel_format', 32, 0, mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rotation', 36, 0, mojo.internal.bindings.crosapi.mojom.VideoRotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_format', 8, 0, mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 12, 0, mojo.internal.bindings.crosapi.mojom.VideoRotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reference_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ReadyFrameInBuffer
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ReadyFrameInBufferSpec, 'crosapi.mojom.ReadyFrameInBuffer', [
-      mojo.internal.StructField('arg_access_permission', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ScopedAccessPermissionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_info', 8, 0, mojo.internal.bindings.crosapi.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_feedback_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_feedback_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_access_permission', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ScopedAccessPermissionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_info', 16, 0, mojo.internal.bindings.crosapi.mojom.VideoFrameInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -448,8 +448,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnNewBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 8, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

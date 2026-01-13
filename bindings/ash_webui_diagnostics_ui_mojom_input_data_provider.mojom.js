@@ -204,11 +204,11 @@ mojo.internal.Struct(
 // Struct: TouchDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceInfoSpec, 'ash.diagnostics.mojom.TouchDeviceInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_type', 12, 0, mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_testable', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 4, 0, mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.TouchDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_testable', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1318,8 +1318,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec, 'ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.KeyboardObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

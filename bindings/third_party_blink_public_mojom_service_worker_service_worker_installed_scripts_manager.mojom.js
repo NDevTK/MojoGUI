@@ -142,7 +142,7 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
       mojo.internal.StructField('arg_manager_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manager_host_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manager_host_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_installed_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

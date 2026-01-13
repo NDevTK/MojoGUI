@@ -169,11 +169,11 @@ mojo.internal.Struct(
 // Struct: MapCharactersResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MapCharactersResultSpec, 'blink.mojom.MapCharactersResult', [
-      mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_font_style', 8, 0, mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_family_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mapped_length', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scale', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_family_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mapped_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_family_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scale', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_font_style', 24, 0, mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -243,8 +243,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_font_style', 8, 0, mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_locale_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_base_family_name', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reading_direction', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reading_direction', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_base_family_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

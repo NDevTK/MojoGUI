@@ -185,9 +185,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icons', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_launch_url', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 40, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 24, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_launch_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -240,8 +240,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_ResponseParams', [
-      mojo.internal.StructField('arg_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptions', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

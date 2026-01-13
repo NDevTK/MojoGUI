@@ -214,9 +214,9 @@ mojo.internal.Struct(
 // Struct: ParentAccessParams
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, 'parent_access_ui.mojom.ParentAccessParams', [
-      mojo.internal.StructField('arg_flow_type_params', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_flow_type', 16, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_disabled', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flow_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_disabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flow_type_params', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -255,8 +255,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
-      mojo.internal.StructField('arg_oauth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

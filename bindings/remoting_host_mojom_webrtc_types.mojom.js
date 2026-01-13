@@ -148,12 +148,12 @@ mojo.internal.Struct(
 // Struct: DesktopFrame
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopFrameSpec, 'remoting.mojom.DesktopFrame', [
-      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dirty_region', 8, 0, mojo.internal.Array(mojo.internal.bindings.remoting.mojom.DesktopRectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_time_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 24, 0, mojo.internal.bindings.remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_buffer_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stride', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stride', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dirty_region', 16, 0, mojo.internal.Array(mojo.internal.bindings.remoting.mojom.DesktopRectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_time_ms', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 32, 0, mojo.internal.bindings.remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_capturer_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);

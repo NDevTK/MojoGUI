@@ -172,11 +172,11 @@ mojo.internal.Struct(
 // Struct: ExtractionRequest
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
-      mojo.internal.StructField('arg_deprecated_ukm_source_id_$value', 0, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$flag', originalFieldName: 'arg_deprecated_ukm_source_id' }),
-      mojo.internal.StructField('arg_snapshot', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_extraction_methods', 16, 0, mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_ukm_source_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$value', originalFieldName: 'arg_deprecated_ukm_source_id' }),
+      mojo.internal.StructField('arg_deprecated_ukm_source_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$value', originalFieldName: 'arg_deprecated_ukm_source_id' }),
+      mojo.internal.StructField('arg_deprecated_ukm_source_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$flag', originalFieldName: 'arg_deprecated_ukm_source_id' }),
+      mojo.internal.StructField('arg_snapshot', 16, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extraction_methods', 24, 0, mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 32, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, true, 0, undefined),
     ],
     [[0, 48]]);
 

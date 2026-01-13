@@ -139,8 +139,8 @@ mojo.internal.bindings.network.mojom.Type = {
 // Struct: ClearDataFilter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ClearDataFilterSpec, 'network.mojom.ClearDataFilter', [
-      mojo.internal.StructField('arg_domains', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domains', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origins', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

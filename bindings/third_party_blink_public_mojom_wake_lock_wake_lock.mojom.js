@@ -141,10 +141,10 @@ mojo.internal.bindings.device.mojom.WakeLockTypeSpec = mojo.internal.bindings.de
 // Interface: WakeLockService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WakeLockService_GetWakeLock_ParamsSpec, 'blink.mojom.WakeLockService_GetWakeLock_Params', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wake_lock', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.WakeLockRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 20, 0, mojo.internal.bindings.device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wake_lock', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.WakeLockRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

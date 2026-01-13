@@ -265,15 +265,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_version_key', 72, 0, mojo.internal.String, null, true, 1, undefined),
       mojo.internal.StructField('arg_install_id', 80, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('arg_lang', 88, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('arg_cohort', 96, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_cohort_name', 104, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_cohort_hint', 112, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_dla_$value', 120, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_dla_$flag', originalFieldName: 'arg_dla' }),
-      mojo.internal.StructField('arg_dlrc_$value', 124, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_dlrc_$flag', originalFieldName: 'arg_dlrc' }),
-      mojo.internal.StructField('arg_install_date_$value', 128, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_install_date_$flag', originalFieldName: 'arg_install_date' }),
-      mojo.internal.StructField('arg_dla_$flag', 132, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_dla_$value', originalFieldName: 'arg_dla' }),
-      mojo.internal.StructField('arg_dlrc_$flag', 132, 1, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_dlrc_$value', originalFieldName: 'arg_dlrc' }),
-      mojo.internal.StructField('arg_install_date_$flag', 132, 2, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_install_date_$value', originalFieldName: 'arg_install_date' }),
+      mojo.internal.StructField('arg_dla_$flag', 96, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_dla_$value', originalFieldName: 'arg_dla' }),
+      mojo.internal.StructField('arg_dlrc_$flag', 96, 1, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_dlrc_$value', originalFieldName: 'arg_dlrc' }),
+      mojo.internal.StructField('arg_install_date_$flag', 96, 2, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_install_date_$value', originalFieldName: 'arg_install_date' }),
+      mojo.internal.StructField('arg_dla_$value', 100, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_dla_$flag', originalFieldName: 'arg_dla' }),
+      mojo.internal.StructField('arg_dlrc_$value', 104, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_dlrc_$flag', originalFieldName: 'arg_dlrc' }),
+      mojo.internal.StructField('arg_install_date_$value', 108, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_install_date_$flag', originalFieldName: 'arg_install_date' }),
+      mojo.internal.StructField('arg_cohort', 112, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('arg_cohort_name', 120, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('arg_cohort_hint', 128, 0, mojo.internal.String, null, true, 4, undefined),
     ],
     [[0, 56], [1, 88], [2, 96], [3, 104], [4, 144]]);
 
@@ -281,16 +281,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateStateSpec, 'updater.mojom.UpdateState', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_next_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_downloaded_bytes', 16, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_total_bytes', 24, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_installer_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_installer_cmd_line', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 48, 0, mojo.internal.bindings.updater.mojom.StateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_category', 52, 0, mojo.internal.bindings.updater.mojom.ErrorCategorySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_code1', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_install_progress', 64, 0, mojo.internal.Int8, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.updater.mojom.StateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_install_progress', 12, 0, mojo.internal.Int8, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_next_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_downloaded_bytes', 24, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_total_bytes', 32, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_error_category', 40, 0, mojo.internal.bindings.updater.mojom.ErrorCategorySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_code1', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_installer_text', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_installer_cmd_line', 64, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -315,11 +315,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.PolicyValueSpec, 'updater.mojom.PolicyValue', [
       mojo.internal.StructField('arg_policy_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_external_constants_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_platform_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cloud_value', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_policy_source', 40, 0, mojo.internal.bindings.updater.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_source', 8, 0, mojo.internal.bindings.updater.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_external_constants_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_platform_value', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cloud_value', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 56]]);
 

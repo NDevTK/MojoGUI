@@ -127,8 +127,8 @@ mojo.internal.bindings.extensions.mojom.URLPatternSetSpec = { $: {} };
 // Struct: URLPattern
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.URLPatternSpec, 'extensions.mojom.URLPattern', [
-      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_valid_schemes', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_valid_schemes', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

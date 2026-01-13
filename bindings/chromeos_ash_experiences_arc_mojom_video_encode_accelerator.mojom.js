@@ -209,9 +209,9 @@ mojo.internal.Union(
 // Struct: VideoEncodeProfile
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec, 'arc.mojom.VideoEncodeProfile', [
-      mojo.internal.StructField('arg_max_resolution', 0, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_framerate_numerator', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_framerate_numerator', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_resolution', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_framerate_denominator', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -234,14 +234,14 @@ mojo.internal.Struct(
 // Struct: VideoEncodeAcceleratorConfig
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec, 'arc.mojom.VideoEncodeAcceleratorConfig', [
-      mojo.internal.StructField('arg_input_visible_size', 0, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_format', 8, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_profile', 12, 0, mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_format', 0, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_profile', 4, 0, mojo.internal.bindings.arc.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_visible_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_initial_bitrate_deprecated', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_initial_framerate', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_initial_framerate_deprecated', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_h264_output_level', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_h264_output_level', 25, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_h264_output_level', 26, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_storage_type', 28, 0, mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec, null, false, 1, undefined),
       mojo.internal.StructField('arg_bitrate', 32, 0, mojo.internal.bindings.arc.mojom.BitrateSpec, null, true, 5, undefined),
     ],
@@ -274,10 +274,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Encode_Params', [
-      mojo.internal.StructField('arg_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_fd', 20, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_fd', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_force_keyframe', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -297,9 +297,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec, 'arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParams', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_key_frame', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_key_frame', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -784,9 +784,9 @@ mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRequest = mojo.internal.b
 // Interface: VideoEncodeClient
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec, 'arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_Params', [
-      mojo.internal.StructField('arg_input_coded_size', 0, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_output_buffer_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output_buffer_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_coded_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

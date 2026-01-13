@@ -155,10 +155,10 @@ mojo.internal.Struct(
 // Struct: ResourceUsageData
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ResourceUsageDataSpec, 'content.mojom.ResourceUsageData', [
-      mojo.internal.StructField('arg_v8_bytes_allocated', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_v8_bytes_used', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_web_cache_stats', 16, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_reports_v8_stats', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reports_v8_stats', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_v8_bytes_allocated', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_v8_bytes_used', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_web_cache_stats', 24, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

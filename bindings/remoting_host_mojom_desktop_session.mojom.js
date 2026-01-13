@@ -479,9 +479,9 @@ mojo.internal.Union(
 // Struct: AudioPacket
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.AudioPacketSpec, 'remoting.mojom.AudioPacket', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encoding', 12, 0, mojo.internal.bindings.remoting.mojom.EncodingSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encoding', 4, 0, mojo.internal.bindings.remoting.mojom.EncodingSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_sampling_rate', 16, 0, mojo.internal.bindings.remoting.mojom.SamplingRateSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bytes_per_sample', 20, 0, mojo.internal.bindings.remoting.mojom.BytesPerSampleSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_channels', 24, 0, mojo.internal.bindings.remoting.mojom.ChannelsSpec, 0, false, 0, undefined),
@@ -499,11 +499,11 @@ mojo.internal.Struct(
 // Struct: KeyEvent
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.KeyEventSpec, 'remoting.mojom.KeyEvent', [
-      mojo.internal.StructField('arg_caps_lock_state', 0, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_num_lock_state', 8, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_usb_keycode', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_lock_states', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pressed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_usb_keycode', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_lock_states', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_caps_lock_state', 16, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_num_lock_state', 24, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -512,14 +512,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.MouseEventSpec, 'remoting.mojom.MouseEvent', [
       mojo.internal.StructField('arg_x', 0, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
       mojo.internal.StructField('arg_y', 8, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_button_down', 16, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_delta_x', 24, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_delta_y', 32, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_ticks_x', 40, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_ticks_y', 48, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_delta_x', 56, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_delta_y', 64, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_button', 72, 0, mojo.internal.bindings.remoting.mojom.MouseButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button', 16, 0, mojo.internal.bindings.remoting.mojom.MouseButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button_down', 24, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wheel_delta_x', 32, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wheel_delta_y', 40, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wheel_ticks_x', 48, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wheel_ticks_y', 56, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_delta_x', 64, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_delta_y', 72, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
     ],
     [[0, 88]]);
 
@@ -533,10 +533,10 @@ mojo.internal.Struct(
 // Struct: TouchEventPoint
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.TouchEventPointSpec, 'remoting.mojom.TouchEventPoint', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_radius', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_angle', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_angle', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_radius', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_pressure', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -544,29 +544,29 @@ mojo.internal.Struct(
 // Struct: TouchEvent
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.TouchEventSpec, 'remoting.mojom.TouchEvent', [
-      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.remoting.mojom.TouchEventPointSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_type', 8, 0, mojo.internal.bindings.remoting.mojom.TouchEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.remoting.mojom.TouchEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_points', 8, 0, mojo.internal.Array(mojo.internal.bindings.remoting.mojom.TouchEventPointSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FractionalCoordinate
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.FractionalCoordinateSpec, 'remoting.mojom.FractionalCoordinate', [
-      mojo.internal.StructField('arg_screen_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DesktopEnvironmentOptions
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopEnvironmentOptionsSpec, 'remoting.mojom.DesktopEnvironmentOptions', [
-      mojo.internal.StructField('arg_desktop_capture_options', 0, 0, mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_curtaining', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_user_interface', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_notifications', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_terminate_upon_input', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_remote_webauthn', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_curtaining', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_user_interface', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_notifications', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_terminate_upon_input', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_remote_webauthn', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_capture_options', 8, 0, mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -581,11 +581,11 @@ mojo.internal.Struct(
 // Struct: FileTransferError
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.FileTransferErrorSpec, 'remoting.mojom.FileTransferError', [
-      mojo.internal.StructField('arg_api_error_code', 0, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_function', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.remoting.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_number', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_api_error_code', 8, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_function', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -629,8 +629,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.VideoLayoutSpec, 'remoting.mojom.VideoLayout', [
       mojo.internal.StructField('arg_tracks', 0, 0, mojo.internal.Array(mojo.internal.bindings.remoting.mojom.VideoTrackLayoutSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_screen_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_full_desktop_capture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_full_desktop_capture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_screen_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -910,9 +910,9 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerRequest = mojo
 // Interface: DesktopSessionManager
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec, 'remoting.mojom.DesktopSessionManager_CreateDesktopSession_Params', [
-      mojo.internal.StructField('arg_screen_resolution', 0, 0, mojo.internal.bindings.remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_virtual_terminal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_virtual_terminal', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_resolution', 8, 0, mojo.internal.bindings.remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -924,8 +924,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec, 'remoting.mojom.DesktopSessionManager_SetScreenResolution_Params', [
-      mojo.internal.StructField('arg_screen_resolution', 0, 0, mojo.internal.bindings.remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_terminal_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_resolution', 8, 0, mojo.internal.bindings.remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2837,9 +2837,9 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerRequest = mojo.internal.bindi
 // Interface: VideoCapturerEventHandler
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec, 'remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -3671,9 +3671,9 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRequest = mojo.i
 // Interface: DesktopSessionStateHandler
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec, 'remoting.mojom.DesktopSessionStateHandler_DisconnectSession_Params', [
-      mojo.internal.StructField('arg_error_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_location', 8, 0, mojo.internal.bindings.remoting.mojom.SourceLocationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.remoting.mojom.ProtocolErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.remoting.mojom.ProtocolErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_location', 16, 0, mojo.internal.bindings.remoting.mojom.SourceLocationSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

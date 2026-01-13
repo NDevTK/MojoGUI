@@ -140,11 +140,11 @@ mojo.internal.Struct(
 // Struct: TextSuggestion
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TextSuggestionSpec, 'blink.mojom.TextSuggestion', [
-      mojo.internal.StructField('arg_prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suffix', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_marker_tag', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_index', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_marker_tag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_prefix', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suffix', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

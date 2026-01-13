@@ -227,8 +227,8 @@ mojo.internal.Struct(
 // Struct: FileSystemAccessChange
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec, 'blink.mojom.FileSystemAccessChange', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 16, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

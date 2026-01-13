@@ -276,8 +276,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParams', [
-      mojo.internal.StructField('arg_data_size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_preview_document', 8, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_preview_document', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -493,9 +493,9 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRequest = mojo.internal.bin
 // Interface: PrintSpoolerHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_Params', [
-      mojo.internal.StructField('arg_instance', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scoped_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scoped_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_instance', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

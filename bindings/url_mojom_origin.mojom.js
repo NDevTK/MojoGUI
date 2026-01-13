@@ -134,7 +134,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.url.mojom.OriginSpec, 'url.mojom.Origin', [
       mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce_if_opaque', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_port', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce_if_opaque', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);

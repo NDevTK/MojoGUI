@@ -184,8 +184,8 @@ mojo.internal.Union(
 // Struct: Status
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.StatusSpec, 'ash.ime.mojom.Status', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -217,8 +217,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec, 'ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_Params', [
       mojo.internal.StructField('arg_dict_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entry_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_entry_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 16, 0, mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

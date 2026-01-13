@@ -159,9 +159,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParams', [
-      mojo.internal.StructField('arg_link_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_protection', 4, 0, mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_link_mask', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_protection', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

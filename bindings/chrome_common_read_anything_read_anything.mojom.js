@@ -2344,18 +2344,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_Params', [
-      mojo.internal.StructField('arg_font', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_font_size', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_speech_rate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_voices', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_languages_enabled_in_pref', 32, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_spacing', 40, 0, mojo.internal.bindings.read_anything.mojom.LineSpacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_letter_spacing', 44, 0, mojo.internal.bindings.read_anything.mojom.LetterSpacingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 48, 0, mojo.internal.bindings.read_anything.mojom.ColorsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_granularity', 52, 0, mojo.internal.bindings.read_anything.mojom.HighlightGranularitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_focus', 56, 0, mojo.internal.bindings.read_anything.mojom.LineFocusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_links_enabled', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_images_enabled', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_line_spacing', 0, 0, mojo.internal.bindings.read_anything.mojom.LineSpacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_letter_spacing', 4, 0, mojo.internal.bindings.read_anything.mojom.LetterSpacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_font', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_font_size', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_links_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_images_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 28, 0, mojo.internal.bindings.read_anything.mojom.ColorsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_speech_rate', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_voices', 40, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_languages_enabled_in_pref', 48, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_granularity', 56, 0, mojo.internal.bindings.read_anything.mojom.HighlightGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line_focus', 60, 0, mojo.internal.bindings.read_anything.mojom.LineFocusSpec, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -2384,8 +2384,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnImageDataDownloaded_Params', [
       mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image', 16, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 24, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
