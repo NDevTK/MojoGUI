@@ -834,9 +834,7 @@ body::before {
     color: var(--text-primary);
 }
 
-.btn-small {
-    padding: 4px;
-}
+
 
 /* ========================================
    Empty & Loading States
@@ -1496,13 +1494,7 @@ button[data-action="toggle-intercept"]:not(.active):hover {
     box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
 }
 
-/* Forwarding/Logging button state (inactive active) */
-.btn-small:not(.active) {
-    /* Implicitly Logging/Forwarding */
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--info);
-    border-color: var(--info);
-}
+
 
 
 
