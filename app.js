@@ -1017,8 +1017,9 @@
         }
 
         const code = generateCode();
-        // Use textContent for safe display - no HTML injection possible
-        elements.generatedCode.textContent = code;
+        // Use syntax highlighting and safeHTML
+        const highlighted = highlightSyntax(code);
+        elements.generatedCode.innerHTML = safeHTML(highlighted);
     }
 
     function generateCode(isExecution = false) {
@@ -1129,16 +1130,25 @@
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
 
-        // Apply syntax highlighting
+        // Order matters for highlighting to avoid overlapping tokens
         return escaped
+            // Comments (must be first to avoid highlighting inside)
             .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
-            .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends)\b/g, '<span class="keyword">$1</span>')
-            .replace(/\b(true|false|null|undefined)\b/g, '<span class="const">$1</span>')
-            .replace(/\b(this|window|document|console)\b/g, '<span class="builtin">$1</span>')
-            .replace(/&quot;([^&]*)&quot;|"([^"]*)"/g, '<span class="string">"$1$2"</span>')
-            .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
+            // Strings (single, double, backticks) - handling basic escaping
+            .replace(/(['"`])(.*?)\1/g, '<span class="string">$1$2$1</span>')
+            // Keywords
+            .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue)\b/g, '<span class="keyword">$1</span>')
+            // Constants/Booleans
+            .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, '<span class="const">$1</span>')
+            // Built-ins (including Mojo-specific)
+            .replace(/\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings)\b/g, '<span class="builtin">$1</span>')
+            // Numbers (including BigInt n suffix)
+            .replace(/\b(\d+n?)\b/g, '<span class="number">$1</span>')
+            // Property Access
             .replace(/\.(\w+)\b/g, '.<span class="property">$1</span>')
+            // Class Names (PascalCase)
             .replace(/\b([A-Z][a-zA-Z0-9_]*)\b/g, '<span class="class">$1</span>')
+            // Function Calls
             .replace(/([a-zA-Z0-9_]+)\(/g, '<span class="function">$1</span>(');
     }
 
