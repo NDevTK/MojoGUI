@@ -1627,7 +1627,7 @@ jobs:
               
               index_data = {
                   'generated_at': datetime.datetime.utcnow().isoformat() + 'Z',
-                  'version': FALLBACK_VERSION_STRING,
+                  'version': os.environ.get('CHROMIUM_VERSION', FALLBACK_VERSION_STRING),
                   'interfaces': [],
                   'files': []
               }
@@ -1715,7 +1715,7 @@ jobs:
           SCRIPT
           
           # Run the script
-          python generate_bindings.py
+          CHROMIUM_VERSION="${{ env.TARGET_VERSION }}" python generate_bindings.py
 
       - name: Cleanup temporary files
         run: |
