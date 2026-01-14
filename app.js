@@ -1084,7 +1084,7 @@
         elements.generatedCode.textContent = code;
     }
 
-    function generateCode() {
+    function generateCode(isExecution = false) {
         const iface = state.selectedInterface;
         const method = state.selectedMethod;
 
@@ -1135,7 +1135,6 @@
         code += `}\n\n`;
 
         // Generate method call with params
-        // Generate method call with params
         const paramsDef = getMethodParams(state.selectedInterface.name, method);
         const args = [];
 
@@ -1145,7 +1144,14 @@
                 const key = p.name;
                 // Strip 'arg_' from variable name if present
                 const safeVarName = key.startsWith('arg_') ? key.substring(4) : key;
-                const value = state.paramValues[key];
+                let value = state.paramValues[key];
+
+                // Logic needed for Execution:
+                // If isExecution=true, we reconcile keys (add arg_).
+                // If isExecution=false (Display), we keep them clean.
+                if (isExecution && value && typeof value === 'object') {
+                    value = reconcileKeys(value, null);
+                }
 
                 let valueStr;
                 if (typeof value === 'bigint') {
@@ -1226,7 +1232,7 @@
             return;
         }
 
-        const code = generateCode();
+        const code = generateCode(true); // true = isExecution (add arg_)
         const interfaceName = state.selectedInterface?.name || 'Unknown';
         const methodName = state.selectedMethod || 'Unknown';
 
@@ -1727,7 +1733,8 @@
 
     function reconcileKeys(edited, original) {
         if (edited === null || typeof edited !== 'object') return edited;
-        if (original === null || typeof original !== 'object') return edited; // Cannot reconcile, accept edited
+        // Do NOT bail if original is null. usage: reconcileKeys(newItem, null)
+        // We want to fall through to Heuristics loop.
 
         if (Array.isArray(edited)) {
             // Assume array order is preserved or just map
@@ -1978,16 +1985,30 @@
             return;
         }
 
-        // Replay using the proxy's remote
         if (proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
             try {
                 const newId = 'replay_' + Date.now();
+
+                // Fix: params might be JSON strings
+                if (Array.isArray(params)) {
+                    params = params.map(p => {
+                        if (typeof p === 'string') {
+                            try { return JSON.parse(p); } catch (e) { return p; }
+                        }
+                        return p;
+                    });
+                }
+
+                // Reconcile keys
+                const originalParams = (detail && detail.params) ? detail.params : null;
+                const restoredParams = reconcileKeys(params, originalParams);
+
                 // Add new activity row for the replay
                 addActivityRow({
                     id: newId,
                     interface: detail.interface,
                     method: method,
-                    params: params,
+                    params: restoredParams, // Use restored params for display consistency? Or original?
                     timestamp: Date.now(),
                     type: 'MANUAL',
                     status: 'Replaying...',
@@ -1995,9 +2016,9 @@
                 });
 
                 // Show details for the new Replay row
-                showInterceptDetails({ ...detail, id: newId, params: params, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
+                showInterceptDetails({ ...detail, id: newId, params: restoredParams, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
 
-                const resultPromise = proxy.realRemote[method](...params);
+                const resultPromise = proxy.realRemote[method](...restoredParams);
 
                 if (resultPromise && resultPromise.then) {
                     resultPromise.then(res => {
