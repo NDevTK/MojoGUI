@@ -1707,9 +1707,12 @@
     // ========================================
     // Parameter Sanitization (Strip/Restore arg_ prefix)
     // ========================================
-    function sanitizeKeys(obj) {
+    function sanitizeKeys(obj, seen = new WeakSet()) {
         if (obj === null || typeof obj !== 'object') return obj;
-        if (Array.isArray(obj)) return obj.map(sanitizeKeys);
+        if (seen.has(obj)) return '[Circular]';
+        seen.add(obj);
+
+        if (Array.isArray(obj)) return obj.map(v => sanitizeKeys(v, seen));
 
         const clean = {};
         for (const key in obj) {
@@ -1717,7 +1720,7 @@
             if (cleanKey.startsWith('arg_')) {
                 cleanKey = cleanKey.substring(4);
             }
-            clean[cleanKey] = sanitizeKeys(obj[key]);
+            clean[cleanKey] = sanitizeKeys(obj[key], seen);
         }
         return clean;
     }
@@ -1761,7 +1764,6 @@
         const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
         if (row) row.classList.add('active');
 
-        // Show details with action buttons
         // Show details with action buttons
         const isPending = detail.status === 'Pending';
         const isManual = detail.type === 'MANUAL';
@@ -1909,17 +1911,26 @@
             if (proxy) {
                 // Reconcile keys with original source of truth
                 const originalParams = (row && row.__details) ? row.__details.params : null;
+
+                // Fix: params might contain JSON strings if they came from a textarea or specific form field
+                // We need to parse them into objects for reconcileKeys to work
+                if (Array.isArray(params)) {
+                    params = params.map(p => {
+                        if (typeof p === 'string') {
+                            try { return JSON.parse(p); } catch (e) { return p; }
+                        }
+                        return p;
+                    });
+                }
+
                 const restoredParams = reconcileKeys(params, originalParams);
 
-                console.log(`[UI] Resuming call ${id}. InterceptResponses: ${state.interceptResponses}`);
                 proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
 
                 // Update UI immediately
                 if (state.interceptResponses) {
-                    console.log(`[UI] resumeIntercept: Setting ${id} to Pending Response`);
                     updateActivityRow(id, 'Pending Response');
                 } else {
-                    console.log(`[UI] resumeIntercept: Setting ${id} to Forwarded`);
                     updateActivityRow(id, 'Forwarded');
                 }
 
