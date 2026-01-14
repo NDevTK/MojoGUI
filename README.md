@@ -11,7 +11,6 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 - 📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
 - 🕵️ **Mojo Interceptor** - Block, Log, and Modify requests and responses
 - 🚥 **Traffic Control** - Toggle between "Blocking" (halt execution) and "Logging" (passive monitor) modes
-- 🛠️ **Response Editing** - Pause and modify return values from methods before they reach the renderer
 - 📈 **Version Tracker** - Detect and log interface changes across Chrome versions
 - ⚡ **Live Code Generation** - See valid MojoJS code in real-time
 - 📋 **One-Click Copy** - Copy generated code to clipboard
