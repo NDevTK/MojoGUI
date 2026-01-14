@@ -1380,6 +1380,10 @@
     }
 
     function mapFieldsToUIParams(fields) {
+        if (!fields || !Array.isArray(fields)) {
+            console.warn('[MojoGUI] mapFieldsToUIParams: fields is not an array', fields);
+            return [];
+        }
         return fields.map(field => {
             let type = 'any';
             let originalName = field.name;
