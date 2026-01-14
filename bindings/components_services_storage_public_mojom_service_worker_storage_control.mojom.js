@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7633.0';
+        const versionStr = window.mojoVersion || '145.0.7632.5';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -176,6 +176,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStor
 mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec = { $: {} };
@@ -1268,6 +1270,21 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_Params', [
+      mojo.internal.StructField('arg_client_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerFindRegistrationResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scopes', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_StoreRegistration_Params', [
       mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.storage.mojom.ServiceWorkerRegistrationDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceRecordSpec, false), null, false, 0, undefined),
@@ -1714,6 +1731,9 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemote = class {
   getAllRegistrationsDeprecated() {
     return this.$.getAllRegistrationsDeprecated();
   }
+  getFakeRegistrationForClientUrl(arg_client_url, arg_key) {
+    return this.$.getFakeRegistrationForClientUrl(arg_client_url, arg_key);
+  }
   storeRegistration(arg_registration, arg_resources) {
     return this.$.storeRegistration(arg_registration, arg_resources);
   }
@@ -1858,6 +1878,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -1951,9 +1972,18 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       false);
   }
 
-  storeRegistration(arg_registration, arg_resources) {
+  getFakeRegistrationForClientUrl(arg_client_url, arg_key) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
+      mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec,
+      mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
+      [arg_client_url, arg_key],
+      false);
+  }
+
+  storeRegistration(arg_registration, arg_resources) {
+    return this.proxy.sendMessage(
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
       [arg_registration, arg_resources],
@@ -1962,7 +1992,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   deleteRegistration(arg_registration_id, arg_key) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
       [arg_registration_id, arg_key],
@@ -1971,7 +2001,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   updateToActiveState(arg_registration_id, arg_key) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
       [arg_registration_id, arg_key],
@@ -1980,7 +2010,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   updateLastUpdateCheckTime(arg_registration_id, arg_key, arg_last_update_check_time) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
       [arg_registration_id, arg_key, arg_last_update_check_time],
@@ -1989,7 +2019,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   updateNavigationPreloadEnabled(arg_registration_id, arg_key, arg_enable) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
       [arg_registration_id, arg_key, arg_enable],
@@ -1998,7 +2028,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   updateNavigationPreloadHeader(arg_registration_id, arg_key, arg_value) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
       [arg_registration_id, arg_key, arg_value],
@@ -2007,7 +2037,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   updateFetchHandlerType(arg_registration_id, arg_key, arg_type) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
       [arg_registration_id, arg_key, arg_type],
@@ -2016,7 +2046,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   updateResourceSha256Checksums(arg_registratation_id, arg_key, arg_updated_sha256_checksums) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
       [arg_registratation_id, arg_key, arg_updated_sha256_checksums],
@@ -2025,7 +2055,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getNewRegistrationId() {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
       [],
@@ -2034,7 +2064,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getNewVersionId() {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
       [],
@@ -2043,7 +2073,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getNewResourceId() {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
       [],
@@ -2052,7 +2082,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   createResourceReader(arg_resource_id, arg_reader) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
       [arg_resource_id, arg_reader],
@@ -2061,7 +2091,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   createResourceWriter(arg_resource_id, arg_writer) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
       [arg_resource_id, arg_writer],
@@ -2070,7 +2100,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   createResourceMetadataWriter(arg_resource_id, arg_writer) {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
       [arg_resource_id, arg_writer],
@@ -2079,7 +2109,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   storeUncommittedResourceId(arg_resource_id) {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
       [arg_resource_id],
@@ -2088,7 +2118,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   doomUncommittedResources(arg_resource_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
       [arg_resource_ids],
@@ -2097,7 +2127,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getUserData(arg_registration_id, arg_keys) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
       [arg_registration_id, arg_keys],
@@ -2106,7 +2136,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   storeUserData(arg_registration_id, arg_key, arg_user_data) {
     return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
+      this.ordinals[28],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
       [arg_registration_id, arg_key, arg_user_data],
@@ -2115,7 +2145,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   clearUserData(arg_registration_id, arg_keys) {
     return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
+      this.ordinals[29],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
       [arg_registration_id, arg_keys],
@@ -2124,7 +2154,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getUserDataByKeyPrefix(arg_registration_id, arg_key_prefix) {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[30],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
       [arg_registration_id, arg_key_prefix],
@@ -2133,7 +2163,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getUserKeysAndDataByKeyPrefix(arg_registration_id, arg_key_prefix) {
     return this.proxy.sendMessage(
-      this.ordinals[30],  // ordinal
+      this.ordinals[31],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
       [arg_registration_id, arg_key_prefix],
@@ -2142,7 +2172,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   clearUserDataByKeyPrefixes(arg_registratation_id, arg_key_prefixes) {
     return this.proxy.sendMessage(
-      this.ordinals[31],  // ordinal
+      this.ordinals[32],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
       [arg_registratation_id, arg_key_prefixes],
@@ -2151,7 +2181,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getUserDataForAllRegistrations(arg_key) {
     return this.proxy.sendMessage(
-      this.ordinals[32],  // ordinal
+      this.ordinals[33],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
       [arg_key],
@@ -2160,7 +2190,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getUserDataForAllRegistrationsByKeyPrefix(arg_key_prefix) {
     return this.proxy.sendMessage(
-      this.ordinals[33],  // ordinal
+      this.ordinals[34],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
       [arg_key_prefix],
@@ -2169,7 +2199,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   clearUserDataForAllRegistrationsByKeyPrefix(arg_key_prefix) {
     return this.proxy.sendMessage(
-      this.ordinals[34],  // ordinal
+      this.ordinals[35],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
       [arg_key_prefix],
@@ -2178,7 +2208,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   performStorageCleanup() {
     return this.proxy.sendMessage(
-      this.ordinals[35],  // ordinal
+      this.ordinals[36],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec,
       [],
@@ -2187,7 +2217,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   applyPolicyUpdates(arg_policy_updates) {
     return this.proxy.sendMessage(
-      this.ordinals[36],  // ordinal
+      this.ordinals[37],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
       [arg_policy_updates],
@@ -2196,7 +2226,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getPurgingResourceIdsForTest() {
     return this.proxy.sendMessage(
-      this.ordinals[37],  // ordinal
+      this.ordinals[38],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
       [],
@@ -2205,7 +2235,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getPurgingResourceIdsForLiveVersionForTest(arg_version_id) {
     return this.proxy.sendMessage(
-      this.ordinals[38],  // ordinal
+      this.ordinals[39],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
       [arg_version_id],
@@ -2214,7 +2244,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getPurgeableResourceIdsForTest() {
     return this.proxy.sendMessage(
-      this.ordinals[39],  // ordinal
+      this.ordinals[40],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
       [],
@@ -2223,7 +2253,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   getUncommittedResourceIdsForTest() {
     return this.proxy.sendMessage(
-      this.ordinals[40],  // ordinal
+      this.ordinals[41],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
       [],
@@ -2232,7 +2262,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
 
   setPurgingCompleteCallbackForTest() {
     return this.proxy.sendMessage(
-      this.ordinals[41],  // ordinal
+      this.ordinals[42],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec,
       [],
@@ -2257,6 +2287,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('storage.mojom.ServiceWorkerStorageControl', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2567,7 +2598,30 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetAllRegistrationsDeprecated failed with TypeError');
            }
         }
-        // Try Method 10: StoreRegistration
+        // Try Method 10: GetFakeRegistrationForClientUrl
+        if (dispatchId === undefined) {
+           try {
+             const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFakeRegistrationForClientUrl (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
+               }
+             }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetFakeRegistrationForClientUrl failed with TypeError');
+           }
+        }
+        // Try Method 11: StoreRegistration
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec.$.structSpec;
@@ -2581,16 +2635,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreRegistration (10)');
-                 this.mapOrdinal(header.ordinal, 10);
-                 dispatchId = 10;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreRegistration (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for StoreRegistration failed with TypeError');
            }
         }
-        // Try Method 11: DeleteRegistration
+        // Try Method 12: DeleteRegistration
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec.$.structSpec;
@@ -2604,16 +2658,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRegistration (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRegistration (12)');
+                 this.mapOrdinal(header.ordinal, 12);
+                 dispatchId = 12;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for DeleteRegistration failed with TypeError');
            }
         }
-        // Try Method 12: UpdateToActiveState
+        // Try Method 13: UpdateToActiveState
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec.$.structSpec;
@@ -2627,16 +2681,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateToActiveState (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateToActiveState (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateToActiveState failed with TypeError');
            }
         }
-        // Try Method 13: UpdateLastUpdateCheckTime
+        // Try Method 14: UpdateLastUpdateCheckTime
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec.$.structSpec;
@@ -2650,16 +2704,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLastUpdateCheckTime (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLastUpdateCheckTime (14)');
+                 this.mapOrdinal(header.ordinal, 14);
+                 dispatchId = 14;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateLastUpdateCheckTime failed with TypeError');
            }
         }
-        // Try Method 14: UpdateNavigationPreloadEnabled
+        // Try Method 15: UpdateNavigationPreloadEnabled
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec.$.structSpec;
@@ -2673,16 +2727,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNavigationPreloadEnabled (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNavigationPreloadEnabled (15)');
+                 this.mapOrdinal(header.ordinal, 15);
+                 dispatchId = 15;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateNavigationPreloadEnabled failed with TypeError');
            }
         }
-        // Try Method 15: UpdateNavigationPreloadHeader
+        // Try Method 16: UpdateNavigationPreloadHeader
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec.$.structSpec;
@@ -2696,16 +2750,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNavigationPreloadHeader (15)');
-                 this.mapOrdinal(header.ordinal, 15);
-                 dispatchId = 15;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNavigationPreloadHeader (16)');
+                 this.mapOrdinal(header.ordinal, 16);
+                 dispatchId = 16;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateNavigationPreloadHeader failed with TypeError');
            }
         }
-        // Try Method 16: UpdateFetchHandlerType
+        // Try Method 17: UpdateFetchHandlerType
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec.$.structSpec;
@@ -2719,16 +2773,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateFetchHandlerType (16)');
-                 this.mapOrdinal(header.ordinal, 16);
-                 dispatchId = 16;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateFetchHandlerType (17)');
+                 this.mapOrdinal(header.ordinal, 17);
+                 dispatchId = 17;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateFetchHandlerType failed with TypeError');
            }
         }
-        // Try Method 17: UpdateResourceSha256Checksums
+        // Try Method 18: UpdateResourceSha256Checksums
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec.$.structSpec;
@@ -2742,16 +2796,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateResourceSha256Checksums (17)');
-                 this.mapOrdinal(header.ordinal, 17);
-                 dispatchId = 17;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateResourceSha256Checksums (18)');
+                 this.mapOrdinal(header.ordinal, 18);
+                 dispatchId = 18;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateResourceSha256Checksums failed with TypeError');
            }
         }
-        // Try Method 18: GetNewRegistrationId
+        // Try Method 19: GetNewRegistrationId
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec.$.structSpec;
@@ -2765,16 +2819,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewRegistrationId (18)');
-                 this.mapOrdinal(header.ordinal, 18);
-                 dispatchId = 18;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewRegistrationId (19)');
+                 this.mapOrdinal(header.ordinal, 19);
+                 dispatchId = 19;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetNewRegistrationId failed with TypeError');
            }
         }
-        // Try Method 19: GetNewVersionId
+        // Try Method 20: GetNewVersionId
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec.$.structSpec;
@@ -2788,16 +2842,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewVersionId (19)');
-                 this.mapOrdinal(header.ordinal, 19);
-                 dispatchId = 19;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewVersionId (20)');
+                 this.mapOrdinal(header.ordinal, 20);
+                 dispatchId = 20;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetNewVersionId failed with TypeError');
            }
         }
-        // Try Method 20: GetNewResourceId
+        // Try Method 21: GetNewResourceId
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec.$.structSpec;
@@ -2811,16 +2865,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewResourceId (20)');
-                 this.mapOrdinal(header.ordinal, 20);
-                 dispatchId = 20;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewResourceId (21)');
+                 this.mapOrdinal(header.ordinal, 21);
+                 dispatchId = 21;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetNewResourceId failed with TypeError');
            }
         }
-        // Try Method 21: CreateResourceReader
+        // Try Method 22: CreateResourceReader
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec.$.structSpec;
@@ -2834,16 +2888,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResourceReader (21)');
-                 this.mapOrdinal(header.ordinal, 21);
-                 dispatchId = 21;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResourceReader (22)');
+                 this.mapOrdinal(header.ordinal, 22);
+                 dispatchId = 22;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CreateResourceReader failed with TypeError');
            }
         }
-        // Try Method 22: CreateResourceWriter
+        // Try Method 23: CreateResourceWriter
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec.$.structSpec;
@@ -2857,16 +2911,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResourceWriter (22)');
-                 this.mapOrdinal(header.ordinal, 22);
-                 dispatchId = 22;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResourceWriter (23)');
+                 this.mapOrdinal(header.ordinal, 23);
+                 dispatchId = 23;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CreateResourceWriter failed with TypeError');
            }
         }
-        // Try Method 23: CreateResourceMetadataWriter
+        // Try Method 24: CreateResourceMetadataWriter
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec.$.structSpec;
@@ -2880,16 +2934,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResourceMetadataWriter (23)');
-                 this.mapOrdinal(header.ordinal, 23);
-                 dispatchId = 23;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateResourceMetadataWriter (24)');
+                 this.mapOrdinal(header.ordinal, 24);
+                 dispatchId = 24;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CreateResourceMetadataWriter failed with TypeError');
            }
         }
-        // Try Method 24: StoreUncommittedResourceId
+        // Try Method 25: StoreUncommittedResourceId
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec.$.structSpec;
@@ -2903,16 +2957,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreUncommittedResourceId (24)');
-                 this.mapOrdinal(header.ordinal, 24);
-                 dispatchId = 24;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreUncommittedResourceId (25)');
+                 this.mapOrdinal(header.ordinal, 25);
+                 dispatchId = 25;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for StoreUncommittedResourceId failed with TypeError');
            }
         }
-        // Try Method 25: DoomUncommittedResources
+        // Try Method 26: DoomUncommittedResources
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec.$.structSpec;
@@ -2926,16 +2980,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoomUncommittedResources (25)');
-                 this.mapOrdinal(header.ordinal, 25);
-                 dispatchId = 25;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoomUncommittedResources (26)');
+                 this.mapOrdinal(header.ordinal, 26);
+                 dispatchId = 26;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for DoomUncommittedResources failed with TypeError');
            }
         }
-        // Try Method 26: GetUserData
+        // Try Method 27: GetUserData
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec.$.structSpec;
@@ -2949,16 +3003,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserData (26)');
-                 this.mapOrdinal(header.ordinal, 26);
-                 dispatchId = 26;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserData (27)');
+                 this.mapOrdinal(header.ordinal, 27);
+                 dispatchId = 27;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetUserData failed with TypeError');
            }
         }
-        // Try Method 27: StoreUserData
+        // Try Method 28: StoreUserData
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec.$.structSpec;
@@ -2972,16 +3026,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreUserData (27)');
-                 this.mapOrdinal(header.ordinal, 27);
-                 dispatchId = 27;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StoreUserData (28)');
+                 this.mapOrdinal(header.ordinal, 28);
+                 dispatchId = 28;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for StoreUserData failed with TypeError');
            }
         }
-        // Try Method 28: ClearUserData
+        // Try Method 29: ClearUserData
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec.$.structSpec;
@@ -2995,16 +3049,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserData (28)');
-                 this.mapOrdinal(header.ordinal, 28);
-                 dispatchId = 28;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserData (29)');
+                 this.mapOrdinal(header.ordinal, 29);
+                 dispatchId = 29;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ClearUserData failed with TypeError');
            }
         }
-        // Try Method 29: GetUserDataByKeyPrefix
+        // Try Method 30: GetUserDataByKeyPrefix
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec.$.structSpec;
@@ -3018,16 +3072,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserDataByKeyPrefix (29)');
-                 this.mapOrdinal(header.ordinal, 29);
-                 dispatchId = 29;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserDataByKeyPrefix (30)');
+                 this.mapOrdinal(header.ordinal, 30);
+                 dispatchId = 30;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetUserDataByKeyPrefix failed with TypeError');
            }
         }
-        // Try Method 30: GetUserKeysAndDataByKeyPrefix
+        // Try Method 31: GetUserKeysAndDataByKeyPrefix
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec.$.structSpec;
@@ -3041,16 +3095,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserKeysAndDataByKeyPrefix (30)');
-                 this.mapOrdinal(header.ordinal, 30);
-                 dispatchId = 30;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserKeysAndDataByKeyPrefix (31)');
+                 this.mapOrdinal(header.ordinal, 31);
+                 dispatchId = 31;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetUserKeysAndDataByKeyPrefix failed with TypeError');
            }
         }
-        // Try Method 31: ClearUserDataByKeyPrefixes
+        // Try Method 32: ClearUserDataByKeyPrefixes
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec.$.structSpec;
@@ -3064,16 +3118,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserDataByKeyPrefixes (31)');
-                 this.mapOrdinal(header.ordinal, 31);
-                 dispatchId = 31;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserDataByKeyPrefixes (32)');
+                 this.mapOrdinal(header.ordinal, 32);
+                 dispatchId = 32;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ClearUserDataByKeyPrefixes failed with TypeError');
            }
         }
-        // Try Method 32: GetUserDataForAllRegistrations
+        // Try Method 33: GetUserDataForAllRegistrations
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec.$.structSpec;
@@ -3087,16 +3141,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserDataForAllRegistrations (32)');
-                 this.mapOrdinal(header.ordinal, 32);
-                 dispatchId = 32;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserDataForAllRegistrations (33)');
+                 this.mapOrdinal(header.ordinal, 33);
+                 dispatchId = 33;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetUserDataForAllRegistrations failed with TypeError');
            }
         }
-        // Try Method 33: GetUserDataForAllRegistrationsByKeyPrefix
+        // Try Method 34: GetUserDataForAllRegistrationsByKeyPrefix
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec;
@@ -3110,16 +3164,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserDataForAllRegistrationsByKeyPrefix (33)');
-                 this.mapOrdinal(header.ordinal, 33);
-                 dispatchId = 33;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserDataForAllRegistrationsByKeyPrefix (34)');
+                 this.mapOrdinal(header.ordinal, 34);
+                 dispatchId = 34;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetUserDataForAllRegistrationsByKeyPrefix failed with TypeError');
            }
         }
-        // Try Method 34: ClearUserDataForAllRegistrationsByKeyPrefix
+        // Try Method 35: ClearUserDataForAllRegistrationsByKeyPrefix
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec;
@@ -3133,16 +3187,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserDataForAllRegistrationsByKeyPrefix (34)');
-                 this.mapOrdinal(header.ordinal, 34);
-                 dispatchId = 34;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserDataForAllRegistrationsByKeyPrefix (35)');
+                 this.mapOrdinal(header.ordinal, 35);
+                 dispatchId = 35;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ClearUserDataForAllRegistrationsByKeyPrefix failed with TypeError');
            }
         }
-        // Try Method 35: PerformStorageCleanup
+        // Try Method 36: PerformStorageCleanup
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec.$.structSpec;
@@ -3156,16 +3210,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformStorageCleanup (35)');
-                 this.mapOrdinal(header.ordinal, 35);
-                 dispatchId = 35;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformStorageCleanup (36)');
+                 this.mapOrdinal(header.ordinal, 36);
+                 dispatchId = 36;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for PerformStorageCleanup failed with TypeError');
            }
         }
-        // Try Method 36: ApplyPolicyUpdates
+        // Try Method 37: ApplyPolicyUpdates
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec;
@@ -3179,16 +3233,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (36)');
-                 this.mapOrdinal(header.ordinal, 36);
-                 dispatchId = 36;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (37)');
+                 this.mapOrdinal(header.ordinal, 37);
+                 dispatchId = 37;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ApplyPolicyUpdates failed with TypeError');
            }
         }
-        // Try Method 37: GetPurgingResourceIdsForTest
+        // Try Method 38: GetPurgingResourceIdsForTest
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec.$.structSpec;
@@ -3202,16 +3256,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPurgingResourceIdsForTest (37)');
-                 this.mapOrdinal(header.ordinal, 37);
-                 dispatchId = 37;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPurgingResourceIdsForTest (38)');
+                 this.mapOrdinal(header.ordinal, 38);
+                 dispatchId = 38;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetPurgingResourceIdsForTest failed with TypeError');
            }
         }
-        // Try Method 38: GetPurgingResourceIdsForLiveVersionForTest
+        // Try Method 39: GetPurgingResourceIdsForLiveVersionForTest
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec.$.structSpec;
@@ -3225,16 +3279,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPurgingResourceIdsForLiveVersionForTest (38)');
-                 this.mapOrdinal(header.ordinal, 38);
-                 dispatchId = 38;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPurgingResourceIdsForLiveVersionForTest (39)');
+                 this.mapOrdinal(header.ordinal, 39);
+                 dispatchId = 39;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetPurgingResourceIdsForLiveVersionForTest failed with TypeError');
            }
         }
-        // Try Method 39: GetPurgeableResourceIdsForTest
+        // Try Method 40: GetPurgeableResourceIdsForTest
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec.$.structSpec;
@@ -3248,16 +3302,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPurgeableResourceIdsForTest (39)');
-                 this.mapOrdinal(header.ordinal, 39);
-                 dispatchId = 39;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPurgeableResourceIdsForTest (40)');
+                 this.mapOrdinal(header.ordinal, 40);
+                 dispatchId = 40;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetPurgeableResourceIdsForTest failed with TypeError');
            }
         }
-        // Try Method 40: GetUncommittedResourceIdsForTest
+        // Try Method 41: GetUncommittedResourceIdsForTest
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec.$.structSpec;
@@ -3271,16 +3325,16 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUncommittedResourceIdsForTest (40)');
-                 this.mapOrdinal(header.ordinal, 40);
-                 dispatchId = 40;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUncommittedResourceIdsForTest (41)');
+                 this.mapOrdinal(header.ordinal, 41);
+                 dispatchId = 41;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetUncommittedResourceIdsForTest failed with TypeError');
            }
         }
-        // Try Method 41: SetPurgingCompleteCallbackForTest
+        // Try Method 42: SetPurgingCompleteCallbackForTest
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec.$.structSpec;
@@ -3294,9 +3348,9 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPurgingCompleteCallbackForTest (41)');
-                 this.mapOrdinal(header.ordinal, 41);
-                 dispatchId = 41;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPurgingCompleteCallbackForTest (42)');
+                 this.mapOrdinal(header.ordinal, 42);
+                 dispatchId = 42;
                }
              }
            } catch (e) {
@@ -3446,6 +3500,19 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getFakeRegistrationForClientUrl');
+          const result = this.impl.getFakeRegistrationForClientUrl(params.arg_client_url, params.arg_key);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec, response);
+            }).catch(e => console.error('[GeneratedReceiver] GetFakeRegistrationForClientUrl FAILED:', e));
+          }
+          break;
+        }
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeRegistration');
           const result = this.impl.storeRegistration(params.arg_registration, params.arg_resources);
@@ -3457,7 +3524,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRegistration');
@@ -3470,7 +3537,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateToActiveState');
@@ -3483,7 +3550,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLastUpdateCheckTime');
@@ -3496,7 +3563,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNavigationPreloadEnabled');
@@ -3509,7 +3576,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNavigationPreloadHeader');
@@ -3522,7 +3589,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFetchHandlerType');
@@ -3535,7 +3602,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateResourceSha256Checksums');
@@ -3548,7 +3615,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewRegistrationId');
@@ -3561,7 +3628,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewVersionId');
@@ -3574,7 +3641,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewResourceId');
@@ -3587,28 +3654,28 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 21: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceReader');
           const result = this.impl.createResourceReader(params.arg_resource_id, params.arg_reader);
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceWriter');
           const result = this.impl.createResourceWriter(params.arg_resource_id, params.arg_writer);
           break;
         }
-        case 23: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResourceMetadataWriter');
           const result = this.impl.createResourceMetadataWriter(params.arg_resource_id, params.arg_writer);
           break;
         }
-        case 24: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeUncommittedResourceId');
@@ -3621,7 +3688,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 25: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doomUncommittedResources');
@@ -3634,7 +3701,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 26: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserData');
@@ -3647,7 +3714,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 27: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeUserData');
@@ -3660,7 +3727,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 28: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserData');
@@ -3673,7 +3740,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 29: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataByKeyPrefix');
@@ -3686,7 +3753,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 30: {
+        case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserKeysAndDataByKeyPrefix');
@@ -3699,7 +3766,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 31: {
+        case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserDataByKeyPrefixes');
@@ -3712,7 +3779,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 32: {
+        case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataForAllRegistrations');
@@ -3725,7 +3792,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 33: {
+        case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserDataForAllRegistrationsByKeyPrefix');
@@ -3738,7 +3805,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 34: {
+        case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserDataForAllRegistrationsByKeyPrefix');
@@ -3751,7 +3818,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 35: {
+        case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performStorageCleanup');
@@ -3764,7 +3831,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 36: {
+        case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
@@ -3777,7 +3844,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 37: {
+        case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgingResourceIdsForTest');
@@ -3790,7 +3857,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 38: {
+        case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgingResourceIdsForLiveVersionForTest');
@@ -3803,7 +3870,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 39: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPurgeableResourceIdsForTest');
@@ -3816,7 +3883,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 40: {
+        case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUncommittedResourceIdsForTest');
@@ -3829,7 +3896,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           }
           break;
         }
-        case 41: {
+        case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPurgingCompleteCallbackForTest');

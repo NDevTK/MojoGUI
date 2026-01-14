@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-13T22:59:21.092053Z",
+  "generated_at": "2026-01-14T04:11:02.936816Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -12354,11 +12354,8 @@
       "file": "components_safe_browsing_content_common_safe_browsing.mojom.js",
       "methods": [
         "SetImageEmbeddingAndPhishingFlatBufferModel",
-        "SetImageEmbeddingAndPhishingTfLiteModel",
         "AttachImageEmbeddingModel",
-        "AttachImageEmbeddingModelAndDimensions",
         "SetPhishingFlatBufferModel",
-        "SetPhishingTfLiteModel",
         "ClearScorer",
         "SetTestObserver"
       ]
@@ -12759,6 +12756,7 @@
         "GetRegistrationsForStorageKey",
         "GetUsageForStorageKey",
         "GetAllRegistrationsDeprecated",
+        "GetFakeRegistrationForClientUrl",
         "StoreRegistration",
         "DeleteRegistration",
         "UpdateToActiveState",
@@ -18228,6 +18226,7 @@
         "ClearSharedDictionaryCache",
         "ClearSharedDictionaryCacheForIsolationKey",
         "SetDocumentReportingEndpoints",
+        "SetEnterpriseReportingEndpoints",
         "SendReportsAndRemoveSource",
         "QueueReport",
         "QueueEnterpriseReport",
@@ -31490,7 +31489,9 @@
       "filename": "gpu_ipc_common_gpu_feature_info.mojom.js",
       "source": "gpu/ipc/common/gpu_feature_info.mojom",
       "module": "gpu.mojom",
-      "imports": []
+      "imports": [
+        "ui/gfx/mojom/buffer_types.mojom"
+      ]
     },
     {
       "filename": "gpu_ipc_common_gpu_info.mojom.js",
@@ -32345,7 +32346,6 @@
       "module": "media.mojom",
       "imports": [
         "gpu/ipc/common/sync_token.mojom",
-        "gpu/ipc/common/exported_shared_image.mojom",
         "media/mojo/mojom/media_log.mojom",
         "media/mojo/mojom/media_types.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",

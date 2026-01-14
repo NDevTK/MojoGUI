@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7633.0';
+        const versionStr = window.mojoVersion || '145.0.7632.5';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -124,8 +124,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.actor.mojom.ClickTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.ClickCountSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.CountSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.mojom.ActionResultCodeSpec = { $: mojo.internal.Enum().$ };
@@ -179,14 +179,14 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Enum: ClickType
-mojo.internal.bindings.actor.mojom.ClickType = {
+// Enum: Type
+mojo.internal.bindings.actor.mojom.Type = {
   kLeft: 1,
   kRight: 2,
 };
 
-// Enum: ClickCount
-mojo.internal.bindings.actor.mojom.ClickCount = {
+// Enum: Count
+mojo.internal.bindings.actor.mojom.Count = {
   kSingle: 1,
   kDouble: 2,
 };
@@ -374,8 +374,8 @@ mojo.internal.Struct(
 // Struct: ClickAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ClickActionSpec, 'actor.mojom.ClickAction', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.ClickTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_count', 4, 0, mojo.internal.bindings.actor.mojom.ClickCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 4, 0, mojo.internal.bindings.actor.mojom.CountSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

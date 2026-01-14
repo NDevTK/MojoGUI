@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7633.0';
+        const versionStr = window.mojoVersion || '145.0.7632.5';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -197,7 +197,6 @@ mojo.internal.bindings.downloads.mojom.DangerType = {
   kDeepScannedOpenedDangerous: 16,
   kBlockedScanFailed: 17,
   kForcedSaveToGdrive: 18,
-  kForcedSaveToOnedrive: 19,
 };
 
 // Enum: TailoredWarningType
