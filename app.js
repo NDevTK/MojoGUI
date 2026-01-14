@@ -661,6 +661,7 @@
 
     // Helper for Array rendering
     window.reindexArrayItems = function (container, prefix) {
+        if (!container) return;
         Array.from(container.children).forEach((item, index) => {
             // Update names in inputs
             // Helper to replace [x] with [index] in names
@@ -729,6 +730,16 @@
         container.dispatchEvent(new Event('change', { bubbles: true }));
     };
 
+    window.removeArrayItem = function (btn, prefix) {
+        const item = btn.closest('.array-item');
+        if (!item) return;
+        const container = item.parentElement;
+        item.remove();
+        if (container) {
+            reindexArrayItems(container, prefix);
+        }
+    };
+
     window.addArrayItem = function (btn) {
         const container = btn.parentElement.querySelector('.array-items-container') || btn.parentElement.querySelector('.map-entries-container');
         const template = btn.parentElement.querySelector('.item-template').innerHTML;
@@ -741,7 +752,7 @@
 
         // Create temp div to parse HTML
         const temp = document.createElement('div');
-        temp.innerHTML = newItemHtml;
+        temp.innerHTML = safeHTML(newItemHtml);
         // Actually templateHtml usually has one root element? No, renderedItems joining.
         // renderInput returns a string... wait.
         // My template generator wrapped it in nothing?
@@ -759,11 +770,10 @@
 
         const wrapper = document.createElement('div');
         wrapper.className = 'array-item';
-        wrapper.style.cssText = 'display: flex; align-items: flex-start; margin-bottom: 4px;';
 
         // If templateHtml is just the input, we wrapper it.
-        wrapper.innerHTML = `<div style="flex-grow: 1;">${newItemHtml}</div>
-                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove(); reindexArrayItems(this.parentElement.parentElement, '${prefix || ''}');" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>`;
+        wrapper.innerHTML = safeHTML(`<div class="item-content">${newItemHtml}</div>
+                        <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ''}')">&times;</button>`);
 
         container.appendChild(wrapper);
 
@@ -819,15 +829,14 @@
             return `
                 <div class="form-group struct-group" 
                      data-type="struct" 
-                     data-original-name="${escapeHtml(param.name)}"
-                     style="margin-bottom: 8px;">
+                     data-original-name="${escapeHtml(param.name)}">
                     <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
                         <span class="type">Struct</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
-                    <div class="struct-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
+                    <div class="struct-content">
                         ${renderedFields}
                     </div>
                 </div>`;
@@ -839,10 +848,18 @@
             const prefix = parentName ? `${parentName}${param.name.startsWith('[') ? '' : '.'}${param.name}` : param.name;
 
             const renderItemHtml = (val, idx) => {
+                let itemType = inferTypeFromMojomType(param.elementSpec);
+                const itemStructSpec = (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null;
+
+                // Prioritize string16, but upgrade generic strings to struct if available
+                if (itemType !== 'string16' && itemStructSpec) {
+                    itemType = 'struct';
+                }
+
                 const itemParam = {
                     name: `[${idx}]`,
-                    type: inferTypeFromMojomType(param.elementSpec),
-                    structSpec: (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null,
+                    type: itemType,
+                    structSpec: itemStructSpec,
                     elementSpec: (param.elementSpec.elementType || (param.elementSpec.$ && param.elementSpec.$.elementType)) || null
                 };
                 return renderInput(itemParam, val, {
@@ -853,9 +870,9 @@
             };
 
             const renderedItems = items.map((val, i) => `
-                <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
-                    <div style="flex-grow: 1;">${renderItemHtml(val, i)}</div>
-                    <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
+                <div class="array-item">
+                    <div class="item-content">${renderItemHtml(val, i)}</div>
+                    <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ''}')">&times;</button>
                 </div>
             `).join('');
 
@@ -868,22 +885,20 @@
                 <div class="form-group array-group" 
                      data-type="array" 
                      data-original-name="${escapeHtml(param.name)}"
-                     data-prefix="${escapeHtml(prefix)}"
-                     style="margin-bottom: 8px;">
+                     data-prefix="${escapeHtml(prefix)}">
                     <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
                         <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
                         <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} items</span>
                     </label>
-                    <div class="array-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
+                    <div class="array-content">
                         <div class="array-items-container">
                             ${renderedItems}
                         </div>
                         <template class="item-template">${templateHtml}</template>
-                        <button type="button" class="add-item-btn" 
-                                onclick="addArrayItem(this)"
-                                style="margin-top: 4px; font-size: 0.9em; padding: 4px 12px;">+ Add Item</button>
+                        <button type="button" class="btn btn-secondary btn-small add-item-btn" 
+                                onclick="addArrayItem(this)">+ Add Item</button>
                     </div>
                 </div>`;
         }
@@ -920,20 +935,19 @@
                 const valHtml = renderInput(valParam, entryValue, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]` });
 
                 return `
-                        <div class="form-group struct-group map-entry" 
-                             data-original-name="${idx === 'TEMPLATE_INDEX' ? 'TEMPLATE_INDEX' : idx}"
-                             style="margin-bottom: 0;">
-                            <div class="struct-content" style="display: flex; gap: 8px; align-items: flex-start;">
-                                <div style="flex: 1;">${keyHtml}</div>
-                                <div style="flex: 2;">${valHtml}</div>
+                        <div class="form-group struct-group map-entry-content" 
+                             data-original-name="${idx === 'TEMPLATE_INDEX' ? 'TEMPLATE_INDEX' : idx}">
+                            <div class="map-entry-fields">
+                                <div class="map-key-field">${keyHtml}</div>
+                                <div class="map-value-field">${valHtml}</div>
                             </div>
                         </div>`;
             };
 
             const renderedEntries = entries.map((entry, i) => `
-                    <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
-                        <div style="flex-grow: 1;">${renderEntryHtml(entry[0], entry[1], i)}</div>
-                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
+                    <div class="array-item map-entry-wrapper">
+                        <div class="item-content">${renderEntryHtml(entry[0], entry[1], i)}</div>
+                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()">&times;</button>
                     </div>
                 `).join('');
 
@@ -952,14 +966,13 @@
                         <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.key)}, ${inferTypeFromMojomType(param.mapSpec.value)}&gt;</span>
                         <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} entries</span>
                     </label>
-                    <div class="map-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
+                    <div class="map-content">
                         <div class="map-entries-container">
                             ${renderedEntries}
                         </div>
                         <template class="item-template">${templateHtml}</template>
-                        <button type="button" class="add-item-btn" 
-                                onclick="addArrayItem(this)" 
-                                style="margin-top: 4px; font-size: 0.9em; padding: 4px 12px;">+ Add Entry</button>
+                        <button type="button" class="btn btn-secondary btn-small add-item-btn" 
+                                onclick="addArrayItem(this, true)">+ Add Entry</button>
                     </div>
                 </div>`;
         }
@@ -1017,7 +1030,7 @@
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
                         <span class="type">Union</span>
                      </label>
-                     <div style="margin-bottom: 6px;">
+                     <div class="union-membership">
                         <span class="badget">Active Member:</span>
                         <select class="union-discriminator" onchange="
                             const group = this.closest('.union-group');
@@ -1350,13 +1363,25 @@
 
         // Explicitly handle String16 struct
         // mojomType is often a constructor function with a static $ property containing the spec
-        if (mojomType && (mojomType.$ && mojomType.$.name === 'mojo_base.mojom.String16')) {
-            return 'string16';
+        if (mojomType && mojomType.$) {
+            // Safety check for name
+            if (mojomType.$.name && mojomType.$.name === 'mojo_base.mojom.String16') {
+                return 'string16';
+            }
+            // Check nested structSpec name (common in some bindings)
+            if (mojomType.$.structSpec && mojomType.$.structSpec.name === 'mojo_base.mojom.String16') {
+                return 'string16';
+            }
         }
+
+        // Debug logging for description field specifically (Safe check)
+        if (mojomType && mojomType.$ && mojomType.$.name && mojomType.$.name.includes('String16')) {
+            console.log('[MojoGUI] Found String16-like type:', mojomType.$.name, mojomType);
+        }
+
         // Fallback: Check function name directly just in case (though less reliable)
         if (typeof mojomType === 'function' && mojomType.name === 'String16') {
-            // We can try to verify namespace if we could, but 'String16' is distinct enough? 
-            // Maybe better to be strict.
+            return 'string16';
         }
 
         if (typeof mojomType === 'string') return mojomType;
@@ -1450,14 +1475,15 @@
             if (type !== 'string16' && field.type && field.type.$ && field.type.$.structSpec) {
                 type = 'struct';
                 structSpec = field.type.$.structSpec;
-            } else if (field.type && (field.type.elementType || (field.type.$ && field.type.$.elementType))) {
+            } else if (field.type && (field.type.elementType || (field.type.$ && (field.type.$.elementType || (field.type.$.arraySpec && field.type.$.arraySpec.elementType))))) {
                 type = 'array';
-                elementSpec = field.type.elementType || field.type.$.elementType;
-            } else if (field.type && (field.type.keyType || (field.type.$ && field.type.$.keyType))) {
+                elementSpec = field.type.elementType || (field.type.$ && (field.type.$.elementType || field.type.$.arraySpec.elementType));
+            } else if (field.type && (field.type.keyType || (field.type.$ && (field.type.$.keyType || (field.type.$.mapSpec && field.type.$.mapSpec.keyType))))) {
                 type = 'map';
+                const sourceSpec = field.type.keyType ? field.type : (field.type.$ && field.type.$.mapSpec ? field.type.$.mapSpec : field.type.$);
                 mapSpec = {
-                    key: field.type.keyType || field.type.$.keyType,
-                    value: field.type.valueType || field.type.$.valueType
+                    key: sourceSpec.keyType,
+                    value: sourceSpec.valueType
                 };
             } else if (field.type && (field.type.unionSpec || (field.type.$ && field.type.$.unionSpec))) {
                 type = 'union';

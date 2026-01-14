@@ -612,15 +612,19 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    width: 100%;
 }
 
 .form-group label {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    /* Prevent overlap with buttons in small spaces */
     gap: var(--space-sm);
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
+    min-width: 0;
 }
 
 .form-group label .type {
@@ -641,6 +645,8 @@ body::before {
 .form-group input,
 .form-group select,
 .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
     padding: var(--space-sm) var(--space-md);
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border-default);
@@ -854,6 +860,12 @@ body::before {
 .btn-icon:hover:not(:disabled) {
     background: var(--bg-tertiary);
     color: var(--text-primary);
+}
+
+.btn-small {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.8rem;
+    height: auto;
 }
 
 
@@ -1777,6 +1789,8 @@ input:checked+.switch-slider::before {
     padding-left: var(--space-md);
     margin-left: var(--space-sm);
     margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+    /* Moved from inline style */
     transition: border-color var(--transition-fast);
 }
 
@@ -1784,6 +1798,24 @@ input:checked+.switch-slider::before {
 .array-group:hover,
 .map-group:hover {
     border-left-color: var(--border-highlight);
+}
+
+.struct-group>label,
+.array-group>label,
+.map-group>label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.struct-content,
+.array-content,
+.map-content {
+    padding-left: 10px;
+    border-left: 2px solid var(--border-subtle);
+    margin-left: 4px;
+    margin-top: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .array-items-container,
@@ -1800,9 +1832,20 @@ input:checked+.switch-slider::before {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    padding: var(--space-sm);
+    padding: var(--space-md);
+    padding-right: 48px;
+    /* Increased space for remove button */
+    margin-bottom: var(--space-sm);
     position: relative;
     transition: background-color var(--transition-fast);
+    width: 100%;
+    display: block;
+    /* Avoid flex for better fitting of nested blocks */
+}
+
+/* Ensure the content within takes full width */
+.array-item>div {
+    width: 100%;
 }
 
 .array-item:hover,
@@ -1810,11 +1853,33 @@ input:checked+.switch-slider::before {
     background: rgba(255, 255, 255, 0.04);
 }
 
-.map-entry {
+.map-entry-wrapper {
+    display: block;
+    /* Ensure it stretches */
+    width: 100%;
+}
+
+.map-entry-content {
+    margin-bottom: 0;
+}
+
+.map-entry-fields {
     display: flex;
-    flex-direction: column;
     gap: var(--space-md);
-    padding: var(--space-md);
+    align-items: flex-start;
+    width: 100%;
+}
+
+.map-key-field {
+    flex: 1;
+}
+
+.map-value-field {
+    flex: 2;
+}
+
+.union-membership {
+    margin-bottom: var(--space-sm);
 }
 
 .map-key-group,
@@ -1840,9 +1905,34 @@ input:checked+.switch-slider::before {
     margin-bottom: var(--space-xs);
 }
 
+.array-item .remove-item-btn,
 .map-entry .remove-item-btn {
-    align-self: flex-end;
-    margin-top: var(--space-sm);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.2);
+    /* Slightly visible background */
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    /* Ensure it stays on top */
+}
+
+.array-item .remove-item-btn:hover,
+.map-entry .remove-item-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    border-color: var(--error);
 }
 
 /* Dark Mode Select Dropdown Support */
@@ -1881,4 +1971,8 @@ select option {
     background-color: var(--bg-elevated) !important;
     color: var(--text-primary) !important;
     border-color: var(--border-default) !important;
+}
+
+.add-item-btn {
+    margin-top: var(--space-sm);
 }
