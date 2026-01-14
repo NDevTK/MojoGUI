@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -161,7 +161,6 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ResponsePa
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = { $: {} };
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = { $: {} };
@@ -1291,11 +1290,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec, 'autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_Params', [
       mojo.internal.StructField('arg_parsing_result', 0, 0, mojo.internal.bindings.autofill.mojom.ParsingResultSpec, null, false, 0, undefined),
     ],
@@ -1368,9 +1362,6 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemote = class {
   setLoggingState(arg_active) {
     return this.$.setLoggingState(arg_active);
   }
-  triggerFormSubmission() {
-    return this.$.triggerFormSubmission();
-  }
   annotateFieldsWithParsingResult(arg_parsing_result) {
     return this.$.annotateFieldsWithParsingResult(arg_parsing_result);
   }
@@ -1383,7 +1374,6 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordAutofillAgent', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1489,18 +1479,9 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       false);
   }
 
-  triggerFormSubmission() {
-    return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
-      mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   annotateFieldsWithParsingResult(arg_parsing_result) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec,
       null,
       [arg_parsing_result],
@@ -1509,7 +1490,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
 
   checkViewAreaVisible(arg_field_id) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec,
       [arg_field_id],
@@ -1534,7 +1515,6 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordAutofillAgent', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1815,30 +1795,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetLoggingState failed with TypeError');
            }
         }
-        // Try Method 10: TriggerFormSubmission
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormSubmission (10)');
-                 this.mapOrdinal(header.ordinal, 10);
-                 dispatchId = 10;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for TriggerFormSubmission failed with TypeError');
-           }
-        }
-        // Try Method 11: AnnotateFieldsWithParsingResult
+        // Try Method 10: AnnotateFieldsWithParsingResult
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$.structSpec;
@@ -1852,16 +1809,16 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateFieldsWithParsingResult (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateFieldsWithParsingResult (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for AnnotateFieldsWithParsingResult failed with TypeError');
            }
         }
-        // Try Method 12: CheckViewAreaVisible
+        // Try Method 11: CheckViewAreaVisible
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$.structSpec;
@@ -1875,9 +1832,9 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckViewAreaVisible (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckViewAreaVisible (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
                }
              }
            } catch (e) {
@@ -1985,19 +1942,12 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.triggerFormSubmission');
-          const result = this.impl.triggerFormSubmission();
-          break;
-        }
-        case 11: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateFieldsWithParsingResult');
           const result = this.impl.annotateFieldsWithParsingResult(params.arg_parsing_result);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkViewAreaVisible');

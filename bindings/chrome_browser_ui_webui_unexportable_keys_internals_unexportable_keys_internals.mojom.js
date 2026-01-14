@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -142,7 +142,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.Page.$interfaceName = '
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -161,7 +161,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_wrapped_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_algorithm', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_tag', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
 

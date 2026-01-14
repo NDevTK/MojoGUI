@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -186,7 +186,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationCh
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec = { $: {} };
-mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec = { $: {} };
@@ -294,11 +293,14 @@ mojo.internal.bindings.read_anything.mojom.HighlightGranularity = {
 // Enum: LineFocus
 mojo.internal.bindings.read_anything.mojom.LineFocus = {
   kOff: 0,
-  kWindow1: 1,
-  kWindow3: 2,
-  kWindow5: 3,
   kLineStatic: 4,
   kLineCursor: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
+  MinVersion: 5,
 };
 
 // Enum: DistillationStatus
@@ -2324,11 +2326,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnDeviceLocked_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_Params', [
     ],
     [[0, 8]]);
@@ -2438,9 +2435,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote = class {
   setLanguageCode(arg_code) {
     return this.$.setLanguageCode(arg_code);
   }
-  onDeviceLocked() {
-    return this.$.onDeviceLocked();
-  }
   onTtsEngineInstalled() {
     return this.$.onTtsEngineInstalled();
   }
@@ -2474,7 +2468,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2557,18 +2550,9 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       false);
   }
 
-  onDeviceLocked() {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   onTtsEngineInstalled() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec,
       null,
       [],
@@ -2577,7 +2561,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   setDefaultLanguageCode(arg_code) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec,
       null,
       [arg_code],
@@ -2586,7 +2570,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onSettingsRestoredFromPrefs(arg_line_spacing, arg_letter_spacing, arg_font, arg_font_size, arg_links_enabled, arg_images_enabled, arg_color, arg_speech_rate, arg_voices, arg_languages_enabled_in_pref, arg_granularity, arg_line_focus) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec,
       null,
       [arg_line_spacing, arg_letter_spacing, arg_font, arg_font_size, arg_links_enabled, arg_images_enabled, arg_color, arg_speech_rate, arg_voices, arg_languages_enabled_in_pref, arg_granularity, arg_line_focus],
@@ -2595,7 +2579,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   screenAIServiceReady() {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec,
       null,
       [],
@@ -2604,7 +2588,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onReadingModeHidden(arg_tab_active) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec,
       null,
       [arg_tab_active],
@@ -2613,7 +2597,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onTabWillDetach() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec,
       null,
       [],
@@ -2622,7 +2606,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onTabMuteStateChange(arg_muted) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec,
       null,
       [arg_muted],
@@ -2631,7 +2615,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onImageDataDownloaded(arg_tree_id, arg_node_id, arg_image) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec,
       null,
       [arg_tree_id, arg_node_id, arg_image],
@@ -2640,7 +2624,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onPinStatusReceived(arg_new_pin_state) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec,
       null,
       [arg_new_pin_state],
@@ -2665,7 +2649,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2881,30 +2864,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetLanguageCode failed with TypeError');
            }
         }
-        // Try Method 7: OnDeviceLocked
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceLocked (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnDeviceLocked failed with TypeError');
-           }
-        }
-        // Try Method 8: OnTtsEngineInstalled
+        // Try Method 7: OnTtsEngineInstalled
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$.structSpec;
@@ -2918,16 +2878,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsEngineInstalled (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTtsEngineInstalled (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnTtsEngineInstalled failed with TypeError');
            }
         }
-        // Try Method 9: SetDefaultLanguageCode
+        // Try Method 8: SetDefaultLanguageCode
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$.structSpec;
@@ -2941,16 +2901,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultLanguageCode (9)');
-                 this.mapOrdinal(header.ordinal, 9);
-                 dispatchId = 9;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDefaultLanguageCode (8)');
+                 this.mapOrdinal(header.ordinal, 8);
+                 dispatchId = 8;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetDefaultLanguageCode failed with TypeError');
            }
         }
-        // Try Method 10: OnSettingsRestoredFromPrefs
+        // Try Method 9: OnSettingsRestoredFromPrefs
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$.structSpec;
@@ -2964,16 +2924,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSettingsRestoredFromPrefs (10)');
-                 this.mapOrdinal(header.ordinal, 10);
-                 dispatchId = 10;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSettingsRestoredFromPrefs (9)');
+                 this.mapOrdinal(header.ordinal, 9);
+                 dispatchId = 9;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnSettingsRestoredFromPrefs failed with TypeError');
            }
         }
-        // Try Method 11: ScreenAIServiceReady
+        // Try Method 10: ScreenAIServiceReady
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$.structSpec;
@@ -2987,16 +2947,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScreenAIServiceReady (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScreenAIServiceReady (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ScreenAIServiceReady failed with TypeError');
            }
         }
-        // Try Method 12: OnReadingModeHidden
+        // Try Method 11: OnReadingModeHidden
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$.structSpec;
@@ -3010,16 +2970,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadingModeHidden (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReadingModeHidden (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnReadingModeHidden failed with TypeError');
            }
         }
-        // Try Method 13: OnTabWillDetach
+        // Try Method 12: OnTabWillDetach
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$.structSpec;
@@ -3033,16 +2993,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabWillDetach (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabWillDetach (12)');
+                 this.mapOrdinal(header.ordinal, 12);
+                 dispatchId = 12;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnTabWillDetach failed with TypeError');
            }
         }
-        // Try Method 14: OnTabMuteStateChange
+        // Try Method 13: OnTabMuteStateChange
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$.structSpec;
@@ -3056,16 +3016,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabMuteStateChange (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabMuteStateChange (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnTabMuteStateChange failed with TypeError');
            }
         }
-        // Try Method 15: OnImageDataDownloaded
+        // Try Method 14: OnImageDataDownloaded
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$.structSpec;
@@ -3079,16 +3039,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageDataDownloaded (15)');
-                 this.mapOrdinal(header.ordinal, 15);
-                 dispatchId = 15;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageDataDownloaded (14)');
+                 this.mapOrdinal(header.ordinal, 14);
+                 dispatchId = 14;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnImageDataDownloaded failed with TypeError');
            }
         }
-        // Try Method 16: OnPinStatusReceived
+        // Try Method 15: OnPinStatusReceived
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.structSpec;
@@ -3102,9 +3062,9 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPinStatusReceived (16)');
-                 this.mapOrdinal(header.ordinal, 16);
-                 dispatchId = 16;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPinStatusReceived (15)');
+                 this.mapOrdinal(header.ordinal, 15);
+                 dispatchId = 15;
                }
              }
            } catch (e) {
@@ -3173,68 +3133,61 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onDeviceLocked');
-          const result = this.impl.onDeviceLocked();
-          break;
-        }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTtsEngineInstalled');
           const result = this.impl.onTtsEngineInstalled();
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultLanguageCode');
           const result = this.impl.setDefaultLanguageCode(params.arg_code);
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSettingsRestoredFromPrefs');
           const result = this.impl.onSettingsRestoredFromPrefs(params.arg_line_spacing, params.arg_letter_spacing, params.arg_font, params.arg_font_size, params.arg_links_enabled, params.arg_images_enabled, params.arg_color, params.arg_speech_rate, params.arg_voices, params.arg_languages_enabled_in_pref, params.arg_granularity, params.arg_line_focus);
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.screenAIServiceReady');
           const result = this.impl.screenAIServiceReady();
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadingModeHidden');
           const result = this.impl.onReadingModeHidden(params.arg_tab_active);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabWillDetach');
           const result = this.impl.onTabWillDetach();
           break;
         }
-        case 14: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabMuteStateChange');
           const result = this.impl.onTabMuteStateChange(params.arg_muted);
           break;
         }
-        case 15: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImageDataDownloaded');
           const result = this.impl.onImageDataDownloaded(params.arg_tree_id, params.arg_node_id, params.arg_image);
           break;
         }
-        case 16: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPinStatusReceived');

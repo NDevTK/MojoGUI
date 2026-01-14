@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -192,7 +192,6 @@ mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec =
 mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec = { $: {} };
@@ -1990,11 +1989,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec, 'content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec, 'content.mojom.FrameHost_UpdateState_Params', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.content.mojom.PageStateSpec, null, false, 0, undefined),
     ],
@@ -2069,9 +2063,6 @@ mojo.internal.bindings.content.mojom.FrameHostRemote = class {
   updateEncoding(arg_encoding_name) {
     return this.$.updateEncoding(arg_encoding_name);
   }
-  updateUserGestureCarryoverInfo() {
-    return this.$.updateUserGestureCarryoverInfo();
-  }
   updateState(arg_state) {
     return this.$.updateState(arg_state);
   }
@@ -2087,7 +2078,6 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.FrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2204,18 +2194,9 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       false);
   }
 
-  updateUserGestureCarryoverInfo() {
-    return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
-      mojo.internal.bindings.content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   updateState(arg_state) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec,
       null,
       [arg_state],
@@ -2224,7 +2205,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   openURL(arg_params) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec,
       null,
       [arg_params],
@@ -2233,7 +2214,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   didStopLoading() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec,
       null,
       [],
@@ -2258,7 +2239,6 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.FrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2564,30 +2544,7 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateEncoding failed with TypeError');
            }
         }
-        // Try Method 11: UpdateUserGestureCarryoverInfo
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserGestureCarryoverInfo (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateUserGestureCarryoverInfo failed with TypeError');
-           }
-        }
-        // Try Method 12: UpdateState
+        // Try Method 11: UpdateState
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec;
@@ -2601,16 +2558,16 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateState (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateState (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateState failed with TypeError');
            }
         }
-        // Try Method 13: OpenURL
+        // Try Method 12: OpenURL
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec.$.structSpec;
@@ -2624,16 +2581,16 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenURL (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenURL (12)');
+                 this.mapOrdinal(header.ordinal, 12);
+                 dispatchId = 12;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OpenURL failed with TypeError');
            }
         }
-        // Try Method 14: DidStopLoading
+        // Try Method 13: DidStopLoading
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec;
@@ -2647,9 +2604,9 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStopLoading (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidStopLoading (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
@@ -2752,26 +2709,19 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateUserGestureCarryoverInfo');
-          const result = this.impl.updateUserGestureCarryoverInfo();
-          break;
-        }
-        case 12: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.arg_state);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.arg_params);
           break;
         }
-        case 14: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopLoading');

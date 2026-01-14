@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,12 +131,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = { $
 mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
@@ -155,9 +149,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientSpec = mojo.internal.b
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbEnumerationOptionsSpec = mojo.internal.bindings.device.mojom.UsbEnumerationOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: UsbDeviceManager
 mojo.internal.Struct(
@@ -202,44 +193,6 @@ mojo.internal.Struct(
     [[0, 32]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec, 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec, 'device.mojom.UsbDeviceManager_CheckAccess_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_CheckAccess_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_interfaces_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_lifeline_fd', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParams', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_SetClient_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
     ],
@@ -282,15 +235,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote = class {
   getSecurityKeyDevice(arg_guid, arg_device_receiver, arg_device_client) {
     return this.$.getSecurityKeyDevice(arg_guid, arg_device_receiver, arg_device_client);
   }
-  refreshDeviceInfo(arg_guid) {
-    return this.$.refreshDeviceInfo(arg_guid);
-  }
-  checkAccess(arg_guid) {
-    return this.$.checkAccess(arg_guid);
-  }
-  openFileDescriptor(arg_guid, arg_allowed_interfaces_mask, arg_lifeline_fd) {
-    return this.$.openFileDescriptor(arg_guid, arg_allowed_interfaces_mask, arg_lifeline_fd);
-  }
   setClient(arg_client) {
     return this.$.setClient(arg_client);
   }
@@ -300,9 +244,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.UsbDeviceManager', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -347,36 +288,9 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       false);
   }
 
-  refreshDeviceInfo(arg_guid) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec,
-      mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec,
-      [arg_guid],
-      false);
-  }
-
-  checkAccess(arg_guid) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec,
-      mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec,
-      [arg_guid],
-      false);
-  }
-
-  openFileDescriptor(arg_guid, arg_allowed_interfaces_mask, arg_lifeline_fd) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec,
-      mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec,
-      [arg_guid, arg_allowed_interfaces_mask, arg_lifeline_fd],
-      false);
-  }
-
   setClient(arg_client) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec,
       null,
       [arg_client],
@@ -401,9 +315,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('device.mojom.UsbDeviceManager', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -539,76 +450,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetSecurityKeyDevice failed with TypeError');
            }
         }
-        // Try Method 4: RefreshDeviceInfo
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshDeviceInfo (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RefreshDeviceInfo failed with TypeError');
-           }
-        }
-        // Try Method 5: CheckAccess
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckAccess (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CheckAccess failed with TypeError');
-           }
-        }
-        // Try Method 6: OpenFileDescriptor
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFileDescriptor (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OpenFileDescriptor failed with TypeError');
-           }
-        }
-        // Try Method 7: SetClient
+        // Try Method 4: SetClient
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.structSpec;
@@ -622,9 +464,9 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
@@ -683,45 +525,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
           break;
         }
         case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.refreshDeviceInfo');
-          const result = this.impl.refreshDeviceInfo(params.arg_guid);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RefreshDeviceInfo FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.checkAccess');
-          const result = this.impl.checkAccess(params.arg_guid);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckAccess FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openFileDescriptor');
-          const result = this.impl.openFileDescriptor(params.arg_guid, params.arg_allowed_interfaces_mask, params.arg_lifeline_fd);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenFileDescriptor FAILED:', e));
-          }
-          break;
-        }
-        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');

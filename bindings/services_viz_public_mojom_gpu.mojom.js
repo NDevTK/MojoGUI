@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,13 +131,9 @@ mojo.internal.bindings.viz.mojom.GpuSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.Gpu.$interfaceName = 'viz.mojom.Gpu';
 mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
-mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
-mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec = mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -166,12 +162,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_shared_image_capabilities', 32, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec, 'viz.mojom.Gpu_CreateJpegDecodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params', [
@@ -207,9 +197,6 @@ mojo.internal.bindings.viz.mojom.GpuRemote = class {
   establishGpuChannel() {
     return this.$.establishGpuChannel();
   }
-  createJpegDecodeAccelerator(arg_jda) {
-    return this.$.createJpegDecodeAccelerator(arg_jda);
-  }
   createVideoEncodeAcceleratorProvider(arg_vea_provider) {
     return this.$.createVideoEncodeAcceleratorProvider(arg_vea_provider);
   }
@@ -219,7 +206,6 @@ mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.Gpu', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -234,18 +220,9 @@ mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
       false);
   }
 
-  createJpegDecodeAccelerator(arg_jda) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec,
-      null,
-      [arg_jda],
-      false);
-  }
-
   createVideoEncodeAcceleratorProvider(arg_vea_provider) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
       [arg_vea_provider],
@@ -270,7 +247,6 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.Gpu', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -334,30 +310,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for EstablishGpuChannel failed with TypeError');
            }
         }
-        // Try Method 1: CreateJpegDecodeAccelerator
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateJpegDecodeAccelerator (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CreateJpegDecodeAccelerator failed with TypeError');
-           }
-        }
-        // Try Method 2: CreateVideoEncodeAcceleratorProvider
+        // Try Method 1: CreateVideoEncodeAcceleratorProvider
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec;
@@ -371,9 +324,9 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoEncodeAcceleratorProvider (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateVideoEncodeAcceleratorProvider (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
                }
              }
            } catch (e) {
@@ -405,13 +358,6 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
           break;
         }
         case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createJpegDecodeAccelerator');
-          const result = this.impl.createJpegDecodeAccelerator(params.arg_jda);
-          break;
-        }
-        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAcceleratorProvider');

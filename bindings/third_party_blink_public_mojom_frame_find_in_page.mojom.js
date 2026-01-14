@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,11 +132,6 @@ mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FindInPageClient = {};
 mojo.internal.bindings.blink.mojom.FindInPageClientSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.FindInPageClient.$interfaceName = 'blink.mojom.FindInPageClient';
@@ -146,13 +141,7 @@ mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: StopFindAction
 mojo.internal.bindings.blink.mojom.StopFindAction = {
@@ -205,39 +194,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec, 'blink.mojom.FindInPage_GetNearestFindResult_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec, 'blink.mojom.FindInPage_GetNearestFindResult_ResponseParams', [
-      mojo.internal.StructField('arg_distance', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec, 'blink.mojom.FindInPage_ActivateNearestFindResult_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec, 'blink.mojom.FindInPage_FindMatchRects_Params', [
-      mojo.internal.StructField('arg_current_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec, 'blink.mojom.FindInPage_FindMatchRects_ResponseParams', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rects', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_match_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.FindInPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,24 +231,12 @@ mojo.internal.bindings.blink.mojom.FindInPageRemote = class {
   setClient(arg_client) {
     return this.$.setClient(arg_client);
   }
-  getNearestFindResult(arg_point) {
-    return this.$.getNearestFindResult(arg_point);
-  }
-  activateNearestFindResult(arg_request_id, arg_point) {
-    return this.$.activateNearestFindResult(arg_request_id, arg_point);
-  }
-  findMatchRects(arg_current_version) {
-    return this.$.findMatchRects(arg_current_version);
-  }
 };
 
 mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FindInPage', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -336,33 +280,6 @@ mojo.internal.bindings.blink.mojom.FindInPageRemoteCallHandler = class {
       false);
   }
 
-  getNearestFindResult(arg_point) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec,
-      [arg_point],
-      false);
-  }
-
-  activateNearestFindResult(arg_request_id, arg_point) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec,
-      null,
-      [arg_request_id, arg_point],
-      false);
-  }
-
-  findMatchRects(arg_current_version) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec,
-      [arg_current_version],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.blink.mojom.FindInPage.getRemote = function() {
@@ -381,9 +298,6 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FindInPage', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -518,75 +432,6 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetClient failed with TypeError');
            }
         }
-        // Try Method 4: GetNearestFindResult
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNearestFindResult (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetNearestFindResult failed with TypeError');
-           }
-        }
-        // Try Method 5: ActivateNearestFindResult
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateNearestFindResult (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ActivateNearestFindResult failed with TypeError');
-           }
-        }
-        // Try Method 6: FindMatchRects
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindMatchRects (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for FindMatchRects failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -624,39 +469,6 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.arg_client);
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getNearestFindResult');
-          const result = this.impl.getNearestFindResult(params.arg_point);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNearestFindResult FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.activateNearestFindResult');
-          const result = this.impl.activateNearestFindResult(params.arg_request_id, params.arg_point);
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.findMatchRects');
-          const result = this.impl.findMatchRects(params.arg_current_version);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FindMatchRects FAILED:', e));
-          }
           break;
         }
       }

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -123,6 +123,10 @@ mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebo
 
 mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.ModelModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.ToolModeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.InputTypeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.InputStateSpec = { $: {} };
 
 // Enum: FileUploadStatus
 mojo.internal.bindings.composebox_query.mojom.FileUploadStatus = {
@@ -146,3 +150,40 @@ mojo.internal.bindings.composebox_query.mojom.FileUploadErrorType = {
   kAborted: 5,
   kImageProcessingError: 6,
 };
+
+// Enum: ModelMode
+mojo.internal.bindings.composebox_query.mojom.ModelMode = {
+  kUnspecified: 0,
+  kGeminiRegular: 1,
+  kGeminiPro: 2,
+  kGeminiProAutoroute: 3,
+};
+
+// Enum: ToolMode
+mojo.internal.bindings.composebox_query.mojom.ToolMode = {
+  kUnspecified: 0,
+  kDeepSearch: 1,
+  kCanvas: 2,
+  kImageGen: 3,
+  kDeepBrowse: 4,
+  kImageGenUpload: 5,
+  kImageGenSelfie: 6,
+};
+
+// Enum: InputType
+mojo.internal.bindings.composebox_query.mojom.InputType = {
+  kUnspecified: 0,
+  kLensImage: 1,
+  kLensFile: 2,
+};
+
+// Struct: InputState
+mojo.internal.Struct(
+    mojo.internal.bindings.composebox_query.mojom.InputStateSpec, 'composebox_query.mojom.InputState', [
+      mojo.internal.StructField('arg_active_model', 0, 0, mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_tool', 4, 0, mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_models', 8, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_tools', 16, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_input_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.InputTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);

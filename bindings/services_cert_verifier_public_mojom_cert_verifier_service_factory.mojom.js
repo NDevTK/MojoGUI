@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -136,20 +136,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory.$interface
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
@@ -170,16 +156,10 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.CTLogInfoSpec = mojo.internal.bindings.network.mojom.CTLogInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CTPolicySpec = mojo.internal.bindings.network.mojom.CTPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -264,83 +244,6 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_Params', [
-      mojo.internal.StructField('arg_log_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CTLogInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_update_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_Params', [
-      mojo.internal.StructField('arg_new_root_store', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_Params', [
-      mojo.internal.StructField('arg_new_mtc_metadata', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_Params', [
-      mojo.internal.StructField('arg_use_crs', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParams', [
-      mojo.internal.StructField('arg_root_store_info', 0, 0, mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParams', [
-      mojo.internal.StructField('arg_root_store_info', 0, 0, mojo.internal.bindings.cert_verifier.mojom.PlatformRootStoreInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_Params', [
       mojo.internal.StructField('arg_system_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_system_ticks', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
@@ -379,27 +282,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemote = cl
   updateCRLSet(arg_crl_set) {
     return this.$.updateCRLSet(arg_crl_set);
   }
-  updateCtLogList(arg_log_list, arg_update_time) {
-    return this.$.updateCtLogList(arg_log_list, arg_update_time);
-  }
-  disableCtEnforcement() {
-    return this.$.disableCtEnforcement();
-  }
-  updateChromeRootStore(arg_new_root_store) {
-    return this.$.updateChromeRootStore(arg_new_root_store);
-  }
-  updateMtcMetadata(arg_new_mtc_metadata) {
-    return this.$.updateMtcMetadata(arg_new_mtc_metadata);
-  }
-  setUseChromeRootStore(arg_use_crs) {
-    return this.$.setUseChromeRootStore(arg_use_crs);
-  }
-  getChromeRootStoreInfo() {
-    return this.$.getChromeRootStoreInfo();
-  }
-  getPlatformRootStoreInfo() {
-    return this.$.getPlatformRootStoreInfo();
-  }
   updateNetworkTime(arg_system_time, arg_system_ticks, arg_current_time) {
     return this.$.updateNetworkTime(arg_system_time, arg_system_ticks, arg_current_time);
   }
@@ -409,13 +291,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceFactory', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -440,72 +315,9 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       false);
   }
 
-  updateCtLogList(arg_log_list, arg_update_time) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ResponseParamsSpec,
-      [arg_log_list, arg_update_time],
-      false);
-  }
-
-  disableCtEnforcement() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  updateChromeRootStore(arg_new_root_store) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ResponseParamsSpec,
-      [arg_new_root_store],
-      false);
-  }
-
-  updateMtcMetadata(arg_new_mtc_metadata) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ResponseParamsSpec,
-      [arg_new_mtc_metadata],
-      false);
-  }
-
-  setUseChromeRootStore(arg_use_crs) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ResponseParamsSpec,
-      [arg_use_crs],
-      false);
-  }
-
-  getChromeRootStoreInfo() {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  getPlatformRootStoreInfo() {
-    return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec,
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   updateNetworkTime(arg_system_time, arg_system_ticks, arg_current_time) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
       null,
       [arg_system_time, arg_system_ticks, arg_current_time],
@@ -530,13 +342,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceFactory', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -624,168 +429,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateCRLSet failed with TypeError');
            }
         }
-        // Try Method 2: UpdateCtLogList
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtLogList (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateCtLogList failed with TypeError');
-           }
-        }
-        // Try Method 3: DisableCtEnforcement
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableCtEnforcement (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for DisableCtEnforcement failed with TypeError');
-           }
-        }
-        // Try Method 4: UpdateChromeRootStore
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateChromeRootStore (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateChromeRootStore failed with TypeError');
-           }
-        }
-        // Try Method 5: UpdateMtcMetadata
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateMtcMetadata (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateMtcMetadata failed with TypeError');
-           }
-        }
-        // Try Method 6: SetUseChromeRootStore
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseChromeRootStore (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetUseChromeRootStore failed with TypeError');
-           }
-        }
-        // Try Method 7: GetChromeRootStoreInfo
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChromeRootStoreInfo (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetChromeRootStoreInfo failed with TypeError');
-           }
-        }
-        // Try Method 8: GetPlatformRootStoreInfo
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformRootStoreInfo (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetPlatformRootStoreInfo failed with TypeError');
-           }
-        }
-        // Try Method 9: UpdateNetworkTime
+        // Try Method 2: UpdateNetworkTime
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec;
@@ -799,9 +443,9 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNetworkTime (9)');
-                 this.mapOrdinal(header.ordinal, 9);
-                 dispatchId = 9;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateNetworkTime (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
@@ -840,97 +484,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
           break;
         }
         case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateCtLogList');
-          const result = this.impl.updateCtLogList(params.arg_log_list, params.arg_update_time);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCtLogList_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateCtLogList FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.disableCtEnforcement');
-          const result = this.impl.disableCtEnforcement();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_DisableCtEnforcement_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DisableCtEnforcement FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateChromeRootStore');
-          const result = this.impl.updateChromeRootStore(params.arg_new_root_store);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateChromeRootStore_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateChromeRootStore FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateMtcMetadata');
-          const result = this.impl.updateMtcMetadata(params.arg_new_mtc_metadata);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateMtcMetadata_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateMtcMetadata FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setUseChromeRootStore');
-          const result = this.impl.setUseChromeRootStore(params.arg_use_crs);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_SetUseChromeRootStore_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetUseChromeRootStore FAILED:', e));
-          }
-          break;
-        }
-        case 7: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getChromeRootStoreInfo');
-          const result = this.impl.getChromeRootStoreInfo();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetChromeRootStoreInfo FAILED:', e));
-          }
-          break;
-        }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getPlatformRootStoreInfo');
-          const result = this.impl.getPlatformRootStoreInfo();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPlatformRootStoreInfo FAILED:', e));
-          }
-          break;
-        }
-        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkTime');

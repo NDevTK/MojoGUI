@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-14T05:27:02.768156Z",
-  "version": "145.0.7632.5",
+  "generated_at": "2026-01-14T09:33:39.949371Z",
+  "version": "146.0.7633.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1639,7 +1639,6 @@
       "module": "cc.mojom",
       "file": "cc_mojom_render_frame_metadata.mojom.js",
       "methods": [
-        "UpdateRootScrollOffsetUpdateFrequency",
         "ReportAllFrameSubmissionsForTesting"
       ]
     },
@@ -1649,8 +1648,7 @@
       "file": "cc_mojom_render_frame_metadata.mojom.js",
       "methods": [
         "OnRenderFrameMetadataChanged",
-        "OnFrameSubmissionForTesting",
-        "OnRootScrollOffsetChanged"
+        "OnFrameSubmissionForTesting"
       ]
     },
     {
@@ -2242,7 +2240,6 @@
         "ImportCertificate",
         "ImportAndBindCertificate",
         "DeleteCertificate",
-        "ShowNativeManageCertificates",
         "SetIncludeSystemTrustStore"
       ]
     },
@@ -3315,7 +3312,6 @@
         "CheckSystemPermissions",
         "RequestSystemPermissions",
         "RequestLocationServices",
-        "RestartSystemBluetooth",
         "StartBtsnoop",
         "IsBtsnoopFeatureEnabled"
       ]
@@ -4935,7 +4931,6 @@
         "RequestBoundsHintForAllImages",
         "RequestImageForContextNode",
         "ExecuteWebUIJavaScript",
-        "SetCCTClientHeader",
         "GetMediaFeedURL",
         "LoadBlockedPlugins",
         "SetShouldDeferMediaLoad",
@@ -5134,8 +5129,7 @@
       "file": "chrome_common_net_net_error_page_support.mojom.js",
       "methods": [
         "DownloadPageLater",
-        "SetIsShowingDownloadButtonInErrorPage",
-        "ShowPortalSignin"
+        "SetIsShowingDownloadButtonInErrorPage"
       ]
     },
     {
@@ -5277,7 +5271,6 @@
         "OnActiveAXTreeIDChanged",
         "OnAXTreeDestroyed",
         "SetLanguageCode",
-        "OnDeviceLocked",
         "OnTtsEngineInstalled",
         "SetDefaultLanguageCode",
         "OnSettingsRestoredFromPrefs",
@@ -5301,9 +5294,7 @@
       "name": "ChromeOSListener",
       "module": "chrome.mojom",
       "file": "chrome_common_renderer_configuration.mojom.js",
-      "methods": [
-        "MergeSessionComplete"
-      ]
+      "methods": []
     },
     {
       "name": "RendererConfiguration",
@@ -5361,8 +5352,7 @@
       "methods": [
         "GoBack",
         "RequestUrlAccessRemote",
-        "RequestUrlAccessLocal",
-        "LearnMore"
+        "RequestUrlAccessLocal"
       ]
     },
     {
@@ -5412,7 +5402,6 @@
       "module": "chrome.mojom",
       "file": "chrome_services_file_util_public_mojom_file_util_service.mojom.js",
       "methods": [
-        "BindZipFileCreator",
         "BindSafeArchiveAnalyzer",
         "BindSingleFileTarFileExtractor",
         "BindSingleFileTarXzFileExtractor"
@@ -5507,7 +5496,6 @@
       "file": "chrome_services_media_gallery_util_public_mojom_media_parser.mojom.js",
       "methods": [
         "ParseMediaMetadata",
-        "ExtractVideoFrame",
         "CheckMediaFile",
         "GetCpuInfo"
       ]
@@ -5558,11 +5546,7 @@
       "name": "PdfService",
       "module": "pdf.mojom",
       "file": "chrome_services_pdf_public_mojom_pdf_service.mojom.js",
-      "methods": [
-        "BindPdfProgressiveSearchifier",
-        "BindPdfSearchifier",
-        "BindPdfThumbnailer"
-      ]
+      "methods": []
     },
     {
       "name": "PdfThumbnailer",
@@ -5645,7 +5629,6 @@
         "Poke",
         "EnumeratePrinters",
         "GetDefaultPrinterName",
-        "GetPrinterSemanticCapsAndDefaults",
         "FetchCapabilities",
         "GetPaperPrintableArea",
         "EstablishPrintingContext",
@@ -5674,7 +5657,6 @@
       "methods": [
         "BindPdfNupConverter",
         "BindPdfToPwgRasterConverter",
-        "BindPdfFlattener",
         "BindPdfToEmfConverterFactory"
       ]
     },
@@ -10877,7 +10859,6 @@
         "FillField",
         "FillChangePasswordForm",
         "SetLoggingState",
-        "TriggerFormSubmission",
         "AnnotateFieldsWithParsingResult",
         "CheckViewAreaVisible"
       ]
@@ -12355,8 +12336,11 @@
       "file": "components_safe_browsing_content_common_safe_browsing.mojom.js",
       "methods": [
         "SetImageEmbeddingAndPhishingFlatBufferModel",
+        "SetImageEmbeddingAndPhishingTfLiteModel",
         "AttachImageEmbeddingModel",
+        "AttachImageEmbeddingModelAndDimensions",
         "SetPhishingFlatBufferModel",
+        "SetPhishingTfLiteModel",
         "ClearScorer",
         "SetTestObserver"
       ]
@@ -12418,8 +12402,7 @@
         "ReportPhishingErrorInNewTab",
         "ReportPhishingError",
         "OpenEnhancedProtectionSettings",
-        "ShowCertificateViewer",
-        "OpenAndroidAdvancedProtectionSettings"
+        "ShowCertificateViewer"
       ]
     },
     {
@@ -12757,7 +12740,6 @@
         "GetRegistrationsForStorageKey",
         "GetUsageForStorageKey",
         "GetAllRegistrationsDeprecated",
-        "GetFakeRegistrationForClientUrl",
         "StoreRegistration",
         "DeleteRegistration",
         "UpdateToActiveState",
@@ -12881,9 +12863,7 @@
       "file": "components_spellcheck_common_spellcheck.mojom.js",
       "methods": [
         "NotifyChecked",
-        "CallSpellingService",
         "RequestTextCheck",
-        "DisconnectSessionBridge",
         "CheckSpelling",
         "FillSuggestionList",
         "InitializeDictionaries"
@@ -13312,17 +13292,14 @@
       "file": "content_common_child_process.mojom.js",
       "methods": [
         "ProcessShutdown",
-        "GetTaskPort",
         "SetIPCLoggingEnabled",
         "GetBackgroundTracingAgentProvider",
-        "EnableSystemTracingService",
         "CrashHungProcess",
         "BindServiceInterface",
         "BindReceiver",
         "SetProfilingFile",
         "WriteClangProfilingProfile",
         "SetPseudonymizationSalt",
-        "ReinitializeLogging",
         "OnMemoryPressure",
         "SetBatterySaverMode"
       ]
@@ -13411,7 +13388,6 @@
         "DidChangeName",
         "CancelInitialHistoryLoad",
         "UpdateEncoding",
-        "UpdateUserGestureCarryoverInfo",
         "UpdateState",
         "OpenURL",
         "DidStopLoading"
@@ -13631,7 +13607,6 @@
         "GetBrowserHistogram",
         "SuddenTerminationAllowedChanged",
         "RecordUserMetricsAction",
-        "SetPrivateMemoryFootprint",
         "HasGpuProcess"
       ]
     },
@@ -13649,7 +13624,6 @@
       "module": "content.mojom",
       "file": "content_common_sandbox_support.mojom.js",
       "methods": [
-        "GetSystemColors",
         "LcidAndFirstDayOfWeek",
         "DigitsAndSigns",
         "LocaleString",
@@ -14804,9 +14778,7 @@
         "RegisterOverlayStateObserver",
         "WaitForTokenInRange",
         "WaitForGetOffsetInRange",
-        "RegisterSysmemBufferCollection",
-        "CopyToGpuMemoryBufferAsync",
-        "CopyNativeGmbToSharedMemoryAsync"
+        "CopyToGpuMemoryBufferAsync"
       ]
     },
     {
@@ -15498,7 +15470,6 @@
       "methods": [
         "ChallengePlatform",
         "GetStorageId",
-        "IsVerifiedAccessEnabled",
         "GetMediaFoundationCdmData",
         "SetCdmClientToken",
         "OnCdmEvent"
@@ -15676,7 +15647,6 @@
         "CreateDefaultRenderer",
         "CreateCastRenderer",
         "CreateMediaFoundationRenderer",
-        "CreateFlingingRenderer",
         "CreateCdm"
       ]
     },
@@ -16090,8 +16060,7 @@
       "file": "media_mojo_mojom_speech_recognition.mojom.js",
       "methods": [
         "BindSpeechRecognitionBrowserObserver",
-        "REMOVED_1",
-        "REMOVED_2"
+        "REMOVED_1"
       ]
     },
     {
@@ -16578,8 +16547,7 @@
       "file": "remoting_host_mojom_remoting_host.mojom.js",
       "methods": [
         "ApplyHostConfig",
-        "InitializePairingRegistry",
-        "BindChromotingHostServices"
+        "InitializePairingRegistry"
       ]
     },
     {
@@ -16714,8 +16682,7 @@
         "DispatchActionResult",
         "DispatchAccessibilityEvents",
         "DispatchAccessibilityLocationChange",
-        "DispatchAccessibilityScrollChange",
-        "DispatchGetTextLocationResult"
+        "DispatchAccessibilityScrollChange"
       ]
     },
     {
@@ -16893,13 +16860,6 @@
       "methods": [
         "GetNewCertVerifier",
         "UpdateCRLSet",
-        "UpdateCtLogList",
-        "DisableCtEnforcement",
-        "UpdateChromeRootStore",
-        "UpdateMtcMetadata",
-        "SetUseChromeRootStore",
-        "GetChromeRootStoreInfo",
-        "GetPlatformRootStoreInfo",
         "UpdateNetworkTime"
       ]
     },
@@ -16983,10 +16943,8 @@
         "BindInputDeviceManager",
         "BindBatteryMonitor",
         "BindPressureManager",
-        "BindNFCProvider",
         "BindVibrationManager",
         "BindHidManager",
-        "BindMtpManager",
         "BindPowerMonitor",
         "BindPublicIpAddressGeolocationProvider",
         "BindScreenOrientationListener",
@@ -17459,9 +17417,6 @@
         "GetDevices",
         "GetDevice",
         "GetSecurityKeyDevice",
-        "RefreshDeviceInfo",
-        "CheckAccess",
-        "OpenFileDescriptor",
         "SetClient"
       ]
     },
@@ -17828,8 +17783,7 @@
       "file": "services_network_public_mojom_cert_verifier_service_updater.mojom.js",
       "methods": [
         "UpdateAdditionalCertificates",
-        "WaitUntilNextUpdateForTesting",
-        "SetCTPolicy"
+        "WaitUntilNextUpdateForTesting"
       ]
     },
     {
@@ -18227,7 +18181,6 @@
         "ClearSharedDictionaryCache",
         "ClearSharedDictionaryCacheForIsolationKey",
         "SetDocumentReportingEndpoints",
-        "SetEnterpriseReportingEndpoints",
         "SendReportsAndRemoveSource",
         "QueueReport",
         "QueueEnterpriseReport",
@@ -18237,7 +18190,6 @@
         "SetNetworkConditions",
         "SetAcceptLanguage",
         "SetEnableReferrers",
-        "SetCTPolicy",
         "CreateUDPSocket",
         "CreateRestrictedUDPSocket",
         "CreateTCPServerSocket",
@@ -18251,7 +18203,6 @@
         "CreateWebTransport",
         "CreateNetLogExporter",
         "PreconnectSockets",
-        "CreateP2PSocketManager",
         "CreateMdnsResponder",
         "ResolveHost",
         "CreateHostResolver",
@@ -18268,13 +18219,11 @@
         "LoadHttpAuthCacheProxyEntries",
         "AddAuthCacheEntry",
         "SetCorsNonWildcardRequestHeadersSupport",
-        "LookupProxyAuthCredentials",
         "EnableStaticKeyPinningForTesting",
         "VerifyCertificateForTesting",
         "GetTrustAnchorIDsForTesting",
         "AddDomainReliabilityContextForTesting",
         "ForceDomainReliabilityUploadsForTesting",
-        "SetSCTAuditingMode",
         "AddReportingApiObserver",
         "GetSharedDictionaryUsageInfo",
         "GetSharedDictionaryInfo",
@@ -18301,10 +18250,7 @@
       "methods": [
         "OnFileUploadRequested",
         "OnCanSendReportingReports",
-        "OnCanSendDomainReliabilityUpload",
-        "OnGenerateHttpNegotiateAuthToken",
-        "OnCanSendSCTAuditingReport",
-        "OnNewSCTAuditingReportSent"
+        "OnCanSendDomainReliabilityUpload"
       ]
     },
     {
@@ -18363,22 +18309,14 @@
         "OnClientCertStoreChanged",
         "SetEncryptionKey",
         "OnPeerToPeerConnectionsCountChange",
-        "OnApplicationStateChange",
         "SetTrustTokenKeyCommitments",
-        "ClearSCTAuditingCache",
-        "ConfigureSCTAuditing",
-        "UpdateCtLogList",
-        "UpdateCtKnownPopularSCTs",
-        "SetCtEnforcementEnabled",
         "UpdateKeyPinsList",
-        "DumpWithoutCrashing",
         "BindTestInterfaceForTesting",
         "SetFirstPartySets",
         "SetExplicitlyAllowedPorts",
         "ParseHeaders",
         "EnableDataUseUpdates",
         "SetIPv6ReachabilityOverride",
-        "SetGssapiLibraryLoadObserver",
         "SetNetworkAnnotationMonitor",
         "SetTpcdMetadataGrants",
         "InterceptUrlLoaderForBodyDecoding",
@@ -19174,7 +19112,6 @@
       "module": "screen_ai.mojom",
       "file": "services_screen_ai_public_mojom_screen_ai_service.mojom.js",
       "methods": [
-        "PerformOcrAndReturnAXTreeUpdate",
         "PerformOcrAndReturnAnnotation",
         "SetClientType",
         "GetMaxImageDimension",
@@ -19451,8 +19388,7 @@
       "file": "services_tracing_public_mojom_tracing_service.mojom.js",
       "methods": [
         "Initialize",
-        "AddClient",
-        "BindConsumerHost"
+        "AddClient"
       ]
     },
     {
@@ -19508,9 +19444,6 @@
       "module": "video_capture.mojom",
       "file": "services_video_capture_public_mojom_video_capture_service.mojom.js",
       "methods": [
-        "InjectGpuDependencies",
-        "ConnectToCameraAppDeviceBridge",
-        "BindVideoCaptureDeviceFactory",
         "ConnectToVideoSourceProvider",
         "BindControlsForTesting",
         "OnGpuInfoUpdate"
@@ -19631,14 +19564,9 @@
         "SetDisplayColorMatrix",
         "SetDisplayColorSpaces",
         "SetOutputIsSecure",
-        "SetVSyncDisplayID",
         "SetDisplayVSyncParameters",
         "ForceImmediateDrawAndSwapIfPossible",
-        "UpdateRefreshRate",
-        "SetAdaptiveRefreshRateInfo",
         "SetSupportedRefreshRates",
-        "PreserveChildSurfaceControls",
-        "SetSwapCompletionCallbackEnabled",
         "AddVSyncParameterObserver",
         "SetDelegatedInkPointRenderer",
         "SetStandaloneBeginFrameObserver",
@@ -19650,13 +19578,9 @@
       "module": "viz.mojom",
       "file": "services_viz_privileged_mojom_compositing_display_private.mojom.js",
       "methods": [
-        "OnDisplayReceivedCALayerParams",
         "CreateLayeredWindowUpdater",
         "AddChildWindowToBrowser",
-        "DidCompleteSwapWithSize",
         "DidCompleteSwapWithNewSize",
-        "OnContextCreationResult",
-        "SetWideColorEnabled",
         "SetPreferredRefreshRate"
       ]
     },
@@ -19665,10 +19589,7 @@
       "module": "viz.mojom",
       "file": "services_viz_privileged_mojom_compositing_external_begin_frame_controller.mojom.js",
       "methods": [
-        "IssueExternalBeginFrame",
-        "IssueExternalBeginFrameNoAck",
-        "IssueExternalVSync",
-        "SetSupportedDisplayLinkId"
+        "IssueExternalBeginFrame"
       ]
     },
     {
@@ -19690,7 +19611,6 @@
         "InvalidateFrameSinkId",
         "SetFrameSinkDebugLabel",
         "CreateRootCompositorFrameSink",
-        "CreateCompositorDisplayLink",
         "CreateFrameSinkBundle",
         "CreateCompositorFrameSink",
         "DestroyCompositorFrameSink",
@@ -19703,8 +19623,6 @@
         "StartThrottlingAllFrameSinks",
         "StopThrottlingAllFrameSinks",
         "RequestCopyOfOutput",
-        "CacheBackBuffer",
-        "EvictBackBuffer",
         "UpdateDebugRendererSettings",
         "ClearUnclaimedViewTransitionResources",
         "CreateMetricsRecorderForTest",
@@ -19722,7 +19640,6 @@
         "OnFirstSurfaceActivation",
         "OnAggregatedHitTestRegionListUpdated",
         "OnFrameTokenChanged",
-        "VerifyThreadIdsDoNotBelongToHost",
         "OnScreenshotCaptured",
         "OnVizTouchStateAvailable",
         "OnViewTransitionResourcesCaptured"
@@ -19867,8 +19784,6 @@
         "SetChannelPersistentCachePendingBackend",
         "OnDiskCacheHandleDestoyed",
         "CloseChannel",
-        "CreateJpegDecodeAccelerator",
-        "CreateJpegEncodeAccelerator",
         "RegisterDCOMPSurfaceHandle",
         "UnregisterDCOMPSurfaceHandle",
         "CreateVideoEncodeAcceleratorProvider",
@@ -19887,8 +19802,6 @@
         "OnBackgroundCleanup",
         "OnBackgrounded",
         "OnForegrounded",
-        "BeginCATransaction",
-        "CommitCATransaction",
         "WriteClangProfilingProfile",
         "GetDawnInfo",
         "Crash",
@@ -19914,8 +19827,6 @@
         "CreateGpuService",
         "SetRenderParams",
         "CreateInfoCollectionGpuService",
-        "SetHostProcessId",
-        "NotifyWorkloadIncrease",
         "StartDebugStream",
         "FilterDebugStream",
         "StopDebugStream"
@@ -19947,8 +19858,7 @@
         "SubmitCompositorFrame",
         "DidNotProduceFrame",
         "NotifyNewLocalSurfaceIdExpectedWhilePaused",
-        "BindLayerContext",
-        "SetThreads"
+        "BindLayerContext"
       ]
     },
     {
@@ -19978,8 +19888,7 @@
       "file": "services_viz_public_mojom_compositing_frame_sink_bundle.mojom.js",
       "methods": [
         "SetNeedsBeginFrame",
-        "Submit",
-        "SetThreads"
+        "Submit"
       ]
     },
     {
@@ -20034,7 +19943,6 @@
       "file": "services_viz_public_mojom_gpu.mojom.js",
       "methods": [
         "EstablishGpuChannel",
-        "CreateJpegDecodeAccelerator",
         "CreateVideoEncodeAcceleratorProvider"
       ]
     },
@@ -20616,9 +20524,7 @@
       "name": "ColorChooserFactory",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_choosers_color_chooser.mojom.js",
-      "methods": [
-        "OpenColorChooser"
-      ]
+      "methods": []
     },
     {
       "name": "ColorChooser",
@@ -20705,8 +20611,6 @@
         "WriteImage",
         "WriteUnsanitizedCustomFormat",
         "CommitWrite",
-        "WriteStringToFindPboard",
-        "GetPlatformPermissionState",
         "RegisterClipboardListener"
       ]
     },
@@ -21329,10 +21233,7 @@
         "Find",
         "StopFinding",
         "ClearActiveFindMatch",
-        "SetClient",
-        "GetNearestFindResult",
-        "ActivateNearestFindResult",
-        "FindMatchRects"
+        "SetClient"
       ]
     },
     {
@@ -21477,15 +21378,11 @@
         "JavaScriptExecuteRequest",
         "JavaScriptExecuteRequestForTests",
         "JavaScriptExecuteRequestInIsolatedWorld",
-        "GetCharacterIndexAtPoint",
-        "GetFirstRectForRange",
-        "GetStringForRange",
         "BindReportingObserver",
         "UpdateOpener",
         "GetSavableResourceLinks",
         "MixedContentFound",
         "BindDevToolsAgent",
-        "ExtractSmartClipData",
         "HandleRendererDebugURL",
         "GetCanonicalUrlForSharing",
         "GetOpenGraphMetadata",
@@ -21498,8 +21395,7 @@
         "NotifyViewTransitionAbortedToOldDocument",
         "DispatchPageSwap",
         "AddResourceTimingEntryForFailedSubframeNavigation",
-        "GetScrollPosition",
-        "PerformSpellCheck"
+        "GetScrollPosition"
       ]
     },
     {
@@ -21907,10 +21803,7 @@
         "MoveRangeSelectionExtent",
         "ScrollFocusedEditableNodeIntoView",
         "WaitForPageScaleAnimationForTesting",
-        "MoveCaret",
-        "StartAutoscrollForSelectionToPoint",
-        "StopAutoscroll",
-        "RectForEditFieldChars"
+        "MoveCaret"
       ]
     },
     {
@@ -21931,7 +21824,6 @@
         "DispatchNonBlockingEvent",
         "WaitForInputProcessed",
         "PingMainThread",
-        "AttachSynchronousCompositor",
         "GetFrameWidgetInputHandler",
         "UpdateBrowserControlsState"
       ]
@@ -22196,7 +22088,6 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_loader_resource_load_info_notifier.mojom.js",
       "methods": [
-        "NotifyUpdateUserGestureCarryoverInfo",
         "NotifyResourceRedirectReceived",
         "NotifyResourceResponseReceived",
         "NotifyResourceTransferSizeUpdated",
@@ -22544,14 +22435,12 @@
         "DragSourceEndedAt",
         "DragSourceSystemDragEnded",
         "OnStartStylusWriting",
-        "PassImeRenderWidgetHost",
         "SetBackgroundOpaque",
         "SetTextDirection",
         "SetActive",
         "SetInheritedEffectiveTouchActionForSubFrame",
         "UpdateRenderThrottlingStatusForSubFrame",
         "SetIsInertForSubFrame",
-        "GetStringAtPoint",
         "EnableDeviceEmulation",
         "DisableDeviceEmulation",
         "BindWidgetCompositor",
@@ -23864,8 +23753,7 @@
         "SetFileHandlingEnabled",
         "ShowDefaultAppAssociationsUi",
         "OpenStorePage",
-        "SetAppLocale",
-        "OpenSystemNotificationSettings"
+        "SetAppLocale"
       ]
     },
     {
@@ -31490,9 +31378,7 @@
       "filename": "gpu_ipc_common_gpu_feature_info.mojom.js",
       "source": "gpu/ipc/common/gpu_feature_info.mojom",
       "module": "gpu.mojom",
-      "imports": [
-        "ui/gfx/mojom/buffer_types.mojom"
-      ]
+      "imports": []
     },
     {
       "filename": "gpu_ipc_common_gpu_info.mojom.js",
@@ -32347,6 +32233,7 @@
       "module": "media.mojom",
       "imports": [
         "gpu/ipc/common/sync_token.mojom",
+        "gpu/ipc/common/exported_shared_image.mojom",
         "media/mojo/mojom/media_log.mojom",
         "media/mojo/mojom/media_types.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",

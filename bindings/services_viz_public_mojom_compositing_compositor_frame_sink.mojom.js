@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,7 +135,6 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_Param
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient = {};
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient.$interfaceName = 'viz.mojom.CompositorFrameSinkClient';
@@ -180,9 +179,6 @@ mojo.internal.bindings.viz.mojom.PendingLayerContextSpec = mojo.internal.binding
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.ReturnedResourceSpec = mojo.internal.bindings.viz.mojom.ReturnedResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
-mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.viz.mojom.ThreadSpec = mojo.internal.bindings.viz.mojom.ThreadSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: LayerContextSettings
 mojo.internal.Struct(
@@ -254,12 +250,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec, 'viz.mojom.CompositorFrameSink_SetThreads_Params', [
-      mojo.internal.StructField('arg_threads', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,16 +293,12 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote = class {
   bindLayerContext(arg_context, arg_settings) {
     return this.$.bindLayerContext(arg_context, arg_settings);
   }
-  setThreads(arg_threads) {
-    return this.$.setThreads(arg_threads);
-  }
 };
 
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositorFrameSink', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -376,15 +362,6 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       false);
   }
 
-  setThreads(arg_threads) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec,
-      null,
-      [arg_threads],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.viz.mojom.CompositorFrameSink.getRemote = function() {
@@ -403,7 +380,6 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.CompositorFrameSink', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -586,29 +562,6 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for BindLayerContext failed with TypeError');
            }
         }
-        // Try Method 6: SetThreads
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetThreads failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -660,13 +613,6 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLayerContext');
           const result = this.impl.bindLayerContext(params.arg_context, params.arg_settings);
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setThreads');
-          const result = this.impl.setThreads(params.arg_threads);
           break;
         }
       }

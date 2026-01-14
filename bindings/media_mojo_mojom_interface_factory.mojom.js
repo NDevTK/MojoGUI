@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,7 +135,6 @@ mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpe
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = { $: {} };
 
@@ -158,9 +157,6 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec = mojo.internal.b
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.CreateCdmStatusSpec = mojo.internal.bindings.media.mojom.CreateCdmStatusSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
-mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
-mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec = mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -343,14 +339,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateFlingingRenderer_Params', [
-      mojo.internal.StructField('arg_presentation_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_extension', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_Params', [
       mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.media.mojom.CdmConfigSpec, null, false, 0, undefined),
     ],
@@ -410,9 +398,6 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemote = class {
   createMediaFoundationRenderer(arg_media_log, arg_renderer, arg_renderer_extension) {
     return this.$.createMediaFoundationRenderer(arg_media_log, arg_renderer, arg_renderer_extension);
   }
-  createFlingingRenderer(arg_presentation_id, arg_client_extension, arg_renderer) {
-    return this.$.createFlingingRenderer(arg_presentation_id, arg_client_extension, arg_renderer);
-  }
   createCdm(arg_cdm_config) {
     return this.$.createCdm(arg_cdm_config);
   }
@@ -422,7 +407,6 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.InterfaceFactory', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -497,18 +481,9 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       false);
   }
 
-  createFlingingRenderer(arg_presentation_id, arg_client_extension, arg_renderer) {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec,
-      null,
-      [arg_presentation_id, arg_client_extension, arg_renderer],
-      false);
-  }
-
   createCdm(arg_cdm_config) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec,
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec,
       [arg_cdm_config],
@@ -533,7 +508,6 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.InterfaceFactory', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -741,30 +715,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CreateMediaFoundationRenderer failed with TypeError');
            }
         }
-        // Try Method 7: CreateFlingingRenderer
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFlingingRenderer (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CreateFlingingRenderer failed with TypeError');
-           }
-        }
-        // Try Method 8: CreateCdm
+        // Try Method 7: CreateCdm
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.structSpec;
@@ -778,9 +729,9 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdm (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
@@ -848,13 +799,6 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
           break;
         }
         case 7: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createFlingingRenderer');
-          const result = this.impl.createFlingingRenderer(params.arg_presentation_id, params.arg_client_extension, params.arg_renderer);
-          break;
-        }
-        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');

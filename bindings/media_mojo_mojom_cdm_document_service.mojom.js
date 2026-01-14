@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,8 +130,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSp
 mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = { $: {} };
@@ -188,17 +186,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParams', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_Params', [
     ],
     [[0, 8]]);
@@ -253,9 +240,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemote = class {
   getStorageId(arg_version) {
     return this.$.getStorageId(arg_version);
   }
-  isVerifiedAccessEnabled() {
-    return this.$.isVerifiedAccessEnabled();
-  }
   getMediaFoundationCdmData() {
     return this.$.getMediaFoundationCdmData();
   }
@@ -271,7 +255,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmDocumentService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -298,18 +281,9 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       false);
   }
 
-  isVerifiedAccessEnabled() {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
-      mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   getMediaFoundationCdmData() {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
       [],
@@ -318,7 +292,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
 
   setCdmClientToken(arg_client_token) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
       [arg_client_token],
@@ -327,7 +301,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
 
   onCdmEvent(arg_event, arg_hresult) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
       [arg_event, arg_hresult],
@@ -352,7 +326,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmDocumentService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -442,30 +415,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetStorageId failed with TypeError');
            }
         }
-        // Try Method 2: IsVerifiedAccessEnabled
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsVerifiedAccessEnabled (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for IsVerifiedAccessEnabled failed with TypeError');
-           }
-        }
-        // Try Method 3: GetMediaFoundationCdmData
+        // Try Method 2: GetMediaFoundationCdmData
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec;
@@ -479,16 +429,16 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFoundationCdmData (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFoundationCdmData (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetMediaFoundationCdmData failed with TypeError');
            }
         }
-        // Try Method 4: SetCdmClientToken
+        // Try Method 3: SetCdmClientToken
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec;
@@ -502,16 +452,16 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCdmClientToken (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCdmClientToken (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetCdmClientToken failed with TypeError');
            }
         }
-        // Try Method 5: OnCdmEvent
+        // Try Method 4: OnCdmEvent
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec;
@@ -525,9 +475,9 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCdmEvent (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCdmEvent (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
@@ -573,19 +523,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isVerifiedAccessEnabled');
-          const result = this.impl.isVerifiedAccessEnabled();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsVerifiedAccessEnabled FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaFoundationCdmData');
           const result = this.impl.getMediaFoundationCdmData();
@@ -597,14 +534,14 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCdmClientToken');
           const result = this.impl.setCdmClientToken(params.arg_client_token);
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCdmEvent');

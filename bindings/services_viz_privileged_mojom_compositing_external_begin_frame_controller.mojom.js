@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,9 +127,6 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController.$interfaceName = 'viz.mojom.ExternalBeginFrameController';
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient = {};
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient.$interfaceName = 'viz.mojom.ExternalBeginFrameControllerClient';
@@ -147,9 +144,6 @@ mojo.internal.bindings.viz.mojom.BeginFrameAckSpec = mojo.internal.bindings.viz.
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec = mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
-mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec = mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ExternalBeginFrameController
 mojo.internal.Struct(
@@ -164,25 +158,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalVSync_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.CADisplayLinkParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_Params', [
-      mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_supported', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
 
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerPendingReceiver = class {
   constructor(handle) {
@@ -212,24 +187,12 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemote = class {
   issueExternalBeginFrame(arg_args, arg_force) {
     return this.$.issueExternalBeginFrame(arg_args, arg_force);
   }
-  issueExternalBeginFrameNoAck(arg_args) {
-    return this.$.issueExternalBeginFrameNoAck(arg_args);
-  }
-  issueExternalVSync(arg_params) {
-    return this.$.issueExternalVSync(arg_params);
-  }
-  setSupportedDisplayLinkId(arg_display_id, arg_is_supported) {
-    return this.$.setSupportedDisplayLinkId(arg_display_id, arg_is_supported);
-  }
 };
 
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.ExternalBeginFrameController', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -240,33 +203,6 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemoteCallHandler =
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
       [arg_args, arg_force],
-      false);
-  }
-
-  issueExternalBeginFrameNoAck(arg_args) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec,
-      null,
-      [arg_args],
-      false);
-  }
-
-  issueExternalVSync(arg_params) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec,
-      null,
-      [arg_params],
-      false);
-  }
-
-  setSupportedDisplayLinkId(arg_display_id, arg_is_supported) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec,
-      null,
-      [arg_display_id, arg_is_supported],
       false);
   }
 
@@ -288,9 +224,6 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.ExternalBeginFrameController', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -353,75 +286,6 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for IssueExternalBeginFrame failed with TypeError');
            }
         }
-        // Try Method 1: IssueExternalBeginFrameNoAck
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalBeginFrameNoAck (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for IssueExternalBeginFrameNoAck failed with TypeError');
-           }
-        }
-        // Try Method 2: IssueExternalVSync
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IssueExternalVSync (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for IssueExternalVSync failed with TypeError');
-           }
-        }
-        // Try Method 3: SetSupportedDisplayLinkId
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSupportedDisplayLinkId (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetSupportedDisplayLinkId failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -444,27 +308,6 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
               this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IssueExternalBeginFrame FAILED:', e));
           }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrameNoAck');
-          const result = this.impl.issueExternalBeginFrameNoAck(params.arg_args);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.issueExternalVSync');
-          const result = this.impl.issueExternalVSync(params.arg_params);
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setSupportedDisplayLinkId');
-          const result = this.impl.setSupportedDisplayLinkId(params.arg_display_id, params.arg_is_supported);
           break;
         }
       }

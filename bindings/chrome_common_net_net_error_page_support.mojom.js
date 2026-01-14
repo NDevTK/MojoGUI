@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,7 +126,6 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupport.$interfaceName = 'chrome.mojom.NetErrorPageSupport';
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec = { $: {} };
 
 // Interface: NetErrorPageSupport
 mojo.internal.Struct(
@@ -139,11 +138,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_showing_download_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_ShowPortalSignin_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {
@@ -176,16 +170,12 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemote = class {
   setIsShowingDownloadButtonInErrorPage(arg_showing_download_button) {
     return this.$.setIsShowingDownloadButtonInErrorPage(arg_showing_download_button);
   }
-  showPortalSignin() {
-    return this.$.showPortalSignin();
-  }
 };
 
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.NetErrorPageSupport', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -209,15 +199,6 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemoteCallHandler = class
       false);
   }
 
-  showPortalSignin() {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupport.getRemote = function() {
@@ -236,7 +217,6 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.NetErrorPageSupport', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -323,29 +303,6 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetIsShowingDownloadButtonInErrorPage failed with TypeError');
            }
         }
-        // Try Method 2: ShowPortalSignin
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowPortalSignin (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ShowPortalSignin failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -369,13 +326,6 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsShowingDownloadButtonInErrorPage');
           const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.arg_showing_download_button);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showPortalSignin');
-          const result = this.impl.showPortalSignin();
           break;
         }
       }

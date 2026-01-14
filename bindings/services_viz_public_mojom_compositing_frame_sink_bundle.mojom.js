@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,7 +132,6 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundle.$interfaceName = 'viz.mojom.FrameSinkBundle';
 mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient = {};
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient.$interfaceName = 'viz.mojom.FrameSinkBundleClient';
@@ -165,9 +164,6 @@ mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec = mojo.internal.bindings.viz
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.ReturnedResourceSpec = mojo.internal.bindings.viz.mojom.ReturnedResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
-mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.viz.mojom.ThreadSpec = mojo.internal.bindings.viz.mojom.ThreadSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Union: BundledFrameSubmissionData
 mojo.internal.Union(
@@ -234,13 +230,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec, 'viz.mojom.FrameSinkBundle_SetThreads_Params', [
-      mojo.internal.StructField('arg_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_threads', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.viz.mojom.FrameSinkBundlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,16 +261,12 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemote = class {
   submit(arg_submissions) {
     return this.$.submit(arg_submissions);
   }
-  setThreads(arg_sink_id, arg_threads) {
-    return this.$.setThreads(arg_sink_id, arg_threads);
-  }
 };
 
 mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinkBundle', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -305,15 +290,6 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       false);
   }
 
-  setThreads(arg_sink_id, arg_threads) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec,
-      null,
-      [arg_sink_id, arg_threads],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.viz.mojom.FrameSinkBundle.getRemote = function() {
@@ -332,7 +308,6 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.FrameSinkBundle', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -419,29 +394,6 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for Submit failed with TypeError');
            }
         }
-        // Try Method 2: SetThreads
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetThreads failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -465,13 +417,6 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submit');
           const result = this.impl.submit(params.arg_submissions);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setThreads');
-          const result = this.impl.setThreads(params.arg_sink_id, params.arg_threads);
           break;
         }
       }

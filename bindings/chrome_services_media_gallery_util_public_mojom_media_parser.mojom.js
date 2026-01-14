@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,8 +134,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.MediaParser.$interfaceName = 'chrome.mojom.MediaParser';
 mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = { $: {} };
@@ -250,20 +248,6 @@ mojo.internal.Struct(
     [[0, 32]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec, 'chrome.mojom.MediaParser_ExtractVideoFrame_Params', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_media_data_source', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec, 'chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.mojom.ExtractVideoFrameResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec, 'chrome.mojom.MediaParser_CheckMediaFile_Params', [
       mojo.internal.StructField('arg_decode_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
@@ -316,9 +300,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemote = class {
   parseMediaMetadata(arg_mime_type, arg_total_size, arg_get_attached_images, arg_media_data_source) {
     return this.$.parseMediaMetadata(arg_mime_type, arg_total_size, arg_get_attached_images, arg_media_data_source);
   }
-  extractVideoFrame(arg_mime_type, arg_total_size, arg_media_data_source) {
-    return this.$.extractVideoFrame(arg_mime_type, arg_total_size, arg_media_data_source);
-  }
   checkMediaFile(arg_decode_time, arg_file) {
     return this.$.checkMediaFile(arg_decode_time, arg_file);
   }
@@ -334,7 +315,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -347,18 +327,9 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       false);
   }
 
-  extractVideoFrame(arg_mime_type, arg_total_size, arg_media_data_source) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec,
-      mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
-      [arg_mime_type, arg_total_size, arg_media_data_source],
-      false);
-  }
-
   checkMediaFile(arg_decode_time, arg_file) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
       [arg_decode_time, arg_file],
@@ -367,7 +338,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
 
   getCpuInfo() {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
       [],
@@ -392,7 +363,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.MediaParser', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -457,30 +427,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ParseMediaMetadata failed with TypeError');
            }
         }
-        // Try Method 1: ExtractVideoFrame
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractVideoFrame (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ExtractVideoFrame failed with TypeError');
-           }
-        }
-        // Try Method 2: CheckMediaFile
+        // Try Method 1: CheckMediaFile
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec;
@@ -494,16 +441,16 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckMediaFile (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckMediaFile (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CheckMediaFile failed with TypeError');
            }
         }
-        // Try Method 3: GetCpuInfo
+        // Try Method 2: GetCpuInfo
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec;
@@ -517,9 +464,9 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCpuInfo (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCpuInfo (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
@@ -552,19 +499,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.extractVideoFrame');
-          const result = this.impl.extractVideoFrame(params.arg_mime_type, params.arg_total_size, params.arg_media_data_source);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractVideoFrame FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkMediaFile');
           const result = this.impl.checkMediaFile(params.arg_decode_time, params.arg_file);
@@ -576,7 +510,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCpuInfo');

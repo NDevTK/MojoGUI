@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,8 +133,6 @@ mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = { $
 mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec = { $: {} };
@@ -229,17 +227,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec, 'viz.mojom.VizMain_SetHostProcessId_Params', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec, 'viz.mojom.VizMain_NotifyWorkloadIncrease_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec, 'viz.mojom.VizMain_StartDebugStream_Params', [
       mojo.internal.StructField('arg_viz_debug', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.VizDebugOutputRemote), null, false, 0, undefined),
     ],
@@ -293,12 +280,6 @@ mojo.internal.bindings.viz.mojom.VizMainRemote = class {
   createInfoCollectionGpuService(arg_info_collection_gpu_service) {
     return this.$.createInfoCollectionGpuService(arg_info_collection_gpu_service);
   }
-  setHostProcessId(arg_pid) {
-    return this.$.setHostProcessId(arg_pid);
-  }
-  notifyWorkloadIncrease() {
-    return this.$.notifyWorkloadIncrease();
-  }
   startDebugStream(arg_viz_debug) {
     return this.$.startDebugStream(arg_viz_debug);
   }
@@ -314,8 +295,6 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.VizMain', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -362,27 +341,9 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       false);
   }
 
-  setHostProcessId(arg_pid) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec,
-      null,
-      [arg_pid],
-      false);
-  }
-
-  notifyWorkloadIncrease() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   startDebugStream(arg_viz_debug) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec,
       null,
       [arg_viz_debug],
@@ -391,7 +352,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
 
   filterDebugStream(arg_filterData) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec,
       null,
       [arg_filterData],
@@ -400,7 +361,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
 
   stopDebugStream() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec,
       null,
       [],
@@ -425,8 +386,6 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.VizMain', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -564,53 +523,7 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CreateInfoCollectionGpuService failed with TypeError');
            }
         }
-        // Try Method 4: SetHostProcessId
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHostProcessId (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetHostProcessId failed with TypeError');
-           }
-        }
-        // Try Method 5: NotifyWorkloadIncrease
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyWorkloadIncrease (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyWorkloadIncrease failed with TypeError');
-           }
-        }
-        // Try Method 6: StartDebugStream
+        // Try Method 4: StartDebugStream
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec;
@@ -624,16 +537,16 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDebugStream (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDebugStream (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for StartDebugStream failed with TypeError');
            }
         }
-        // Try Method 7: FilterDebugStream
+        // Try Method 5: FilterDebugStream
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec;
@@ -647,16 +560,16 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FilterDebugStream (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FilterDebugStream (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for FilterDebugStream failed with TypeError');
            }
         }
-        // Try Method 8: StopDebugStream
+        // Try Method 6: StopDebugStream
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.structSpec;
@@ -670,9 +583,9 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDebugStream (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDebugStream (6)');
+                 this.mapOrdinal(header.ordinal, 6);
+                 dispatchId = 6;
                }
              }
            } catch (e) {
@@ -720,33 +633,19 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setHostProcessId');
-          const result = this.impl.setHostProcessId(params.arg_pid);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.notifyWorkloadIncrease');
-          const result = this.impl.notifyWorkloadIncrease();
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDebugStream');
           const result = this.impl.startDebugStream(params.arg_viz_debug);
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filterDebugStream');
           const result = this.impl.filterDebugStream(params.arg_filterData);
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDebugStream');
