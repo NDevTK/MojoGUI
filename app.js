@@ -1131,6 +1131,15 @@
         return collectFormData(formContainer, false);
     }
 
+    function convertParamsObjectToArray(paramsObj, methodDef) {
+        if (!methodDef || !methodDef.parameters) return [];
+        return methodDef.parameters.map(p => {
+            // paramsObj keys match p.name exactly (including arg_ prefix if present in mojom)
+            // collectFormData uses dataset.originalName which is exact param.name
+            return paramsObj[p.name];
+        });
+    }
+
     function renderInterceptorForm(paramsDef, values, interceptId) {
         if (!paramsDef || paramsDef.length === 0) {
             return `<div class="empty-state small"><p>No parameters</p></div>`;
@@ -2260,13 +2269,27 @@
 
         if (!drop) {
             const formContainer = document.getElementById(`interceptForm_${id}`);
-            if (formContainer) {
-                // New logic: gather from form inputs
+            const row = document.getElementById(`row_${id}`);
+
+            if (formContainer && row && row.__details) {
+                // New logic: gather from form inputs AND map to array
                 try {
-                    params = getInterceptorFormValues(id);
+                    const paramsObj = getInterceptorFormValues(id);
                     useHeuristic = false; // Form data has correct keys
+
+                    // Convert Object back to Array using Method Definition
+                    const iface = row.__details.interface;
+                    const method = row.__details.method;
+                    const methodDef = findMethodDefinition(iface, method);
+
+                    if (methodDef && methodDef.parameters) {
+                        params = convertParamsObjectToArray(paramsObj, methodDef);
+                    } else {
+                        // Fallback if no def found (shouldn't happen)
+                        params = Object.values(paramsObj);
+                    }
                 } catch (e) {
-                    alert('Error parsing form values: ' + e.message);
+                    showToast('Error parsing form values: ' + e.message, 'error');
                     return;
                 }
             } else {
@@ -2276,7 +2299,7 @@
                     try {
                         params = safeParse(textarea.value);
                     } catch (e) {
-                        alert('Invalid JSON params');
+                        showToast('Invalid JSON params', 'error');
                         return;
                     }
                 }
@@ -2284,7 +2307,7 @@
         }
 
         if (params && !Array.isArray(params)) {
-            alert('Invalid Parameters: Must be an Array [...] of arguments.');
+            showToast('Invalid Parameters: Must be an Array [...] of arguments.', 'error');
             return;
         }
 
@@ -2321,6 +2344,7 @@
                     });
                 }
 
+                // Note: reconcileKeys expects Array vs Array if we pass Array.
                 const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
 
                 proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
@@ -2348,20 +2372,34 @@
         try {
             // Gather params from the UI (interceptForm or textarea)
             const formContainer = document.getElementById(`interceptForm_${id}`);
-            if (formContainer) {
-                params = getInterceptorFormValues(id);
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+
+            if (formContainer && row && row.__details) {
+                const paramsObj = getInterceptorFormValues(id);
                 useHeuristic = false;
+
+                // Convert Object back to Array using Method Definition
+                const iface = row.__details.interface;
+                const method = row.__details.method;
+                const methodDef = findMethodDefinition(iface, method);
+
+                if (methodDef && methodDef.parameters) {
+                    params = convertParamsObjectToArray(paramsObj, methodDef);
+                } else {
+                    params = Object.values(paramsObj);
+                }
+
             } else {
                 const textarea = document.getElementById(`interceptParams_${id}`);
                 if (textarea) params = safeParse(textarea.value);
             }
         } catch (e) {
-            alert('Error parsing form values: ' + e.message);
+            showToast('Error parsing form values: ' + e.message, 'error');
             return;
         }
 
         if (params && !Array.isArray(params)) {
-            alert('Invalid Parameters: Must be an Array [...] of arguments.');
+            showToast('Invalid Parameters: Must be an Array [...] of arguments.', 'error');
             return;
         }
 
@@ -2374,7 +2412,7 @@
 
         const proxy = MojoProxyRegistry.get(proxyId);
         if (!proxy) {
-            alert('Proxy connection lost. Cannot replay.');
+            showToast('Proxy connection lost. Cannot replay.', 'error');
             return;
         }
 
@@ -2431,10 +2469,10 @@
                     updateActivityRow(newId, 'Done', { result: 'Sent (No Response)' });
                 }
             } catch (e) {
-                alert('Execution failed: ' + e.message);
+                showToast('Execution failed: ' + e.message, 'error');
             }
         } else {
-            alert(`Method ${method} not found on remote.`);
+            showToast(`Method ${method} not found on remote.`, 'error');
         }
     }
 

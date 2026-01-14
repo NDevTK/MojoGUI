@@ -64,6 +64,19 @@
             return null;
         }
 
+        onError(err) {
+            console.warn(`[MojoProxy] Connection Error on ${this.interfaceName}:`, err);
+            // Clean up active bridges or pending messages if needed?
+            this.activeBridges.forEach(router => {
+                try { router.close(); } catch (e) { }
+            });
+            this.activeBridges.clear();
+        }
+
+        onConnectionError(err) {
+            this.onError(err);
+        }
+
         bridgeHandle(rawHandle, label) {
             const { handle0, handle1 } = Mojo.createMessagePipe();
             const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
