@@ -967,6 +967,11 @@
         // 6. Unions: Discriminator + Active Field
         if (param.type === 'union' && param.structSpec) {
             const unionFields = mapFieldsToUIParams(param.structSpec.fields);
+
+            if (!unionFields || unionFields.length === 0) {
+                return `<div class="form-group error-state">Union ${escapeHtml(param.name)} has no fields.</div>`;
+            }
+
             // Value for a Union is an object like { tag: value }
             // We need to find the active tag.
             let activeTag = unionFields[0].name; // Default to first
@@ -1380,11 +1385,26 @@
     }
 
     function mapFieldsToUIParams(fields) {
-        if (!fields || !Array.isArray(fields)) {
+        let fieldsArray = fields;
+        if (!fields) return [];
+
+        if (!Array.isArray(fields) && typeof fields === 'object') {
+            // Handle Union/Object-based fields: convert to array
+            console.log('[MojoGUI] Converting Object fields to Array:', fields);
+            fieldsArray = Object.entries(fields).map(([key, spec]) => {
+                // Ensure name property exists
+                return { name: key, ...spec };
+            });
+            // Sort by ordinal to ensure consistent order
+            fieldsArray.sort((a, b) => (a.ordinal || 0) - (b.ordinal || 0));
+        }
+
+        if (!Array.isArray(fieldsArray)) {
             console.warn('[MojoGUI] mapFieldsToUIParams: fields is not an array', fields);
             return [];
         }
-        return fields.map(field => {
+
+        return fieldsArray.map(field => {
             let type = 'any';
             let originalName = field.name;
 
