@@ -2155,11 +2155,13 @@
 
     window.sendResponse = function (id) {
         let result = null;
+        let useHeuristics = true;
         try {
             const formContainer = document.getElementById(`interceptForm_${id}_res`);
             if (formContainer) {
                 // Try to map array values back to object keys if definition exists
                 const values = getInterceptorFormValues(id + '_res');
+                useHeuristics = false; // Form data has correct keys
 
                 const row = document.querySelector(`tr[data-id="${id}"]`);
                 const iface = row.__details.interface;
@@ -2169,8 +2171,9 @@
                 if (methodDef && methodDef.responseParams) {
                     const keys = methodDef.responseParams.map(p => p.name);
                     result = {};
-                    keys.forEach((key, i) => {
-                        result[key] = values[i];
+                    keys.forEach((key) => {
+                        // Fix: values is an object from collectFormData, not an array
+                        result[key] = values[key];
                     });
                 } else {
                     // Fallback if no def? This shouldn't happen if formContainer exists
@@ -2195,7 +2198,7 @@
         if (proxy) {
             // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
             const originalResult = (row && row.__details) ? row.__details.result : null;
-            const restoredResult = reconcileKeys(result, originalResult);
+            const restoredResult = reconcileKeys(result, originalResult, useHeuristics);
 
             console.log(`[UI] Sending Response for ${id}`, restoredResult);
             proxy.sendResponse(id, restoredResult);
@@ -2384,7 +2387,9 @@
                 }
             }
 
-            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey], useHeuristics);
+            // Deep recursion: We disable heuristics for children because only 
+            // TOP LEVEL parameters get the 'arg_' prefix in Mojo Lite.
+            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey], false);
         }
         return restored;
     }
