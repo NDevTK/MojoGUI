@@ -595,6 +595,8 @@ body::before {
 .params-panel {
     flex: 1;
     min-height: 150px;
+    display: flex;
+    flex-direction: column;
 }
 
 .params-form {
@@ -602,6 +604,8 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    flex: 1;
+    overflow-y: auto;
 }
 
 .form-group {
