@@ -2181,9 +2181,35 @@
                     result = values;
                 }
             } else {
-                // Fallback textarea
-                const textarea = document.getElementById(`interceptParams_${id}_res`);
-                if (textarea) result = safeParse(textarea.value);
+                // If NO form container exists (e.g. pending intercept with no generated response form),
+                // we MUST provide default values for the response params.
+                const row = document.querySelector(`tr[data-id="${id}"]`);
+                if (row && row.__details) {
+                    const iface = row.__details.interface;
+                    const method = row.__details.method;
+                    const methodDef = findMethodDefinition(iface, method);
+
+                    if (methodDef && methodDef.responseParams) {
+                        result = {};
+                        methodDef.responseParams.forEach(p => {
+                            // Use MojoParser defaults
+                            result[p.name] = MojoParser.getDefaultValue(p.type);
+                        });
+                        console.log('[UI] Generated Default Response:', result);
+                    }
+                }
+
+                // Fallback textarea check (only if we failed to generate defaults)
+                if (!result) {
+                    const textarea = document.getElementById(`interceptParams_${id}_res`);
+                    if (textarea) result = safeParse(textarea.value);
+                }
+            }
+
+            if (!result) {
+                // Final safety net: prevent null
+                console.warn('[UI] No result found for response, using empty object');
+                result = {};
             }
 
         } catch (e) {
