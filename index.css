@@ -1245,8 +1245,8 @@ body::before {
     color: var(--text-primary);
     white-space: pre-wrap;
     word-break: break-all;
-    max-height: none;
-    overflow-y: visible;
+    overflow-y: auto;
+    user-select: text;
 }
 
 .error-text {
@@ -1425,16 +1425,16 @@ body::before {
 .result-code,
 .params-editor {
     flex: 1;
-    height: 100%;
+    min-height: 100px;
     width: 100%;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-md);
     background: rgba(0, 0, 0, 0.2) !important;
     padding: var(--space-md) !important;
-    overflow-y: auto;
+    overflow-y: auto !important;
+    user-select: text !important;
     resize: none !important;
     color: var(--text-primary);
-    /* Fix: Ensure text is white by default, not just on focus */
 }
 
 /* Status dots */

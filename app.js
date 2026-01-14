@@ -2393,7 +2393,7 @@
                 // We will check methodDef.responseParams
                 if (methodDef && methodDef.responseParams) {
                     // Editable if Response Edit, otherwise read-only look
-                    const style = (detail.status === 'Response Edit') ? '' : 'opacity: 0.9; pointer-events: none;';
+                    const style = (detail.status === 'Response Edit') ? '' : 'opacity: 0.9;';
                     responseHtml = `<div class="params-form-container" style="${style}">
                                         ${renderInterceptorForm(methodDef.responseParams, detail.result, id + '_res')}
                                       </div>`;
