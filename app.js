@@ -1314,7 +1314,7 @@
             return `<div class="empty-state small"><p>No parameters</p></div>`;
         }
 
-        return paramsDef.map((param, index) => {
+        const inputs = paramsDef.map((param, index) => {
             let value;
             if (Array.isArray(values)) {
                 value = values[index];
@@ -1327,6 +1327,8 @@
             }
             return renderInput(param, value, { isInterceptor: true, index, interceptId });
         }).join('');
+
+        return `<div id="interceptForm_${interceptId}">${inputs}</div>`;
     }
 
 
@@ -2155,13 +2157,11 @@
 
     window.sendResponse = function (id) {
         let result = null;
-        let useHeuristics = true;
         try {
             const formContainer = document.getElementById(`interceptForm_${id}_res`);
             if (formContainer) {
                 // Try to map array values back to object keys if definition exists
                 const values = getInterceptorFormValues(id + '_res');
-                useHeuristics = false; // Form data has correct keys
 
                 const row = document.querySelector(`tr[data-id="${id}"]`);
                 const iface = row.__details.interface;
@@ -2171,8 +2171,7 @@
                 if (methodDef && methodDef.responseParams) {
                     const keys = methodDef.responseParams.map(p => p.name);
                     result = {};
-                    keys.forEach((key) => {
-                        // Fix: values is an object from collectFormData, not an array
+                    keys.forEach((key, i) => {
                         result[key] = values[key];
                     });
                 } else {
@@ -2181,35 +2180,23 @@
                     result = values;
                 }
             } else {
-                // If NO form container exists (e.g. pending intercept with no generated response form),
-                // we MUST provide default values for the response params.
-                const row = document.querySelector(`tr[data-id="${id}"]`);
-                if (row && row.__details) {
-                    const iface = row.__details.interface;
-                    const method = row.__details.method;
-                    const methodDef = findMethodDefinition(iface, method);
-
-                    if (methodDef && methodDef.responseParams) {
-                        result = {};
-                        methodDef.responseParams.forEach(p => {
-                            // Use MojoParser defaults
-                            result[p.name] = MojoParser.getDefaultValue(p.type);
-                        });
-                        console.log('[UI] Generated Default Response:', result);
-                    }
-                }
-
-                // Fallback textarea check (only if we failed to generate defaults)
-                if (!result) {
-                    const textarea = document.getElementById(`interceptParams_${id}_res`);
-                    if (textarea) result = safeParse(textarea.value);
-                }
+                // Fallback textarea
+                const textarea = document.getElementById(`interceptParams_${id}_res`);
+                if (textarea) result = safeParse(textarea.value);
             }
 
-            if (!result) {
-                // Final safety net: prevent null
-                console.warn('[UI] No result found for response, using empty object');
-                result = {};
+            // SAFETY CHECK: If result is null but we expect a Struct (responseParams exists), return {}
+            // This fixes crash in BatteryMonitor.queryNextStatus where it expects a struct but gets null.
+            const row = document.querySelector(`tr[data-id="${id}"]`);
+            if (row && row.__details) {
+                const iface = row.__details.interface;
+                const method = row.__details.method;
+                const methodDef = findMethodDefinition(iface, method);
+
+                if (result === null && methodDef && methodDef.responseParams && methodDef.responseParams.length > 0) {
+                    console.warn('[UI] Response is null but method expects parameters. Defaulting to empty object {} to prevent crash.');
+                    result = {};
+                }
             }
 
         } catch (e) {
@@ -2224,7 +2211,7 @@
         if (proxy) {
             // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
             const originalResult = (row && row.__details) ? row.__details.result : null;
-            const restoredResult = reconcileKeys(result, originalResult, useHeuristics);
+            const restoredResult = reconcileKeys(result, originalResult);
 
             console.log(`[UI] Sending Response for ${id}`, restoredResult);
             proxy.sendResponse(id, restoredResult);
@@ -2413,9 +2400,7 @@
                 }
             }
 
-            // Deep recursion: We disable heuristics for children because only 
-            // TOP LEVEL parameters get the 'arg_' prefix in Mojo Lite.
-            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey], false);
+            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey], useHeuristics);
         }
         return restored;
     }
