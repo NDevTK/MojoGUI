@@ -1272,8 +1272,6 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"    {r_versions});\n\n"
 
         # Generate PendingReceiver class first (needed by Remote)
-        
-        # Generate PendingReceiver class first (needed by Remote)
         js_code += f"{full_name}PendingReceiver = class {{\n"
         js_code += "  constructor(handle) {\n"
         js_code += "    this.handle = handle;\n"

@@ -767,70 +767,7 @@
 
     // ... (lines 701-1223 skipped)
 
-    function updateInterceptButtonState(isActive, interfaceName = null) {
-        // 1. Update Main Detail Panel Button
-        if (state.selectedInterface) {
-            const currentFQN = state.selectedInterface.module ? `${state.selectedInterface.module}.${state.selectedInterface.name}` : state.selectedInterface.name;
-            const currentShort = state.selectedInterface.name;
 
-            if (!interfaceName || interfaceName === currentFQN || interfaceName === currentShort) {
-                const realState = interfaceName ? InterceptorManager.isActive(interfaceName) : isActive;
-                elements.interceptStatusDot.classList.toggle('active', realState);
-                elements.interceptToggleBtn.classList.toggle('active', realState);
-                const text = elements.interceptToggleBtn.childNodes[2];
-                if (text) text.textContent = realState ? ' Blocking' : ' Intercept';
-            }
-        }
-
-        // 2. Update Traffic Log Buttons (Granular Sync)
-        const logButtons = document.querySelectorAll(`button[data-action="toggle-intercept"]`);
-        logButtons.forEach(btn => {
-            const btnIface = btn.dataset.interface;
-            const btnMethod = btn.dataset.method;
-
-            if (btnIface) {
-                const isIfaceActive = InterceptorManager.isActive(btnIface);
-                let isMethodActive = isIfaceActive;
-
-                // If interface is active, check if this specific method is Auto-Forwarded (Ignored)
-                if (isIfaceActive && btnMethod) {
-                    const key = `${btnIface}.${btnMethod}`;
-                    if (state.autoForwardMethods.has(key)) {
-                        isMethodActive = false;
-                    }
-                }
-
-                btn.classList.toggle('active', isMethodActive);
-                btn.textContent = isMethodActive ? 'Blocking' : 'Forwarding';
-                // Styling update: Active (Blocking) = Normal/Red-ish? Inactive (Forwarding) = Grey?
-                // Existing CSS .btn.active is Green.
-                // Maybe: Blocking = Green (Active Interceptor), Forwarding = Outlined (Pass through)
-            }
-        });
-    }
-
-    // ...
-
-    // Unified function to add rows to the table
-    function addActivityRow(data) {
-        // ...
-        return `<button class="btn btn-small ${isBtnActive ? 'active' : ''}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? 'Blocking' : 'Forwarding'}</button>`;
-        // ...
-    }
-
-    // ...
-    function showInterceptDetails(detail) {
-        // ... (Update responseHtml check just in case, logic preserved)
-        // ...
-        if (methodDef && methodDef.responseParams) {
-            responseHtml = `<div class="params-form-container" style="opacity: 0.9;">
-                                        ${renderInterceptorForm(methodDef.responseParams, detail.result, id + '_res')}
-                                      </div>`;
-        } else {
-            responseHtml = `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>`;
-        }
-        // ...
-    }
 
     function getInterceptorFormValues(id) {
         const formContainer = document.getElementById(`interceptForm_${id}`);

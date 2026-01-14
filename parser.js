@@ -28,7 +28,6 @@
                 }
 
                 // Extract interfaces
-                // Extract interfaces
                 // Match mojo.internal.bindings.Module.InterfaceRemote = class
                 const interfacePattern = /([\w.]+)\.(\w+)(?:Remote)\s*=\s*class\s*\{/g;
                 let match;
