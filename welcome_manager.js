@@ -25,7 +25,7 @@ const WelcomeManager = (function () {
         </ul>
         <div class="alert-box" style="border-left-color: #ff4444; background: rgba(255, 68, 68, 0.1);">
              <strong>⚠️ Security Warning</strong>
-             <p>This tool is designed for **security research purposes only**. MojoJS provides direct access to Chromium's IPC system, which is a privileged interface.</p>
+             <p>This tool is designed for <strong>security research purposes only</strong>. MojoJS provides direct access to Chromium's IPC system, which is a privileged interface.</p>
              <ul style="margin-bottom: 0;">
                 <li>Never enable MojoJS when browsing untrusted websites.</li>
                 <li>The generated code may interact with sensitive browser APIs.</li>
