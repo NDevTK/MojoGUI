@@ -731,12 +731,23 @@
     };
 
     window.removeArrayItem = function (btn, prefix) {
-        const item = btn.closest('.array-item');
+        const item = btn.closest('.array-item, .map-entry');
         if (!item) return;
         const container = item.parentElement;
         item.remove();
         if (container) {
             reindexArrayItems(container, prefix);
+            updateContainerCount(container);
+        }
+    };
+
+    window.updateContainerCount = function (container) {
+        const group = container.closest('.array-group, .map-group');
+        if (!group) return;
+        const badge = group.querySelector('.count-badge');
+        if (badge) {
+            const count = container.children.length;
+            badge.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
         }
     };
 
@@ -776,6 +787,7 @@
                         <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ''}')">&times;</button>`);
 
         container.appendChild(wrapper);
+        updateContainerCount(container);
 
         // No need to reindex since we appended, unless we want to be safe.
         // But typically we should just valid index.
@@ -890,7 +902,7 @@
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
                         <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
-                        <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} items</span>
+                        <span class="badge count-badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} ${items.length === 1 ? 'item' : 'items'}</span>
                     </label>
                     <div class="array-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         <div class="array-items-container">
@@ -964,8 +976,8 @@
                     <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
-                        <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.key)}, ${inferTypeFromMojomType(param.mapSpec.value)}&gt;</span>
-                        <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} entries</span>
+                        <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.keySpec)}, ${inferTypeFromMojomType(param.mapSpec.valueSpec)}&gt;</span>
+                        <span class="badge count-badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} ${entries.length === 1 ? 'item' : 'items'}</span>
                     </label>
                     <div class="map-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         <div class="map-entries-container">
