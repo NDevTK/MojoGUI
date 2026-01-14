@@ -1120,41 +1120,51 @@
     }
 
     function highlightSyntax(code) {
-        // First escape HTML entities to prevent XSS and display issues
+        // Escape HTML
         let escaped = code
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
 
-        const tokens = [
-            { type: 'comment', regex: /\/\/.*$/m },
-            { type: 'string', regex: /(['"`])(?:\\.|(?!\1).)*\1/ },
-            { type: 'keyword', regex: /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue)\b/ },
-            { type: 'const', regex: /\b(true|false|null|undefined|NaN|Infinity)\b/ },
-            { type: 'builtin', regex: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings)\b/ },
-            { type: 'number', regex: /\b(\d+n?)\b/ },
-            { type: 'property', regex: /\.(\w+)\b/ },
-            { type: 'class', regex: /\b([A-Z][a-zA-Z0-9_]*)\b/ },
-            { type: 'function', regex: /\b([a-z_][a-zA-Z0-9_]*)(?=\()/i }
-        ];
+        // Define patterns (Order matters for priority!)
+        const patterns = {
+            comment: /\/\/.*$|\/\*[\s\S]*?\*\//,
+            string: /'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|`(?:\\.|[^`\\])*`/,
+            // Regex literals: Simplified version to avoid catastrophic backtracking, matches common cases
+            regex: /\/(?![*+?])(?:[^\r\n\[/\\]|\\.|\[(?:[^\r\n\]\\]|\\.)*\])+\/[gimuy]*/,
+            keyword: /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue|typeof|instanceof|void|delete)\b/,
+            builtin: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
+            const: /\b(true|false|null|undefined|NaN|Infinity)\b/,
+            number: /\b(?:0x[a-fA-F0-9]+|0b[01]+|0o[0-7]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)n?\b/,
+            property: /(?=(\.[a-zA-Z_$][\w$]*))\1/, // Lookahead capture for correct consumption
+            class: /\b[A-Z][a-zA-Z0-9_$]*\b/,
+            function: /\b[a-zA-Z_$][\w$]*(?=\()/,
+            operator: /[+\-*/%=&|!^~<>?:]+/
+        };
 
-        // Combine into one big regex with capture groups
-        const combinedRegex = new RegExp(
-            tokens.map(t => `(${t.regex.source})`).join('|'),
-            'gm'
-        );
-
-        return escaped.replace(combinedRegex, (match, ...args) => {
-            // Find which group matched
-            const groupIndex = args.findIndex((arg, i) => i < tokens.length && arg !== undefined);
+        // Construct combined regex with named groups: (?<name>pattern)|...
+        const combinedSource = Object.entries(patterns)
+            .map(([name, regex]) => `(?<${name}>${regex.source})`)
+            .join('|');
             
-            if (groupIndex !== -1) {
-                const token = tokens[groupIndex];
-                if (token.type === 'property') {
-                    // Property access: keep the dot outside the span if possible, or handle it
-                    return `.<span class="property">${match.substring(1)}</span>`;
+        const combinedRegex = new RegExp(combinedSource, 'gm');
+
+        return escaped.replace(combinedRegex, (...args) => {
+            const groups = args.pop(); // Last arg is groups object in replace callback for named groups
+            const match = args[0]; // Full match
+
+            for (const [name, groupMatch] of Object.entries(groups)) {
+                if (groupMatch !== undefined) {
+                    if (name === 'property') {
+                        // Property includes the dot, highlight only the name
+                         return `.<span class="property">${match.substring(1)}</span>`;
+                    }
+                    if (name === 'class') {
+                         // Heuristic: Don't highlight ALL CAPS as class (usually constants) unless it looks like a type
+                         if (match === match.toUpperCase() && match.length > 1) return match; 
+                    }
+                    return `<span class="${name}">${match}</span>`;
                 }
-                return `<span class="${token.type}">${match}</span>`;
             }
             return match;
         });

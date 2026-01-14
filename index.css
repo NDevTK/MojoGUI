@@ -735,6 +735,18 @@ body::before {
     color: #ffcb6b;
 }
 
+.code-block .operator {
+    color: #89ddff;
+}
+
+.code-block .regex {
+    color: #f07178;
+}
+
+.code-block .builtin {
+    color: #ff5370;
+}
+
 /* Results Section */
 .results-section {
     border-top: 1px solid var(--border-subtle);
