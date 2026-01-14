@@ -282,7 +282,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_file_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_dialog_specific_args', 8, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(

@@ -696,9 +696,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_interfaces', 40, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeUsbBusInterfaceInfoSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_fwupd_firmware_version_info', 48, 0, mojo.internal.bindings.crosapi.mojom.ProbeFwupdFirmwareVersionInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_version', 56, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spec_speed', 64, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbSpecSpeedSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_spec_speed', 60, 0, mojo.internal.bindings.crosapi.mojom.ProbeUsbSpecSpeedSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 72]]);
 
 // Struct: ProbeNonRemovableBlockDeviceInfo
 mojo.internal.Struct(

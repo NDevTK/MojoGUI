@@ -1737,9 +1737,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_interfaces', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_fwupd_firmware_version_info', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec, null, true, 1, undefined),
       mojo.internal.StructField('arg_version', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbVersionSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_spec_speed', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbSpecSpeedSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_spec_speed', 28, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbSpecSpeedSpec, null, false, 2, undefined),
     ],
-    [[0, 24], [1, 32], [2, 48]]);
+    [[0, 24], [1, 32], [2, 40]]);
 
 // Struct: FwupdFirmwareVersionInfo
 mojo.internal.Struct(

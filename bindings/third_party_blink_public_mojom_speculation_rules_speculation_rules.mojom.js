@@ -181,16 +181,16 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.SpeculationActionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_requires_anonymous_client_ip_when_cross_origin', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_form_submission', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_requires_anonymous_client_ip_when_cross_origin', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_form_submission', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_target_browsing_context_name_hint', 32, 0, mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_eagerness', 40, 0, mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_no_vary_search_hint', 48, 0, mojo.internal.bindings.network.mojom.NoVarySearchSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_injection_type', 56, 0, mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tags', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_target_browsing_context_name_hint', 24, 0, mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_eagerness', 28, 0, mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_no_vary_search_hint', 32, 0, mojo.internal.bindings.network.mojom.NoVarySearchSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_injection_type', 40, 0, mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tags', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 64]]);
 
 // Interface: SpeculationHost
 mojo.internal.Struct(

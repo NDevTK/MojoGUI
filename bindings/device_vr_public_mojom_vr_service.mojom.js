@@ -1001,7 +1001,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_native_origin_information', 8, 0, mojo.internal.bindings.device.mojom.XRNativeOriginInformationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_layer_data', 24, 0, mojo.internal.bindings.device.mojom.XRLayerSpecificDataSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: XRCompositionLayerData
 mojo.internal.Struct(

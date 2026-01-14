@@ -270,10 +270,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, 'blink.mojom.FilePickerOptions', [
       mojo.internal.StructField('arg_type_specific_options', 0, 0, mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_starting_directory_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_in_options', 16, 0, mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_starting_directory_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_in_options', 24, 0, mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: FileSystemAccessManager
 mojo.internal.Struct(
