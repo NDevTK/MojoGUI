@@ -1136,7 +1136,7 @@
             builtin: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
             const: /\b(true|false|null|undefined|NaN|Infinity)\b/,
             number: /\b(?:0x[a-fA-F0-9]+|0b[01]+|0o[0-7]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)n?\b/,
-            property: /(?=(\.[a-zA-Z_$][\w$]*))\1/, // Lookahead capture for correct consumption
+            property: /\.[a-zA-Z_$][\w$]*/,
             class: /\b[A-Z][a-zA-Z0-9_$]*\b/,
             function: /\b[a-zA-Z_$][\w$]*(?=\()/,
             operator: /[+\-*/%=&|!^~<>?:]+/
@@ -1146,7 +1146,7 @@
         const combinedSource = Object.entries(patterns)
             .map(([name, regex]) => `(?<${name}>${regex.source})`)
             .join('|');
-            
+
         const combinedRegex = new RegExp(combinedSource, 'gm');
 
         return escaped.replace(combinedRegex, (...args) => {
@@ -1157,11 +1157,11 @@
                 if (groupMatch !== undefined) {
                     if (name === 'property') {
                         // Property includes the dot, highlight only the name
-                         return `.<span class="property">${match.substring(1)}</span>`;
+                        return `.<span class="property">${match.substring(1)}</span>`;
                     }
                     if (name === 'class') {
-                         // Heuristic: Don't highlight ALL CAPS as class (usually constants) unless it looks like a type
-                         if (match === match.toUpperCase() && match.length > 1) return match; 
+                        // Heuristic: Don't highlight ALL CAPS as class (usually constants) unless it looks like a type
+                        if (match === match.toUpperCase() && match.length > 1) return match;
                     }
                     return `<span class="${name}">${match}</span>`;
                 }
