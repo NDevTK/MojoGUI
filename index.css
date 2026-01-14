@@ -1762,3 +1762,81 @@ input:checked+.switch-slider::before {
     background: rgba(59, 130, 246, 0.2);
     color: var(--info);
 }
+
+/* ========================================
+   Recursive Data Structures (Maps, Arrays, Structs)
+   ======================================== */
+.struct-group,
+.array-group,
+.map-group {
+    border-left: 2px solid var(--border-subtle);
+    padding-left: var(--space-md);
+    margin-left: var(--space-sm);
+    margin-top: var(--space-sm);
+    transition: border-color var(--transition-fast);
+}
+
+.struct-group:hover,
+.array-group:hover,
+.map-group:hover {
+    border-left-color: var(--border-highlight);
+}
+
+.array-items-container,
+.map-entries-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.array-item,
+.map-entry {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    position: relative;
+    transition: background-color var(--transition-fast);
+}
+
+.array-item:hover,
+.map-entry:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.map-entry {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-md);
+}
+
+.map-key-group,
+.map-value-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.map-key-label,
+.map-value-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+.map-key-group {
+    border-bottom: 1px dashed var(--border-subtle);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.map-entry .remove-item-btn {
+    align-self: flex-end;
+    margin-top: var(--space-sm);
+}

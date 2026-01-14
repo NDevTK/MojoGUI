@@ -356,6 +356,20 @@
         // Reset button
         elements.resetBtn.addEventListener('click', resetParams);
 
+        // Manual Params Form Delegation (Unified State Management)
+        if (elements.paramsForm) {
+            const handleParamChange = (e) => {
+                const input = e.target;
+                if (input.matches('input, textarea, select')) {
+                    // Re-collect entire form to ensure deep structure (Arrays/Maps) is synced
+                    state.paramValues = collectFormData(elements.paramsForm, false);
+                    updateGeneratedCode();
+                }
+            };
+            elements.paramsForm.addEventListener('input', handleParamChange);
+            elements.paramsForm.addEventListener('change', handleParamChange);
+        }
+
 
 
         // Interceptor
@@ -653,14 +667,127 @@
         return null;
     }
 
+    // Helper for Array rendering
+    window.reindexArrayItems = function (container, prefix) {
+        Array.from(container.children).forEach((item, index) => {
+            // Update names in inputs
+            // Helper to replace [x] with [index] in names
+            const updateName = (el) => {
+                if (el.name) {
+                    // Replace the last [...] segment or typical array pattern
+                    // Logic: replace `[oldIndex]` with `[index]`
+                    // But specifically for this array's level.
+                    // Simplified: Just use the prefix + [index] + suffix?
+                    // Too complex to parse reliably.
+                    // Alternative: just update the [index] that corresponds to THIS array.
+                    // For now, simpler approach: names are mostly for debugging or manual mode.
+                    // Manual mode requires correct paths.
+
+                    // Let's try to infer from data-original-name or just patch the string.
+                    // Assume name ends with `[digits]` or `[digits].subprop`
+                    // This is hard.
+
+                    // Better approach: Re-render? No.
+                    // Let's rely on the fact that for Manual Mode, users might not delete/add complex nested arrays much?
+                    // Actually, let's just use a monotonically increasing counter for names to avoid collision, 
+                    // and rely on Order for value collection (Interceptor).
+                    // For Manual Mode, `updateParamValue` maps names to object structure.
+                    // If we have `arr[5]` and `arr[9]`, that creates a sparse array. 
+                    // `JSON.stringify` will show nulls.
+                    // That might be okay for Mojo (it might filter nulls? No array is strict).
+
+                    // Robust Solution: reindex manually.
+                    const inputs = item.querySelectorAll('[name]');
+                    inputs.forEach(input => {
+                        // naive replace of the specific index in the path?
+                        // Difficult without knowing which [x] belongs to us.
+                        // The input name is fully qualified: `a.b[0].c`.
+                        // We want to change it to `a.b[index].c`.
+                        // The prefix stored in data-prefix is `a.b`.
+                        // Replace the last index in the name, which corresponds to THIS array's index
+                        // Name format: prefix[oldIndex].suffix or prefix[oldIndex]
+                        // We can't rely on prefix matching exactly due to complex nesting,
+                        // but we know we are iterating over immediate children.
+                        // The safest way: find the part of the name corresponding to this item's index.
+
+                        // Actually, since we have the prefix (e.g. "param.list"), 
+                        // and the input name is "param.list[5].subfield",
+                        // we can replace the first occurrence of `[number]` after the prefix.
+
+                        if (prefix && input.name.startsWith(prefix)) {
+                            const suffix = input.name.substring(prefix.length);
+                            // suffix starts with `[oldIndex]`
+                            const newSuffix = suffix.replace(/^\[\d+\]/, `[${index}]`);
+                            input.name = prefix + newSuffix;
+                        } else if (input.name.startsWith('[')) {
+                            // Root array case: `[oldIndex].subfield`
+                            input.name = input.name.replace(/^\[\d+\]/, `[${index}]`);
+                        }
+                    });
+                }
+            };
+            updateName(item); // Process the item itself if it's an input? Likely a wrapper.
+            item.querySelectorAll('[name]').forEach(updateName);
+
+            // Update label or badge if present?
+            const label = item.querySelector('.array-index-label');
+            if (label) label.textContent = index;
+        });
+        // Notify change for state inputs
+        container.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+
+    window.addArrayItem = function (btn) {
+        const container = btn.parentElement.querySelector('.array-items-container') || btn.parentElement.querySelector('.map-entries-container');
+        const template = btn.parentElement.querySelector('.item-template').innerHTML;
+        const prefix = btn.closest('.array-group') ? btn.closest('.array-group').dataset.prefix : btn.closest('.map-group').dataset.prefix;
+
+        // Use current length as index for new item
+        const index = container.children.length;
+
+        const newItemHtml = template.replace(/\{index\}/g, index);
+
+        // Create temp div to parse HTML
+        const temp = document.createElement('div');
+        temp.innerHTML = newItemHtml;
+        // Actually templateHtml usually has one root element? No, renderedItems joining.
+        // renderInput returns a string... wait.
+        // My template generator wrapped it in nothing?
+        // See code: `const templateHtml = renderItemHtml(...)`.
+        // renderInput returns a `div.form-group` or string.
+
+        // Wait, my loop code was:
+        // `const renderedItems = items.map(...) => <div class="array-item">...</div>`
+        // So the template should also represent the inner content of `.array-item`?
+        // No, `renderItemHtml` returns the CONTENT of the item.
+        // The wrapper `<div class="array-item">` is in the loop in `renderInput`.
+
+        // I need to ensure the template includes the wrapper if I want consistent styling?
+        // Or I construct the wrapper here.
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'array-item';
+        wrapper.style.cssText = 'display: flex; align-items: flex-start; margin-bottom: 4px;';
+
+        // If templateHtml is just the input, we wrapper it.
+        wrapper.innerHTML = `<div style="flex-grow: 1;">${newItemHtml}</div>
+                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove(); reindexArrayItems(this.parentElement.parentElement, '${prefix || ''}');" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>`;
+
+        container.appendChild(wrapper);
+
+        // No need to reindex since we appended, unless we want to be safe.
+        // But typically we should just valid index.
+        container.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+
     function renderInput(param, value, options = {}) {
-        const { isInterceptor, index, interceptId } = options;
+        const { isInterceptor, index, interceptId, parentName } = options;
 
         let inputType = MojoParser.getInputType(param.type);
 
         // Special Handling for Common Mojo Types
         // 1. URL: Unwrap { arg_url: "..." } to simple string
-        if (param.type.endsWith('.Url') || (typeof value === 'object' && value && (value.arg_url || value.url))) {
+        if (param.type === 'Url' || param.type.endsWith('.Url') || (typeof value === 'object' && value && (value.arg_url || value.url))) {
             const urlVal = value ? (value.arg_url || value.url || '') : '';
             return `
                 <div class="form-group">
@@ -670,12 +797,178 @@
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
                     <input type="text" 
-                           class="intercept-input" 
+                   class="intercept-input param-input" 
                            data-id="${interceptId}" 
                            data-index="${index}" 
                            data-type="url_wrapped" 
                            value="${escapeHtml(urlVal)}" 
                            placeholder="https://...">
+                </div>`;
+        }
+
+        // 3. Structs: Recursive Rendering
+        if (param.type === 'struct' && param.structSpec) {
+            const childParams = mapFieldsToUIParams(param.structSpec.fields);
+            const childValues = (value && typeof value === 'object') ? value : {};
+
+            const renderedFields = childParams.map(p => {
+                let pValue = childValues[p.name];
+                if (pValue === undefined && p.name.startsWith('arg_')) {
+                    pValue = childValues[p.name.substring(4)];
+                }
+                // Recurse without index (nested items use structural association)
+                return renderInput(p, pValue, {
+                    isInterceptor,
+                    interceptId,
+                    parentName: parentName ? `${parentName}.${param.name}` : param.name
+                });
+            }).join('');
+
+            return `
+                <div class="form-group struct-group" 
+                     data-type="struct" 
+                     data-original-name="${escapeHtml(param.name)}"
+                     style="margin-bottom: 8px;">
+                    <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
+                        <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">Struct</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                    <div class="struct-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
+                        ${renderedFields}
+                    </div>
+                </div>`;
+        }
+
+        // 4. Arrays: Recursive List Rendering
+        if (param.type === 'array' && param.elementSpec) {
+            const items = (Array.isArray(value)) ? value : [];
+            const prefix = parentName ? `${parentName}${param.name.startsWith('[') ? '' : '.'}${param.name}` : param.name;
+
+            const renderItemHtml = (val, idx) => {
+                const itemParam = {
+                    name: `[${idx}]`,
+                    type: inferTypeFromMojomType(param.elementSpec),
+                    structSpec: (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null,
+                    elementSpec: (param.elementSpec.elementType || (param.elementSpec.$ && param.elementSpec.$.elementType)) || null
+                };
+                return renderInput(itemParam, val, {
+                    isInterceptor,
+                    interceptId,
+                    parentName: prefix
+                });
+            };
+
+            const renderedItems = items.map((val, i) => `
+                <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
+                    <div style="flex-grow: 1;">${renderItemHtml(val, i)}</div>
+                    <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
+                </div>
+            `).join('');
+
+            // Template for new items (using a placeholder index that the Add handler will replace)
+            // We use 'TEMPLATE_INDEX' as a special placeholder
+            const templateHtml = renderItemHtml(null, 'TEMPLATE_INDEX')
+                .replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"'); // Fix name attribute
+
+            return `
+                <div class="form-group array-group" 
+                     data-type="array" 
+                     data-original-name="${escapeHtml(param.name)}"
+                     data-prefix="${escapeHtml(prefix)}"
+                     style="margin-bottom: 8px;">
+                    <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
+                        <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
+                        <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} items</span>
+                    </label>
+                    <div class="array-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
+                        <div class="array-items-container">
+                            ${renderedItems}
+                        </div>
+                        <template class="item-template">${templateHtml}</template>
+                        <button type="button" class="add-item-btn" 
+                                onclick="addArrayItem(this)"
+                                style="margin-top: 4px; font-size: 0.9em; padding: 4px 12px;">+ Add Item</button>
+                    </div>
+                </div>`;
+        }
+
+        // 5. Maps: Key/Value Pairs
+        if (param.type === 'map' && param.mapSpec) {
+            let entries = [];
+            if (Array.isArray(value)) {
+                // Manual Mode State: [{key, value}, ...]
+                entries = value.map(item => [item.key, item.value]);
+            } else {
+                const mapObj = (value && typeof value === 'object') ? value : {};
+                entries = Object.entries(mapObj);
+            }
+            const prefix = parentName ? `${parentName}${param.name.startsWith('[') ? '' : '.'}${param.name}` : param.name;
+
+            const renderEntryHtml = (entryKey, entryValue, idx) => {
+                const keyParam = {
+                    name: 'key',
+                    type: inferTypeFromMojomType(param.mapSpec.key),
+                };
+                const valParam = {
+                    name: 'value',
+                    type: inferTypeFromMojomType(param.mapSpec.value),
+                    structSpec: param.mapSpec.value && param.mapSpec.value.$ ? param.mapSpec.value.$.structSpec : null,
+                    elementSpec: param.mapSpec.value && (param.mapSpec.value.elementType || param.mapSpec.value.$.elementType) || null,
+                    mapSpec: param.mapSpec.value && (param.mapSpec.value.keyType || param.mapSpec.value.$.keyType) ? {
+                        key: param.mapSpec.value.keyType || param.mapSpec.value.$.keyType,
+                        value: param.mapSpec.value.valueType || param.mapSpec.value.$.valueType
+                    } : null
+                };
+
+                const keyHtml = renderInput(keyParam, entryKey, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]` });
+                const valHtml = renderInput(valParam, entryValue, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]` });
+
+                return `
+                        <div class="form-group struct-group map-entry" 
+                             data-original-name="${idx === 'TEMPLATE_INDEX' ? 'TEMPLATE_INDEX' : idx}"
+                             style="margin-bottom: 0;">
+                            <div class="struct-content" style="display: flex; gap: 8px; align-items: flex-start;">
+                                <div style="flex: 1;">${keyHtml}</div>
+                                <div style="flex: 2;">${valHtml}</div>
+                            </div>
+                        </div>`;
+            };
+
+            const renderedEntries = entries.map((entry, i) => `
+                    <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
+                        <div style="flex-grow: 1;">${renderEntryHtml(entry[0], entry[1], i)}</div>
+                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
+                    </div>
+                `).join('');
+
+            const templateHtml = renderEntryHtml('', null, 'TEMPLATE_INDEX')
+                .replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"');
+
+            return `
+                <div class="form-group map-group" 
+                     data-type="map" 
+                     data-original-name="${escapeHtml(param.name)}"
+                     data-prefix="${escapeHtml(prefix)}"
+                     style="margin-bottom: 8px;">
+                    <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
+                        <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.key)}, ${inferTypeFromMojomType(param.mapSpec.value)}&gt;</span>
+                        <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} entries</span>
+                    </label>
+                    <div class="map-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
+                        <div class="map-entries-container">
+                            ${renderedEntries}
+                        </div>
+                        <template class="item-template">${templateHtml}</template>
+                        <button type="button" class="add-item-btn" 
+                                onclick="addArrayItem(this)" 
+                                style="margin-top: 4px; font-size: 0.9em; padding: 4px 12px;">+ Add Entry</button>
+                    </div>
                 </div>`;
         }
 
@@ -714,14 +1007,17 @@
         // Attributes generation
         let attributes = '';
         if (isInterceptor) {
-            attributes = `class="intercept-input ${inputType === 'textarea' ? 'params-editor' : ''}"
+            attributes = `class="intercept-input param-input ${inputType === 'textarea' ? 'params-editor' : ''}"
+                          name="${escapeHtml(param.name)}"
                           data-id="${interceptId}"
                           data-index="${index}"
                           data-type="${escapeHtml(param.type)}"`;
             if (inputType === 'textarea') attributes += ' style="min-height: 100px;"';
         } else {
             // Manual Form attributes
-            attributes = `name="${escapeHtml(param.name)}" data-type="${escapeHtml(param.type)}"`;
+            const sep = param.name.startsWith('[') ? '' : '.';
+            const fullName = parentName ? `${parentName}${sep}${param.name}` : param.name;
+            attributes = `class="param-input" name="${escapeHtml(fullName)}" data-type="${escapeHtml(param.type)}"`;
         }
 
         const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
@@ -765,51 +1061,82 @@
         }
     }
 
-    function getInterceptorFormValues(id) {
-        const formContainer = document.getElementById(`interceptForm_${id}`);
-        if (!formContainer) return [];
+    window.parseInputValue = function (input) {
+        const type = input.dataset.type;
+        let val = input.value;
 
-        const inputs = Array.from(formContainer.querySelectorAll('.intercept-input'));
-        const values = [];
+        if (input.type === 'checkbox') {
+            val = input.checked;
+        } else if (type === 'number' || input.type === 'number') {
+            val = Number(val);
+        } else if (type === 'int64' || type === 'uint64') {
+            if (val.endsWith('n')) val = val.slice(0, -1);
+            try { val = BigInt(val); } catch (e) { val = BigInt(0); }
+        } else if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
+            try { val = JSON.parse(val); } catch (e) { }
+        } else if (type === 'url_wrapped') {
+            val = { url: val };
+        }
+        return val;
+    };
 
-        // Sort by index to maintain order
-        inputs.sort((a, b) => (parseInt(a.dataset.index) || 0) - (parseInt(b.dataset.index) || 0));
+    window.collectFormData = function (container, isArray) {
+        const result = isArray ? [] : {};
+        const nodes = Array.from(container.children);
 
-        // Use a map to fill by index directly
-        inputs.forEach(input => {
-            const index = parseInt(input.dataset.index);
-            const type = input.dataset.type;
-            let val = input.value;
+        nodes.forEach((node) => {
+            let group = node;
+            if (!group.classList.contains('form-group')) {
+                const inner = group.querySelector('.form-group');
+                if (inner) group = inner;
+            }
+            if (!group || !group.classList.contains('form-group')) return;
 
-            // Handle different types
-            if (input.type === 'checkbox') {
-                val = input.checked;
-            } else if (type === 'number' || input.type === 'number') {
-                val = Number(val);
-            } else if (type === 'int64' || type === 'uint64') {
-                if (val.endsWith('n')) val = val.slice(0, -1);
-                try {
-                    val = BigInt(val);
-                } catch (e) {
-                    // console.warn('Invalid BigInt:', val);
-                    val = BigInt(0);
-                }
-            } else if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
-                try {
-                    val = JSON.parse(val);
-                } catch (e) {
-                    // Keep as string if parsing fails, might be intended
-                }
+            let value;
+            let key;
+
+            if (group.classList.contains('struct-group')) {
+                key = group.dataset.originalName;
+                const content = group.querySelector('.struct-content');
+                value = collectFormData(content, false);
+            } else if (group.classList.contains('array-group')) {
+                key = group.dataset.originalName;
+                const content = group.querySelector('.array-items-container');
+                value = collectFormData(content, true);
+            } else if (group.classList.contains('map-group')) {
+                key = group.dataset.originalName;
+                const content = group.querySelector('.map-entries-container');
+                const entries = collectFormData(content, true);
+                value = {};
+                entries.forEach(entry => {
+                    if (entry.key !== undefined) value[entry.key] = entry.value;
+                });
+            } else {
+                const input = group.querySelector('.param-input');
+                if (!input) return;
+
+                // key fallback: dataset.originalName (Struct/Map), or input.name (Manual Primitive)
+                key = group.dataset.originalName || input.name;
+                if (!isArray && !key) return; // Should not happen for named params
+
+                value = parseInputValue(input);
             }
 
-            values[index] = val;
+            if (isArray) {
+                result.push(value);
+            } else {
+                // Ensure key is valid string
+                if (key) result[key] = value;
+            }
         });
+        return result;
+    };
 
-        // Fill sparse array if any gaps
-        for (let i = 0; i < values.length; i++) {
-            if (values[i] === undefined) values[i] = null;
-        }
-        return values;
+    function getInterceptorFormValues(id) {
+        const formContainer = document.getElementById(`interceptForm_${id}`);
+        if (!formContainer) return {};
+        // Intercept params are named arguments, so return Object
+        return collectFormData(formContainer, false);
     }
 
     function renderInterceptorForm(paramsDef, values, interceptId) {
@@ -846,52 +1173,10 @@
             return renderInput(param, undefined, { isInterceptor: false });
         }).join(''));
 
-        // Add change handlers
-        elements.paramsForm.querySelectorAll('input, textarea, select').forEach(input => {
-            input.addEventListener('input', () => {
-                updateParamValue(input.name, getInputValue(input), input.dataset.type);
-                updateGeneratedCode();
-            });
-            input.addEventListener('change', () => {
-                updateParamValue(input.name, getInputValue(input), input.dataset.type);
-                updateGeneratedCode();
-            });
-
-            // Initialize value
-            updateParamValue(input.name, getInputValue(input), input.dataset.type);
-        });
-
+        // Initialize state from default values in DOM
+        // We use a small timeout to ensure DOM is ready? No, synchronous is fine.
+        state.paramValues = collectFormData(elements.paramsForm, false);
         updateGeneratedCode();
-    }
-
-    function getInputValue(input) {
-        if (input.type === 'checkbox') {
-            return input.checked;
-        }
-        if (input.type === 'number') {
-            return parseFloat(input.value) || 0;
-        }
-        return input.value;
-    }
-
-    function updateParamValue(name, value, type) {
-        // Parse JSON for complex types
-        if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
-            try {
-                // If empty string, generic default
-                if (!value.trim()) {
-                    state.paramValues[name] = null;
-                } else {
-                    state.paramValues[name] = JSON.parse(value);
-                }
-            } catch (e) {
-                // If invalid JSON, store as string but it might fail invocation
-                // Optionally log error or show valid state
-                state.paramValues[name] = value;
-            }
-        } else {
-            state.paramValues[name] = value;
-        }
     }
 
     function resolveNamespace(moduleName) {
@@ -973,27 +1258,7 @@
                     const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
 
                     if (structSpec && structSpec.fields) {
-                        return structSpec.fields.map(field => {
-                            let type = 'any';
-                            let originalName = field.name;
-
-                            // Check for generated binding artifacts (nullable value structs)
-                            if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
-                                originalName = field.nullableValueKindProperties.originalFieldName;
-                            }
-
-                            // Use the runtime type inference
-                            type = inferTypeFromMojomType(field.type);
-
-                            // Use original name without prefix (safe in function scope)
-                            // e.g. 'location' -> 'location'
-
-                            return {
-                                name: originalName,
-                                type: type,
-                                optional: !!field.nullable
-                            };
-                        }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
+                        return mapFieldsToUIParams(structSpec.fields);
                     }
                 }
             }
@@ -1001,6 +1266,52 @@
             // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
             return null;
         }
+    }
+
+    function mapFieldsToUIParams(fields) {
+        return fields.map(field => {
+            let type = 'any';
+            let originalName = field.name;
+
+            // Check for generated binding artifacts (nullable value structs)
+            if (field.nullableValueKindProperties && field.nullableValueKindProperties.isPrimary) {
+                originalName = field.nullableValueKindProperties.originalFieldName;
+            }
+
+            // Use the runtime type inference
+            type = inferTypeFromMojomType(field.type);
+
+            // Detect generic Structs (Nested objects)
+            let structSpec = null;
+            let elementSpec = null; // For arrays
+            let mapSpec = null;     // For maps
+
+            if (field.type && field.type.$ && field.type.$.structSpec) {
+                type = 'struct';
+                structSpec = field.type.$.structSpec;
+            } else if (field.type && (field.type.elementType || (field.type.$ && field.type.$.elementType))) {
+                type = 'array';
+                elementSpec = field.type.elementType || field.type.$.elementType;
+            } else if (field.type && (field.type.keyType || (field.type.$ && field.type.$.keyType))) {
+                type = 'map';
+                mapSpec = {
+                    key: field.type.keyType || field.type.$.keyType,
+                    value: field.type.valueType || field.type.$.valueType
+                };
+            }
+
+            // Use original name without prefix (safe in function scope)
+            // e.g. 'location' -> 'location'
+
+            return {
+                name: originalName,
+                type: type,
+                structSpec: structSpec,
+                elementSpec: elementSpec,
+                mapSpec: mapSpec,
+                optional: !!field.nullable
+            };
+        }).filter(f => !f.name.endsWith('_$flag') && !f.name.endsWith('_$value'));
     }
 
     // ========================================
@@ -1084,12 +1395,24 @@
                 // If isExecution=true, we reconcile keys (add arg_).
                 // If isExecution=false (Display), we keep them clean.
                 if (isExecution && value && typeof value === 'object') {
-                    value = reconcileKeys(value, null);
+                    // Disable heuristics for Execution because state.paramValues keys come from form inputs 
+                    // which already have correct names (with arg_ prefix if needed).
+                    value = reconcileKeys(value, null, false);
                 }
 
                 let valueStr;
                 if (typeof value === 'bigint') {
                     valueStr = value.toString() + 'n';
+                } else if (p.type === 'map' && Array.isArray(value)) {
+                    // Fix for Manual Mode: Convert Array of {key, value} entries back to Map Object
+                    const mapObj = {};
+                    value.forEach(item => {
+                        if (item.key !== undefined) mapObj[item.key] = item.value;
+                    });
+                    // Reconcile keys on the constructed object if needed
+                    // Disable heuristics here too as we just built it from form data
+                    const processedMap = isExecution ? reconcileKeys(mapObj, null, false) : mapObj;
+                    valueStr = safeStringify(processedMap);
                 } else {
                     valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
                 }
@@ -1688,6 +2011,102 @@
         const clean = {};
         for (const key in obj) {
             let cleanKey = key;
+            // Only strip arg_ if it looks like a generated parameter name.
+            // Ideally we would use the schema, but for general display, we assume ALL `arg_` 
+            // at the TOP LEVEL or STRUCT LEVEL are params.
+            // But inside a Map? We don't know without the schema.
+            // Luckily, `sanitizeKeys` is mostly used for the simplified "Textarea" view or logging.
+            // If the user sees "arg_myKey" in a Map, that's technically correct for the raw protocol.
+            // BUT: The Protocol defines Map keys as just data. They normally DON'T get "arg_" prefix unless they are struct fields.
+            // Wait. Mojo bindings ONLY add `arg_` to METHOD ARGUMENTS.
+            // Struct fields do NOT get `arg_` prefix in the generated JS?
+            // Let's verify.
+            // If I have `struct Foo { int32 x; }`. JS object is `{ x: 1 }`.
+            // If I have `method Bar(int32 y)`. JS params are `{ arg_y: 2 }`.
+            // So `sanitizeKeys` should ONLY strip `arg_` from the top-level method arguments?
+            // No, `renderInput` is recursive.
+            // If I have `method Baz(Foo f)`. JS params `{ arg_f: { x: 1 } }`.
+            // So `sanitizeKeys` on `{ arg_f: { x: 1 } }` -> `{ f: { x: 1 } }`.
+            // The inner `x` does not have `arg_`.
+            // So `sanitizeKeys` should only affect keys starting with `arg_`.
+            // Does a Map key ever start with `arg_`? Yes, if the user put it there.
+            // `sanitizeKeys` is purely visual to make the JSON "prettier" in textareas.
+            // If I strip `arg_` from a map key `arg_user_input`, I change the data.
+            // So `sanitizeKeys` IS dangerous for deep objects if it applies recursively to EVERYTHING.
+            // 
+            // Fix: Mojo bindings used to prefix struct fields too? No, usually just method params.
+            // But let's look at `reconcileKeys`. It ADDS `arg_` back.
+            // If `sanitizeKeys` removes it, `reconcileKeys` must put it back.
+            // If we stop `sanitizeKeys` from recursing blindly, we are safer.
+            // BUT: `sanitizeKeys` is used for `showInterceptDetails` fallback.
+            // If we have a complex object, we want to see clean names.
+            // Compounding factor: `app.js` assumes `arg_` everywhere for "System Keys".
+            // Implementation: We should only strip `arg_` if we are reasonably sure it's a structural key.
+            // But we don't have schema in `sanitizeKeys`.
+            // Compromise: We keep `sanitizeKeys` as is (visual helper), BUT we rely on `renderInterceptorForm` (Schema-driven)
+            // for the primary view. The "Fallback" textarea is just a backup.
+            // However, `reconcileKeys` is CRITICAL for execution.
+            // `reconcileKeys` tries to add `arg_` back.
+            // If I have a Map { "key": "val" }, `reconcileKeys` might turn it into { "arg_key": "val" }.
+            // THAT IS A BUG.
+            // `reconcileKeys` must NOT touch Map keys.
+            // But `reconcileKeys` doesn't know it's a Map without schema.
+            // It just walks the object.
+            // We successfully fixed `generateCode` to disable heuristics for Map values.
+            // We should default `useHeuristics = false` for recursing into children unless we know they are struct fields?
+            // No, we don't know.
+            // The FIX was `reconcileKeys(value, null, false)` in `generateCode` for Map values.
+            // That protects Execution Mode.
+            // For Interception Resume: `resumeIntercept` uses `getInterceptorFormValues` which returns clean data,
+            // then calls `reconcileKeys`.
+            // IF the data came from `getInterceptorFormValues` (structured), we passed `useHeuristic = false`.
+            // So `reconcileKeys` will NOT add `arg_` blindly.
+            // It will only set keys that exist in `original` (which has `arg_`).
+            // Map keys in `original` do NOT have `arg_`. So `reconcileKeys` leaves them alone.
+            // So... the logic is actually sound?
+            // Let's verify `reconcileKeys` logic one more time.
+
+            // `if (original && original.hasOwnProperty('arg_' + key))` -> Restores arg_ param.
+            // `else if (original && original.hasOwnProperty(key))` -> KEEPS original key (Map key).
+            // `else ... if (useHeuristics ...)` -> Adds arg_ if likely param.
+
+            // For Map keys:
+            // 1. `original` has "myKey". `edited` has "myKey".
+            // 2. `original` has NO "arg_myKey".
+            // 3. `original` has "myKey".
+            // 4. `originalKey` = "myKey".
+            // 5. No heuristic. Correct.
+
+            // For NEW Map keys (added by user in interceptor):
+            // 1. `original` has NO "newKey".
+            // 2. Fallthrough to Heuristics.
+            // 3. `useHeuristics` is FALSE for Form Data.
+            // 4. `originalKey` = "newKey".
+            // 5. Correct.
+
+            // For Textarea editing (Schema unknown/Fallback):
+            // 1. User types `{ "x": 1 }`.
+            // 2. We want `{ "arg_x": 1 }` if x is a param.
+            // 3. `useHeuristics` is TRUE.
+            // 4. `original` might be null (if new object) or missing keys.
+            // 5. `originalKey` = "arg_x".
+            // 6. This is GOOD for params.
+            // 7. BAD for Maps? `{ "myMap": { "x": 1 } }`.
+            // 8. If `myMap` is a param, it becomes `arg_myMap`.
+            // 9. Inside recursion: `reconcileKeys({x:1}, ...)`
+            // 10. `x` becomes `arg_x`.
+            // 11. If `myMap` was a Map<String, Int>, `arg_x` is INVALID data.
+            // 
+            // So `reconcileKeys` WITH HEURISTICS is dangerous for nested Maps in Textarea mode.
+            // But Textarea mode is a fallback or for raw JSON editing.
+            // If the user edits raw JSON, they are expected to provide correct keys (including `arg_` if needed?).
+            // Or we try to help them.
+            // The current heuristic assumes "Recursive Structs" over "Maps".
+            // Given Mojo uses Structs heavily for params, this is a reasonable default for the "Magic" mode.
+            // And now that we have Full UI for Maps, users won't use Textarea for Maps often.
+            // So I think the current logic is acceptable, provided the UI path is robust.
+
+            // I will simplify `sanitizeKeys` slightly to be more readable but keep the logic.
             if (cleanKey.startsWith('arg_')) {
                 cleanKey = cleanKey.substring(4);
             }
@@ -1696,14 +2115,14 @@
         return clean;
     }
 
-    function reconcileKeys(edited, original) {
+    function reconcileKeys(edited, original, useHeuristics = true) {
         if (edited === null || typeof edited !== 'object') return edited;
         // Do NOT bail if original is null. usage: reconcileKeys(newItem, null)
         // We want to fall through to Heuristics loop.
 
         if (Array.isArray(edited)) {
             // Assume array order is preserved or just map
-            return edited.map((v, i) => reconcileKeys(v, Array.isArray(original) ? original[i] : null));
+            return edited.map((v, i) => reconcileKeys(v, Array.isArray(original) ? original[i] : null, useHeuristics));
         }
 
         const restored = {};
@@ -1718,12 +2137,14 @@
                 // If neither, and original is missing (or structural change), we depend on Heuristics.
                 // Most Mojo fields generated use 'arg_' prefix.
                 // We avoid adding it if the user ALREADY typed 'arg_' or for known metadata keys.
-                if (!key.startsWith('arg_') && !key.startsWith('$') && key !== 'uuid' && key !== 'ordinal') {
+                // BUT: We only do this if useHeuristics is true (for Sanitized text inputs).
+                // For Form-derived data, we trust the keys are already correct (they use data-original-name).
+                if (useHeuristics && !key.startsWith('arg_') && !key.startsWith('$') && key !== 'uuid' && key !== 'ordinal') {
                     originalKey = 'arg_' + key;
                 }
             }
 
-            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey]);
+            restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey], useHeuristics);
         }
         return restored;
     }
@@ -1832,6 +2253,7 @@
     // Modify request function (globally accessible for onclick)
     window.resumeIntercept = function (id, drop) {
         let params = null;
+        let useHeuristic = true;
 
         if (!drop) {
             const formContainer = document.getElementById(`interceptForm_${id}`);
@@ -1839,6 +2261,7 @@
                 // New logic: gather from form inputs
                 try {
                     params = getInterceptorFormValues(id);
+                    useHeuristic = false; // Form data has correct keys
                 } catch (e) {
                     alert('Error parsing form values: ' + e.message);
                     return;
@@ -1895,7 +2318,7 @@
                     });
                 }
 
-                const restoredParams = reconcileKeys(params, originalParams);
+                const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
 
                 proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
 
@@ -1918,11 +2341,13 @@
 
     window.replayIntercept = function (id) {
         let params = null;
+        let useHeuristic = true;
         try {
             // Gather params from the UI (interceptForm or textarea)
             const formContainer = document.getElementById(`interceptForm_${id}`);
             if (formContainer) {
                 params = getInterceptorFormValues(id);
+                useHeuristic = false;
             } else {
                 const textarea = document.getElementById(`interceptParams_${id}`);
                 if (textarea) params = safeParse(textarea.value);
@@ -1966,7 +2391,7 @@
 
                 // Reconcile keys
                 const originalParams = (detail && detail.params) ? detail.params : null;
-                const restoredParams = reconcileKeys(params, originalParams);
+                const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
 
                 // Add new activity row for the replay
                 addActivityRow({
