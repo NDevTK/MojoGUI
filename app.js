@@ -836,7 +836,7 @@
                         <span class="type">Struct</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
-                    <div class="struct-content">
+                    <div class="struct-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         ${renderedFields}
                     </div>
                 </div>`;
@@ -892,7 +892,7 @@
                         <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
                         <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} items</span>
                     </label>
-                    <div class="array-content">
+                    <div class="array-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         <div class="array-items-container">
                             ${renderedItems}
                         </div>
@@ -935,19 +935,20 @@
                 const valHtml = renderInput(valParam, entryValue, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]` });
 
                 return `
-                        <div class="form-group struct-group map-entry-content" 
-                             data-original-name="${idx === 'TEMPLATE_INDEX' ? 'TEMPLATE_INDEX' : idx}">
-                            <div class="map-entry-fields">
-                                <div class="map-key-field">${keyHtml}</div>
-                                <div class="map-value-field">${valHtml}</div>
+                        <div class="form-group struct-group map-entry" 
+                             data-original-name="${idx === 'TEMPLATE_INDEX' ? 'TEMPLATE_INDEX' : idx}"
+                             style="margin-bottom: 0;">
+                            <div class="struct-content" style="display: flex; gap: 8px; align-items: flex-start;">
+                                <div style="flex: 1;">${keyHtml}</div>
+                                <div style="flex: 2;">${valHtml}</div>
                             </div>
                         </div>`;
             };
 
             const renderedEntries = entries.map((entry, i) => `
-                    <div class="array-item map-entry-wrapper">
-                        <div class="item-content">${renderEntryHtml(entry[0], entry[1], i)}</div>
-                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()">&times;</button>
+                    <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
+                        <div style="flex-grow: 1;">${renderEntryHtml(entry[0], entry[1], i)}</div>
+                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
                     </div>
                 `).join('');
 
@@ -966,7 +967,7 @@
                         <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.key)}, ${inferTypeFromMojomType(param.mapSpec.value)}&gt;</span>
                         <span class="badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} entries</span>
                     </label>
-                    <div class="map-content">
+                    <div class="map-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         <div class="map-entries-container">
                             ${renderedEntries}
                         </div>
@@ -1030,7 +1031,7 @@
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
                         <span class="type">Union</span>
                      </label>
-                     <div class="union-membership">
+                     <div style="margin-bottom: 6px;">
                         <span class="badget">Active Member:</span>
                         <select class="union-discriminator" onchange="
                             const group = this.closest('.union-group');

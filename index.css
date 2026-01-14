@@ -612,7 +612,6 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
-    width: 100%;
 }
 
 .form-group label {
@@ -645,8 +644,6 @@ body::before {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    box-sizing: border-box;
     padding: var(--space-sm) var(--space-md);
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border-default);
@@ -1800,24 +1797,6 @@ input:checked+.switch-slider::before {
     border-left-color: var(--border-highlight);
 }
 
-.struct-group>label,
-.array-group>label,
-.map-group>label {
-    cursor: pointer;
-    user-select: none;
-}
-
-.struct-content,
-.array-content,
-.map-content {
-    padding-left: 10px;
-    border-left: 2px solid var(--border-subtle);
-    margin-left: 4px;
-    margin-top: 4px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .array-items-container,
 .map-entries-container {
     display: flex;
@@ -1853,33 +1832,11 @@ input:checked+.switch-slider::before {
     background: rgba(255, 255, 255, 0.04);
 }
 
-.map-entry-wrapper {
-    display: block;
-    /* Ensure it stretches */
-    width: 100%;
-}
-
-.map-entry-content {
-    margin-bottom: 0;
-}
-
-.map-entry-fields {
+.map-entry {
     display: flex;
+    flex-direction: column;
     gap: var(--space-md);
-    align-items: flex-start;
-    width: 100%;
-}
-
-.map-key-field {
-    flex: 1;
-}
-
-.map-value-field {
-    flex: 2;
-}
-
-.union-membership {
-    margin-bottom: var(--space-sm);
+    padding: var(--space-md);
 }
 
 .map-key-group,
