@@ -1042,8 +1042,16 @@
             inputType = 'textarea';
         }
 
+        if (param.type === 'string16') {
+            inputType = 'text';
+            if (value && value.data && Array.isArray(value.data)) {
+                // Convert char codes back to string
+                displayValue = String.fromCharCode(...value.data);
+            }
+        }
+
         // Force textarea for 'json', complex types, or if it's a BigInt value (to allow editing as text)
-        if (param.type === 'json' || param.type.includes('array') || param.type.includes('map') || (value && typeof value === 'object')) {
+        if (param.type === 'json' || param.type.includes('array') || param.type.includes('map') || (value && typeof value === 'object' && param.type !== 'string16')) {
             inputType = 'textarea';
         }
 
@@ -1140,6 +1148,13 @@
             try { val = JSON.parse(val); } catch (e) { }
         } else if (type === 'url_wrapped') {
             val = { url: val };
+        } else if (type === 'string16') {
+            // Convert string to array of char codes
+            const data = [];
+            for (let i = 0; i < val.length; i++) {
+                data.push(val.charCodeAt(i));
+            }
+            val = { data: data };
         }
         return val;
     };
@@ -1331,8 +1346,12 @@
                 mojomType === mojoLib.internal.Double) return 'number';
         }
 
-        // Arrays are tricky because they are constructible functions in bindings_lite
-        // We can check if it has array properties or naming convention
+
+        // Explicitly handle String16 struct
+        if (typeof mojomType === 'object' && mojomType.name === 'mojo_base.mojom.String16') {
+            return 'string16';
+        }
+
         if (typeof mojomType === 'string') return mojomType;
 
         return 'string'; // Default to string input for complex types so user can paste JSON/values
