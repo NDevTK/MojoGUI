@@ -36,7 +36,7 @@ const WelcomeManager = (function () {
 
     const WELCOME_HTML = `
         <h3>👋 Welcome to MojoGUI</h3>
-        <p>A premium interface for exploring and intercepting MojoJS IPC messages in Chromium. <br>Bindings are automatically generated for the latest <strong>Chrome Canary</strong> version.</p>
+        <p>A premium interface for exploring and intercepting MojoJS IPC messages in Chromium. <br>Bindings are generated for <strong>Chrome {VERSION}</strong>.</p>
         
         <div class="step-card">
             <h4><span class="step-number">?</span> What is Mojo?</h4>
@@ -62,6 +62,8 @@ const WelcomeManager = (function () {
             </ol>
         </div>
     `;
+
+
 
     function buildWhatsNewHtml(diff) {
         let html = '<h3>Changes detected since your last visit:</h3>';
@@ -196,7 +198,8 @@ const WelcomeManager = (function () {
 
             if (updates) {
                 if (updates.isFirstVisit) {
-                    createModal("👋 Welcome to MojoGUI", WELCOME_HTML);
+                    const welcomeHtml = WELCOME_HTML.replace('{VERSION}', browserVersion ? escapeHtml(browserVersion) : 'Canary');
+                    createModal("👋 Welcome to MojoGUI", welcomeHtml);
                 } else if (updates.added || updates.changed || updates.removed) {
                     createModal("⚡ What's New", buildWhatsNewHtml(updates));
                 }

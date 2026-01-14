@@ -873,7 +873,10 @@ jobs:
                       
                       # Pointers (Structs, Arrays, Maps, Unions)
                       # Fix: Strip mojo.internal.bindings prefix to match global_kind_map keys
-                      spec_name = p_type.replace('Spec', '').replace('mojo.internal.bindings.', '')
+                      # Fix: Only strip Spec if it is a suffix
+                      spec_name = p_type.replace('mojo.internal.bindings.', '')
+                      if spec_name.endswith('Spec'):
+                          spec_name = spec_name[:-4]
                       kind = global_kind_map.get(spec_name)
                       if kind == 'enum': return 4, 4
                       if kind == 'union': return 16, 8
@@ -1624,6 +1627,7 @@ jobs:
               
               index_data = {
                   'generated_at': datetime.datetime.utcnow().isoformat() + 'Z',
+                  'version': FALLBACK_VERSION_STRING,
                   'interfaces': [],
                   'files': []
               }

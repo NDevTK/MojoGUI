@@ -222,8 +222,17 @@
         await loadInterfaces();
 
         // Initialize Welcome/Update Manager
+        let trackerVersion = window.mojoVersion;
+        if (typeof MojoBindings !== 'undefined' && MojoBindings.getMetadata) {
+            const meta = MojoBindings.getMetadata();
+            if (meta && meta.version) {
+                trackerVersion = meta.version;
+                console.log('[MojoGUI] Bindings Version:', trackerVersion);
+            }
+        }
+
         if (window.WelcomeManager) {
-            WelcomeManager.init(state.interfaces, safeHTML, window.mojoVersion);
+            WelcomeManager.init(state.interfaces, safeHTML, trackerVersion);
         }
 
         setupEventListeners();
