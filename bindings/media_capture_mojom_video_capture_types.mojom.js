@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -247,10 +247,8 @@ mojo.internal.bindings.media.mojom.VideoCaptureTransportType = {
 // Enum: VideoCaptureBufferType
 mojo.internal.bindings.media.mojom.VideoCaptureBufferType = {
   kSharedMemory: 0,
-  kSharedMemoryViaRawFileDescriptor_DEPRECATED: 1,
-  kMailboxHolder: 2,
-  kGpuMemoryBuffer: 3,
-  kSharedImage: 4,
+  kGpuMemoryBuffer: 1,
+  kSharedImage: 2,
 };
 
 // Enum: VideoCaptureError

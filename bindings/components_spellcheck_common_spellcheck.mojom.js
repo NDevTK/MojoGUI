@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -139,11 +139,8 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHost = {};
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec = { $ : {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost.$interfaceName = 'spellcheck.mojom.SpellCheckHost';
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = { $: {} };
@@ -580,19 +577,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, 'spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_Params', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_spelling_markers', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RangeSpec, false), null, false, 0, undefined),
@@ -604,11 +588,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_CheckSpelling_Params', [
@@ -675,14 +654,8 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemote = class {
   notifyChecked(arg_word, arg_misspelled) {
     return this.$.notifyChecked(arg_word, arg_misspelled);
   }
-  callSpellingService(arg_text) {
-    return this.$.callSpellingService(arg_text);
-  }
   requestTextCheck(arg_text, arg_spelling_markers) {
     return this.$.requestTextCheck(arg_text, arg_spelling_markers);
-  }
-  disconnectSessionBridge() {
-    return this.$.disconnectSessionBridge();
   }
   checkSpelling(arg_word) {
     return this.$.checkSpelling(arg_word);
@@ -704,8 +677,6 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -718,36 +689,18 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       false);
   }
 
-  callSpellingService(arg_text) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
-      mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
-      [arg_text],
-      false);
-  }
-
   requestTextCheck(arg_text, arg_spelling_markers) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
       [arg_text, arg_spelling_markers],
       false);
   }
 
-  disconnectSessionBridge() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   checkSpelling(arg_word) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
       [arg_word],
@@ -756,7 +709,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
 
   fillSuggestionList(arg_word) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
       [arg_word],
@@ -765,7 +718,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
 
   initializeDictionaries() {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
       [],
@@ -790,8 +743,6 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('spellcheck.mojom.SpellCheckHost', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -858,30 +809,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyChecked failed with TypeError');
            }
         }
-        // Try Method 1: CallSpellingService
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CallSpellingService (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CallSpellingService failed with TypeError');
-           }
-        }
-        // Try Method 2: RequestTextCheck
+        // Try Method 1: RequestTextCheck
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec;
@@ -895,39 +823,16 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextCheck (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextCheck (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for RequestTextCheck failed with TypeError');
            }
         }
-        // Try Method 3: DisconnectSessionBridge
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisconnectSessionBridge (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for DisconnectSessionBridge failed with TypeError');
-           }
-        }
-        // Try Method 4: CheckSpelling
+        // Try Method 2: CheckSpelling
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec;
@@ -941,16 +846,16 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CheckSpelling failed with TypeError');
            }
         }
-        // Try Method 5: FillSuggestionList
+        // Try Method 3: FillSuggestionList
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec;
@@ -964,16 +869,16 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillSuggestionList (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillSuggestionList (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for FillSuggestionList failed with TypeError');
            }
         }
-        // Try Method 6: InitializeDictionaries
+        // Try Method 4: InitializeDictionaries
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.structSpec;
@@ -987,9 +892,9 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDictionaries (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDictionaries (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
@@ -1016,19 +921,6 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.callSpellingService');
-          const result = this.impl.callSpellingService(params.arg_text);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CallSpellingService FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTextCheck');
           const result = this.impl.requestTextCheck(params.arg_text, params.arg_spelling_markers);
@@ -1040,14 +932,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.disconnectSessionBridge');
-          const result = this.impl.disconnectSessionBridge();
-          break;
-        }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSpelling');
@@ -1060,7 +945,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fillSuggestionList');
@@ -1073,7 +958,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeDictionaries');

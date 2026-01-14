@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,7 +128,6 @@ mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec
 mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = { $: {} };
 
@@ -154,12 +153,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec, 'content.mojom.RendererHost_RecordUserMetricsAction_Params', [
       mojo.internal.StructField('arg_action', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec, 'content.mojom.RendererHost_SetPrivateMemoryFootprint_Params', [
-      mojo.internal.StructField('arg_private_memory_footprint_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -208,9 +201,6 @@ mojo.internal.bindings.content.mojom.RendererHostRemote = class {
   recordUserMetricsAction(arg_action) {
     return this.$.recordUserMetricsAction(arg_action);
   }
-  setPrivateMemoryFootprint(arg_private_memory_footprint_bytes) {
-    return this.$.setPrivateMemoryFootprint(arg_private_memory_footprint_bytes);
-  }
   hasGpuProcess() {
     return this.$.hasGpuProcess();
   }
@@ -220,7 +210,6 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.RendererHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -255,18 +244,9 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       false);
   }
 
-  setPrivateMemoryFootprint(arg_private_memory_footprint_bytes) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
-      null,
-      [arg_private_memory_footprint_bytes],
-      false);
-  }
-
   hasGpuProcess() {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
       mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
       [],
@@ -291,7 +271,6 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.RendererHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -403,30 +382,7 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for RecordUserMetricsAction failed with TypeError');
            }
         }
-        // Try Method 3: SetPrivateMemoryFootprint
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivateMemoryFootprint (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetPrivateMemoryFootprint failed with TypeError');
-           }
-        }
-        // Try Method 4: HasGpuProcess
+        // Try Method 3: HasGpuProcess
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec;
@@ -440,9 +396,9 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasGpuProcess (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasGpuProcess (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
                }
              }
            } catch (e) {
@@ -488,13 +444,6 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           break;
         }
         case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setPrivateMemoryFootprint');
-          const result = this.impl.setPrivateMemoryFootprint(params.arg_private_memory_footprint_bytes);
-          break;
-        }
-        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasGpuProcess');

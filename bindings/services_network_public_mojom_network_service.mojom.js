@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,19 +158,9 @@ mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSp
 mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec = { $: {} };
@@ -178,7 +168,6 @@ mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec = { 
 mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec = { $: {} };
@@ -204,9 +193,6 @@ mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_s
 mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ApplicationStateSpec = mojo.internal.bindings.mojo_base.mojom.ApplicationStateSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
@@ -226,9 +212,6 @@ mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.CTLogInfoSpec = mojo.internal.bindings.network.mojom.CTLogInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec = mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec || { $: mojo.internal.Enum().$ };
@@ -678,12 +661,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec, 'network.mojom.NetworkService_OnApplicationStateChange_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo_base.mojom.ApplicationStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec, 'network.mojom.NetworkService_SetTrustTokenKeyCommitments_Params', [
       mojo.internal.StructField('arg_raw_commitments', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -695,61 +672,11 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec, 'network.mojom.NetworkService_ClearSCTAuditingCache_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec, 'network.mojom.NetworkService_ConfigureSCTAuditing_Params', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.network.mojom.SCTAuditingConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ParamsSpec, 'network.mojom.NetworkService_UpdateCtLogList_Params', [
-      mojo.internal.StructField('arg_log_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CTLogInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec, 'network.mojom.NetworkService_UpdateCtLogList_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec, 'network.mojom.NetworkService_UpdateCtKnownPopularSCTs_Params', [
-      mojo.internal.StructField('arg_sct_hashes', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec, 'network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec, 'network.mojom.NetworkService_SetCtEnforcementEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec, 'network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec, 'network.mojom.NetworkService_UpdateKeyPinsList_Params', [
       mojo.internal.StructField('arg_pin_list', 0, 0, mojo.internal.bindings.network.mojom.PinListSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_update_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec, 'network.mojom.NetworkService_DumpWithoutCrashing_Params', [
-      mojo.internal.StructField('arg_dump_request_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec, 'network.mojom.NetworkService_BindTestInterfaceForTesting_Params', [
@@ -791,12 +718,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec, 'network.mojom.NetworkService_SetIPv6ReachabilityOverride_Params', [
       mojo.internal.StructField('arg_reachability_override', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec, 'network.mojom.NetworkService_SetGssapiLibraryLoadObserver_Params', [
-      mojo.internal.StructField('arg_gssapi_library_load_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.GssapiLibraryLoadObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -932,32 +853,11 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemote = class {
   onPeerToPeerConnectionsCountChange(arg_count) {
     return this.$.onPeerToPeerConnectionsCountChange(arg_count);
   }
-  onApplicationStateChange(arg_state) {
-    return this.$.onApplicationStateChange(arg_state);
-  }
   setTrustTokenKeyCommitments(arg_raw_commitments) {
     return this.$.setTrustTokenKeyCommitments(arg_raw_commitments);
   }
-  clearSCTAuditingCache() {
-    return this.$.clearSCTAuditingCache();
-  }
-  configureSCTAuditing(arg_configuration) {
-    return this.$.configureSCTAuditing(arg_configuration);
-  }
-  updateCtLogList(arg_log_list) {
-    return this.$.updateCtLogList(arg_log_list);
-  }
-  updateCtKnownPopularSCTs(arg_sct_hashes) {
-    return this.$.updateCtKnownPopularSCTs(arg_sct_hashes);
-  }
-  setCtEnforcementEnabled(arg_enabled) {
-    return this.$.setCtEnforcementEnabled(arg_enabled);
-  }
   updateKeyPinsList(arg_pin_list, arg_update_time) {
     return this.$.updateKeyPinsList(arg_pin_list, arg_update_time);
-  }
-  dumpWithoutCrashing(arg_dump_request_time) {
-    return this.$.dumpWithoutCrashing(arg_dump_request_time);
   }
   bindTestInterfaceForTesting(arg_receiver) {
     return this.$.bindTestInterfaceForTesting(arg_receiver);
@@ -976,9 +876,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemote = class {
   }
   setIPv6ReachabilityOverride(arg_reachability_override) {
     return this.$.setIPv6ReachabilityOverride(arg_reachability_override);
-  }
-  setGssapiLibraryLoadObserver(arg_gssapi_library_load_observer) {
-    return this.$.setGssapiLibraryLoadObserver(arg_gssapi_library_load_observer);
   }
   setNetworkAnnotationMonitor(arg_remote) {
     return this.$.setNetworkAnnotationMonitor(arg_remote);
@@ -1004,14 +901,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkService', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1219,90 +1108,27 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       false);
   }
 
-  onApplicationStateChange(arg_state) {
-    return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec,
-      null,
-      [arg_state],
-      false);
-  }
-
   setTrustTokenKeyCommitments(arg_raw_commitments) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec,
       [arg_raw_commitments],
       false);
   }
 
-  clearSCTAuditingCache() {
-    return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  configureSCTAuditing(arg_configuration) {
-    return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec,
-      null,
-      [arg_configuration],
-      false);
-  }
-
-  updateCtLogList(arg_log_list) {
-    return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ParamsSpec,
-      mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec,
-      [arg_log_list],
-      false);
-  }
-
-  updateCtKnownPopularSCTs(arg_sct_hashes) {
-    return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec,
-      mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec,
-      [arg_sct_hashes],
-      false);
-  }
-
-  setCtEnforcementEnabled(arg_enabled) {
-    return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec,
-      mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec,
-      [arg_enabled],
-      false);
-  }
-
   updateKeyPinsList(arg_pin_list, arg_update_time) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec,
       null,
       [arg_pin_list, arg_update_time],
       false);
   }
 
-  dumpWithoutCrashing(arg_dump_request_time) {
-    return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec,
-      null,
-      [arg_dump_request_time],
-      false);
-  }
-
   bindTestInterfaceForTesting(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec,
       null,
       [arg_receiver],
@@ -1311,7 +1137,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setFirstPartySets(arg_sets) {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec,
       null,
       [arg_sets],
@@ -1320,7 +1146,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setExplicitlyAllowedPorts(arg_ports) {
     return this.proxy.sendMessage(
-      this.ordinals[30],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec,
       null,
       [arg_ports],
@@ -1329,7 +1155,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   parseHeaders(arg_url, arg_headers) {
     return this.proxy.sendMessage(
-      this.ordinals[31],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec,
       [arg_url, arg_headers],
@@ -1338,7 +1164,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   enableDataUseUpdates(arg_enable) {
     return this.proxy.sendMessage(
-      this.ordinals[32],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec,
       null,
       [arg_enable],
@@ -1347,25 +1173,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setIPv6ReachabilityOverride(arg_reachability_override) {
     return this.proxy.sendMessage(
-      this.ordinals[33],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec,
       null,
       [arg_reachability_override],
       false);
   }
 
-  setGssapiLibraryLoadObserver(arg_gssapi_library_load_observer) {
-    return this.proxy.sendMessage(
-      this.ordinals[34],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec,
-      null,
-      [arg_gssapi_library_load_observer],
-      false);
-  }
-
   setNetworkAnnotationMonitor(arg_remote) {
     return this.proxy.sendMessage(
-      this.ordinals[35],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec,
       null,
       [arg_remote],
@@ -1374,7 +1191,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setTpcdMetadataGrants(arg_settings) {
     return this.proxy.sendMessage(
-      this.ordinals[36],  // ordinal
+      this.ordinals[28],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec,
       null,
       [arg_settings],
@@ -1383,7 +1200,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   interceptUrlLoaderForBodyDecoding(arg_content_encoding_types, arg_source_body, arg_dest_body, arg_source_url_loader, arg_source_url_loader_client, arg_dest_url_loader, arg_dest_url_loader_client) {
     return this.proxy.sendMessage(
-      this.ordinals[37],  // ordinal
+      this.ordinals[29],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec,
       null,
       [arg_content_encoding_types, arg_source_body, arg_dest_body, arg_source_url_loader, arg_source_url_loader_client, arg_dest_url_loader, arg_dest_url_loader_client],
@@ -1392,7 +1209,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   decodeContentEncoding(arg_content_encoding_types, arg_source_body, arg_dest_body) {
     return this.proxy.sendMessage(
-      this.ordinals[38],  // ordinal
+      this.ordinals[30],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec,
       [arg_content_encoding_types, arg_source_body, arg_dest_body],
@@ -1401,7 +1218,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setTLS13EarlyDataEnabled(arg_enabled) {
     return this.proxy.sendMessage(
-      this.ordinals[39],  // ordinal
+      this.ordinals[31],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec,
       null,
       [arg_enabled],
@@ -1410,7 +1227,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   addDurableMessageCollector(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[40],  // ordinal
+      this.ordinals[32],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec,
       null,
       [arg_receiver],
@@ -1435,14 +1252,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkService', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1951,30 +1760,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnPeerToPeerConnectionsCountChange failed with TypeError');
            }
         }
-        // Try Method 19: OnApplicationStateChange
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnApplicationStateChange (19)');
-                 this.mapOrdinal(header.ordinal, 19);
-                 dispatchId = 19;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnApplicationStateChange failed with TypeError');
-           }
-        }
-        // Try Method 20: SetTrustTokenKeyCommitments
+        // Try Method 19: SetTrustTokenKeyCommitments
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$.structSpec;
@@ -1988,131 +1774,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrustTokenKeyCommitments (20)');
-                 this.mapOrdinal(header.ordinal, 20);
-                 dispatchId = 20;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrustTokenKeyCommitments (19)');
+                 this.mapOrdinal(header.ordinal, 19);
+                 dispatchId = 19;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetTrustTokenKeyCommitments failed with TypeError');
            }
         }
-        // Try Method 21: ClearSCTAuditingCache
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSCTAuditingCache (21)');
-                 this.mapOrdinal(header.ordinal, 21);
-                 dispatchId = 21;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ClearSCTAuditingCache failed with TypeError');
-           }
-        }
-        // Try Method 22: ConfigureSCTAuditing
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureSCTAuditing (22)');
-                 this.mapOrdinal(header.ordinal, 22);
-                 dispatchId = 22;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ConfigureSCTAuditing failed with TypeError');
-           }
-        }
-        // Try Method 23: UpdateCtLogList
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtLogList (23)');
-                 this.mapOrdinal(header.ordinal, 23);
-                 dispatchId = 23;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateCtLogList failed with TypeError');
-           }
-        }
-        // Try Method 24: UpdateCtKnownPopularSCTs
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtKnownPopularSCTs (24)');
-                 this.mapOrdinal(header.ordinal, 24);
-                 dispatchId = 24;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateCtKnownPopularSCTs failed with TypeError');
-           }
-        }
-        // Try Method 25: SetCtEnforcementEnabled
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCtEnforcementEnabled (25)');
-                 this.mapOrdinal(header.ordinal, 25);
-                 dispatchId = 25;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetCtEnforcementEnabled failed with TypeError');
-           }
-        }
-        // Try Method 26: UpdateKeyPinsList
+        // Try Method 20: UpdateKeyPinsList
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$.structSpec;
@@ -2126,39 +1797,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateKeyPinsList (26)');
-                 this.mapOrdinal(header.ordinal, 26);
-                 dispatchId = 26;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateKeyPinsList (20)');
+                 this.mapOrdinal(header.ordinal, 20);
+                 dispatchId = 20;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateKeyPinsList failed with TypeError');
            }
         }
-        // Try Method 27: DumpWithoutCrashing
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpWithoutCrashing (27)');
-                 this.mapOrdinal(header.ordinal, 27);
-                 dispatchId = 27;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for DumpWithoutCrashing failed with TypeError');
-           }
-        }
-        // Try Method 28: BindTestInterfaceForTesting
+        // Try Method 21: BindTestInterfaceForTesting
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$.structSpec;
@@ -2172,16 +1820,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestInterfaceForTesting (28)');
-                 this.mapOrdinal(header.ordinal, 28);
-                 dispatchId = 28;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestInterfaceForTesting (21)');
+                 this.mapOrdinal(header.ordinal, 21);
+                 dispatchId = 21;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for BindTestInterfaceForTesting failed with TypeError');
            }
         }
-        // Try Method 29: SetFirstPartySets
+        // Try Method 22: SetFirstPartySets
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$.structSpec;
@@ -2195,16 +1843,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFirstPartySets (29)');
-                 this.mapOrdinal(header.ordinal, 29);
-                 dispatchId = 29;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFirstPartySets (22)');
+                 this.mapOrdinal(header.ordinal, 22);
+                 dispatchId = 22;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetFirstPartySets failed with TypeError');
            }
         }
-        // Try Method 30: SetExplicitlyAllowedPorts
+        // Try Method 23: SetExplicitlyAllowedPorts
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$.structSpec;
@@ -2218,16 +1866,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExplicitlyAllowedPorts (30)');
-                 this.mapOrdinal(header.ordinal, 30);
-                 dispatchId = 30;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExplicitlyAllowedPorts (23)');
+                 this.mapOrdinal(header.ordinal, 23);
+                 dispatchId = 23;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetExplicitlyAllowedPorts failed with TypeError');
            }
         }
-        // Try Method 31: ParseHeaders
+        // Try Method 24: ParseHeaders
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec.$.structSpec;
@@ -2241,16 +1889,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseHeaders (31)');
-                 this.mapOrdinal(header.ordinal, 31);
-                 dispatchId = 31;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseHeaders (24)');
+                 this.mapOrdinal(header.ordinal, 24);
+                 dispatchId = 24;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ParseHeaders failed with TypeError');
            }
         }
-        // Try Method 32: EnableDataUseUpdates
+        // Try Method 25: EnableDataUseUpdates
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$.structSpec;
@@ -2264,16 +1912,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDataUseUpdates (32)');
-                 this.mapOrdinal(header.ordinal, 32);
-                 dispatchId = 32;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDataUseUpdates (25)');
+                 this.mapOrdinal(header.ordinal, 25);
+                 dispatchId = 25;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for EnableDataUseUpdates failed with TypeError');
            }
         }
-        // Try Method 33: SetIPv6ReachabilityOverride
+        // Try Method 26: SetIPv6ReachabilityOverride
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$.structSpec;
@@ -2287,39 +1935,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPv6ReachabilityOverride (33)');
-                 this.mapOrdinal(header.ordinal, 33);
-                 dispatchId = 33;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPv6ReachabilityOverride (26)');
+                 this.mapOrdinal(header.ordinal, 26);
+                 dispatchId = 26;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetIPv6ReachabilityOverride failed with TypeError');
            }
         }
-        // Try Method 34: SetGssapiLibraryLoadObserver
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGssapiLibraryLoadObserver (34)');
-                 this.mapOrdinal(header.ordinal, 34);
-                 dispatchId = 34;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetGssapiLibraryLoadObserver failed with TypeError');
-           }
-        }
-        // Try Method 35: SetNetworkAnnotationMonitor
+        // Try Method 27: SetNetworkAnnotationMonitor
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$.structSpec;
@@ -2333,16 +1958,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkAnnotationMonitor (35)');
-                 this.mapOrdinal(header.ordinal, 35);
-                 dispatchId = 35;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkAnnotationMonitor (27)');
+                 this.mapOrdinal(header.ordinal, 27);
+                 dispatchId = 27;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetNetworkAnnotationMonitor failed with TypeError');
            }
         }
-        // Try Method 36: SetTpcdMetadataGrants
+        // Try Method 28: SetTpcdMetadataGrants
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$.structSpec;
@@ -2356,16 +1981,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTpcdMetadataGrants (36)');
-                 this.mapOrdinal(header.ordinal, 36);
-                 dispatchId = 36;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTpcdMetadataGrants (28)');
+                 this.mapOrdinal(header.ordinal, 28);
+                 dispatchId = 28;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetTpcdMetadataGrants failed with TypeError');
            }
         }
-        // Try Method 37: InterceptUrlLoaderForBodyDecoding
+        // Try Method 29: InterceptUrlLoaderForBodyDecoding
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$.structSpec;
@@ -2379,16 +2004,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InterceptUrlLoaderForBodyDecoding (37)');
-                 this.mapOrdinal(header.ordinal, 37);
-                 dispatchId = 37;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InterceptUrlLoaderForBodyDecoding (29)');
+                 this.mapOrdinal(header.ordinal, 29);
+                 dispatchId = 29;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for InterceptUrlLoaderForBodyDecoding failed with TypeError');
            }
         }
-        // Try Method 38: DecodeContentEncoding
+        // Try Method 30: DecodeContentEncoding
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$.structSpec;
@@ -2402,16 +2027,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeContentEncoding (38)');
-                 this.mapOrdinal(header.ordinal, 38);
-                 dispatchId = 38;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeContentEncoding (30)');
+                 this.mapOrdinal(header.ordinal, 30);
+                 dispatchId = 30;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for DecodeContentEncoding failed with TypeError');
            }
         }
-        // Try Method 39: SetTLS13EarlyDataEnabled
+        // Try Method 31: SetTLS13EarlyDataEnabled
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$.structSpec;
@@ -2425,16 +2050,16 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTLS13EarlyDataEnabled (39)');
-                 this.mapOrdinal(header.ordinal, 39);
-                 dispatchId = 39;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTLS13EarlyDataEnabled (31)');
+                 this.mapOrdinal(header.ordinal, 31);
+                 dispatchId = 31;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetTLS13EarlyDataEnabled failed with TypeError');
            }
         }
-        // Try Method 40: AddDurableMessageCollector
+        // Try Method 32: AddDurableMessageCollector
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$.structSpec;
@@ -2448,9 +2073,9 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDurableMessageCollector (40)');
-                 this.mapOrdinal(header.ordinal, 40);
-                 dispatchId = 40;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDurableMessageCollector (32)');
+                 this.mapOrdinal(header.ordinal, 32);
+                 dispatchId = 32;
                }
              }
            } catch (e) {
@@ -2609,13 +2234,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onApplicationStateChange');
-          const result = this.impl.onApplicationStateChange(params.arg_state);
-          break;
-        }
-        case 20: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrustTokenKeyCommitments');
           const result = this.impl.setTrustTokenKeyCommitments(params.arg_raw_commitments);
@@ -2627,95 +2245,35 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 21: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.clearSCTAuditingCache');
-          const result = this.impl.clearSCTAuditingCache();
-          break;
-        }
-        case 22: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.configureSCTAuditing');
-          const result = this.impl.configureSCTAuditing(params.arg_configuration);
-          break;
-        }
-        case 23: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateCtLogList');
-          const result = this.impl.updateCtLogList(params.arg_log_list);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateCtLogList FAILED:', e));
-          }
-          break;
-        }
-        case 24: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateCtKnownPopularSCTs');
-          const result = this.impl.updateCtKnownPopularSCTs(params.arg_sct_hashes);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateCtKnownPopularSCTs FAILED:', e));
-          }
-          break;
-        }
-        case 25: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCtEnforcementEnabled');
-          const result = this.impl.setCtEnforcementEnabled(params.arg_enabled);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetCtEnforcementEnabled FAILED:', e));
-          }
-          break;
-        }
-        case 26: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateKeyPinsList');
           const result = this.impl.updateKeyPinsList(params.arg_pin_list, params.arg_update_time);
           break;
         }
-        case 27: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.dumpWithoutCrashing');
-          const result = this.impl.dumpWithoutCrashing(params.arg_dump_request_time);
-          break;
-        }
-        case 28: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
           const result = this.impl.bindTestInterfaceForTesting(params.arg_receiver);
           break;
         }
-        case 29: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFirstPartySets');
           const result = this.impl.setFirstPartySets(params.arg_sets);
           break;
         }
-        case 30: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExplicitlyAllowedPorts');
           const result = this.impl.setExplicitlyAllowedPorts(params.arg_ports);
           break;
         }
-        case 31: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseHeaders');
@@ -2728,49 +2286,42 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 32: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDataUseUpdates');
           const result = this.impl.enableDataUseUpdates(params.arg_enable);
           break;
         }
-        case 33: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIPv6ReachabilityOverride');
           const result = this.impl.setIPv6ReachabilityOverride(params.arg_reachability_override);
           break;
         }
-        case 34: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setGssapiLibraryLoadObserver');
-          const result = this.impl.setGssapiLibraryLoadObserver(params.arg_gssapi_library_load_observer);
-          break;
-        }
-        case 35: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkAnnotationMonitor');
           const result = this.impl.setNetworkAnnotationMonitor(params.arg_remote);
           break;
         }
-        case 36: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTpcdMetadataGrants');
           const result = this.impl.setTpcdMetadataGrants(params.arg_settings);
           break;
         }
-        case 37: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.interceptUrlLoaderForBodyDecoding');
           const result = this.impl.interceptUrlLoaderForBodyDecoding(params.arg_content_encoding_types, params.arg_source_body, params.arg_dest_body, params.arg_source_url_loader, params.arg_source_url_loader_client, params.arg_dest_url_loader, params.arg_dest_url_loader_client);
           break;
         }
-        case 38: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeContentEncoding');
@@ -2783,14 +2334,14 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 39: {
+        case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTLS13EarlyDataEnabled');
           const result = this.impl.setTLS13EarlyDataEnabled(params.arg_enabled);
           break;
         }
-        case 40: {
+        case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDurableMessageCollector');

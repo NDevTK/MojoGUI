@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,7 +145,6 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_I
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = { $: {} };
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage = {};
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec = { $ : {} };
@@ -463,11 +462,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_Params', [
       mojo.internal.StructField('arg_include', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -519,9 +513,6 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
   deleteCertificate(arg_source, arg_display_name, arg_sha256_hash_hex) {
     return this.$.deleteCertificate(arg_source, arg_display_name, arg_sha256_hash_hex);
   }
-  showNativeManageCertificates() {
-    return this.$.showNativeManageCertificates();
-  }
   setIncludeSystemTrustStore(arg_include) {
     return this.$.setIncludeSystemTrustStore(arg_include);
   }
@@ -531,7 +522,6 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -606,18 +596,9 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       false);
   }
 
-  showNativeManageCertificates() {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   setIncludeSystemTrustStore(arg_include) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
       null,
       [arg_include],
@@ -642,7 +623,6 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('certificate_manager.mojom.CertificateManagerPageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -850,30 +830,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
              if (e instanceof TypeError) console.warn('[Discovery] trial for DeleteCertificate failed with TypeError');
            }
         }
-        // Try Method 7: ShowNativeManageCertificates
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowNativeManageCertificates (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ShowNativeManageCertificates failed with TypeError');
-           }
-        }
-        // Try Method 8: SetIncludeSystemTrustStore
+        // Try Method 7: SetIncludeSystemTrustStore
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.structSpec;
@@ -887,9 +844,9 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIncludeSystemTrustStore (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIncludeSystemTrustStore (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
@@ -987,13 +944,6 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           break;
         }
         case 7: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showNativeManageCertificates');
-          const result = this.impl.showNativeManageCertificates();
-          break;
-        }
-        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIncludeSystemTrustStore');

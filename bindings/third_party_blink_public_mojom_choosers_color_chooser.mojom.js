@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,7 +125,6 @@ mojo.internal.bindings.blink.mojom.ColorSuggestionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorChooserFactory = {};
 mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ColorChooserFactory.$interfaceName = 'blink.mojom.ColorChooserFactory';
-mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ColorChooser = {};
 mojo.internal.bindings.blink.mojom.ColorChooserSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ColorChooser.$interfaceName = 'blink.mojom.ColorChooser';
@@ -149,15 +148,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 // Interface: ColorChooserFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec, 'blink.mojom.ColorChooserFactory_OpenColorChooser_Params', [
-      mojo.internal.StructField('arg_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ColorChooserRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ColorChooserClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ColorSuggestionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.ColorChooserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -183,26 +173,13 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  openColorChooser(arg_chooser, arg_client, arg_color, arg_suggestions) {
-    return this.$.openColorChooser(arg_chooser, arg_client, arg_color, arg_suggestions);
-  }
 };
 
 mojo.internal.bindings.blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooserFactory', [
-      { explicit: null },
     ]);
-  }
-
-  openColorChooser(arg_chooser, arg_client, arg_color, arg_suggestions) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec,
-      null,
-      [arg_chooser, arg_client, arg_color, arg_suggestions],
-      false);
   }
 
 };
@@ -223,7 +200,6 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ColorChooserFactory', [
-      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -262,29 +238,6 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryReceiver = class {
         // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
-        // Try Method 0: OpenColorChooser
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenColorChooser (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OpenColorChooser failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -296,13 +249,6 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryReceiver = class {
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openColorChooser');
-          const result = this.impl.openColorChooser(params.arg_chooser, params.arg_client, params.arg_color, params.arg_suggestions);
-          break;
-        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,7 +130,6 @@ mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec = { $
 mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
@@ -151,9 +150,6 @@ mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.moj
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Automation
 mojo.internal.Struct(
@@ -195,13 +191,6 @@ mojo.internal.Struct(
     ],
     [[0, 40]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec, 'ax.mojom.Automation_DispatchGetTextLocationResult_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ax.mojom.AutomationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -242,16 +231,12 @@ mojo.internal.bindings.ax.mojom.AutomationRemote = class {
   dispatchAccessibilityScrollChange(arg_tree_id, arg_node_id, arg_scroll_x, arg_scroll_y) {
     return this.$.dispatchAccessibilityScrollChange(arg_tree_id, arg_node_id, arg_scroll_x, arg_scroll_y);
   }
-  dispatchGetTextLocationResult(arg_data, arg_rect) {
-    return this.$.dispatchGetTextLocationResult(arg_data, arg_rect);
-  }
 };
 
 mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ax.mojom.Automation', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -305,15 +290,6 @@ mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
       false);
   }
 
-  dispatchGetTextLocationResult(arg_data, arg_rect) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec,
-      null,
-      [arg_data, arg_rect],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.ax.mojom.Automation.getRemote = function() {
@@ -332,7 +308,6 @@ mojo.internal.bindings.ax.mojom.AutomationReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ax.mojom.Automation', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -491,29 +466,6 @@ mojo.internal.bindings.ax.mojom.AutomationReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for DispatchAccessibilityScrollChange failed with TypeError');
            }
         }
-        // Try Method 5: DispatchGetTextLocationResult
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchGetTextLocationResult (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for DispatchGetTextLocationResult failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -558,13 +510,6 @@ mojo.internal.bindings.ax.mojom.AutomationReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
           const result = this.impl.dispatchAccessibilityScrollChange(params.arg_tree_id, params.arg_node_id, params.arg_scroll_x, params.arg_scroll_y);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.dispatchGetTextLocationResult');
-          const result = this.impl.dispatchGetTextLocationResult(params.arg_data, params.arg_rect);
           break;
         }
       }

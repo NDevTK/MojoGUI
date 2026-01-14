@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,11 +135,8 @@ mojo.internal.bindings.content.mojom.ChildProcess = {};
 mojo.internal.bindings.content.mojom.ChildProcessSpec = { $ : {} };
 mojo.internal.bindings.content.mojom.ChildProcess.$interfaceName = 'content.mojom.ChildProcess';
 mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec = { $: {} };
@@ -147,7 +144,6 @@ mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = 
 mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = { $: {} };
 
@@ -164,9 +160,6 @@ mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec = mojo.internal.b
 mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
-mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
-mojo.internal.bindings.tracing.mojom.SystemTracingServiceSpec = mojo.internal.bindings.tracing.mojom.SystemTracingServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Struct: LoggingSettings
 mojo.internal.Struct(
@@ -409,17 +402,6 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec, 'content.mojom.ChildProcess_GetTaskPort_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec, 'content.mojom.ChildProcess_GetTaskPort_ResponseParams', [
-      mojo.internal.StructField('arg_task_port', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec, 'content.mojom.ChildProcess_SetIPCLoggingEnabled_Params', [
       mojo.internal.StructField('arg_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -428,12 +410,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec, 'content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec, 'content.mojom.ChildProcess_EnableSystemTracingService_Params', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.SystemTracingServiceRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -477,12 +453,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec, 'content.mojom.ChildProcess_ReinitializeLogging_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.content.mojom.LoggingSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec, 'content.mojom.ChildProcess_OnMemoryPressure_Params', [
       mojo.internal.StructField('arg_memory_pressure_level', 0, 0, mojo.internal.bindings.mojo_base.mojom.MemoryPressureLevelSpec, null, false, 0, undefined),
     ],
@@ -522,17 +492,11 @@ mojo.internal.bindings.content.mojom.ChildProcessRemote = class {
   processShutdown() {
     return this.$.processShutdown();
   }
-  getTaskPort() {
-    return this.$.getTaskPort();
-  }
   setIPCLoggingEnabled(arg_on) {
     return this.$.setIPCLoggingEnabled(arg_on);
   }
   getBackgroundTracingAgentProvider(arg_receiver) {
     return this.$.getBackgroundTracingAgentProvider(arg_receiver);
-  }
-  enableSystemTracingService(arg_remote) {
-    return this.$.enableSystemTracingService(arg_remote);
   }
   crashHungProcess() {
     return this.$.crashHungProcess();
@@ -551,9 +515,6 @@ mojo.internal.bindings.content.mojom.ChildProcessRemote = class {
   }
   setPseudonymizationSalt(arg_salt) {
     return this.$.setPseudonymizationSalt(arg_salt);
-  }
-  reinitializeLogging(arg_settings) {
-    return this.$.reinitializeLogging(arg_settings);
   }
   onMemoryPressure(arg_memory_pressure_level) {
     return this.$.onMemoryPressure(arg_memory_pressure_level);
@@ -578,9 +539,6 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -593,18 +551,9 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       false);
   }
 
-  getTaskPort() {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec,
-      mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   setIPCLoggingEnabled(arg_on) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec,
       null,
       [arg_on],
@@ -613,25 +562,16 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   getBackgroundTracingAgentProvider(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec,
       null,
       [arg_receiver],
       false);
   }
 
-  enableSystemTracingService(arg_remote) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec,
-      null,
-      [arg_remote],
-      false);
-  }
-
   crashHungProcess() {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec,
       null,
       [],
@@ -640,7 +580,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   bindServiceInterface(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec,
       null,
       [arg_receiver],
@@ -649,7 +589,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   bindReceiver(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec,
       null,
       [arg_receiver],
@@ -658,7 +598,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   setProfilingFile(arg_file) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec,
       null,
       [arg_file],
@@ -667,7 +607,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   writeClangProfilingProfile() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
       mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec,
       [],
@@ -676,25 +616,16 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   setPseudonymizationSalt(arg_salt) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec,
       null,
       [arg_salt],
       false);
   }
 
-  reinitializeLogging(arg_settings) {
-    return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
-      mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec,
-      null,
-      [arg_settings],
-      false);
-  }
-
   onMemoryPressure(arg_memory_pressure_level) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec,
       null,
       [arg_memory_pressure_level],
@@ -703,7 +634,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
 
   setBatterySaverMode(arg_battery_saver_mode_enabled) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec,
       null,
       [arg_battery_saver_mode_enabled],
@@ -728,9 +659,6 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.ChildProcess', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -803,30 +731,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ProcessShutdown failed with TypeError');
            }
         }
-        // Try Method 1: GetTaskPort
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTaskPort (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetTaskPort failed with TypeError');
-           }
-        }
-        // Try Method 2: SetIPCLoggingEnabled
+        // Try Method 1: SetIPCLoggingEnabled
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.structSpec;
@@ -840,16 +745,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPCLoggingEnabled (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPCLoggingEnabled (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetIPCLoggingEnabled failed with TypeError');
            }
         }
-        // Try Method 3: GetBackgroundTracingAgentProvider
+        // Try Method 2: GetBackgroundTracingAgentProvider
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.structSpec;
@@ -863,39 +768,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBackgroundTracingAgentProvider (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBackgroundTracingAgentProvider (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetBackgroundTracingAgentProvider failed with TypeError');
            }
         }
-        // Try Method 4: EnableSystemTracingService
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableSystemTracingService (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for EnableSystemTracingService failed with TypeError');
-           }
-        }
-        // Try Method 5: CrashHungProcess
+        // Try Method 3: CrashHungProcess
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.structSpec;
@@ -909,16 +791,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashHungProcess (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashHungProcess (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CrashHungProcess failed with TypeError');
            }
         }
-        // Try Method 6: BindServiceInterface
+        // Try Method 4: BindServiceInterface
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.structSpec;
@@ -932,16 +814,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindServiceInterface (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindServiceInterface (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for BindServiceInterface failed with TypeError');
            }
         }
-        // Try Method 7: BindReceiver
+        // Try Method 5: BindReceiver
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.structSpec;
@@ -955,16 +837,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindReceiver (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindReceiver (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for BindReceiver failed with TypeError');
            }
         }
-        // Try Method 8: SetProfilingFile
+        // Try Method 6: SetProfilingFile
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.structSpec;
@@ -978,16 +860,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfilingFile (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProfilingFile (6)');
+                 this.mapOrdinal(header.ordinal, 6);
+                 dispatchId = 6;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetProfilingFile failed with TypeError');
            }
         }
-        // Try Method 9: WriteClangProfilingProfile
+        // Try Method 7: WriteClangProfilingProfile
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.structSpec;
@@ -1001,16 +883,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (9)');
-                 this.mapOrdinal(header.ordinal, 9);
-                 dispatchId = 9;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteClangProfilingProfile (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for WriteClangProfilingProfile failed with TypeError');
            }
         }
-        // Try Method 10: SetPseudonymizationSalt
+        // Try Method 8: SetPseudonymizationSalt
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.structSpec;
@@ -1024,39 +906,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPseudonymizationSalt (10)');
-                 this.mapOrdinal(header.ordinal, 10);
-                 dispatchId = 10;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPseudonymizationSalt (8)');
+                 this.mapOrdinal(header.ordinal, 8);
+                 dispatchId = 8;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetPseudonymizationSalt failed with TypeError');
            }
         }
-        // Try Method 11: ReinitializeLogging
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReinitializeLogging (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for ReinitializeLogging failed with TypeError');
-           }
-        }
-        // Try Method 12: OnMemoryPressure
+        // Try Method 9: OnMemoryPressure
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.structSpec;
@@ -1070,16 +929,16 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryPressure (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMemoryPressure (9)');
+                 this.mapOrdinal(header.ordinal, 9);
+                 dispatchId = 9;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnMemoryPressure failed with TypeError');
            }
         }
-        // Try Method 13: SetBatterySaverMode
+        // Try Method 10: SetBatterySaverMode
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.structSpec;
@@ -1093,9 +952,9 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatterySaverMode (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBatterySaverMode (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
                }
              }
            } catch (e) {
@@ -1122,67 +981,47 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getTaskPort');
-          const result = this.impl.getTaskPort();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTaskPort FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIPCLoggingEnabled');
           const result = this.impl.setIPCLoggingEnabled(params.arg_on);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBackgroundTracingAgentProvider');
           const result = this.impl.getBackgroundTracingAgentProvider(params.arg_receiver);
           break;
         }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.enableSystemTracingService');
-          const result = this.impl.enableSystemTracingService(params.arg_remote);
-          break;
-        }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.crashHungProcess');
           const result = this.impl.crashHungProcess();
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindServiceInterface');
           const result = this.impl.bindServiceInterface(params.arg_receiver);
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
           const result = this.impl.bindReceiver(params.arg_receiver);
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProfilingFile');
           const result = this.impl.setProfilingFile(params.arg_file);
           break;
         }
-        case 9: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
@@ -1195,28 +1034,21 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPseudonymizationSalt');
           const result = this.impl.setPseudonymizationSalt(params.arg_salt);
           break;
         }
-        case 11: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.reinitializeLogging');
-          const result = this.impl.reinitializeLogging(params.arg_settings);
-          break;
-        }
-        case 12: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMemoryPressure');
           const result = this.impl.onMemoryPressure(params.arg_memory_pressure_level);
           break;
         }
-        case 13: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBatterySaverMode');

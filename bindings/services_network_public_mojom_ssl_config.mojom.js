@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -157,8 +157,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client_cert_pooling_policy', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_trust_anchor_ids', 32, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mtc_trust_anchor_ids', 40, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mtc_update_time_seconds', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Interface: SSLConfigClient
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -143,7 +143,6 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllIma
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = { $: {} };
@@ -274,12 +273,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_Params', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_Params', [
     ],
     [[0, 8]]);
@@ -380,9 +373,6 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemote = class {
   executeWebUIJavaScript(arg_javascript) {
     return this.$.executeWebUIJavaScript(arg_javascript);
   }
-  setCCTClientHeader(arg_header) {
-    return this.$.setCCTClientHeader(arg_header);
-  }
   getMediaFeedURL() {
     return this.$.getMediaFeedURL();
   }
@@ -410,7 +400,6 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeRenderFrame', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -491,18 +480,9 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       false);
   }
 
-  setCCTClientHeader(arg_header) {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec,
-      null,
-      [arg_header],
-      false);
-  }
-
   getMediaFeedURL() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec,
       [],
@@ -511,7 +491,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
   loadBlockedPlugins(arg_identifier) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec,
       null,
       [arg_identifier],
@@ -520,7 +500,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
   setShouldDeferMediaLoad(arg_should_defer) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec,
       null,
       [arg_should_defer],
@@ -529,7 +509,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
   invokeTool(arg_request) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec,
       [arg_request],
@@ -538,7 +518,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
   cancelTool(arg_task_id) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec,
       null,
       [arg_task_id],
@@ -547,7 +527,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
   startActorJournal(arg_client) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec,
       null,
       [arg_client],
@@ -556,7 +536,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
 
   createPageStabilityMonitor(arg_monitor, arg_task_id, arg_supports_paint_stability) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec,
       null,
       [arg_monitor, arg_task_id, arg_supports_paint_stability],
@@ -581,7 +561,6 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeRenderFrame', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -795,30 +774,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ExecuteWebUIJavaScript failed with TypeError');
            }
         }
-        // Try Method 7: SetCCTClientHeader
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCCTClientHeader (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetCCTClientHeader failed with TypeError');
-           }
-        }
-        // Try Method 8: GetMediaFeedURL
+        // Try Method 7: GetMediaFeedURL
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.structSpec;
@@ -832,16 +788,16 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFeedURL (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFeedURL (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetMediaFeedURL failed with TypeError');
            }
         }
-        // Try Method 9: LoadBlockedPlugins
+        // Try Method 8: LoadBlockedPlugins
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec;
@@ -855,16 +811,16 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBlockedPlugins (9)');
-                 this.mapOrdinal(header.ordinal, 9);
-                 dispatchId = 9;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadBlockedPlugins (8)');
+                 this.mapOrdinal(header.ordinal, 8);
+                 dispatchId = 8;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for LoadBlockedPlugins failed with TypeError');
            }
         }
-        // Try Method 10: SetShouldDeferMediaLoad
+        // Try Method 9: SetShouldDeferMediaLoad
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec;
@@ -878,16 +834,16 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShouldDeferMediaLoad (10)');
-                 this.mapOrdinal(header.ordinal, 10);
-                 dispatchId = 10;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShouldDeferMediaLoad (9)');
+                 this.mapOrdinal(header.ordinal, 9);
+                 dispatchId = 9;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetShouldDeferMediaLoad failed with TypeError');
            }
         }
-        // Try Method 11: InvokeTool
+        // Try Method 10: InvokeTool
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec;
@@ -901,16 +857,16 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokeTool (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvokeTool (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for InvokeTool failed with TypeError');
            }
         }
-        // Try Method 12: CancelTool
+        // Try Method 11: CancelTool
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec;
@@ -924,16 +880,16 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelTool (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelTool (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CancelTool failed with TypeError');
            }
         }
-        // Try Method 13: StartActorJournal
+        // Try Method 12: StartActorJournal
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec;
@@ -947,16 +903,16 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActorJournal (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartActorJournal (12)');
+                 this.mapOrdinal(header.ordinal, 12);
+                 dispatchId = 12;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for StartActorJournal failed with TypeError');
            }
         }
-        // Try Method 14: CreatePageStabilityMonitor
+        // Try Method 13: CreatePageStabilityMonitor
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec;
@@ -970,9 +926,9 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageStabilityMonitor (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageStabilityMonitor (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
@@ -1065,13 +1021,6 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCCTClientHeader');
-          const result = this.impl.setCCTClientHeader(params.arg_header);
-          break;
-        }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaFeedURL');
           const result = this.impl.getMediaFeedURL();
@@ -1083,21 +1032,21 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadBlockedPlugins');
           const result = this.impl.loadBlockedPlugins(params.arg_identifier);
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShouldDeferMediaLoad');
           const result = this.impl.setShouldDeferMediaLoad(params.arg_should_defer);
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokeTool');
@@ -1110,21 +1059,21 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelTool');
           const result = this.impl.cancelTool(params.arg_task_id);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startActorJournal');
           const result = this.impl.startActorJournal(params.arg_client);
           break;
         }
-        case 14: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageStabilityMonitor');

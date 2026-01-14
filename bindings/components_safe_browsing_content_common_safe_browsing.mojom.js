@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -152,8 +152,11 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter = {};
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec = { $ : {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter.$interfaceName = 'safe_browsing.mojom.PhishingModelSetter';
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec = { $: {} };
@@ -876,15 +879,42 @@ mojo.internal.Struct(
     [[0, 32]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_Params', [
+      mojo.internal.StructField('arg_classification_input_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_classification_input_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_classification_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_input_width', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_input_height', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_model', 24, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_Params', [
       mojo.internal.StructField('arg_image_embedding_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_Params', [
+      mojo.internal.StructField('arg_image_embedding_input_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_input_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_Params', [
       mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_Params', [
+      mojo.internal.StructField('arg_classification_input_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_classification_input_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_classification_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -932,11 +962,20 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemote = class {
   setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model) {
     return this.$.setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model);
   }
+  setImageEmbeddingAndPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
+    return this.$.setImageEmbeddingAndPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model);
+  }
   attachImageEmbeddingModel(arg_image_embedding_model) {
     return this.$.attachImageEmbeddingModel(arg_image_embedding_model);
   }
+  attachImageEmbeddingModelAndDimensions(arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
+    return this.$.attachImageEmbeddingModelAndDimensions(arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model);
+  }
   setPhishingFlatBufferModel(arg_region, arg_tflite_model) {
     return this.$.setPhishingFlatBufferModel(arg_region, arg_tflite_model);
+  }
+  setPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model) {
+    return this.$.setPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model);
   }
   clearScorer() {
     return this.$.clearScorer();
@@ -955,6 +994,9 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -967,27 +1009,54 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       false);
   }
 
-  attachImageEmbeddingModel(arg_image_embedding_model) {
+  setImageEmbeddingAndPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec,
+      null,
+      [arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model],
+      false);
+  }
+
+  attachImageEmbeddingModel(arg_image_embedding_model) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
       [arg_image_embedding_model],
       false);
   }
 
+  attachImageEmbeddingModelAndDimensions(arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec,
+      null,
+      [arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model],
+      false);
+  }
+
   setPhishingFlatBufferModel(arg_region, arg_tflite_model) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
       [arg_region, arg_tflite_model],
       false);
   }
 
+  setPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec,
+      null,
+      [arg_classification_input_width, arg_classification_input_height, arg_classification_model],
+      false);
+  }
+
   clearScorer() {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
       [],
@@ -996,7 +1065,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
 
   setTestObserver(arg_observer) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec,
       [arg_observer],
@@ -1021,6 +1090,9 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingModelSetter', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1087,7 +1159,30 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetImageEmbeddingAndPhishingFlatBufferModel failed with TypeError');
            }
         }
-        // Try Method 1: AttachImageEmbeddingModel
+        // Try Method 1: SetImageEmbeddingAndPhishingTfLiteModel
+        if (dispatchId === undefined) {
+           try {
+             const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetImageEmbeddingAndPhishingTfLiteModel (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
+             }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetImageEmbeddingAndPhishingTfLiteModel failed with TypeError');
+           }
+        }
+        // Try Method 2: AttachImageEmbeddingModel
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec;
@@ -1101,16 +1196,39 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachImageEmbeddingModel (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachImageEmbeddingModel (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for AttachImageEmbeddingModel failed with TypeError');
            }
         }
-        // Try Method 2: SetPhishingFlatBufferModel
+        // Try Method 3: AttachImageEmbeddingModelAndDimensions
+        if (dispatchId === undefined) {
+           try {
+             const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachImageEmbeddingModelAndDimensions (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
+               }
+             }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for AttachImageEmbeddingModelAndDimensions failed with TypeError');
+           }
+        }
+        // Try Method 4: SetPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec;
@@ -1124,16 +1242,39 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhishingFlatBufferModel (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhishingFlatBufferModel (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetPhishingFlatBufferModel failed with TypeError');
            }
         }
-        // Try Method 3: ClearScorer
+        // Try Method 5: SetPhishingTfLiteModel
+        if (dispatchId === undefined) {
+           try {
+             const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhishingTfLiteModel (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
+               }
+             }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetPhishingTfLiteModel failed with TypeError');
+           }
+        }
+        // Try Method 6: ClearScorer
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec;
@@ -1147,16 +1288,16 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearScorer (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearScorer (6)');
+                 this.mapOrdinal(header.ordinal, 6);
+                 dispatchId = 6;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for ClearScorer failed with TypeError');
            }
         }
-        // Try Method 4: SetTestObserver
+        // Try Method 7: SetTestObserver
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec;
@@ -1170,9 +1311,9 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestObserver (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestObserver (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
@@ -1199,26 +1340,47 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingTfLiteModel');
+          const result = this.impl.setImageEmbeddingAndPhishingTfLiteModel(params.arg_classification_input_width, params.arg_classification_input_height, params.arg_classification_model, params.arg_image_embedding_input_width, params.arg_image_embedding_input_height, params.arg_image_embedding_model);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModel');
           const result = this.impl.attachImageEmbeddingModel(params.arg_image_embedding_model);
           break;
         }
-        case 2: {
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModelAndDimensions');
+          const result = this.impl.attachImageEmbeddingModelAndDimensions(params.arg_image_embedding_input_width, params.arg_image_embedding_input_height, params.arg_image_embedding_model);
+          break;
+        }
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhishingFlatBufferModel');
           const result = this.impl.setPhishingFlatBufferModel(params.arg_region, params.arg_tflite_model);
           break;
         }
-        case 3: {
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setPhishingTfLiteModel');
+          const result = this.impl.setPhishingTfLiteModel(params.arg_classification_input_width, params.arg_classification_input_height, params.arg_classification_model);
+          break;
+        }
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearScorer');
           const result = this.impl.clearScorer();
           break;
         }
-        case 4: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestObserver');

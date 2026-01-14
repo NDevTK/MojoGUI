@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -197,10 +197,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditable
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetInputHandler = {};
 mojo.internal.bindings.blink.mojom.WidgetInputHandlerSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.WidgetInputHandler.$interfaceName = 'blink.mojom.WidgetInputHandler';
@@ -222,7 +218,6 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_Para
 mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = { $: {} };
 
@@ -263,15 +258,6 @@ mojo.internal.bindings.blink.mojom.SelectionMenuBehaviorSpec = mojo.internal.bin
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StylusWritingGestureDataSpec = mojo.internal.bindings.blink.mojom.StylusWritingGestureDataSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.TouchStateSpec = mojo.internal.bindings.blink.mojom.TouchStateSpec || { $: mojo.internal.Enum().$ };
@@ -1358,29 +1344,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_StopAutoscroll_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_Params', [
-      mojo.internal.StructField('arg_range', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec, 'blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParams', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1496,24 +1459,12 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemote = class {
   moveCaret(arg_point) {
     return this.$.moveCaret(arg_point);
   }
-  startAutoscrollForSelectionToPoint(arg_point) {
-    return this.$.startAutoscrollForSelectionToPoint(arg_point);
-  }
-  stopAutoscroll() {
-    return this.$.stopAutoscroll();
-  }
-  rectForEditFieldChars(arg_range) {
-    return this.$.rectForEditFieldChars(arg_range);
-  }
 };
 
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameWidgetInputHandler', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1817,33 +1768,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       false);
   }
 
-  startAutoscrollForSelectionToPoint(arg_point) {
-    return this.proxy.sendMessage(
-      this.ordinals[30],  // ordinal
-      mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec,
-      null,
-      [arg_point],
-      false);
-  }
-
-  stopAutoscroll() {
-    return this.proxy.sendMessage(
-      this.ordinals[31],  // ordinal
-      mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  rectForEditFieldChars(arg_range) {
-    return this.proxy.sendMessage(
-      this.ordinals[32],  // ordinal
-      mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec,
-      [arg_range],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler.getRemote = function() {
@@ -1862,9 +1786,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameWidgetInputHandler', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2623,75 +2544,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for MoveCaret failed with TypeError');
            }
         }
-        // Try Method 30: StartAutoscrollForSelectionToPoint
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartAutoscrollForSelectionToPoint (30)');
-                 this.mapOrdinal(header.ordinal, 30);
-                 dispatchId = 30;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for StartAutoscrollForSelectionToPoint failed with TypeError');
-           }
-        }
-        // Try Method 31: StopAutoscroll
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAutoscroll (31)');
-                 this.mapOrdinal(header.ordinal, 31);
-                 dispatchId = 31;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for StopAutoscroll failed with TypeError');
-           }
-        }
-        // Try Method 32: RectForEditFieldChars
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RectForEditFieldChars (32)');
-                 this.mapOrdinal(header.ordinal, 32);
-                 dispatchId = 32;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RectForEditFieldChars failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2931,33 +2783,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const result = this.impl.moveCaret(params.arg_point);
           break;
         }
-        case 30: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.startAutoscrollForSelectionToPoint');
-          const result = this.impl.startAutoscrollForSelectionToPoint(params.arg_point);
-          break;
-        }
-        case 31: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.stopAutoscroll');
-          const result = this.impl.stopAutoscroll();
-          break;
-        }
-        case 32: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.rectForEditFieldChars');
-          const result = this.impl.rectForEditFieldChars(params.arg_range);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RectForEditFieldChars FAILED:', e));
-          }
-          break;
-        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -3088,14 +2913,6 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec, 'blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_Params', [
-      mojo.internal.StructField('arg_control_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_request', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.SynchronousCompositorRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec, 'blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_Params', [
       mojo.internal.StructField('arg_interface_request', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemote), null, false, 0, undefined),
     ],
@@ -3174,9 +2991,6 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote = class {
   pingMainThread() {
     return this.$.pingMainThread();
   }
-  attachSynchronousCompositor(arg_control_host, arg_host, arg_compositor_request) {
-    return this.$.attachSynchronousCompositor(arg_control_host, arg_host, arg_compositor_request);
-  }
   getFrameWidgetInputHandler(arg_interface_request) {
     return this.$.getFrameWidgetInputHandler(arg_interface_request);
   }
@@ -3189,7 +3003,6 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetInputHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3325,18 +3138,9 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       false);
   }
 
-  attachSynchronousCompositor(arg_control_host, arg_host, arg_compositor_request) {
-    return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
-      mojo.internal.bindings.blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec,
-      null,
-      [arg_control_host, arg_host, arg_compositor_request],
-      false);
-  }
-
   getFrameWidgetInputHandler(arg_interface_request) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec,
       null,
       [arg_interface_request],
@@ -3345,7 +3149,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
 
   updateBrowserControlsState(arg_constraints, arg_current, arg_animate, arg_offset_tag_modifications) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec,
       null,
       [arg_constraints, arg_current, arg_animate, arg_offset_tag_modifications],
@@ -3370,7 +3174,6 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetInputHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3723,30 +3526,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for PingMainThread failed with TypeError');
            }
         }
-        // Try Method 13: AttachSynchronousCompositor
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachSynchronousCompositor (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for AttachSynchronousCompositor failed with TypeError');
-           }
-        }
-        // Try Method 14: GetFrameWidgetInputHandler
+        // Try Method 13: GetFrameWidgetInputHandler
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$.structSpec;
@@ -3760,16 +3540,16 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFrameWidgetInputHandler (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFrameWidgetInputHandler (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetFrameWidgetInputHandler failed with TypeError');
            }
         }
-        // Try Method 15: UpdateBrowserControlsState
+        // Try Method 14: UpdateBrowserControlsState
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.structSpec;
@@ -3783,9 +3563,9 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBrowserControlsState (15)');
-                 this.mapOrdinal(header.ordinal, 15);
-                 dispatchId = 15;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateBrowserControlsState (14)');
+                 this.mapOrdinal(header.ordinal, 14);
+                 dispatchId = 14;
                }
              }
            } catch (e) {
@@ -3926,19 +3706,12 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.attachSynchronousCompositor');
-          const result = this.impl.attachSynchronousCompositor(params.arg_control_host, params.arg_host, params.arg_compositor_request);
-          break;
-        }
-        case 14: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFrameWidgetInputHandler');
           const result = this.impl.getFrameWidgetInputHandler(params.arg_interface_request);
           break;
         }
-        case 15: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateBrowserControlsState');

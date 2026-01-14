@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -544,4 +544,9 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kTranslationApi: 416,
   kDRAFT_MetaTextScale: 417,
   kJpegxl: 418,
+  kPartitionedCookies: 419,
+  kPrompt: 420,
+  kProofreader: 421,
+  kRewriter: 422,
+  kWriter: 423,
 };

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,8 +129,6 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAc
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = { $: {} };
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec = { $: {} };
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec = { $: {} };
 
 // Interface: SupervisedUserCommands
 mojo.internal.Struct(
@@ -159,16 +157,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_request_issued', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_LearnMore_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec, 'supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParams', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsPendingReceiver = class {
   constructor(handle) {
@@ -204,16 +192,12 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemote = clas
   requestUrlAccessLocal() {
     return this.$.requestUrlAccessLocal();
   }
-  learnMore() {
-    return this.$.learnMore();
-  }
 };
 
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('supervised_user.mojom.SupervisedUserCommands', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -247,15 +231,6 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       false);
   }
 
-  learnMore() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec,
-      mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec,
-      [],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands.getRemote = function() {
@@ -274,7 +249,6 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('supervised_user.mojom.SupervisedUserCommands', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -385,29 +359,6 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
              if (e instanceof TypeError) console.warn('[Discovery] trial for RequestUrlAccessLocal failed with TypeError');
            }
         }
-        // Try Method 3: LearnMore
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LearnMore (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for LearnMore failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -449,19 +400,6 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
             Promise.resolve(result).then(response => {
               this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestUrlAccessLocal FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.learnMore');
-          const result = this.impl.learnMore();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LearnMore FAILED:', e));
           }
           break;
         }

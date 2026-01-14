@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,15 +145,12 @@ mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsS
 mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec = { $: {} };
@@ -190,9 +187,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DragDataSpec = mojo.internal.bindings.blink.mojom.DragDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec = mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.IntrinsicSizingInfoSpec = mojo.internal.bindings.blink.mojom.IntrinsicSizingInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -227,9 +221,6 @@ mojo.internal.bindings.gfx.mojom.Vector2dFSpec = mojo.internal.bindings.gfx.mojo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec = mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
-mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
-mojo.internal.bindings.ui.mojom.AttributedStringSpec = mojo.internal.bindings.ui.mojom.AttributedStringSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.DragOperationSpec = mojo.internal.bindings.ui.mojom.DragOperationSpec || { $: mojo.internal.Enum().$ };
@@ -343,12 +334,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec, 'blink.mojom.FrameWidget_PassImeRenderWidgetHost_Params', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec, 'blink.mojom.FrameWidget_SetBackgroundOpaque_Params', [
       mojo.internal.StructField('arg_opaque', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -385,19 +370,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_inert', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec, 'blink.mojom.FrameWidget_GetStringAtPoint_Params', [
-      mojo.internal.StructField('arg_point_in_local_root', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec, 'blink.mojom.FrameWidget_GetStringAtPoint_ResponseParams', [
-      mojo.internal.StructField('arg_string', 0, 0, mojo.internal.bindings.ui.mojom.AttributedStringSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_baseline_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_EnableDeviceEmulation_Params', [
@@ -475,9 +447,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemote = class {
   onStartStylusWriting(arg_focus_widget_rect_in_dips) {
     return this.$.onStartStylusWriting(arg_focus_widget_rect_in_dips);
   }
-  passImeRenderWidgetHost(arg_remote) {
-    return this.$.passImeRenderWidgetHost(arg_remote);
-  }
   setBackgroundOpaque(arg_opaque) {
     return this.$.setBackgroundOpaque(arg_opaque);
   }
@@ -495,9 +464,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemote = class {
   }
   setIsInertForSubFrame(arg_inert) {
     return this.$.setIsInertForSubFrame(arg_inert);
-  }
-  getStringAtPoint(arg_point_in_local_root) {
-    return this.$.getStringAtPoint(arg_point_in_local_root);
   }
   enableDeviceEmulation(arg_parameters, arg_cache_behavior) {
     return this.$.enableDeviceEmulation(arg_parameters, arg_cache_behavior);
@@ -520,8 +486,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameWidget', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -606,18 +570,9 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       false);
   }
 
-  passImeRenderWidgetHost(arg_remote) {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec,
-      null,
-      [arg_remote],
-      false);
-  }
-
   setBackgroundOpaque(arg_opaque) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec,
       null,
       [arg_opaque],
@@ -626,7 +581,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   setTextDirection(arg_direction) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec,
       null,
       [arg_direction],
@@ -635,7 +590,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   setActive(arg_active) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec,
       null,
       [arg_active],
@@ -644,7 +599,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   setInheritedEffectiveTouchActionForSubFrame(arg_touch_action) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec,
       null,
       [arg_touch_action],
@@ -653,7 +608,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   updateRenderThrottlingStatusForSubFrame(arg_is_throttled, arg_subtree_throttled, arg_display_locked) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec,
       null,
       [arg_is_throttled, arg_subtree_throttled, arg_display_locked],
@@ -662,25 +617,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   setIsInertForSubFrame(arg_inert) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec,
       null,
       [arg_inert],
       false);
   }
 
-  getStringAtPoint(arg_point_in_local_root) {
-    return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
-      mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec,
-      [arg_point_in_local_root],
-      false);
-  }
-
   enableDeviceEmulation(arg_parameters, arg_cache_behavior) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec,
       null,
       [arg_parameters, arg_cache_behavior],
@@ -689,7 +635,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   disableDeviceEmulation() {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec,
       null,
       [],
@@ -698,7 +644,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   bindWidgetCompositor(arg_host) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec,
       null,
       [arg_host],
@@ -707,7 +653,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   setViewportIntersection(arg_intersection_state, arg_visual_properties) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec,
       null,
       [arg_intersection_state, arg_visual_properties],
@@ -716,7 +662,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
 
   notifyClearedDisplayedGraphics() {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec,
       null,
       [],
@@ -741,8 +687,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameWidget', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -960,30 +904,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnStartStylusWriting failed with TypeError');
            }
         }
-        // Try Method 7: PassImeRenderWidgetHost
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassImeRenderWidgetHost (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for PassImeRenderWidgetHost failed with TypeError');
-           }
-        }
-        // Try Method 8: SetBackgroundOpaque
+        // Try Method 7: SetBackgroundOpaque
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec.$.structSpec;
@@ -997,16 +918,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundOpaque (8)');
-                 this.mapOrdinal(header.ordinal, 8);
-                 dispatchId = 8;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundOpaque (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetBackgroundOpaque failed with TypeError');
            }
         }
-        // Try Method 9: SetTextDirection
+        // Try Method 8: SetTextDirection
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec.$.structSpec;
@@ -1020,16 +941,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextDirection (9)');
-                 this.mapOrdinal(header.ordinal, 9);
-                 dispatchId = 9;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextDirection (8)');
+                 this.mapOrdinal(header.ordinal, 8);
+                 dispatchId = 8;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetTextDirection failed with TypeError');
            }
         }
-        // Try Method 10: SetActive
+        // Try Method 9: SetActive
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec.$.structSpec;
@@ -1043,16 +964,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActive (10)');
-                 this.mapOrdinal(header.ordinal, 10);
-                 dispatchId = 10;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActive (9)');
+                 this.mapOrdinal(header.ordinal, 9);
+                 dispatchId = 9;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetActive failed with TypeError');
            }
         }
-        // Try Method 11: SetInheritedEffectiveTouchActionForSubFrame
+        // Try Method 10: SetInheritedEffectiveTouchActionForSubFrame
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec.$.structSpec;
@@ -1066,16 +987,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInheritedEffectiveTouchActionForSubFrame (11)');
-                 this.mapOrdinal(header.ordinal, 11);
-                 dispatchId = 11;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInheritedEffectiveTouchActionForSubFrame (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetInheritedEffectiveTouchActionForSubFrame failed with TypeError');
            }
         }
-        // Try Method 12: UpdateRenderThrottlingStatusForSubFrame
+        // Try Method 11: UpdateRenderThrottlingStatusForSubFrame
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec.$.structSpec;
@@ -1089,16 +1010,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRenderThrottlingStatusForSubFrame (12)');
-                 this.mapOrdinal(header.ordinal, 12);
-                 dispatchId = 12;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRenderThrottlingStatusForSubFrame (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateRenderThrottlingStatusForSubFrame failed with TypeError');
            }
         }
-        // Try Method 13: SetIsInertForSubFrame
+        // Try Method 12: SetIsInertForSubFrame
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec.$.structSpec;
@@ -1112,39 +1033,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsInertForSubFrame (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsInertForSubFrame (12)');
+                 this.mapOrdinal(header.ordinal, 12);
+                 dispatchId = 12;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetIsInertForSubFrame failed with TypeError');
            }
         }
-        // Try Method 14: GetStringAtPoint
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStringAtPoint (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetStringAtPoint failed with TypeError');
-           }
-        }
-        // Try Method 15: EnableDeviceEmulation
+        // Try Method 13: EnableDeviceEmulation
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec.$.structSpec;
@@ -1158,16 +1056,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDeviceEmulation (15)');
-                 this.mapOrdinal(header.ordinal, 15);
-                 dispatchId = 15;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDeviceEmulation (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for EnableDeviceEmulation failed with TypeError');
            }
         }
-        // Try Method 16: DisableDeviceEmulation
+        // Try Method 14: DisableDeviceEmulation
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec.$.structSpec;
@@ -1181,16 +1079,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableDeviceEmulation (16)');
-                 this.mapOrdinal(header.ordinal, 16);
-                 dispatchId = 16;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableDeviceEmulation (14)');
+                 this.mapOrdinal(header.ordinal, 14);
+                 dispatchId = 14;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for DisableDeviceEmulation failed with TypeError');
            }
         }
-        // Try Method 17: BindWidgetCompositor
+        // Try Method 15: BindWidgetCompositor
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec.$.structSpec;
@@ -1204,16 +1102,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWidgetCompositor (17)');
-                 this.mapOrdinal(header.ordinal, 17);
-                 dispatchId = 17;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindWidgetCompositor (15)');
+                 this.mapOrdinal(header.ordinal, 15);
+                 dispatchId = 15;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for BindWidgetCompositor failed with TypeError');
            }
         }
-        // Try Method 18: SetViewportIntersection
+        // Try Method 16: SetViewportIntersection
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec.$.structSpec;
@@ -1227,16 +1125,16 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewportIntersection (18)');
-                 this.mapOrdinal(header.ordinal, 18);
-                 dispatchId = 18;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetViewportIntersection (16)');
+                 this.mapOrdinal(header.ordinal, 16);
+                 dispatchId = 16;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetViewportIntersection failed with TypeError');
            }
         }
-        // Try Method 19: NotifyClearedDisplayedGraphics
+        // Try Method 17: NotifyClearedDisplayedGraphics
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec.$.structSpec;
@@ -1250,9 +1148,9 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyClearedDisplayedGraphics (19)');
-                 this.mapOrdinal(header.ordinal, 19);
-                 dispatchId = 19;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyClearedDisplayedGraphics (17)');
+                 this.mapOrdinal(header.ordinal, 17);
+                 dispatchId = 17;
                }
              }
            } catch (e) {
@@ -1351,95 +1249,75 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.passImeRenderWidgetHost');
-          const result = this.impl.passImeRenderWidgetHost(params.arg_remote);
-          break;
-        }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundOpaque');
           const result = this.impl.setBackgroundOpaque(params.arg_opaque);
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextDirection');
           const result = this.impl.setTextDirection(params.arg_direction);
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActive');
           const result = this.impl.setActive(params.arg_active);
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInheritedEffectiveTouchActionForSubFrame');
           const result = this.impl.setInheritedEffectiveTouchActionForSubFrame(params.arg_touch_action);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRenderThrottlingStatusForSubFrame');
           const result = this.impl.updateRenderThrottlingStatusForSubFrame(params.arg_is_throttled, params.arg_subtree_throttled, params.arg_display_locked);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsInertForSubFrame');
           const result = this.impl.setIsInertForSubFrame(params.arg_inert);
           break;
         }
-        case 14: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getStringAtPoint');
-          const result = this.impl.getStringAtPoint(params.arg_point_in_local_root);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStringAtPoint FAILED:', e));
-          }
-          break;
-        }
-        case 15: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDeviceEmulation');
           const result = this.impl.enableDeviceEmulation(params.arg_parameters, params.arg_cache_behavior);
           break;
         }
-        case 16: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableDeviceEmulation');
           const result = this.impl.disableDeviceEmulation();
           break;
         }
-        case 17: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWidgetCompositor');
           const result = this.impl.bindWidgetCompositor(params.arg_host);
           break;
         }
-        case 18: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewportIntersection');
           const result = this.impl.setViewportIntersection(params.arg_intersection_state, params.arg_visual_properties);
           break;
         }
-        case 19: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyClearedDisplayedGraphics');

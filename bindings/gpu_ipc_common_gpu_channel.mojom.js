@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -184,11 +184,8 @@ mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = { $
 mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.CommandBuffer = {};
 mojo.internal.bindings.gpu.mojom.CommandBufferSpec = { $ : {} };
 mojo.internal.bindings.gpu.mojom.CommandBuffer.$interfaceName = 'gpu.mojom.CommandBuffer';
@@ -798,16 +795,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec, 'gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_Params', [
-      mojo.internal.StructField('arg_service_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sysmem_token', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usage', 32, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_register_with_image_pipe', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec, 'gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_Params', [
       mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sync_token_dependencies', 8, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.SyncTokenSpec, false), null, false, 0, undefined),
@@ -817,19 +804,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec, 'gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec, 'gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_Params', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec, 'gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
@@ -898,14 +872,8 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemote = class {
   waitForGetOffsetInRange(arg_routing_id, arg_set_get_buffer_count, arg_start, arg_end) {
     return this.$.waitForGetOffsetInRange(arg_routing_id, arg_set_get_buffer_count, arg_start, arg_end);
   }
-  registerSysmemBufferCollection(arg_service_handle, arg_sysmem_token, arg_format, arg_usage, arg_register_with_image_pipe) {
-    return this.$.registerSysmemBufferCollection(arg_service_handle, arg_sysmem_token, arg_format, arg_usage, arg_register_with_image_pipe);
-  }
   copyToGpuMemoryBufferAsync(arg_mailbox, arg_sync_token_dependencies, arg_release_count) {
     return this.$.copyToGpuMemoryBufferAsync(arg_mailbox, arg_sync_token_dependencies, arg_release_count);
-  }
-  copyNativeGmbToSharedMemoryAsync(arg_buffer_handle, arg_shared_memory) {
-    return this.$.copyNativeGmbToSharedMemoryAsync(arg_buffer_handle, arg_shared_memory);
   }
 };
 
@@ -913,8 +881,6 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('gpu.mojom.GpuChannel', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1049,30 +1015,12 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       false);
   }
 
-  registerSysmemBufferCollection(arg_service_handle, arg_sysmem_token, arg_format, arg_usage, arg_register_with_image_pipe) {
-    return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
-      mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec,
-      null,
-      [arg_service_handle, arg_sysmem_token, arg_format, arg_usage, arg_register_with_image_pipe],
-      false);
-  }
-
   copyToGpuMemoryBufferAsync(arg_mailbox, arg_sync_token_dependencies, arg_release_count) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
       [arg_mailbox, arg_sync_token_dependencies, arg_release_count],
-      false);
-  }
-
-  copyNativeGmbToSharedMemoryAsync(arg_buffer_handle, arg_shared_memory) {
-    return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
-      mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec,
-      mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec,
-      [arg_buffer_handle, arg_shared_memory],
       false);
   }
 
@@ -1094,8 +1042,6 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('gpu.mojom.GpuChannel', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1447,30 +1393,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for WaitForGetOffsetInRange failed with TypeError');
            }
         }
-        // Try Method 13: RegisterSysmemBufferCollection
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterSysmemBufferCollection (13)');
-                 this.mapOrdinal(header.ordinal, 13);
-                 dispatchId = 13;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RegisterSysmemBufferCollection failed with TypeError');
-           }
-        }
-        // Try Method 14: CopyToGpuMemoryBufferAsync
+        // Try Method 13: CopyToGpuMemoryBufferAsync
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$.structSpec;
@@ -1484,36 +1407,13 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyToGpuMemoryBufferAsync (14)');
-                 this.mapOrdinal(header.ordinal, 14);
-                 dispatchId = 14;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyToGpuMemoryBufferAsync (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CopyToGpuMemoryBufferAsync failed with TypeError');
-           }
-        }
-        // Try Method 15: CopyNativeGmbToSharedMemoryAsync
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyNativeGmbToSharedMemoryAsync (15)');
-                 this.mapOrdinal(header.ordinal, 15);
-                 dispatchId = 15;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CopyNativeGmbToSharedMemoryAsync failed with TypeError');
            }
         }
         if (dispatchId === undefined) {
@@ -1680,13 +1580,6 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.registerSysmemBufferCollection');
-          const result = this.impl.registerSysmemBufferCollection(params.arg_service_handle, params.arg_sysmem_token, params.arg_format, params.arg_usage, params.arg_register_with_image_pipe);
-          break;
-        }
-        case 14: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyToGpuMemoryBufferAsync');
           const result = this.impl.copyToGpuMemoryBufferAsync(params.arg_mailbox, params.arg_sync_token_dependencies, params.arg_release_count);
@@ -1695,19 +1588,6 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
             Promise.resolve(result).then(response => {
               this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyToGpuMemoryBufferAsync FAILED:', e));
-          }
-          break;
-        }
-        case 15: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.copyNativeGmbToSharedMemoryAsync');
-          const result = this.impl.copyNativeGmbToSharedMemoryAsync(params.arg_buffer_handle, params.arg_shared_memory);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CopyNativeGmbToSharedMemoryAsync FAILED:', e));
           }
           break;
         }

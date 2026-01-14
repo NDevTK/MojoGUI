@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -136,7 +136,6 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRe
 mojo.internal.bindings.chrome.mojom.ChromeOSListener = {};
 mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ChromeOSListener.$interfaceName = 'chrome.mojom.ChromeOSListener';
-mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RendererConfiguration = {};
 mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.RendererConfiguration.$interfaceName = 'chrome.mojom.RendererConfiguration';
@@ -372,11 +371,6 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRequest =
 
 
 // Interface: ChromeOSListener
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec, 'chrome.mojom.ChromeOSListener_MergeSessionComplete_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.ChromeOSListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -402,26 +396,13 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemote = class {
   close() {
     this.proxy.close();
   }
-  mergeSessionComplete() {
-    return this.$.mergeSessionComplete();
-  }
 };
 
 mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeOSListener', [
-      { explicit: null },
     ]);
-  }
-
-  mergeSessionComplete() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec,
-      null,
-      [],
-      false);
   }
 
 };
@@ -442,7 +423,6 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.ChromeOSListener', [
-      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -481,29 +461,6 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerReceiver = class {
         // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
-        // Try Method 0: MergeSessionComplete
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MergeSessionComplete (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for MergeSessionComplete failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -515,13 +472,6 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerReceiver = class {
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.mergeSessionComplete');
-          const result = this.impl.mergeSessionComplete();
-          break;
-        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -166,7 +166,6 @@ mojo.internal.bindings.app_management.mojom.PageHandler_SetFileHandlingEnabled_P
 mojo.internal.bindings.app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PageHandler_OpenStorePage_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.PageHandler_SetAppLocale_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.app_management.mojom.Page = {};
 mojo.internal.bindings.app_management.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.app_management.mojom.Page.$interfaceName = 'app_management.mojom.Page';
@@ -667,12 +666,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec, 'app_management.mojom.PageHandler_OpenSystemNotificationSettings_Params', [
-      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.app_management.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -752,16 +745,12 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemote = class {
   setAppLocale(arg_app_id, arg_locale_tag) {
     return this.$.setAppLocale(arg_app_id, arg_locale_tag);
   }
-  openSystemNotificationSettings(arg_app_id) {
-    return this.$.openSystemNotificationSettings(arg_app_id);
-  }
 };
 
 mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -945,15 +934,6 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       false);
   }
 
-  openSystemNotificationSettings(arg_app_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
-      mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec,
-      null,
-      [arg_app_id],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.app_management.mojom.PageHandler.getRemote = function() {
@@ -972,7 +952,6 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('app_management.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1443,29 +1422,6 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetAppLocale failed with TypeError');
            }
         }
-        // Try Method 18: OpenSystemNotificationSettings
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSystemNotificationSettings (18)');
-                 this.mapOrdinal(header.ordinal, 18);
-                 dispatchId = 18;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OpenSystemNotificationSettings failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1631,13 +1587,6 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_SetAppLocale_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAppLocale');
           const result = this.impl.setAppLocale(params.arg_app_id, params.arg_locale_tag);
-          break;
-        }
-        case 18: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.app_management.mojom.PageHandler_OpenSystemNotificationSettings_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openSystemNotificationSettings');
-          const result = this.impl.openSystemNotificationSettings(params.arg_app_id);
           break;
         }
       }

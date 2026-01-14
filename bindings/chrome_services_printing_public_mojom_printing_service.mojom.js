@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,13 +127,9 @@ mojo.internal.bindings.printing.mojom.PrintingServiceSpec = { $ : {} };
 mojo.internal.bindings.printing.mojom.PrintingService.$interfaceName = 'printing.mojom.PrintingService';
 mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
-mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
-mojo.internal.bindings.printing.mojom.PdfFlattenerSpec = mojo.internal.bindings.printing.mojom.PdfFlattenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PdfNupConverterSpec = mojo.internal.bindings.printing.mojom.PdfNupConverterSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -158,12 +154,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToPwgRasterConverter_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec, 'printing.mojom.PrintingService_BindPdfFlattener_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfFlattenerRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,9 +194,6 @@ mojo.internal.bindings.printing.mojom.PrintingServiceRemote = class {
   bindPdfToPwgRasterConverter(arg_receiver) {
     return this.$.bindPdfToPwgRasterConverter(arg_receiver);
   }
-  bindPdfFlattener(arg_receiver) {
-    return this.$.bindPdfFlattener(arg_receiver);
-  }
   bindPdfToEmfConverterFactory(arg_receiver) {
     return this.$.bindPdfToEmfConverterFactory(arg_receiver);
   }
@@ -216,7 +203,6 @@ mojo.internal.bindings.printing.mojom.PrintingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('printing.mojom.PrintingService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -241,18 +227,9 @@ mojo.internal.bindings.printing.mojom.PrintingServiceRemoteCallHandler = class {
       false);
   }
 
-  bindPdfFlattener(arg_receiver) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec,
-      null,
-      [arg_receiver],
-      false);
-  }
-
   bindPdfToEmfConverterFactory(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec,
       null,
       [arg_receiver],
@@ -277,7 +254,6 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('printing.mojom.PrintingService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -365,30 +341,7 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for BindPdfToPwgRasterConverter failed with TypeError');
            }
         }
-        // Try Method 2: BindPdfFlattener
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfFlattener (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for BindPdfFlattener failed with TypeError');
-           }
-        }
-        // Try Method 3: BindPdfToEmfConverterFactory
+        // Try Method 2: BindPdfToEmfConverterFactory
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.structSpec;
@@ -402,9 +355,9 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfToEmfConverterFactory (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindPdfToEmfConverterFactory (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
@@ -437,13 +390,6 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = class {
           break;
         }
         case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.bindPdfFlattener');
-          const result = this.impl.bindPdfFlattener(params.arg_receiver);
-          break;
-        }
-        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToEmfConverterFactory');

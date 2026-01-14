@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,7 +126,6 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier = {};
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier.$interfaceName = 'blink.mojom.ResourceLoadInfoNotifier';
-mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec = { $: {} };
@@ -155,11 +154,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.SchemeHostPortSpec = mojo.internal.bindings.url.mojom.SchemeHostPortSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ResourceLoadInfoNotifier
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_Params', [
       mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
@@ -228,9 +222,6 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemote = class {
   close() {
     this.proxy.close();
   }
-  notifyUpdateUserGestureCarryoverInfo() {
-    return this.$.notifyUpdateUserGestureCarryoverInfo();
-  }
   notifyResourceRedirectReceived(arg_redirect_info, arg_redirect_response) {
     return this.$.notifyResourceRedirectReceived(arg_redirect_info, arg_redirect_response);
   }
@@ -261,22 +252,12 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
-  }
-
-  notifyUpdateUserGestureCarryoverInfo() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec,
-      null,
-      [],
-      false);
   }
 
   notifyResourceRedirectReceived(arg_redirect_info, arg_redirect_response) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec,
       null,
       [arg_redirect_info, arg_redirect_response],
@@ -285,7 +266,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
 
   notifyResourceResponseReceived(arg_request_id, arg_final_response_url, arg_head, arg_request_destination, arg_is_ad_resource) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec,
       null,
       [arg_request_id, arg_final_response_url, arg_head, arg_request_destination, arg_is_ad_resource],
@@ -294,7 +275,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
 
   notifyResourceTransferSizeUpdated(arg_request_id, arg_transfer_size_diff) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec,
       null,
       [arg_request_id, arg_transfer_size_diff],
@@ -303,7 +284,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
 
   notifyResourceLoadCompleted(arg_resource_load_info, arg_status) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec,
       null,
       [arg_resource_load_info, arg_status],
@@ -312,7 +293,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
 
   notifyResourceLoadCanceled(arg_request_id) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec,
       null,
       [arg_request_id],
@@ -321,7 +302,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
 
   clone(arg_pending_resource_load_info_notifier) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec,
       null,
       [arg_pending_resource_load_info_notifier],
@@ -346,7 +327,6 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ResourceLoadInfoNotifier', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -391,30 +371,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
         // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
-        // Try Method 0: NotifyUpdateUserGestureCarryoverInfo
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyUpdateUserGestureCarryoverInfo (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyUpdateUserGestureCarryoverInfo failed with TypeError');
-           }
-        }
-        // Try Method 1: NotifyResourceRedirectReceived
+        // Try Method 0: NotifyResourceRedirectReceived
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec.$.structSpec;
@@ -428,16 +385,16 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceRedirectReceived (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceRedirectReceived (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyResourceRedirectReceived failed with TypeError');
            }
         }
-        // Try Method 2: NotifyResourceResponseReceived
+        // Try Method 1: NotifyResourceResponseReceived
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec.$.structSpec;
@@ -451,16 +408,16 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceResponseReceived (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceResponseReceived (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyResourceResponseReceived failed with TypeError');
            }
         }
-        // Try Method 3: NotifyResourceTransferSizeUpdated
+        // Try Method 2: NotifyResourceTransferSizeUpdated
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec.$.structSpec;
@@ -474,16 +431,16 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceTransferSizeUpdated (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceTransferSizeUpdated (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyResourceTransferSizeUpdated failed with TypeError');
            }
         }
-        // Try Method 4: NotifyResourceLoadCompleted
+        // Try Method 3: NotifyResourceLoadCompleted
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec.$.structSpec;
@@ -497,16 +454,16 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceLoadCompleted (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceLoadCompleted (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyResourceLoadCompleted failed with TypeError');
            }
         }
-        // Try Method 5: NotifyResourceLoadCanceled
+        // Try Method 4: NotifyResourceLoadCanceled
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec.$.structSpec;
@@ -520,16 +477,16 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceLoadCanceled (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyResourceLoadCanceled (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyResourceLoadCanceled failed with TypeError');
            }
         }
-        // Try Method 6: Clone
+        // Try Method 5: Clone
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec.$.structSpec;
@@ -543,9 +500,9 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
                }
              }
            } catch (e) {
@@ -565,47 +522,40 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.notifyUpdateUserGestureCarryoverInfo');
-          const result = this.impl.notifyUpdateUserGestureCarryoverInfo();
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceRedirectReceived');
           const result = this.impl.notifyResourceRedirectReceived(params.arg_redirect_info, params.arg_redirect_response);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceResponseReceived');
           const result = this.impl.notifyResourceResponseReceived(params.arg_request_id, params.arg_final_response_url, params.arg_head, params.arg_request_destination, params.arg_is_ad_resource);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceTransferSizeUpdated');
           const result = this.impl.notifyResourceTransferSizeUpdated(params.arg_request_id, params.arg_transfer_size_diff);
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceLoadCompleted');
           const result = this.impl.notifyResourceLoadCompleted(params.arg_resource_load_info, params.arg_status);
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceLoadCanceled');
           const result = this.impl.notifyResourceLoadCanceled(params.arg_request_id);
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');

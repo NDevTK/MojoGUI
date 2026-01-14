@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,12 +128,8 @@ mojo.internal.bindings.tracing.mojom.TracingServiceSpec = { $ : {} };
 mojo.internal.bindings.tracing.mojom.TracingService.$interfaceName = 'tracing.mojom.TracingService';
 mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
-mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
-mojo.internal.bindings.tracing.mojom.ConsumerHostSpec = mojo.internal.bindings.tracing.mojom.ConsumerHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.TracedProcessSpec = mojo.internal.bindings.tracing.mojom.TracedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -160,12 +156,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec, 'tracing.mojom.TracingService_AddClient_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.tracing.mojom.ClientInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingService_BindConsumerHost_ParamsSpec, 'tracing.mojom.TracingService_BindConsumerHost_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.ConsumerHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -200,16 +190,12 @@ mojo.internal.bindings.tracing.mojom.TracingServiceRemote = class {
   addClient(arg_client) {
     return this.$.addClient(arg_client);
   }
-  bindConsumerHost(arg_receiver) {
-    return this.$.bindConsumerHost(arg_receiver);
-  }
 };
 
 mojo.internal.bindings.tracing.mojom.TracingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.TracingService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -233,15 +219,6 @@ mojo.internal.bindings.tracing.mojom.TracingServiceRemoteCallHandler = class {
       false);
   }
 
-  bindConsumerHost(arg_receiver) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.tracing.mojom.TracingService_BindConsumerHost_ParamsSpec,
-      null,
-      [arg_receiver],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.tracing.mojom.TracingService.getRemote = function() {
@@ -260,7 +237,6 @@ mojo.internal.bindings.tracing.mojom.TracingServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.TracingService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -347,29 +323,6 @@ mojo.internal.bindings.tracing.mojom.TracingServiceReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for AddClient failed with TypeError');
            }
         }
-        // Try Method 2: BindConsumerHost
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.tracing.mojom.TracingService_BindConsumerHost_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindConsumerHost (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for BindConsumerHost failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -393,13 +346,6 @@ mojo.internal.bindings.tracing.mojom.TracingServiceReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
           const result = this.impl.addClient(params.arg_client);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingService_BindConsumerHost_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.bindConsumerHost');
-          const result = this.impl.bindConsumerHost(params.arg_receiver);
           break;
         }
       }

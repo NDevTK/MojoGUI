@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,8 +133,6 @@ mojo.internal.bindings.screen_ai.mojom.WordBoxSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator = {};
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec = { $ : {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator.$interfaceName = 'screen_ai.mojom.ScreenAIAnnotator';
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = { $: {} };
@@ -239,18 +237,6 @@ mojo.internal.Struct(
 
 // Interface: ScreenAIAnnotator
 mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParams', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_Params', [
       mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
     ],
@@ -321,9 +307,6 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemote = class {
   close() {
     this.proxy.close();
   }
-  performOcrAndReturnAXTreeUpdate(arg_image) {
-    return this.$.performOcrAndReturnAXTreeUpdate(arg_image);
-  }
   performOcrAndReturnAnnotation(arg_image) {
     return this.$.performOcrAndReturnAnnotation(arg_image);
   }
@@ -350,22 +333,12 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
-  }
-
-  performOcrAndReturnAXTreeUpdate(arg_image) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec,
-      mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
-      [arg_image],
-      false);
   }
 
   performOcrAndReturnAnnotation(arg_image) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
       [arg_image],
@@ -374,7 +347,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
 
   setClientType(arg_client_type) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
       null,
       [arg_client_type],
@@ -383,7 +356,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
 
   getMaxImageDimension() {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
       [],
@@ -392,7 +365,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
 
   setOCRLightMode(arg_enabled) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
       null,
       [arg_enabled],
@@ -401,7 +374,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
 
   isOCRBusy() {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
       [],
@@ -426,7 +399,6 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('screen_ai.mojom.ScreenAIAnnotator', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -470,30 +442,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
         // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
-        // Try Method 0: PerformOcrAndReturnAXTreeUpdate
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAXTreeUpdate (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for PerformOcrAndReturnAXTreeUpdate failed with TypeError');
-           }
-        }
-        // Try Method 1: PerformOcrAndReturnAnnotation
+        // Try Method 0: PerformOcrAndReturnAnnotation
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec;
@@ -507,16 +456,16 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAnnotation (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrAndReturnAnnotation (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for PerformOcrAndReturnAnnotation failed with TypeError');
            }
         }
-        // Try Method 2: SetClientType
+        // Try Method 1: SetClientType
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec;
@@ -530,16 +479,16 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientType (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientType (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetClientType failed with TypeError');
            }
         }
-        // Try Method 3: GetMaxImageDimension
+        // Try Method 2: GetMaxImageDimension
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.structSpec;
@@ -553,16 +502,16 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxImageDimension (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxImageDimension (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for GetMaxImageDimension failed with TypeError');
            }
         }
-        // Try Method 4: SetOCRLightMode
+        // Try Method 3: SetOCRLightMode
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec;
@@ -576,16 +525,16 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOCRLightMode (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOCRLightMode (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for SetOCRLightMode failed with TypeError');
            }
         }
-        // Try Method 5: IsOCRBusy
+        // Try Method 4: IsOCRBusy
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.structSpec;
@@ -599,9 +548,9 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsOCRBusy (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsOCRBusy (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
                }
              }
            } catch (e) {
@@ -621,19 +570,6 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAXTreeUpdate');
-          const result = this.impl.performOcrAndReturnAXTreeUpdate(params.arg_image);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PerformOcrAndReturnAXTreeUpdate FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAnnotation');
           const result = this.impl.performOcrAndReturnAnnotation(params.arg_image);
@@ -645,14 +581,14 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
           const result = this.impl.setClientType(params.arg_client_type);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMaxImageDimension');
@@ -665,14 +601,14 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOCRLightMode');
           const result = this.impl.setOCRLightMode(params.arg_enabled);
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isOCRBusy');

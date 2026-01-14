@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -138,8 +138,6 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = { $: {} };
@@ -380,16 +378,6 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec, 'mojom.BluetoothInternalsHandler_RestartSystemBluetooth_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_Params', [
     ],
     [[0, 8]]);
@@ -451,9 +439,6 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemote = class {
   requestLocationServices() {
     return this.$.requestLocationServices();
   }
-  restartSystemBluetooth() {
-    return this.$.restartSystemBluetooth();
-  }
   startBtsnoop() {
     return this.$.startBtsnoop();
   }
@@ -466,7 +451,6 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('mojom.BluetoothInternalsHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -522,18 +506,9 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       false);
   }
 
-  restartSystemBluetooth() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec,
-      mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   startBtsnoop() {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec,
       [],
@@ -542,7 +517,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
 
   isBtsnoopFeatureEnabled() {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec,
       [],
@@ -567,7 +542,6 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('mojom.BluetoothInternalsHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -728,30 +702,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for RequestLocationServices failed with TypeError');
            }
         }
-        // Try Method 5: RestartSystemBluetooth
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestartSystemBluetooth (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RestartSystemBluetooth failed with TypeError');
-           }
-        }
-        // Try Method 6: StartBtsnoop
+        // Try Method 5: StartBtsnoop
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.structSpec;
@@ -765,16 +716,16 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartBtsnoop (6)');
-                 this.mapOrdinal(header.ordinal, 6);
-                 dispatchId = 6;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartBtsnoop (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
                }
              }
            } catch (e) {
              if (e instanceof TypeError) console.warn('[Discovery] trial for StartBtsnoop failed with TypeError');
            }
         }
-        // Try Method 7: IsBtsnoopFeatureEnabled
+        // Try Method 6: IsBtsnoopFeatureEnabled
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.structSpec;
@@ -788,9 +739,9 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsBtsnoopFeatureEnabled (7)');
-                 this.mapOrdinal(header.ordinal, 7);
-                 dispatchId = 7;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsBtsnoopFeatureEnabled (6)');
+                 this.mapOrdinal(header.ordinal, 6);
+                 dispatchId = 6;
                }
              }
            } catch (e) {
@@ -875,19 +826,6 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.restartSystemBluetooth');
-          const result = this.impl.restartSystemBluetooth();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RestartSystemBluetooth FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startBtsnoop');
           const result = this.impl.startBtsnoop();
@@ -899,7 +837,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isBtsnoopFeatureEnabled');

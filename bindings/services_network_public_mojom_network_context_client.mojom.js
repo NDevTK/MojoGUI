@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,11 +132,6 @@ mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingRepo
 mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -193,38 +188,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec, 'network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_Params', [
-      mojo.internal.StructField('arg_server_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_delegate', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_auth_negotiate_android_account_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spn', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec, 'network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_auth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec, 'network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec, 'network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParams', [
-      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec, 'network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.network.mojom.NetworkContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,24 +222,12 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemote = class {
   onCanSendDomainReliabilityUpload(arg_origin) {
     return this.$.onCanSendDomainReliabilityUpload(arg_origin);
   }
-  onGenerateHttpNegotiateAuthToken(arg_server_auth_token, arg_can_delegate, arg_auth_negotiate_android_account_type, arg_spn) {
-    return this.$.onGenerateHttpNegotiateAuthToken(arg_server_auth_token, arg_can_delegate, arg_auth_negotiate_android_account_type, arg_spn);
-  }
-  onCanSendSCTAuditingReport() {
-    return this.$.onCanSendSCTAuditingReport();
-  }
-  onNewSCTAuditingReportSent() {
-    return this.$.onNewSCTAuditingReportSent();
-  }
 };
 
 mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContextClient', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -310,33 +261,6 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       false);
   }
 
-  onGenerateHttpNegotiateAuthToken(arg_server_auth_token, arg_can_delegate, arg_auth_negotiate_android_account_type, arg_spn) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec,
-      mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec,
-      [arg_server_auth_token, arg_can_delegate, arg_auth_negotiate_android_account_type, arg_spn],
-      false);
-  }
-
-  onCanSendSCTAuditingReport() {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec,
-      mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  onNewSCTAuditingReportSent() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.network.mojom.NetworkContextClient.getRemote = function() {
@@ -355,9 +279,6 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContextClient', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -468,75 +389,6 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnCanSendDomainReliabilityUpload failed with TypeError');
            }
         }
-        // Try Method 3: OnGenerateHttpNegotiateAuthToken
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGenerateHttpNegotiateAuthToken (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnGenerateHttpNegotiateAuthToken failed with TypeError');
-           }
-        }
-        // Try Method 4: OnCanSendSCTAuditingReport
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanSendSCTAuditingReport (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnCanSendSCTAuditingReport failed with TypeError');
-           }
-        }
-        // Try Method 5: OnNewSCTAuditingReportSent
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewSCTAuditingReportSent (5)');
-                 this.mapOrdinal(header.ordinal, 5);
-                 dispatchId = 5;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnNewSCTAuditingReportSent failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -585,39 +437,6 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
               this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnCanSendDomainReliabilityUpload FAILED:', e));
           }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onGenerateHttpNegotiateAuthToken');
-          const result = this.impl.onGenerateHttpNegotiateAuthToken(params.arg_server_auth_token, params.arg_can_delegate, params.arg_auth_negotiate_android_account_type, params.arg_spn);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnGenerateHttpNegotiateAuthToken FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onCanSendSCTAuditingReport');
-          const result = this.impl.onCanSendSCTAuditingReport();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnCanSendSCTAuditingReport FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onNewSCTAuditingReportSent');
-          const result = this.impl.onNewSCTAuditingReportSent();
           break;
         }
       }

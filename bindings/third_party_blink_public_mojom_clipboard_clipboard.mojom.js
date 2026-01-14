@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -168,9 +168,6 @@ mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec = { $:
 mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ClipboardHost_CommitWrite_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
@@ -604,23 +601,6 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec, 'blink.mojom.ClipboardHost_WriteStringToFindPboard_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec, 'blink.mojom.ClipboardHost_GetPlatformPermissionState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec, 'blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PlatformClipboardPermissionStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec, 'blink.mojom.ClipboardHost_RegisterClipboardListener_Params', [
       mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ClipboardListenerRemote), null, false, 0, undefined),
     ],
@@ -714,12 +694,6 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemote = class {
   commitWrite() {
     return this.$.commitWrite();
   }
-  writeStringToFindPboard(arg_text) {
-    return this.$.writeStringToFindPboard(arg_text);
-  }
-  getPlatformPermissionState() {
-    return this.$.getPlatformPermissionState();
-  }
   registerClipboardListener(arg_listener) {
     return this.$.registerClipboardListener(arg_listener);
   }
@@ -729,8 +703,6 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ClipboardHost', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -945,27 +917,9 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       false);
   }
 
-  writeStringToFindPboard(arg_text) {
-    return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
-      mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec,
-      null,
-      [arg_text],
-      false);
-  }
-
-  getPlatformPermissionState() {
-    return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
-      mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   registerClipboardListener(arg_listener) {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
       [arg_listener],
@@ -990,8 +944,6 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ClipboardHost', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1535,53 +1487,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for CommitWrite failed with TypeError');
            }
         }
-        // Try Method 21: WriteStringToFindPboard
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteStringToFindPboard (21)');
-                 this.mapOrdinal(header.ordinal, 21);
-                 dispatchId = 21;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for WriteStringToFindPboard failed with TypeError');
-           }
-        }
-        // Try Method 22: GetPlatformPermissionState
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformPermissionState (22)');
-                 this.mapOrdinal(header.ordinal, 22);
-                 dispatchId = 22;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetPlatformPermissionState failed with TypeError');
-           }
-        }
-        // Try Method 23: RegisterClipboardListener
+        // Try Method 21: RegisterClipboardListener
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$.structSpec;
@@ -1595,9 +1501,9 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterClipboardListener (23)');
-                 this.mapOrdinal(header.ordinal, 23);
-                 dispatchId = 23;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterClipboardListener (21)');
+                 this.mapOrdinal(header.ordinal, 21);
+                 dispatchId = 21;
                }
              }
            } catch (e) {
@@ -1835,26 +1741,6 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           break;
         }
         case 21: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.writeStringToFindPboard');
-          const result = this.impl.writeStringToFindPboard(params.arg_text);
-          break;
-        }
-        case 22: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getPlatformPermissionState');
-          const result = this.impl.getPlatformPermissionState();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPlatformPermissionState FAILED:', e));
-          }
-          break;
-        }
-        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerClipboardListener');

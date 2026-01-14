@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,7 +130,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.RemotingHostControl.$interfaceName = 'remoting.mojom.RemotingHostControl';
 mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents = {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec = { $ : {} };
 mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents.$interfaceName = 'remoting.mojom.DesktopSessionConnectionEvents';
@@ -154,9 +153,6 @@ mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindi
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.network.mojom.IPEndPointSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
-mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
-mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec = mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: TransportRouteType
 mojo.internal.bindings.remoting.mojom.TransportRouteType = {
@@ -189,13 +185,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec, 'remoting.mojom.RemotingHostControl_BindChromotingHostServices_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_peer_pid', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.RemotingHostControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -227,16 +216,12 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote = class {
   initializePairingRegistry(arg_privileged_handle, arg_unprivileged_handle) {
     return this.$.initializePairingRegistry(arg_privileged_handle, arg_unprivileged_handle);
   }
-  bindChromotingHostServices(arg_receiver, arg_peer_pid) {
-    return this.$.bindChromotingHostServices(arg_receiver, arg_peer_pid);
-  }
 };
 
 mojo.internal.bindings.remoting.mojom.RemotingHostControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.RemotingHostControl', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -260,15 +245,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlRemoteCallHandler = cla
       false);
   }
 
-  bindChromotingHostServices(arg_receiver, arg_peer_pid) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec,
-      null,
-      [arg_receiver, arg_peer_pid],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.remoting.mojom.RemotingHostControl.getRemote = function() {
@@ -287,7 +263,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.RemotingHostControl', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -374,29 +349,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlReceiver = class {
              if (e instanceof TypeError) console.warn('[Discovery] trial for InitializePairingRegistry failed with TypeError');
            }
         }
-        // Try Method 2: BindChromotingHostServices
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindChromotingHostServices (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for BindChromotingHostServices failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -420,13 +372,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializePairingRegistry');
           const result = this.impl.initializePairingRegistry(params.arg_privileged_handle, params.arg_unprivileged_handle);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.bindChromotingHostServices');
-          const result = this.impl.bindChromotingHostServices(params.arg_receiver, params.arg_peer_pid);
           break;
         }
       }

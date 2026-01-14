@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -177,7 +177,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceSpec =
 mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface.$interfaceName = 'media.mojom.SpeechRecognitionClientBrowserInterface';
 mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -1941,12 +1940,6 @@ mojo.internal.Struct(
     ],
     [[0, 8]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec, 'media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionBrowserObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1978,9 +1971,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceRemote
   rEMOVED_1() {
     return this.$.rEMOVED_1();
   }
-  rEMOVED_2(arg_observer) {
-    return this.$.rEMOVED_2(arg_observer);
-  }
 };
 
 mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
@@ -1989,7 +1979,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceRemote
     this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.SpeechRecognitionClientBrowserInterface', [
       { explicit: 0 },
       { explicit: 1 },
-      { explicit: 2 },
     ]);
   }
 
@@ -2008,15 +1997,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceRemote
       mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec,
       null,
       [],
-      false);
-  }
-
-  rEMOVED_2(arg_observer) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec,
-      null,
-      [arg_observer],
       false);
   }
 
@@ -2040,7 +2020,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceReceiv
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.SpeechRecognitionClientBrowserInterface', [
       { explicit: 0 },
       { explicit: 1 },
-      { explicit: 2 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -2125,29 +2104,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceReceiv
              if (e instanceof TypeError) console.warn('[Discovery] trial for REMOVED_1 failed with TypeError');
            }
         }
-        // Try Method 2: REMOVED_2
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> REMOVED_2 (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for REMOVED_2 failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -2171,13 +2127,6 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterfaceReceiv
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_1');
           const result = this.impl.rEMOVED_1();
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.rEMOVED_2');
-          const result = this.impl.rEMOVED_2(params.arg_observer);
           break;
         }
       }

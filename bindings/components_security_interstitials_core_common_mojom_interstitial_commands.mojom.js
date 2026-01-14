@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,7 +144,6 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportP
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = { $: {} };
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = { $: {} };
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec = { $: {} };
 
 // Interface: InterstitialCommands
 mojo.internal.Struct(
@@ -247,11 +246,6 @@ mojo.internal.Struct(
     ],
     [[0, 8]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -337,16 +331,12 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemote =
   showCertificateViewer() {
     return this.$.showCertificateViewer();
   }
-  openAndroidAdvancedProtectionSettings() {
-    return this.$.openAndroidAdvancedProtectionSettings();
-  }
 };
 
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('security_interstitials.mojom.InterstitialCommands', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -550,15 +540,6 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       false);
   }
 
-  openAndroidAdvancedProtectionSettings() {
-    return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
-      mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands.getRemote = function() {
@@ -577,7 +558,6 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('security_interstitials.mojom.InterstitialCommands', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1096,29 +1076,6 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
              if (e instanceof TypeError) console.warn('[Discovery] trial for ShowCertificateViewer failed with TypeError');
            }
         }
-        // Try Method 20: OpenAndroidAdvancedProtectionSettings
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAndroidAdvancedProtectionSettings (20)');
-                 this.mapOrdinal(header.ordinal, 20);
-                 dispatchId = 20;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OpenAndroidAdvancedProtectionSettings failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -1268,13 +1225,6 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
           const params = decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showCertificateViewer');
           const result = this.impl.showCertificateViewer();
-          break;
-        }
-        case 20: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openAndroidAdvancedProtectionSettings');
-          const result = this.impl.openAndroidAdvancedProtectionSettings();
           break;
         }
       }

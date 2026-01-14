@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,12 +131,8 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater.$interface
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = { $: {} };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.CTPolicySpec = mojo.internal.bindings.network.mojom.CTPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -189,12 +185,6 @@ mojo.internal.Struct(
     ],
     [[0, 8]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_Params', [
-      mojo.internal.StructField('arg_ct_policy', 0, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -226,16 +216,12 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote = cl
   waitUntilNextUpdateForTesting() {
     return this.$.waitUntilNextUpdateForTesting();
   }
-  setCTPolicy(arg_ct_policy) {
-    return this.$.setCTPolicy(arg_ct_policy);
-  }
 };
 
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceUpdater', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -259,15 +245,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallH
       false);
   }
 
-  setCTPolicy(arg_ct_policy) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec,
-      null,
-      [arg_ct_policy],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater.getRemote = function() {
@@ -286,7 +263,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('cert_verifier.mojom.CertVerifierServiceUpdater', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -373,29 +349,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
              if (e instanceof TypeError) console.warn('[Discovery] trial for WaitUntilNextUpdateForTesting failed with TypeError');
            }
         }
-        // Try Method 2: SetCTPolicy
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCTPolicy (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for SetCTPolicy failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -425,13 +378,6 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
               this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitUntilNextUpdateForTesting FAILED:', e));
           }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCTPolicy');
-          const result = this.impl.setCTPolicy(params.arg_ct_policy);
           break;
         }
       }

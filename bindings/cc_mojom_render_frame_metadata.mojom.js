@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '145.0.7632.5';
+        const versionStr = window.mojoVersion || '146.0.7633.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,14 +130,12 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec = { $: {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver = {};
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec = { $ : {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver.$interfaceName = 'cc.mojom.RenderFrameMetadataObserver';
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec = { $: {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = { $: {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient = {};
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec = { $ : {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient.$interfaceName = 'cc.mojom.RenderFrameMetadataObserverClient';
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -209,12 +207,6 @@ mojo.internal.Struct(
 
 // Interface: RenderFrameMetadataObserver
 mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Params', [
-      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.bindings.cc.mojom.RootScrollOffsetUpdateFrequencySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_Params', [
       mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -245,9 +237,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  updateRootScrollOffsetUpdateFrequency(arg_frequency) {
-    return this.$.updateRootScrollOffsetUpdateFrequency(arg_frequency);
-  }
   reportAllFrameSubmissionsForTesting(arg_enabled) {
     return this.$.reportAllFrameSubmissionsForTesting(arg_enabled);
   }
@@ -258,22 +247,12 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = c
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('cc.mojom.RenderFrameMetadataObserver', [
       { explicit: null },
-      { explicit: null },
     ]);
-  }
-
-  updateRootScrollOffsetUpdateFrequency(arg_frequency) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
-      null,
-      [arg_frequency],
-      false);
   }
 
   reportAllFrameSubmissionsForTesting(arg_enabled) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
       [arg_enabled],
@@ -298,7 +277,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('cc.mojom.RenderFrameMetadataObserver', [
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -338,30 +316,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverReceiver = class {
         // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
         
-        // Try Method 0: UpdateRootScrollOffsetUpdateFrequency
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateRootScrollOffsetUpdateFrequency (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateRootScrollOffsetUpdateFrequency failed with TypeError');
-           }
-        }
-        // Try Method 1: ReportAllFrameSubmissionsForTesting
+        // Try Method 0: ReportAllFrameSubmissionsForTesting
         if (dispatchId === undefined) {
            try {
              const structSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec;
@@ -375,9 +330,9 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverReceiver = class {
              if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
                if (size > 8 || message.payload.byteLength === 8) {
                  decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAllFrameSubmissionsForTesting (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportAllFrameSubmissionsForTesting (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
                }
              }
            } catch (e) {
@@ -396,13 +351,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverReceiver = class {
       
       switch (dispatchId) {
         case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateRootScrollOffsetUpdateFrequency');
-          const result = this.impl.updateRootScrollOffsetUpdateFrequency(params.arg_frequency);
-          break;
-        }
-        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAllFrameSubmissionsForTesting');
@@ -437,12 +385,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_Params', [
-      mojo.internal.StructField('arg_root_scroll_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,16 +416,12 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote = class 
   onFrameSubmissionForTesting(arg_frame_token) {
     return this.$.onFrameSubmissionForTesting(arg_frame_token);
   }
-  onRootScrollOffsetChanged(arg_root_scroll_offset) {
-    return this.$.onRootScrollOffsetChanged(arg_root_scroll_offset);
-  }
 };
 
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('cc.mojom.RenderFrameMetadataObserverClient', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -507,15 +445,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandl
       false);
   }
 
-  onRootScrollOffsetChanged(arg_root_scroll_offset) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
-      null,
-      [arg_root_scroll_offset],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
@@ -534,7 +463,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientReceiver = clas
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('cc.mojom.RenderFrameMetadataObserverClient', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -621,29 +549,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientReceiver = clas
              if (e instanceof TypeError) console.warn('[Discovery] trial for OnFrameSubmissionForTesting failed with TypeError');
            }
         }
-        // Try Method 2: OnRootScrollOffsetChanged
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRootScrollOffsetChanged (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnRootScrollOffsetChanged failed with TypeError');
-           }
-        }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
              return;
@@ -667,13 +572,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientReceiver = clas
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmissionForTesting');
           const result = this.impl.onFrameSubmissionForTesting(params.arg_frame_token);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onRootScrollOffsetChanged');
-          const result = this.impl.onRootScrollOffsetChanged(params.arg_root_scroll_offset);
           break;
         }
       }
