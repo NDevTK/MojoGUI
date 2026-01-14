@@ -1126,26 +1126,38 @@
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
 
-        // Order matters for highlighting to avoid overlapping tokens
-        return escaped
-            // Comments (must be first to avoid highlighting inside)
-            .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
-            // Strings (single, double, backticks) - handling basic escaping
-            .replace(/(['"`])(.*?)\1/g, '<span class="string">$1$2$1</span>')
-            // Keywords
-            .replace(/\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue)\b/g, '<span class="keyword">$1</span>')
-            // Constants/Booleans
-            .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, '<span class="const">$1</span>')
-            // Built-ins (including Mojo-specific)
-            .replace(/\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings)\b/g, '<span class="builtin">$1</span>')
-            // Numbers (including BigInt n suffix)
-            .replace(/\b(\d+n?)\b/g, '<span class="number">$1</span>')
-            // Property Access
-            .replace(/\.(\w+)\b/g, '.<span class="property">$1</span>')
-            // Class Names (PascalCase)
-            .replace(/\b([A-Z][a-zA-Z0-9_]*)\b/g, '<span class="class">$1</span>')
-            // Function Calls
-            .replace(/([a-zA-Z0-9_]+)\(/g, '<span class="function">$1</span>(');
+        const tokens = [
+            { type: 'comment', regex: /\/\/.*$/m },
+            { type: 'string', regex: /(['"`])(?:\\.|(?!\1).)*\1/ },
+            { type: 'keyword', regex: /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue)\b/ },
+            { type: 'const', regex: /\b(true|false|null|undefined|NaN|Infinity)\b/ },
+            { type: 'builtin', regex: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings)\b/ },
+            { type: 'number', regex: /\b(\d+n?)\b/ },
+            { type: 'property', regex: /\.(\w+)\b/ },
+            { type: 'class', regex: /\b([A-Z][a-zA-Z0-9_]*)\b/ },
+            { type: 'function', regex: /\b([a-z_][a-zA-Z0-9_]*)(?=\()/i }
+        ];
+
+        // Combine into one big regex with capture groups
+        const combinedRegex = new RegExp(
+            tokens.map(t => `(${t.regex.source})`).join('|'),
+            'gm'
+        );
+
+        return escaped.replace(combinedRegex, (match, ...args) => {
+            // Find which group matched
+            const groupIndex = args.findIndex((arg, i) => i < tokens.length && arg !== undefined);
+            
+            if (groupIndex !== -1) {
+                const token = tokens[groupIndex];
+                if (token.type === 'property') {
+                    // Property access: keep the dot outside the span if possible, or handle it
+                    return `.<span class="property">${match.substring(1)}</span>`;
+                }
+                return `<span class="${token.type}">${match}</span>`;
+            }
+            return match;
+        });
     }
 
     // ========================================
