@@ -1739,8 +1739,14 @@
                 originalKey = 'arg_' + key;
             } else if (original && original.hasOwnProperty(key)) {
                 originalKey = key;
+            } else {
+                // If neither, and original is missing (or structural change), we depend on Heuristics.
+                // Most Mojo fields generated use 'arg_' prefix.
+                // We avoid adding it if the user ALREADY typed 'arg_' or for known metadata keys.
+                if (!key.startsWith('arg_') && !key.startsWith('$') && key !== 'uuid' && key !== 'ordinal') {
+                    originalKey = 'arg_' + key;
+                }
             }
-            // If neither, we keep the new key (user added it, or it was already clean)
 
             restored[originalKey] = reconcileKeys(edited[key], original && original[originalKey]);
         }
