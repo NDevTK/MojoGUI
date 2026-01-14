@@ -1447,7 +1447,7 @@
             let elementSpec = null; // For arrays
             let mapSpec = null;     // For maps
 
-            if (field.type && field.type.$ && field.type.$.structSpec) {
+            if (type !== 'string16' && field.type && field.type.$ && field.type.$.structSpec) {
                 type = 'struct';
                 structSpec = field.type.$.structSpec;
             } else if (field.type && (field.type.elementType || (field.type.$ && field.type.$.elementType))) {
