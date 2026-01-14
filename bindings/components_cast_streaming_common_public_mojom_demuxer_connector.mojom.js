@@ -364,61 +364,8 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: GetBuffer
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBuffer (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetBuffer failed with TypeError');
-           }
-        }
-        // Try Method 1: EnableBitstreamConverter
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableBitstreamConverter (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for EnableBitstreamConverter failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -602,61 +549,8 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: GetBuffer
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBuffer (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetBuffer failed with TypeError');
-           }
-        }
-        // Try Method 1: EnableBitstreamConverter
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableBitstreamConverter (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for EnableBitstreamConverter failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -835,61 +729,8 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: EnableReceiver
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableReceiver (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for EnableReceiver failed with TypeError');
-           }
-        }
-        // Try Method 1: OnStreamsInitialized
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStreamsInitialized (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for OnStreamsInitialized failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       

@@ -313,61 +313,8 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerReceiver = class {
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: Initialize
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for Initialize failed with TypeError');
-           }
-        }
-        // Try Method 1: CustomDictionaryChanged
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CustomDictionaryChanged (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CustomDictionaryChanged failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -508,38 +455,8 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostReceiver = c
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: RequestDictionary
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDictionary (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestDictionary failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -781,130 +698,8 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostReceiver = class {
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: NotifyChecked
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyChecked (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for NotifyChecked failed with TypeError');
-           }
-        }
-        // Try Method 1: RequestTextCheck
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextCheck (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestTextCheck failed with TypeError');
-           }
-        }
-        // Try Method 2: CheckSpelling
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckSpelling (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for CheckSpelling failed with TypeError');
-           }
-        }
-        // Try Method 3: FillSuggestionList
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillSuggestionList (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for FillSuggestionList failed with TypeError');
-           }
-        }
-        // Try Method 4: InitializeDictionaries
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDictionaries (4)');
-                 this.mapOrdinal(header.ordinal, 4);
-                 dispatchId = 4;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for InitializeDictionaries failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       

@@ -576,61 +576,8 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: RequestChromeMemoryDump
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestChromeMemoryDump (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestChromeMemoryDump failed with TypeError');
-           }
-        }
-        // Try Method 1: RequestOSMemoryDump
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestOSMemoryDump (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestOSMemoryDump failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -791,38 +738,8 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: DumpProcessesForTracing
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpProcessesForTracing (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for DumpProcessesForTracing failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -969,38 +886,8 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver =
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: GetVmRegionsForHeapProfiler
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVmRegionsForHeapProfiler (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for GetVmRegionsForHeapProfiler failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -1235,107 +1122,8 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: RequestGlobalMemoryDump
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDump (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestGlobalMemoryDump failed with TypeError');
-           }
-        }
-        // Try Method 1: RequestGlobalMemoryDumpForPid
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDumpForPid (1)');
-                 this.mapOrdinal(header.ordinal, 1);
-                 dispatchId = 1;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestGlobalMemoryDumpForPid failed with TypeError');
-           }
-        }
-        // Try Method 2: RequestPrivateMemoryFootprint
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestPrivateMemoryFootprint (2)');
-                 this.mapOrdinal(header.ordinal, 2);
-                 dispatchId = 2;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestPrivateMemoryFootprint failed with TypeError');
-           }
-        }
-        // Try Method 3: RequestGlobalMemoryDumpAndAppendToTrace
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = true;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestGlobalMemoryDumpAndAppendToTrace (3)');
-                 this.mapOrdinal(header.ordinal, 3);
-                 dispatchId = 3;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestGlobalMemoryDumpAndAppendToTrace failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
@@ -1516,38 +1304,8 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
-        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: RegisterCoordinatorClient
-        if (dispatchId === undefined) {
-           try {
-             const structSpec = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.structSpec;
-             const size = decoder.decodeUint32(0);
-             const version = decoder.decodeUint32(4);
-             let sizeMatch = false;
-             for (const v of structSpec.versions) {
-               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
-             }
-             const methodExpectsResp = false;
-             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
-               if (size > 8 || message.payload.byteLength === 8) {
-                 decoder.decodeStructInline(structSpec);
-                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterCoordinatorClient (0)');
-                 this.mapOrdinal(header.ordinal, 0);
-                 dispatchId = 0;
-               }
-             }
-           } catch (e) {
-             if (e instanceof TypeError) console.warn('[Discovery] trial for RegisterCoordinatorClient failed with TypeError');
-           }
-        }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       
