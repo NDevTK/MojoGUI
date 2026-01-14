@@ -2372,6 +2372,14 @@
     }
 
     function reconcileKeys(edited, original, useHeuristics = true) {
+        // Mojo Handle Restoration:
+        // If the form sent back the placeholder string, and we have the original object (which contains the Proxy),
+        // we MUST restore the original object so the Mojo bindings can re-serialize it.
+        // We accept both the Handle Card value "[Mojo Handle]" and the sanitized string "[Mojo ...]" just in case.
+        if (typeof edited === 'string' && (edited === '[Mojo Handle]' || edited.startsWith('[Mojo ')) && original && typeof original === 'object') {
+            return original;
+        }
+
         if (edited === null || typeof edited !== 'object') return edited;
         // Do NOT bail if original is null. usage: reconcileKeys(newItem, null)
         // We want to fall through to Heuristics loop.
@@ -2674,8 +2682,8 @@
                     });
                 }
 
-                // Reconcile keys
-                const originalParams = (detail && detail.params) ? detail.params : null;
+                // Restore Mojo handles if present
+                const originalParams = (row && row.__details) ? row.__details.params : null;
                 const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
 
                 // Add new activity row for the replay
