@@ -1347,9 +1347,16 @@
         }
 
 
+
         // Explicitly handle String16 struct
-        if (typeof mojomType === 'object' && mojomType.name === 'mojo_base.mojom.String16') {
+        // mojomType is often a constructor function with a static $ property containing the spec
+        if (mojomType && (mojomType.$ && mojomType.$.name === 'mojo_base.mojom.String16')) {
             return 'string16';
+        }
+        // Fallback: Check function name directly just in case (though less reliable)
+        if (typeof mojomType === 'function' && mojomType.name === 'String16') {
+            // We can try to verify namespace if we could, but 'String16' is distinct enough? 
+            // Maybe better to be strict.
         }
 
         if (typeof mojomType === 'string') return mojomType;
