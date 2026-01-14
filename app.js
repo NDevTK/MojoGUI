@@ -782,7 +782,7 @@
         if (param.type === 'Url' || param.type.endsWith('.Url') || (typeof value === 'object' && value && (value.arg_url || value.url))) {
             const urlVal = value ? (value.arg_url || value.url || '') : '';
             return `
-                <div class="form-group">
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
                         <span class="type">Url</span>
@@ -1016,7 +1016,7 @@
 
         if (inputType === 'checkbox') {
             return `
-                <div class="form-group">
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         <input type="checkbox" ${attributes} ${displayValue ? 'checked' : ''}>
                         ${displayName}
@@ -1027,7 +1027,7 @@
             `;
         } else if (inputType === 'textarea') {
             return `
-                <div class="form-group">
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
                         <span class="type">${escapeHtml(param.type)}</span>
@@ -1038,7 +1038,7 @@
             `;
         } else {
             return `
-                <div class="form-group">
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
                         <span class="type">${escapeHtml(param.type)}</span>
