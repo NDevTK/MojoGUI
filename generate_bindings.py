@@ -1441,49 +1441,10 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         js_code += "      if (!header) return;\n"
         js_code += "      let dispatchId = this.ordinalMap.get(header.ordinal);\n"
         
-        # HEURISTIC DISCOVERY
         js_code += "      if (dispatchId === undefined) {\n"
-        js_code += "        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.\n"
-        js_code += "        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');\n"
-        js_code += "        // Decoder uses payload view starting at 0\n"
-        js_code += "        const decoder = new mojo.internal.Decoder(message.payload, message.handles);\n"
-        js_code += "        \n"
-        
-        # Generate trial logic for each method
-        for idx, method in enumerate(interface.get('methods', [])):
-             method_name = method['name']
-             param_struct_name = f"{iface_name}_{method_name}_Params"
-             is_one_way = method.get('is_one_way', False)
-             
-             js_code += f"        // Try Method {idx}: {method_name}\n"
-             js_code += "        if (dispatchId === undefined) {\n"
-             js_code += "           try {\n"
-             js_code += f"             const structSpec = {current_ns}.{param_struct_name}Spec.$.structSpec;\n"
-             js_code += "             const size = decoder.decodeUint32(0);\n"
-             js_code += "             const version = decoder.decodeUint32(4);\n"
-             js_code += "             let sizeMatch = false;\n"
-             js_code += "             for (const v of structSpec.versions) {\n"
-             js_code += "               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }\n"
-             js_code += "             }\n"
-             js_code += f"             const methodExpectsResp = {'false' if is_one_way else 'true'};\n"
-             js_code += "             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {\n"
-             js_code += "               if (size > 8 || message.payload.byteLength === 8) {\n"
-             js_code += "                 decoder.decodeStructInline(structSpec);\n"
-             js_code += f"                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> {method_name} ({idx})');\n"
-             js_code += f"                 this.mapOrdinal(header.ordinal, {idx});\n"
-             js_code += f"                 dispatchId = {idx};\n"
-             js_code += "               }\n"
-             js_code += "             }\n"
-             js_code += "           } catch (e) {\n"
-             js_code += f"             if (e instanceof TypeError) console.warn('[Discovery] trial for {method_name} failed with TypeError');\n"
-             js_code += "           }\n"
-             js_code += "        }\n"
-
-        js_code += "        if (dispatchId === undefined) {\n"
-        js_code += "             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);\n"
-        js_code += "             return;\n"
-        js_code += "        }\n"
-        js_code += "      }\n" # End discovery block
+        js_code += "           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);\n"
+        js_code += "           return;\n"
+        js_code += "      }\n"
         
         js_code += "      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);\n"
         js_code += "      \n"
