@@ -990,7 +990,7 @@
             }
 
             const options = unionFields.map(f =>
-                `<option value="${f.name}" ${f.name === activeTag ? 'selected' : ''}>${f.name}</option>`
+                `<option value="${f.name}" ${f.name === activeTag ? 'selected' : ''}>${f.name.replace(/^arg_/, '')}</option>`
             ).join('');
 
             const renderedFields = unionFields.map(f => {
