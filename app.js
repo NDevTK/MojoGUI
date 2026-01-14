@@ -623,48 +623,40 @@
         }
 
         // Delegate to the schema parser
-        return generateDefaultParams(ifaceMetadata, methodName);
+        const resolved = resolveMethodSpecs(ifaceMetadata, methodName);
+        return resolved ? resolved.parameters : null;
     }
 
     function findMethodDefinition(interfaceName, methodName) {
-        // 1. Try reusing getMethodParams to see if we can get params directly
-        const params = getMethodParams(interfaceName, methodName);
-        if (params) {
-            return {
-                name: methodName,
-                parameters: params
-            };
-        }
+        // 1. Try resolving specs dynamically
+        const resolved = resolveMethodSpecs({ name: interfaceName, module: null }, methodName);
+        // Note: resolveMethodSpecs handles fuzzy interface lookup if we provide metadata
 
-        // 2. Manual lookup with Fuzzy Matching (Collisions Handling)
-        // interfaceName is often FQN (blink.mojom.ClipboardHost)
-        // state.interfaces has { name: 'ClipboardHost', module: 'blink.mojom' }
-
+        // Actually, we need reliable metadata first.
         let iface = state.interfaces.find(i => {
             const fqn = i.module ? `${i.module}.${i.name}` : i.name;
             return fqn === interfaceName;
         });
 
-        if (!iface) {
-            // Fallback: Check if interfaceName is just the suffix (Short Name)
-            // Warning: This might return the wrong interface if collisions exist, but it's a fallback.
-            iface = state.interfaces.find(i => i.name === interfaceName);
-        }
-
-        if (!iface) {
-            // Fallback: Check for partial match/suffix just in case
-            iface = state.interfaces.find(i =>
-                i.name.endsWith('.' + interfaceName) || interfaceName.endsWith('.' + i.name)
-            );
-        }
+        if (!iface) iface = state.interfaces.find(i => i.name === interfaceName); // Simple name
+        if (!iface) iface = state.interfaces.find(i => i.name.endsWith('.' + interfaceName)); // Suffix
 
         if (iface) {
-            // Case-insensitive method match
+            const specs = resolveMethodSpecs(iface, methodName);
+            if (specs) {
+                return {
+                    name: methodName,
+                    parameters: specs.parameters,
+                    responseParams: specs.responseParams
+                };
+            }
+
+            // Fallback to parser results if dynamic resolution fails
             const m = iface.methods.find(m => m.name === methodName || m.name.toLowerCase() === methodName.toLowerCase());
             if (m) return m;
         }
 
-        return null;
+        return null; // No definition found
     }
 
     // Helper for Array rendering
@@ -1233,39 +1225,50 @@
         return 'string'; // Default to string input for complex types so user can paste JSON/values
     }
 
-    function generateDefaultParams(ifaceMetadata, methodName) {
+    function resolveMethodSpecs(ifaceMetadata, methodName) {
         // Attempts to resolve parameters from the Loaded Bindings in the page
         if (ifaceMetadata && ifaceMetadata.module) {
-            // Determine simple interface name for spec lookup (e.g. 'VibrationManager' from 'device.mojom.VibrationManager')
             const simpleInterfaceName = ifaceMetadata.name.split('.').pop();
             const namespace = resolveNamespace(ifaceMetadata.module);
 
             if (namespace) {
                 // Try exact match first (e.g. Vibrate)
-                let specName = `${simpleInterfaceName}_${methodName}_ParamsSpec`;
-                let specWrapper = namespace[specName];
+                let pascalMethod = methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
-                // If not found, try PascalCase (if method is vibrate -> Vibrate)
-                if (!specWrapper) {
-                    const pascalMethod = methodName.charAt(0).toUpperCase() + methodName.slice(1);
-                    specName = `${simpleInterfaceName}_${pascalMethod}_ParamsSpec`;
-                    specWrapper = namespace[specName];
-                }
+                // Helper to try find spec
+                const findSpec = (suffix) => {
+                    // Try methodName_Suffix
+                    let p = `${simpleInterfaceName}_${methodName}_${suffix}`;
+                    if (namespace[p]) return namespace[p];
+                    // Try PascalMethod_Suffix
+                    p = `${simpleInterfaceName}_${pascalMethod}_${suffix}`;
+                    if (namespace[p]) return namespace[p];
+                    return null;
+                };
 
-                if (specWrapper) {
-                    // specWrapper is like { $: { structSpec: { ... } } }
-                    // or just { structSpec: ... } depending on generation
-                    const structSpec = specWrapper.$ ? specWrapper.$.structSpec : specWrapper.structSpec;
+                const paramsWrapper = findSpec('ParamsSpec');
+                const responseParamsWrapper = findSpec('ResponseParamsSpec');
 
+                const result = { parameters: null, responseParams: null };
+
+                if (paramsWrapper) {
+                    const structSpec = paramsWrapper.$ ? paramsWrapper.$.structSpec : paramsWrapper.structSpec;
                     if (structSpec && structSpec.fields) {
-                        return mapFieldsToUIParams(structSpec.fields);
+                        result.parameters = mapFieldsToUIParams(structSpec.fields);
                     }
                 }
-            }
 
-            // Return null if schema not found, triggering the "Raw Arguments Array" fallback UI
-            return null;
+                if (responseParamsWrapper) {
+                    const structSpec = responseParamsWrapper.$ ? responseParamsWrapper.$.structSpec : responseParamsWrapper.structSpec;
+                    if (structSpec && structSpec.fields) {
+                        result.responseParams = mapFieldsToUIParams(structSpec.fields);
+                    }
+                }
+
+                if (result.parameters || result.responseParams) return result;
+            }
         }
+        return null;
     }
 
     function mapFieldsToUIParams(fields) {
