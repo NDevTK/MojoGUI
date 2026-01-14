@@ -1087,6 +1087,30 @@
             displayValue = value.toString() + 'n';
             if (inputType === 'number') inputType = 'text';
         } else if (typeof value === 'object' && value !== null) {
+            // Mojo Handle Detection for Form View
+            if (value.$ && value.proxy && typeof value.$ === 'object') {
+                const meta = value.$;
+                const ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
+                const ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
+
+                return `
+                    <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                        <label>
+                            ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                            <span class="type">Mojo Handle</span>
+                        </label>
+                        <div class="mojo-handle-card">
+                            <div class="handle-icon">🔌</div>
+                            <div class="handle-info">
+                                <div class="handle-interface">${escapeHtml(ifaceName)}</div>
+                                <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
+                            </div>
+                        </div>
+                        <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value="[Mojo Handle]">
+                    </div>
+                `;
+            }
+
             // DEEP Sanitize before stringifying to remove inner arg_
             displayValue = safeStringify(sanitizeKeys(value), 2);
         } else if (value === undefined || value === null) {
@@ -2209,6 +2233,18 @@
         if (obj === null || typeof obj !== 'object') return obj;
         if (seen.has(obj)) return '[Circular]';
         seen.add(obj);
+
+        // Mojo Remote/Handle Detection:
+        // These objects usually have a '$' property containing metadata and a 'proxy' property.
+        if (obj.$ && obj.proxy && typeof obj.$ === 'object') {
+            const meta = obj.$;
+            return {
+                __mojoType: 'Handle',
+                interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
+                interfaceId: meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || 0,
+                namespace: meta.interfaceNameNamespace || ''
+            };
+        }
 
         if (Array.isArray(obj)) return obj.map(v => sanitizeKeys(v, seen));
 

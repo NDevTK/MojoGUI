@@ -1437,6 +1437,45 @@ body::before {
     color: var(--text-primary);
 }
 
+.mojo-handle-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    margin-top: 4px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.mojo-handle-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.handle-icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px var(--primary));
+}
+
+.handle-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.handle-interface {
+    font-weight: 600;
+    color: var(--primary-light);
+    font-size: 0.9rem;
+}
+
+.handle-meta {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+}
+
 /* Status dots */
 .status-dot {
     display: inline-block;
