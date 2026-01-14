@@ -765,10 +765,6 @@
         }
     }
 
-    // ... (lines 701-1223 skipped)
-
-
-
     function getInterceptorFormValues(id) {
         const formContainer = document.getElementById(`interceptForm_${id}`);
         if (!formContainer) return [];
