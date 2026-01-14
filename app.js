@@ -964,6 +964,73 @@
                 </div>`;
         }
 
+        // 6. Unions: Discriminator + Active Field
+        if (param.type === 'union' && param.structSpec) {
+            const unionFields = mapFieldsToUIParams(param.structSpec.fields);
+            // Value for a Union is an object like { tag: value }
+            // We need to find the active tag.
+            let activeTag = unionFields[0].name; // Default to first
+            let activeValue = undefined;
+
+            if (value && typeof value === 'object') {
+                const keys = Object.keys(value);
+                // If we have keys, find the one that matches a field name
+                for (const k of keys) {
+                    if (unionFields.some(f => f.name === k)) {
+                        activeTag = k;
+                        activeValue = value[k];
+                        break;
+                    }
+                }
+            }
+
+            const options = unionFields.map(f =>
+                `<option value="${f.name}" ${f.name === activeTag ? 'selected' : ''}>${f.name}</option>`
+            ).join('');
+
+            const renderedFields = unionFields.map(f => {
+                const isHidden = f.name !== activeTag;
+                // We pre-render all fields but hide inactive ones
+                // We pass the activeValue ONLY to the active field to avoid confusion, 
+                // or we could pass null to others.
+                const val = f.name === activeTag ? activeValue : undefined;
+
+                // We need to prevent ID conflicts if we render all? No, IDs are fine.
+                return `
+                    <div class="union-field" data-tag="${f.name}" ${isHidden ? 'hidden' : ''}>
+                        ${renderInput(f, val, { isInterceptor, interceptId, parentName: parentName ? `${parentName}.${param.name}` : param.name })}
+                    </div>
+                 `;
+            }).join('');
+
+            return `
+                <div class="form-group union-group" 
+                     data-type="union" 
+                     data-original-name="${escapeHtml(param.name)}"
+                     style="margin-bottom: 8px; border-left: 3px solid var(--primary); padding-left: 8px;">
+                     <label>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">Union</span>
+                     </label>
+                     <div style="margin-bottom: 6px;">
+                        <span class="badget">Active Member:</span>
+                        <select class="union-discriminator" onchange="
+                            const group = this.closest('.union-group');
+                            const tag = this.value;
+                            group.querySelectorAll('.union-field').forEach(el => el.hidden = (el.dataset.tag !== tag));
+                            // Trigger change to update state
+                            group.dispatchEvent(new Event('change', {bubbles: true}));
+                        " style="padding: 2px 4px; border: 1px solid var(--border-subtle); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
+                            ${options}
+                        </select>
+                     </div>
+                     <div class="union-content">
+                        ${renderedFields}
+                     </div>
+                </div>
+             `;
+        }
+
         // 2. BigBuffer: Handle as raw text/bytes
         if (param.type.endsWith('BigBuffer')) {
             // simplified display for big buffer
@@ -1098,11 +1165,43 @@
             } else if (group.classList.contains('map-group')) {
                 key = group.dataset.originalName;
                 const content = group.querySelector('.map-entries-container');
-                const entries = collectFormData(content, true);
                 value = {};
-                entries.forEach(entry => {
-                    if (entry.key !== undefined) value[entry.key] = entry.value;
-                });
+                if (content && content.children) {
+                    const entries = collectFormData(content, true);
+                    entries.forEach(entry => {
+                        if (entry.key !== undefined) value[entry.key] = entry.value;
+                    });
+                }
+            } else if (group.classList.contains('union-group')) {
+                key = group.dataset.originalName;
+                const activeTag = group.querySelector('.union-discriminator').value;
+                if (activeTag) {
+                    const activeContent = group.querySelector(`.union-field[data-tag="${activeTag}"]`);
+                    // We need to collect the value from the active field NO MATTER WHAT
+                    // The active field is a .form-group wrapper, so we need to recurse into it?
+                    // But collectFormData iterates children.
+                    // Let's create a temporary container or just target the input/content directly?
+                    // Actually, activeContent contains the rendered input for that tag. 
+                    // We can just call collectFormData on activeContent.parentNode? No.
+
+                    // Simplified: The active content IS the form group for the value. 
+                    // We can scrape the value from it. 
+                    // But collectFormData expects a container of groups.
+                    // Let's wrap it in a mock container if needed or just handle single item.
+
+                    // Better: The union-field div CONTAINS the rendered input from renderInput.
+                    // renderInput returns a .form-group.
+                    // So activeContent has a single .form-group child.
+                    const innerGroup = activeContent.querySelector('.form-group');
+                    if (innerGroup) {
+                        const innerData = collectFormData({ children: [innerGroup] }, false);
+                        // innerData is { fieldName: value }
+                        // We want { activeTag: value }
+                        // But wait, the inner field name IS the activeTag (usually args are named).
+                        // Mojo Union JS format: { tag: value }
+                        value = { [activeTag]: Object.values(innerData)[0] };
+                    }
+                }
             } else {
                 const input = group.querySelector('.param-input');
                 if (!input) return;
@@ -1310,6 +1409,10 @@
                     key: field.type.keyType || field.type.$.keyType,
                     value: field.type.valueType || field.type.$.valueType
                 };
+            } else if (field.type && (field.type.unionSpec || (field.type.$ && field.type.$.unionSpec))) {
+                type = 'union';
+                // Union Spec extraction
+                structSpec = field.type.unionSpec || field.type.$.unionSpec;
             }
 
             // Use original name without prefix (safe in function scope)
