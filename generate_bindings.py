@@ -1208,6 +1208,9 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 remote_name = f"{ext_ns}.{ext_name}Remote"
                 js_code += f"{remote_name} = {remote_name} || class {{}};\n"
 
+    # Buffer specs to append at the end (to avoid capturing undefined in InterfaceProxy)
+    specs_code = ""
+
     # Generate constants
     for const in parsed.get('constants', []):
         val = str(const['value'])
@@ -1253,9 +1256,9 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         union_name = union['name']
         full_name = f"{current_ns}.{union_name}"
         
-        js_code += f"\n// Union: {union_name}\n"
-        js_code += f"mojo.internal.Union(\n"
-        js_code += f"    {full_name}Spec, '{module}.{union_name}', {{\n"
+        specs_code += f"\n// Union: {union_name}\n"
+        specs_code += f"mojo.internal.Union(\n"
+        specs_code += f"    {full_name}Spec, '{module}.{union_name}', {{\n"
         
         for i, field in enumerate(union['fields']):
             f_type = resolve_mojo_type(field['type'])
@@ -1263,13 +1266,13 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             if f_ordinal is None: f_ordinal = i
             
             f_nullable = 'true' if field.get('optional') or '?' in field.get('type', '') else 'false'
-            js_code += f"      '{field['name']}': {{\n"
-            js_code += f"        'ordinal': {f_ordinal},\n"
-            js_code += f"        'type': {f_type},\n"
-            js_code += f"        'nullable': {f_nullable},\n"
-            js_code += "      },\n"
+            specs_code += f"      '{field['name']}': {{\n"
+            specs_code += f"        'ordinal': {f_ordinal},\n"
+            specs_code += f"        'type': {f_type},\n"
+            specs_code += f"        'nullable': {f_nullable},\n"
+            specs_code += "      },\n"
             
-        js_code += "    });\n"
+        specs_code += "    });\n"
 
     # Generate structs
     for struct in parsed.get('structs', []):
@@ -1277,13 +1280,13 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         full_name = f"{current_ns}.{struct_name}"
         fields_code, packed_size, versions_code = get_struct_layout(struct.get('fields', []))
         
-        js_code += f"\n// Struct: {struct_name}\n"
-        js_code += f"mojo.internal.Struct(\n"
-        js_code += f"    {full_name}Spec, '{module}.{struct_name}', [\n"
+        specs_code += f"\n// Struct: {struct_name}\n"
+        specs_code += f"mojo.internal.Struct(\n"
+        specs_code += f"    {full_name}Spec, '{module}.{struct_name}', [\n"
         for field in fields_code:
-            js_code += f"      mojo.internal.StructField({field}),\n"
-        js_code += f"    ],\n"
-        js_code += f"    {versions_code});\n"
+            specs_code += f"      mojo.internal.StructField({field}),\n"
+        specs_code += f"    ],\n"
+        specs_code += f"    {versions_code});\n"
     
     # Generate interface classes with proper getRemote() method
     for interface in parsed.get('interfaces', []):
@@ -1303,12 +1306,12 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             param_struct_name = f"{iface_name}_{method_name}_Params"
             p_fields, p_size, p_versions = get_struct_layout(params)
             
-            js_code += f"mojo.internal.Struct(\n"
-            js_code += f"    {current_ns}.{param_struct_name}Spec, '{module}.{param_struct_name}', [\n"
+            specs_code += f"mojo.internal.Struct(\n"
+            specs_code += f"    {current_ns}.{param_struct_name}Spec, '{module}.{param_struct_name}', [\n"
             for field in p_fields:
-                js_code += f"      mojo.internal.StructField({field}),\n"
-            js_code += f"    ],\n"
-            js_code += f"    {p_versions});\n\n"
+                specs_code += f"      mojo.internal.StructField({field}),\n"
+            specs_code += f"    ],\n"
+            specs_code += f"    {p_versions});\n\n"
 
             # Response Params
             if not method.get('is_one_way'):
@@ -1316,12 +1319,12 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
                 r_fields, r_size, r_versions = get_struct_layout(resp_params)
                 
-                js_code += f"mojo.internal.Struct(\n"
-                js_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
+                specs_code += f"mojo.internal.Struct(\n"
+                specs_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
                 for field in r_fields:
-                    js_code += f"      mojo.internal.StructField({field}),\n"
-                js_code += f"    ],\n"
-                js_code += f"    {r_versions});\n\n"
+                    specs_code += f"      mojo.internal.StructField({field}),\n"
+                specs_code += f"    ],\n"
+                specs_code += f"    {r_versions});\n\n"
 
         # Generate PendingReceiver class first (needed by Remote)
         js_code += f"{full_name}PendingReceiver = class {{\n"
@@ -1477,10 +1480,11 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             
             # Call implementation
             param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
-            args_js = ", ".join([f"params.{name}" for name in param_names])
+            params_list = [f"params.arg_{name}" for name in param_names]
+            params_str = ", ".join(params_list)
             
             js_code += f"          console.log('[GeneratedReceiver] Calling impl.{method_name_camel}');\n"
-            js_code += f"          const result = this.impl.{method_name_camel}({args_js});\n"
+            js_code += f"          const result = this.impl.{method_name_camel}({params_str});\n"
             
             # Handle response
             if not method.get('is_one_way'):
@@ -1488,8 +1492,21 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"          const expectsResponse = header.expectsResponse || (header.flags & 1);\n"
                 js_code += f"          if (expectsResponse) {{\n"
                 js_code += f"            Promise.resolve(result).then(response => {{\n"
-                js_code += f"              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, {current_ns}.{resp_struct_name}Spec, response);\n"
-                js_code += f"            }}).catch(e => console.error('[GeneratedReceiver] {method_name} FAILED:', e));\n"
+                js_code += f"              const encoder = new mojo.internal.Encoder(header.requestId, true);\n"
+                
+                ret_list = [f"response.arg_{r['name']}" for r in (method.get('returns') or []) if r and r.get('name')]
+                # If only one return value and it's not a struct, response might be it directly?
+                # No, we assume consistent return object or array.
+                # Actually, our impl likely returns a simple value or object.
+                # Let's handle both.
+                if len(ret_list) == 1:
+                    js_code += f"              const val = (response && typeof response === 'object' && 'arg_{method['returns'][0]['name']}' in response) ? response.arg_{method['returns'][0]['name']} : response;\n"
+                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, [val]);\n"
+                else:
+                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, {ret_list if ret_list else '[]'});\n"
+                
+                js_code += "              this.router_.sendMessage(encoder.finish());\n"
+                js_code += f"            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));\n"
                 js_code += "          }\n"
                 
             js_code += "          break;\n"
@@ -1504,12 +1521,15 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         js_code += "};\n\n"
         
         # Legacy/Lite Alias
-        js_code += f"{current_ns}.{iface_name}Receiver = {full_name}Receiver;\n\n"
+        js_code += f"{full_name}Receiver = {full_name}Receiver;\n\n"
         
         # Legacy compatibility
         js_code += f"{full_name}Ptr = {full_name}Remote;\n"
         js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
      
+    js_code += "\n// Specs (at the end to ensure classes are defined for InterfaceProxy)\n"
+    js_code += specs_code
+    
     return js_code
 
 
