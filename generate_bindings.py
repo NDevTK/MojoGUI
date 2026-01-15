@@ -1496,7 +1496,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 returns = method.get('returns') or []
                 if len(returns) == 1:
                     r_name = returns[0]['name']
-                    # Use bracket notation for r_name to avoid issues if it has special chars (unlikely but safe)
+                    # Use bracket notation for r_name to avoid issues if it has special chars
                     js_code += f"              const val = (response && typeof response === 'object' && '{r_name}' in response) ? response['{r_name}'] : response;\n"
                     js_code += f"              const resp_obj = {{ '{r_name}': val }};\n"
                 else:
@@ -1505,8 +1505,8 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"              const message = new mojo.internal.Message(\n"
                 js_code += f"                this.router_, 0, mojo.internal.kMessageFlagIsResponse,\n"
                 js_code += f"                header.ordinal, header.requestId, {current_ns}.{resp_struct_name}Spec.$.structSpec, resp_obj);\n"
-                js_code += "              this.router_.send(message);\n"
-                js_code += "            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));\n"
+                js_code += f"              this.router_.send(message);\n"
+                js_code += f"            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));\n"
                 js_code += "          }\n"
                 
             js_code += "          break;\n"
