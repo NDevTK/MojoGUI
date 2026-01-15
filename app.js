@@ -1113,6 +1113,8 @@
              `;
         }
 
+        let displayValue = value;
+
         // 2. BigBuffer: Handle as raw text/bytes
         if (param.type.endsWith('BigBuffer')) {
             // simplified display for big buffer
@@ -1134,7 +1136,6 @@
         }
 
         // Clean handling of BigInts/Objects for display
-        let displayValue = value;
         if (typeof value === 'bigint') {
             displayValue = value.toString() + 'n';
             if (inputType === 'number') inputType = 'text';
