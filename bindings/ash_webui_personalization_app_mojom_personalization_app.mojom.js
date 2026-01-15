@@ -563,7 +563,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverReceiver =
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1057,7 +1058,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1666,7 +1668,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverReceiver = cla
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -2006,7 +2009,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -2339,7 +2343,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverReceiver =
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -2588,7 +2593,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -2915,7 +2921,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverReceiver = c
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -3318,7 +3325,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -3611,7 +3619,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -3804,7 +3813,8 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];

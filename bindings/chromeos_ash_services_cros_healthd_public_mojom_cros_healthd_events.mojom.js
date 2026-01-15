@@ -513,7 +513,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -692,7 +693,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = c
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -871,7 +873,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1036,7 +1039,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver =
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1215,7 +1219,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1380,7 +1385,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = c
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1531,7 +1537,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver 
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
@@ -1668,7 +1675,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver = class {
     console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
+    this.endpoint.start({ onError: function() { console.log('[GeneratedReceiver] Endpoint Error'); },
+      onMessageReceived: (...args) => {
       try {
       console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
