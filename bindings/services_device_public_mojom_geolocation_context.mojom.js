@@ -136,6 +136,7 @@ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.device.mojom.GeolocationSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.GeolocationRemote = mojo.internal.bindings.device.mojom.GeolocationRemote || class {};
+mojo.internal.bindings.device.mojom.GeolocationPendingReceiver = mojo.internal.bindings.device.mojom.GeolocationPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationClientIdSpec = mojo.internal.bindings.device.mojom.GeolocationClientIdSpec || { $: mojo.internal.Enum().$ };

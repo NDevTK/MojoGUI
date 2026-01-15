@@ -154,6 +154,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote || class {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPendingReceiver = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec || { $: mojo.internal.OpaqueStruct.$ };

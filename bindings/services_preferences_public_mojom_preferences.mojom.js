@@ -143,6 +143,7 @@ mojo.internal.bindings.prefs = mojo.internal.bindings.prefs || {};
 mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote || class {};
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: EnforcementLevel
 mojo.internal.bindings.prefs.mojom.EnforcementLevel = {

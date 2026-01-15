@@ -134,14 +134,17 @@ mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote = mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote || class {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerPendingReceiver = mojo.internal.bindings.media_session.mojom.AudioFocusManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugRemote = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugRemote || class {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugPendingReceiver = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaControllerManagerSpec = mojo.internal.bindings.media_session.mojom.MediaControllerManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemote = mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemote || class {};
+mojo.internal.bindings.media_session.mojom.MediaControllerManagerPendingReceiver = mojo.internal.bindings.media_session.mojom.MediaControllerManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: MediaSessionService
 mojo.internal.bindings.media_session.mojom.MediaSessionServicePendingReceiver = class {

@@ -154,6 +154,7 @@ mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote || class {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: ResponseStatus
 mojo.internal.bindings.mahi.mojom.ResponseStatus = {

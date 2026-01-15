@@ -143,10 +143,12 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
 mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
 mojo.internal.bindings.mantis.mojom.MantisProcessorSpec = mojo.internal.bindings.mantis.mojom.MantisProcessorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mantis.mojom.MantisProcessorRemote = mojo.internal.bindings.mantis.mojom.MantisProcessorRemote || class {};
+mojo.internal.bindings.mantis.mojom.MantisProcessorPendingReceiver = mojo.internal.bindings.mantis.mojom.MantisProcessorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };

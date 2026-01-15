@@ -159,6 +159,7 @@ mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_m
 mojo.internal.bindings.discardable_memory.mojom = mojo.internal.bindings.discardable_memory.mojom || {};
 mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote || class {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };

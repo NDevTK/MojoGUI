@@ -154,6 +154,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.DataPipeGetterSpec = mojo.internal.bindings.network.mojom.DataPipeGetterSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.DataPipeGetterRemote = mojo.internal.bindings.network.mojom.DataPipeGetterRemote || class {};
+mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver = mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -161,10 +162,12 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderSpec = mojo.internal.bindings.network.mojom.URLLoaderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.URLLoaderRemote = mojo.internal.bindings.network.mojom.URLLoaderRemote || class {};
+mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver = mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderClientSpec = mojo.internal.bindings.network.mojom.URLLoaderClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.URLLoaderClientRemote = mojo.internal.bindings.network.mojom.URLLoaderClientRemote || class {};
+mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver = mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: BlobReaderClient
 mojo.internal.bindings.blink.mojom.BlobReaderClientPendingReceiver = class {

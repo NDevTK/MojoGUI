@@ -139,6 +139,7 @@ mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager 
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.ConnectorSpec = mojo.internal.bindings.service_manager.mojom.ConnectorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.service_manager.mojom.ConnectorRemote = mojo.internal.bindings.service_manager.mojom.ConnectorRemote || class {};
+mojo.internal.bindings.service_manager.mojom.ConnectorPendingReceiver = mojo.internal.bindings.service_manager.mojom.ConnectorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.IdentitySpec = mojo.internal.bindings.service_manager.mojom.IdentitySpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -146,10 +147,12 @@ mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager 
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.ProcessMetadataSpec = mojo.internal.bindings.service_manager.mojom.ProcessMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote = mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote || class {};
+mojo.internal.bindings.service_manager.mojom.ProcessMetadataPendingReceiver = mojo.internal.bindings.service_manager.mojom.ProcessMetadataPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
 mojo.internal.bindings.service_manager.mojom.ServiceControlSpec = mojo.internal.bindings.service_manager.mojom.ServiceControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.service_manager.mojom.ServiceControlRemote = mojo.internal.bindings.service_manager.mojom.ServiceControlRemote || class {};
+mojo.internal.bindings.service_manager.mojom.ServiceControlPendingReceiver = mojo.internal.bindings.service_manager.mojom.ServiceControlPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: Service
 mojo.internal.bindings.service_manager.mojom.ServicePendingReceiver = class {

@@ -190,6 +190,7 @@ mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec = mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.printing.mojom.PrinterXmlParserRemote = mojo.internal.bindings.printing.mojom.PrinterXmlParserRemote || class {};
+mojo.internal.bindings.printing.mojom.PrinterXmlParserPendingReceiver = mojo.internal.bindings.printing.mojom.PrinterXmlParserPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.RequestedMediaSpec = mojo.internal.bindings.printing.mojom.RequestedMediaSpec || { $: mojo.internal.OpaqueStruct.$ };

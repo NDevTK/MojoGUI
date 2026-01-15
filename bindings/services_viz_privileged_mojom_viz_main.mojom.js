@@ -142,6 +142,7 @@ mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_m
 mojo.internal.bindings.discardable_memory.mojom = mojo.internal.bindings.discardable_memory.mojom || {};
 mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote || class {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec = mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec || { $: mojo.internal.Enum().$ };
@@ -158,30 +159,37 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkManagerSpec = mojo.internal.bindings.viz.mojom.FrameSinkManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.FrameSinkManagerRemote = mojo.internal.bindings.viz.mojom.FrameSinkManagerRemote || class {};
+mojo.internal.bindings.viz.mojom.FrameSinkManagerPendingReceiver = mojo.internal.bindings.viz.mojom.FrameSinkManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkManagerClientSpec = mojo.internal.bindings.viz.mojom.FrameSinkManagerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.FrameSinkManagerClientRemote = mojo.internal.bindings.viz.mojom.FrameSinkManagerClientRemote || class {};
+mojo.internal.bindings.viz.mojom.FrameSinkManagerClientPendingReceiver = mojo.internal.bindings.viz.mojom.FrameSinkManagerClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.GpuHostSpec = mojo.internal.bindings.viz.mojom.GpuHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.GpuHostRemote = mojo.internal.bindings.viz.mojom.GpuHostRemote || class {};
+mojo.internal.bindings.viz.mojom.GpuHostPendingReceiver = mojo.internal.bindings.viz.mojom.GpuHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.GpuLoggingSpec = mojo.internal.bindings.viz.mojom.GpuLoggingSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.GpuLoggingRemote = mojo.internal.bindings.viz.mojom.GpuLoggingRemote || class {};
+mojo.internal.bindings.viz.mojom.GpuLoggingPendingReceiver = mojo.internal.bindings.viz.mojom.GpuLoggingPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.GpuServiceSpec = mojo.internal.bindings.viz.mojom.GpuServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.GpuServiceRemote = mojo.internal.bindings.viz.mojom.GpuServiceRemote || class {};
+mojo.internal.bindings.viz.mojom.GpuServicePendingReceiver = mojo.internal.bindings.viz.mojom.GpuServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceSpec = mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote = mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote || class {};
+mojo.internal.bindings.viz.mojom.InfoCollectionGpuServicePendingReceiver = mojo.internal.bindings.viz.mojom.InfoCollectionGpuServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.VizDebugOutputSpec = mojo.internal.bindings.viz.mojom.VizDebugOutputSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.VizDebugOutputRemote = mojo.internal.bindings.viz.mojom.VizDebugOutputRemote || class {};
+mojo.internal.bindings.viz.mojom.VizDebugOutputPendingReceiver = mojo.internal.bindings.viz.mojom.VizDebugOutputPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: VizMain
 mojo.internal.bindings.viz.mojom.VizMainPendingReceiver = class {

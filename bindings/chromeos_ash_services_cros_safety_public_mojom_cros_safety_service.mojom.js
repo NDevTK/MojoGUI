@@ -138,11 +138,13 @@ mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety 
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemote = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemote || class {};
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionPendingReceiver = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote || class {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: GetCloudSafetySessionResult
 mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResult = {

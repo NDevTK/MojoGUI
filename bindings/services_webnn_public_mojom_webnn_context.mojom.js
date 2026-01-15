@@ -161,10 +161,12 @@ mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote || class {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderPendingReceiver = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNTensorSpec = mojo.internal.bindings.webnn.mojom.WebNNTensorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNTensorRemote = mojo.internal.bindings.webnn.mojom.WebNNTensorRemote || class {};
+mojo.internal.bindings.webnn.mojom.WebNNTensorPendingReceiver = mojo.internal.bindings.webnn.mojom.WebNNTensorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: WebNNContext
 mojo.internal.bindings.webnn.mojom.WebNNContextPendingReceiver = class {

@@ -167,6 +167,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioStreamFactorySpec = mojo.internal.bindings.media.mojom.AudioStreamFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote = mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote || class {};
+mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver = mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: TtsService
 mojo.internal.bindings.chromeos.tts.mojom.TtsServicePendingReceiver = class {

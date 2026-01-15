@@ -145,10 +145,12 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverSpec = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRemote = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRemote || class {};
+mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverPendingReceiver = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.TranslatorSpec = mojo.internal.bindings.blink.mojom.TranslatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.TranslatorRemote = mojo.internal.bindings.blink.mojom.TranslatorRemote || class {};
+mojo.internal.bindings.blink.mojom.TranslatorPendingReceiver = mojo.internal.bindings.blink.mojom.TranslatorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: CanCreateTranslatorResult
 mojo.internal.bindings.blink.mojom.CanCreateTranslatorResult = {

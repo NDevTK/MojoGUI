@@ -145,6 +145,7 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.TextureReleaserSpec = mojo.internal.bindings.viz.mojom.TextureReleaserSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.TextureReleaserRemote = mojo.internal.bindings.viz.mojom.TextureReleaserRemote || class {};
+mojo.internal.bindings.viz.mojom.TextureReleaserPendingReceiver = mojo.internal.bindings.viz.mojom.TextureReleaserPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: CopyOutputResultFormat
 mojo.internal.bindings.viz.mojom.CopyOutputResultFormat = {

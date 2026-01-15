@@ -174,6 +174,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.DecryptorSpec = mojo.internal.bindings.media.mojom.DecryptorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.DecryptorRemote = mojo.internal.bindings.media.mojom.DecryptorRemote || class {};
+mojo.internal.bindings.media.mojom.DecryptorPendingReceiver = mojo.internal.bindings.media.mojom.DecryptorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };

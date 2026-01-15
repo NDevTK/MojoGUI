@@ -131,6 +131,7 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec = mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote = mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote || class {};
+mojo.internal.bindings.ui.mojom.ScenicGpuHostPendingReceiver = mojo.internal.bindings.ui.mojom.ScenicGpuHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: ScenicGpuService
 mojo.internal.bindings.ui.mojom.ScenicGpuServicePendingReceiver = class {

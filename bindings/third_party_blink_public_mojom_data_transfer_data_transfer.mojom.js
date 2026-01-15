@@ -129,6 +129,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemote || class {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenPendingReceiver = mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };

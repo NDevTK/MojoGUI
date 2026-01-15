@@ -151,10 +151,12 @@ mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote || class {};
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServicePendingReceiver = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
 mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec = mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote = mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote || class {};
+mojo.internal.bindings.screen_ai.mojom.OCRServicePendingReceiver = mojo.internal.bindings.screen_ai.mojom.OCRServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: ScreenAIServiceShutdownHandler
 mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {

@@ -153,6 +153,7 @@ mojo.internal.bindings.on_device_translation = mojo.internal.bindings.on_device_
 mojo.internal.bindings.on_device_translation.mojom = mojo.internal.bindings.on_device_translation.mojom || {};
 mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec = mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_translation.mojom.TranslatorRemote = mojo.internal.bindings.on_device_translation.mojom.TranslatorRemote || class {};
+mojo.internal.bindings.on_device_translation.mojom.TranslatorPendingReceiver = mojo.internal.bindings.on_device_translation.mojom.TranslatorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kOnDeviceTranslation;
 

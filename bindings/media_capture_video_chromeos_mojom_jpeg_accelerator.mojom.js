@@ -133,10 +133,12 @@ mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera 
 mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemote = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemote || class {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorPendingReceiver = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
 mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote || class {};
+mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: JpegAcceleratorProvider
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderPendingReceiver = class {

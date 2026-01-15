@@ -134,10 +134,12 @@ mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote || class {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerPendingReceiver = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec = mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote = mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote || class {};
+mojo.internal.bindings.chrome.mojom.SingleFileExtractorPendingReceiver = mojo.internal.bindings.chrome.mojom.SingleFileExtractorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: FileUtilService
 mojo.internal.bindings.chrome.mojom.FileUtilServicePendingReceiver = class {

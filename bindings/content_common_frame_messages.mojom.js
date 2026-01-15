@@ -130,6 +130,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote || class {};
+mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

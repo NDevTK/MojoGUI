@@ -143,6 +143,7 @@ mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mime_handler = mojo.internal.bindings.extensions.mime_handler || {};
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlRemote = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlRemote || class {};
+mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlPendingReceiver = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };

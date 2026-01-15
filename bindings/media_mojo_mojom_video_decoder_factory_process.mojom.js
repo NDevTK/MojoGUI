@@ -137,10 +137,12 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.InterfaceFactorySpec = mojo.internal.bindings.media.mojom.InterfaceFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.InterfaceFactoryRemote = mojo.internal.bindings.media.mojom.InterfaceFactoryRemote || class {};
+mojo.internal.bindings.media.mojom.InterfaceFactoryPendingReceiver = mojo.internal.bindings.media.mojom.InterfaceFactoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.GpuRemote = mojo.internal.bindings.viz.mojom.GpuRemote || class {};
+mojo.internal.bindings.viz.mojom.GpuPendingReceiver = mojo.internal.bindings.viz.mojom.GpuPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: VideoDecoderFactoryProcess
 mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessPendingReceiver = class {

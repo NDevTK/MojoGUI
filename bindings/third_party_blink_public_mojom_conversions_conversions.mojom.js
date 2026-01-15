@@ -137,6 +137,7 @@ mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attributio
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote = mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote || class {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHostPendingReceiver = mojo.internal.bindings.attribution_reporting.mojom.DataHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec = mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec || { $: mojo.internal.Enum().$ };

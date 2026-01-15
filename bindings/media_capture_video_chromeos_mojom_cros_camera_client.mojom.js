@@ -131,6 +131,7 @@ mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.cros.mojom.CameraModuleSpec = mojo.internal.bindings.cros.mojom.CameraModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.cros.mojom.CameraModuleRemote = mojo.internal.bindings.cros.mojom.CameraModuleRemote || class {};
+mojo.internal.bindings.cros.mojom.CameraModulePendingReceiver = mojo.internal.bindings.cros.mojom.CameraModulePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: CameraHalClient
 mojo.internal.bindings.cros.mojom.CameraHalClientPendingReceiver = class {

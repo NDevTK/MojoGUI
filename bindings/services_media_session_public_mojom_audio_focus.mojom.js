@@ -169,6 +169,7 @@ mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaSessionSpec = mojo.internal.bindings.media_session.mojom.MediaSessionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media_session.mojom.MediaSessionRemote = mojo.internal.bindings.media_session.mojom.MediaSessionRemote || class {};
+mojo.internal.bindings.media_session.mojom.MediaSessionPendingReceiver = mojo.internal.bindings.media_session.mojom.MediaSessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec = mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec || { $: mojo.internal.OpaqueStruct.$ };

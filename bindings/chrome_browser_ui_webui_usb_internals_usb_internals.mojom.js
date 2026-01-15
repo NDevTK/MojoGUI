@@ -132,10 +132,12 @@ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote || class {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerPendingReceiver = mojo.internal.bindings.device.mojom.UsbDeviceManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote || class {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTestPendingReceiver = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: UsbInternalsPageHandler
 mojo.internal.bindings.mojom.UsbInternalsPageHandlerPendingReceiver = class {

@@ -186,6 +186,7 @@ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model 
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote || class {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };

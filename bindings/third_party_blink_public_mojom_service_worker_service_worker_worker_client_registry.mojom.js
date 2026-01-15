@@ -132,6 +132,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote || class {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientPendingReceiver = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: ServiceWorkerWorkerClientRegistry
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver = class {

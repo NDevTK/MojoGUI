@@ -133,6 +133,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.RendererSpec = mojo.internal.bindings.media.mojom.RendererSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.RendererRemote = mojo.internal.bindings.media.mojom.RendererRemote || class {};
+mojo.internal.bindings.media.mojom.RendererPendingReceiver = mojo.internal.bindings.media.mojom.RendererPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: RendererController
 mojo.internal.bindings.cast_streaming.mojom.RendererControllerPendingReceiver = class {

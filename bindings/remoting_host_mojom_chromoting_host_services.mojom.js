@@ -137,14 +137,17 @@ mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote || class {};
+mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerPendingReceiver = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderSpec = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote || class {};
+mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPendingReceiver = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec = mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote = mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote || class {};
+mojo.internal.bindings.remoting.mojom.WebAuthnProxyPendingReceiver = mojo.internal.bindings.remoting.mojom.WebAuthnProxyPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: ChromotingHostServices
 mojo.internal.bindings.remoting.mojom.ChromotingHostServicesPendingReceiver = class {

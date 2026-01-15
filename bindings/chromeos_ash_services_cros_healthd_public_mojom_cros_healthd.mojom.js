@@ -257,31 +257,37 @@ mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_health
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
@@ -291,6 +297,7 @@ mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_health
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
@@ -316,6 +323,7 @@ mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_health
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
 mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverSpec = mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote = mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote || class {};
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverPendingReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
@@ -357,6 +365,7 @@ mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos
 mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote || class {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverPendingReceiver = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: CrosHealthdDiagnosticsService
 mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServicePendingReceiver = class {

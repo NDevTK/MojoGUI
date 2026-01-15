@@ -129,18 +129,22 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote || class {};
+mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.CacheStorageSpec = mojo.internal.bindings.blink.mojom.CacheStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.CacheStorageRemote = mojo.internal.bindings.blink.mojom.CacheStorageRemote || class {};
+mojo.internal.bindings.blink.mojom.CacheStoragePendingReceiver = mojo.internal.bindings.blink.mojom.CacheStoragePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemote = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemote || class {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostPendingReceiver = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote || class {};
+mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver = mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 mojo.internal.bindings.blink.mojom.kNavigation_ServiceWorkerSpec = "navigation:service_worker";
 

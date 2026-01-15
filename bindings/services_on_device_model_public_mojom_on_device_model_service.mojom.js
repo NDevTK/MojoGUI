@@ -196,6 +196,7 @@ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model 
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote || class {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec = mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec || { $: mojo.internal.Enum().$ };
@@ -209,6 +210,7 @@ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model 
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModelSpec = mojo.internal.bindings.on_device_model.mojom.TextSafetyModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemote = mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemote || class {};
+mojo.internal.bindings.on_device_model.mojom.TextSafetyModelPendingReceiver = mojo.internal.bindings.on_device_model.mojom.TextSafetyModelPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: ModelBackendType
 mojo.internal.bindings.on_device_model.mojom.ModelBackendType = {

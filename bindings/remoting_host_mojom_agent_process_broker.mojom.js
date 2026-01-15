@@ -137,6 +137,7 @@ mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote = mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote || class {};
+mojo.internal.bindings.remoting.mojom.RemotingHostControlPendingReceiver = mojo.internal.bindings.remoting.mojom.RemotingHostControlPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: AgentProcess
 mojo.internal.bindings.remoting.mojom.AgentProcessPendingReceiver = class {

@@ -168,6 +168,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaLogSpec = mojo.internal.bindings.media.mojom.MediaLogSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.MediaLogRemote = mojo.internal.bindings.media.mojom.MediaLogRemote || class {};
+mojo.internal.bindings.media.mojom.MediaLogPendingReceiver = mojo.internal.bindings.media.mojom.MediaLogPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.WaitingReasonSpec = mojo.internal.bindings.media.mojom.WaitingReasonSpec || { $: mojo.internal.Enum().$ };

@@ -169,6 +169,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.DemuxerStreamSpec = mojo.internal.bindings.media.mojom.DemuxerStreamSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.DemuxerStreamRemote = mojo.internal.bindings.media.mojom.DemuxerStreamRemote || class {};
+mojo.internal.bindings.media.mojom.DemuxerStreamPendingReceiver = mojo.internal.bindings.media.mojom.DemuxerStreamPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.PipelineStatisticsSpec = mojo.internal.bindings.media.mojom.PipelineStatisticsSpec || { $: mojo.internal.OpaqueStruct.$ };

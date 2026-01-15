@@ -153,14 +153,17 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote = mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote || class {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketPendingReceiver = mojo.internal.bindings.network.mojom.RestrictedUDPSocketPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SocketObserverSpec = mojo.internal.bindings.network.mojom.SocketObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.SocketObserverRemote = mojo.internal.bindings.network.mojom.SocketObserverRemote || class {};
+mojo.internal.bindings.network.mojom.SocketObserverPendingReceiver = mojo.internal.bindings.network.mojom.SocketObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote = mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote || class {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocketPendingReceiver = mojo.internal.bindings.network.mojom.TCPConnectedSocketPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec = mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -168,10 +171,12 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TCPServerSocketSpec = mojo.internal.bindings.network.mojom.TCPServerSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.TCPServerSocketRemote = mojo.internal.bindings.network.mojom.TCPServerSocketRemote || class {};
+mojo.internal.bindings.network.mojom.TCPServerSocketPendingReceiver = mojo.internal.bindings.network.mojom.TCPServerSocketPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.UDPSocketListenerSpec = mojo.internal.bindings.network.mojom.UDPSocketListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.UDPSocketListenerRemote = mojo.internal.bindings.network.mojom.UDPSocketListenerRemote || class {};
+mojo.internal.bindings.network.mojom.UDPSocketListenerPendingReceiver = mojo.internal.bindings.network.mojom.UDPSocketListenerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: DirectSocketsService
 mojo.internal.bindings.blink.mojom.DirectSocketsServicePendingReceiver = class {

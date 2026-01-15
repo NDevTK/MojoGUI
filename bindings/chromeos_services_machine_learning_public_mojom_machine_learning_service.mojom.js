@@ -162,6 +162,7 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
@@ -175,11 +176,13 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
@@ -189,6 +192,7 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
@@ -202,6 +206,7 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
@@ -215,11 +220,13 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ModelPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.ModelPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
@@ -229,16 +236,19 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
@@ -254,6 +264,7 @@ mojo.internal.bindings.chromeos.machine_learning.web_platform = mojo.internal.bi
 mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom = mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote = mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: LoadModelResult
 mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResult = {

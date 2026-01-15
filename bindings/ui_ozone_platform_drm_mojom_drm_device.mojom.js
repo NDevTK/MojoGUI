@@ -197,6 +197,7 @@ mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
 mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
 mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemote = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemote || class {};
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: DrmDevice
 mojo.internal.bindings.ui.ozone.mojom.DrmDevicePendingReceiver = class {

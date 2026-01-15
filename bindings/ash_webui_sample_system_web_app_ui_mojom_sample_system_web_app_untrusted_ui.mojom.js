@@ -133,11 +133,13 @@ mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote || class {};
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote || class {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePendingReceiver = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: UntrustedPageInterfacesFactory
 mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver = class {

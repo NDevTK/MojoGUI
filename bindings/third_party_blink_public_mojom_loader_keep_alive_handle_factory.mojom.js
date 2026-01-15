@@ -131,6 +131,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec = mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote = mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote || class {};
+mojo.internal.bindings.blink.mojom.KeepAliveHandlePendingReceiver = mojo.internal.bindings.blink.mojom.KeepAliveHandlePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: KeepAliveHandleFactory
 mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryPendingReceiver = class {

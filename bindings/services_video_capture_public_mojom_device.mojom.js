@@ -157,6 +157,7 @@ mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemote || class {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerPendingReceiver = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: Device
 mojo.internal.bindings.video_capture.mojom.DevicePendingReceiver = class {

@@ -147,6 +147,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote || class {};
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: Gpu
 mojo.internal.bindings.viz.mojom.GpuPendingReceiver = class {

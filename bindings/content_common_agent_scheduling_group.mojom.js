@@ -142,6 +142,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote = mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote || class {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletServicePendingReceiver = mojo.internal.bindings.blink.mojom.SharedStorageWorkletServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec = mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -155,6 +156,7 @@ mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.content.mojom.RouteProviderSpec = mojo.internal.bindings.content.mojom.RouteProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.content.mojom.RouteProviderRemote = mojo.internal.bindings.content.mojom.RouteProviderRemote || class {};
+mojo.internal.bindings.content.mojom.RouteProviderPendingReceiver = mojo.internal.bindings.content.mojom.RouteProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: AgentSchedulingGroupHost
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostPendingReceiver = class {

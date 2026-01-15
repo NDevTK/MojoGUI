@@ -154,6 +154,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CookieChangeListenerSpec = mojo.internal.bindings.network.mojom.CookieChangeListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.CookieChangeListenerRemote = mojo.internal.bindings.network.mojom.CookieChangeListenerRemote || class {};
+mojo.internal.bindings.network.mojom.CookieChangeListenerPendingReceiver = mojo.internal.bindings.network.mojom.CookieChangeListenerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CookieInclusionStatusSpec = mojo.internal.bindings.network.mojom.CookieInclusionStatusSpec || { $: mojo.internal.OpaqueStruct.$ };

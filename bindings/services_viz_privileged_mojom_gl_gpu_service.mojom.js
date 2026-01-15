@@ -196,6 +196,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote || class {};
+mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -212,6 +213,7 @@ mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote = mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote || class {};
+mojo.internal.bindings.webnn.mojom.WebNNContextProviderPendingReceiver = mojo.internal.bindings.webnn.mojom.WebNNContextProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: GpuService
 mojo.internal.bindings.viz.mojom.GpuServicePendingReceiver = class {

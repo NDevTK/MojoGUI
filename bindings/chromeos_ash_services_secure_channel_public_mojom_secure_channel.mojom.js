@@ -175,11 +175,13 @@ mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_ch
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote || class {};
+mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerPendingReceiver = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote || class {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
@@ -193,6 +195,7 @@ mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_ch
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemote = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemote || class {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorPendingReceiver = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};

@@ -142,6 +142,7 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: BuiltinModelId
 mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelId = {

@@ -175,6 +175,7 @@ mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote = mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote || class {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHostPendingReceiver = mojo.internal.bindings.payments.mojom.PaymentHandlerHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec = mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec || { $: mojo.internal.OpaqueStruct.$ };

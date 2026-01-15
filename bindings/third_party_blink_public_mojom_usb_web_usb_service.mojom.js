@@ -140,6 +140,7 @@ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceSpec = mojo.internal.bindings.device.mojom.UsbDeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.UsbDeviceRemote = mojo.internal.bindings.device.mojom.UsbDeviceRemote || class {};
+mojo.internal.bindings.device.mojom.UsbDevicePendingReceiver = mojo.internal.bindings.device.mojom.UsbDevicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec = mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -150,6 +151,7 @@ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClientSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote || class {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerClientPendingReceiver = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: WebUsbService
 mojo.internal.bindings.blink.mojom.WebUsbServicePendingReceiver = class {

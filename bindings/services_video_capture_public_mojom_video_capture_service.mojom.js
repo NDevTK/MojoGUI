@@ -142,6 +142,7 @@ mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera 
 mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote || class {};
+mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.LuidSpec = mojo.internal.bindings.gpu.mojom.LuidSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -149,10 +150,12 @@ mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.TestingControlsSpec = mojo.internal.bindings.video_capture.mojom.TestingControlsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.TestingControlsRemote = mojo.internal.bindings.video_capture.mojom.TestingControlsRemote || class {};
+mojo.internal.bindings.video_capture.mojom.TestingControlsPendingReceiver = mojo.internal.bindings.video_capture.mojom.TestingControlsPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote || class {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kVideoCapture;
 

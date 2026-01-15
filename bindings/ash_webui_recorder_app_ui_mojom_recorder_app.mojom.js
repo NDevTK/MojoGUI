@@ -179,11 +179,13 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote || class {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -200,6 +202,7 @@ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model 
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote || class {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec || { $: mojo.internal.Enum().$ };

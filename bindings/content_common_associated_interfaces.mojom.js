@@ -132,6 +132,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderSpec = mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote = mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote || class {};
+mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver = mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -144,6 +144,7 @@ mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote || class {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: MicrosoftAuthUntrustedDocumentInterfacesFactory
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver = class {

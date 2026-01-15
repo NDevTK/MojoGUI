@@ -161,6 +161,7 @@ mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote || class {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderPendingReceiver = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: ChildProcessHost
 mojo.internal.bindings.content.mojom.ChildProcessHostPendingReceiver = class {

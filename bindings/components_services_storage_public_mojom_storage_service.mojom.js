@@ -140,14 +140,17 @@ mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.storage.mojom.DirectoryRemote = mojo.internal.bindings.storage.mojom.DirectoryRemote || class {};
+mojo.internal.bindings.storage.mojom.DirectoryPendingReceiver = mojo.internal.bindings.storage.mojom.DirectoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.LocalStorageControlSpec = mojo.internal.bindings.storage.mojom.LocalStorageControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.storage.mojom.LocalStorageControlRemote = mojo.internal.bindings.storage.mojom.LocalStorageControlRemote || class {};
+mojo.internal.bindings.storage.mojom.LocalStorageControlPendingReceiver = mojo.internal.bindings.storage.mojom.LocalStorageControlPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.SessionStorageControlSpec = mojo.internal.bindings.storage.mojom.SessionStorageControlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.storage.mojom.SessionStorageControlRemote = mojo.internal.bindings.storage.mojom.SessionStorageControlRemote || class {};
+mojo.internal.bindings.storage.mojom.SessionStorageControlPendingReceiver = mojo.internal.bindings.storage.mojom.SessionStorageControlPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 mojo.internal.bindings.storage.mojom.kStorageSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 

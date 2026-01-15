@@ -132,6 +132,7 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AutomationSpec = mojo.internal.bindings.ax.mojom.AutomationSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ax.mojom.AutomationRemote = mojo.internal.bindings.ax.mojom.AutomationRemote || class {};
+mojo.internal.bindings.ax.mojom.AutomationPendingReceiver = mojo.internal.bindings.ax.mojom.AutomationPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: RendererAutomationRegistry
 mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryPendingReceiver = class {

@@ -153,6 +153,7 @@ mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
 mojo.internal.bindings.bluetooth.mojom.AdapterSpec = mojo.internal.bindings.bluetooth.mojom.AdapterSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.bluetooth.mojom.AdapterRemote = mojo.internal.bindings.bluetooth.mojom.AdapterRemote || class {};
+mojo.internal.bindings.bluetooth.mojom.AdapterPendingReceiver = mojo.internal.bindings.bluetooth.mojom.AdapterPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: DebugLogsChangeHandler
 mojo.internal.bindings.mojom.DebugLogsChangeHandlerPendingReceiver = class {

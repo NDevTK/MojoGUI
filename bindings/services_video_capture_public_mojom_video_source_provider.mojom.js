@@ -144,22 +144,27 @@ mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverSpec = mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote = mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote || class {};
+mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverPendingReceiver = mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.ProducerSpec = mojo.internal.bindings.video_capture.mojom.ProducerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.ProducerRemote = mojo.internal.bindings.video_capture.mojom.ProducerRemote || class {};
+mojo.internal.bindings.video_capture.mojom.ProducerPendingReceiver = mojo.internal.bindings.video_capture.mojom.ProducerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceSpec = mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceRemote = mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceRemote || class {};
+mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver = mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceSpec = mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemote = mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemote || class {};
+mojo.internal.bindings.video_capture.mojom.TextureVirtualDevicePendingReceiver = mojo.internal.bindings.video_capture.mojom.TextureVirtualDevicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoSourceSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.VideoSourceRemote = mojo.internal.bindings.video_capture.mojom.VideoSourceRemote || class {};
+mojo.internal.bindings.video_capture.mojom.VideoSourcePendingReceiver = mojo.internal.bindings.video_capture.mojom.VideoSourcePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: GetSourceInfosResult
 mojo.internal.bindings.video_capture.mojom.GetSourceInfosResult = {

@@ -136,6 +136,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote || class {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderPendingReceiver = mojo.internal.bindings.blink.mojom.ModelStreamingResponderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: AIProofreader
 mojo.internal.bindings.blink.mojom.AIProofreaderPendingReceiver = class {

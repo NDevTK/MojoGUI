@@ -161,6 +161,7 @@ mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.storage.mojom.DirectoryRemote = mojo.internal.bindings.storage.mojom.DirectoryRemote || class {};
+mojo.internal.bindings.storage.mojom.DirectoryPendingReceiver = mojo.internal.bindings.storage.mojom.DirectoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: UnzipFilter
 mojo.internal.bindings.unzip.mojom.UnzipFilterPendingReceiver = class {

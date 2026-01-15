@@ -264,6 +264,7 @@ mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app ||
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
 mojo.internal.bindings.ash.camera_app.mojom.EventsSenderSpec = mojo.internal.bindings.ash.camera_app.mojom.EventsSenderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemote = mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemote || class {};
+mojo.internal.bindings.ash.camera_app.mojom.EventsSenderPendingReceiver = mojo.internal.bindings.ash.camera_app.mojom.EventsSenderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
@@ -273,6 +274,7 @@ mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app ||
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
 mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemote = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemote || class {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderPendingReceiver = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};

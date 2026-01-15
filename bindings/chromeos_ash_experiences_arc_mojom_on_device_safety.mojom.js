@@ -143,6 +143,7 @@ mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety 
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote || class {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: GetArcSafetySessionResult
 mojo.internal.bindings.arc.mojom.GetArcSafetySessionResult = {

@@ -133,6 +133,7 @@ mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec = mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote = mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote || class {};
+mojo.internal.bindings.tracing.mojom.PerfettoServicePendingReceiver = mojo.internal.bindings.tracing.mojom.PerfettoServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: TracedProcess
 mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver = class {

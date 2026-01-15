@@ -250,6 +250,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryRemote = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryRemote || class {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPEndPointSpec = mojo.internal.bindings.network.mojom.IPEndPointSpec || { $: mojo.internal.OpaqueStruct.$ };

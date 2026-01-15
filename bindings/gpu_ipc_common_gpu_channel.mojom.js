@@ -277,6 +277,7 @@ mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRemote = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRemote || class {};
+mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfacePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec = mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec || { $: mojo.internal.OpaqueStruct.$ };

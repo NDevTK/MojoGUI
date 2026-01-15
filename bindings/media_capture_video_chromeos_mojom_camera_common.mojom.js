@@ -169,6 +169,7 @@ mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.cros.mojom.Camera3DeviceOpsSpec = mojo.internal.bindings.cros.mojom.Camera3DeviceOpsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemote = mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemote || class {};
+mojo.internal.bindings.cros.mojom.Camera3DeviceOpsPendingReceiver = mojo.internal.bindings.cros.mojom.Camera3DeviceOpsPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.cros.mojom.CameraMetadataSpec = mojo.internal.bindings.cros.mojom.CameraMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };

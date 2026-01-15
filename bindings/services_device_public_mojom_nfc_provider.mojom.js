@@ -133,6 +133,7 @@ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.NFCSpec = mojo.internal.bindings.device.mojom.NFCSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.NFCRemote = mojo.internal.bindings.device.mojom.NFCRemote || class {};
+mojo.internal.bindings.device.mojom.NFCPendingReceiver = mojo.internal.bindings.device.mojom.NFCPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: NFCProvider
 mojo.internal.bindings.device.mojom.NFCProviderPendingReceiver = class {

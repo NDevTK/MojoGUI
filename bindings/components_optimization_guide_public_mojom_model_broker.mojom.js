@@ -151,6 +151,7 @@ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model 
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SessionSpec = mojo.internal.bindings.on_device_model.mojom.SessionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.SessionRemote = mojo.internal.bindings.on_device_model.mojom.SessionRemote || class {};
+mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver = mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec = mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -158,6 +159,7 @@ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model 
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote || class {};
+mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: OnDeviceFeature
 mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeature = {

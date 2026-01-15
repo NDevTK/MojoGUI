@@ -156,25 +156,30 @@ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.OemCryptoServiceSpec = mojo.internal.bindings.arc.mojom.OemCryptoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.arc.mojom.OemCryptoServiceRemote = mojo.internal.bindings.arc.mojom.OemCryptoServiceRemote || class {};
+mojo.internal.bindings.arc.mojom.OemCryptoServicePendingReceiver = mojo.internal.bindings.arc.mojom.OemCryptoServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote || class {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManagerPendingReceiver = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote || class {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStoragePendingReceiver = mojo.internal.bindings.chromeos.cdm.mojom.CdmStoragePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote || class {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote || class {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
@@ -184,6 +189,7 @@ mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
 mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote || class {};
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionPendingReceiver = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: CreateCdmStatus
 mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatus = {

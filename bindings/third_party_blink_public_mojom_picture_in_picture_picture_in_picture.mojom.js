@@ -154,6 +154,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaPlayerSpec = mojo.internal.bindings.media.mojom.MediaPlayerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.MediaPlayerRemote = mojo.internal.bindings.media.mojom.MediaPlayerRemote || class {};
+mojo.internal.bindings.media.mojom.MediaPlayerPendingReceiver = mojo.internal.bindings.media.mojom.MediaPlayerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.MediaPositionSpec = mojo.internal.bindings.media_session.mojom.MediaPositionSpec || { $: mojo.internal.OpaqueStruct.$ };

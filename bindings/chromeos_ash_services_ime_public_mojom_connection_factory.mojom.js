@@ -136,11 +136,13 @@ mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.ash.ime.mojom.InputMethodSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.ime.mojom.InputMethodRemote = mojo.internal.bindings.ash.ime.mojom.InputMethodRemote || class {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver = mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote = mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote || class {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHostPendingReceiver = mojo.internal.bindings.ash.ime.mojom.InputMethodHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
@@ -150,6 +152,7 @@ mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec = mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote = mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote || class {};
+mojo.internal.bindings.ash.ime.mojom.JpUnusedPendingReceiver = mojo.internal.bindings.ash.ime.mojom.JpUnusedPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: ConnectionFactory
 mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryPendingReceiver = class {

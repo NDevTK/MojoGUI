@@ -134,6 +134,7 @@ mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
 mojo.internal.bindings.tracing.mojom.TracedProcessSpec = mojo.internal.bindings.tracing.mojom.TracedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tracing.mojom.TracedProcessRemote = mojo.internal.bindings.tracing.mojom.TracedProcessRemote || class {};
+mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver = mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 mojo.internal.bindings.tracing.mojom.kTracingSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 

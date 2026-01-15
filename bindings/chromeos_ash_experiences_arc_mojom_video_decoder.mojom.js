@@ -159,6 +159,7 @@ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoFramePoolSpec = mojo.internal.bindings.arc.mojom.VideoFramePoolSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.arc.mojom.VideoFramePoolRemote = mojo.internal.bindings.arc.mojom.VideoFramePoolRemote || class {};
+mojo.internal.bindings.arc.mojom.VideoFramePoolPendingReceiver = mojo.internal.bindings.arc.mojom.VideoFramePoolPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: DecoderStatus
 mojo.internal.bindings.arc.mojom.DecoderStatus = {

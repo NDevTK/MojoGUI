@@ -134,6 +134,7 @@ mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair ||
 mojo.internal.bindings.ash.quick_pair.mojom = mojo.internal.bindings.ash.quick_pair.mojom || {};
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote || class {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserPendingReceiver = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: QuickPairService
 mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServicePendingReceiver = class {

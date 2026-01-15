@@ -152,6 +152,7 @@ mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNContextSpec = mojo.internal.bindings.webnn.mojom.WebNNContextSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNContextRemote = mojo.internal.bindings.webnn.mojom.WebNNContextRemote || class {};
+mojo.internal.bindings.webnn.mojom.WebNNContextPendingReceiver = mojo.internal.bindings.webnn.mojom.WebNNContextPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: PowerPreference
 mojo.internal.bindings.webnn.mojom.PowerPreference = {

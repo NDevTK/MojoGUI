@@ -158,6 +158,7 @@ mojo.internal.bindings.tracked_element = mojo.internal.bindings.tracked_element 
 mojo.internal.bindings.tracked_element.mojom = mojo.internal.bindings.tracked_element.mojom || {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote || class {};
+mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPendingReceiver = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: HelpBubbleArrowPosition
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPosition = {

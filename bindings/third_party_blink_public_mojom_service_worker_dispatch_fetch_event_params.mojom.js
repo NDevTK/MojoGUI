@@ -132,10 +132,12 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderClientSpec = mojo.internal.bindings.network.mojom.URLLoaderClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.URLLoaderClientRemote = mojo.internal.bindings.network.mojom.URLLoaderClientRemote || class {};
+mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver = mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote || class {};
+mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver = mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

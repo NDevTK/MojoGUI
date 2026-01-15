@@ -155,6 +155,7 @@ mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNGraphSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNGraphRemote = mojo.internal.bindings.webnn.mojom.WebNNGraphRemote || class {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver = mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: WebNNGraphBuilder
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderPendingReceiver = class {

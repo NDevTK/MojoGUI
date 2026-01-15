@@ -201,6 +201,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WidgetCompositorSpec = mojo.internal.bindings.blink.mojom.WidgetCompositorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.WidgetCompositorRemote = mojo.internal.bindings.blink.mojom.WidgetCompositorRemote || class {};
+mojo.internal.bindings.blink.mojom.WidgetCompositorPendingReceiver = mojo.internal.bindings.blink.mojom.WidgetCompositorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.TouchActionSpec = mojo.internal.bindings.cc.mojom.TouchActionSpec || { $: mojo.internal.Enum().$ };

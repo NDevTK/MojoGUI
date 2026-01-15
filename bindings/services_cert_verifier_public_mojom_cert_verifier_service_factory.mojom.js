@@ -146,14 +146,17 @@ mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {
 mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote || class {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServicePendingReceiver = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
 mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote || class {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientPendingReceiver = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
 mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote || class {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };

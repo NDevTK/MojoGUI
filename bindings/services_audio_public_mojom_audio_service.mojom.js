@@ -139,30 +139,37 @@ mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.DebugRecordingSpec = mojo.internal.bindings.audio.mojom.DebugRecordingSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.audio.mojom.DebugRecordingRemote = mojo.internal.bindings.audio.mojom.DebugRecordingRemote || class {};
+mojo.internal.bindings.audio.mojom.DebugRecordingPendingReceiver = mojo.internal.bindings.audio.mojom.DebugRecordingPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.DeviceNotifierSpec = mojo.internal.bindings.audio.mojom.DeviceNotifierSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.audio.mojom.DeviceNotifierRemote = mojo.internal.bindings.audio.mojom.DeviceNotifierRemote || class {};
+mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver = mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.LogFactoryManagerSpec = mojo.internal.bindings.audio.mojom.LogFactoryManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote = mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote || class {};
+mojo.internal.bindings.audio.mojom.LogFactoryManagerPendingReceiver = mojo.internal.bindings.audio.mojom.LogFactoryManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.MlModelManagerSpec = mojo.internal.bindings.audio.mojom.MlModelManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.audio.mojom.MlModelManagerRemote = mojo.internal.bindings.audio.mojom.MlModelManagerRemote || class {};
+mojo.internal.bindings.audio.mojom.MlModelManagerPendingReceiver = mojo.internal.bindings.audio.mojom.MlModelManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.SystemInfoSpec = mojo.internal.bindings.audio.mojom.SystemInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.audio.mojom.SystemInfoRemote = mojo.internal.bindings.audio.mojom.SystemInfoRemote || class {};
+mojo.internal.bindings.audio.mojom.SystemInfoPendingReceiver = mojo.internal.bindings.audio.mojom.SystemInfoPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.audio.mojom.TestingApiSpec = mojo.internal.bindings.audio.mojom.TestingApiSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.audio.mojom.TestingApiRemote = mojo.internal.bindings.audio.mojom.TestingApiRemote || class {};
+mojo.internal.bindings.audio.mojom.TestingApiPendingReceiver = mojo.internal.bindings.audio.mojom.TestingApiPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioStreamFactorySpec = mojo.internal.bindings.media.mojom.AudioStreamFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote = mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote || class {};
+mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver = mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: AudioService
 mojo.internal.bindings.audio.mojom.AudioServicePendingReceiver = class {

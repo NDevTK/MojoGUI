@@ -136,10 +136,12 @@ mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling ||
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote || class {};
+mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPendingReceiver = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote || class {};
+mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorPendingReceiver = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: TestConnector
 mojo.internal.bindings.heap_profiling.mojom.TestConnectorPendingReceiver = class {

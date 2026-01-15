@@ -142,10 +142,12 @@ mojo.internal.bindings.chromeos.media_perception = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.chromeos.media_perception.mojom || {};
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote || class {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionPendingReceiver = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote || class {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: MediaPerceptionService
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver = class {

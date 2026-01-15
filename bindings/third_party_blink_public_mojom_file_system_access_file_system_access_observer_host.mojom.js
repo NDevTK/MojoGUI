@@ -136,10 +136,12 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote || class {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserverPendingReceiver = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote || class {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPendingReceiver = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: FileSystemAccessObserverHost
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostPendingReceiver = class {

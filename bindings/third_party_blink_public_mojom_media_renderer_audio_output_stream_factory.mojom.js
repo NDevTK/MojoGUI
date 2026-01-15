@@ -134,6 +134,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote || class {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamProviderPendingReceiver = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioParametersSpec = mojo.internal.bindings.media.mojom.AudioParametersSpec || { $: mojo.internal.OpaqueStruct.$ };

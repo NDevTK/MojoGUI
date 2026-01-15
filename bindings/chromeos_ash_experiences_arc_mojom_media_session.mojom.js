@@ -133,6 +133,7 @@ mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote = mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote || class {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerPendingReceiver = mojo.internal.bindings.media_session.mojom.AudioFocusManagerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Interface: MediaSessionInstance
 mojo.internal.bindings.arc.mojom.MediaSessionInstancePendingReceiver = class {

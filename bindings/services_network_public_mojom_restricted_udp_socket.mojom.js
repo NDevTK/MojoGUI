@@ -154,6 +154,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec = mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote = mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote || class {};
+mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver = mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec = mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
