@@ -1463,13 +1463,11 @@
 
         // Explicitly handle String16 struct
         // mojomType is often a constructor function with a static $ property containing the spec
-        if (mojomType && mojomType.$) {
-            // Safety check for name
-            if (mojomType.$.name && mojomType.$.name === 'mojo_base.mojom.String16') {
-                return 'string16';
-            }
-            // Check nested structSpec name (common in some bindings)
-            if (mojomType.$.structSpec && mojomType.$.structSpec.name === 'mojo_base.mojom.String16') {
+        if (mojomType) {
+            const spec = mojomType.$ || mojomType;
+            const name = spec.name || (spec.structSpec && spec.structSpec.name);
+
+            if (name === 'mojo_base.mojom.String16' || name === 'mojo_base.mojom.BigString16') {
                 return 'string16';
             }
         }
