@@ -562,7 +562,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageRequest = mojo.internal.bind
 mojo.internal.Struct(
     mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec, 'batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.batch_upload_promo.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -476,7 +476,7 @@ mojo.internal.Struct(
     [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec, 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser_command.mojom.CommandHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser_command.mojom.CommandHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

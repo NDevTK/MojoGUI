@@ -929,19 +929,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec, 'blink.mojom.BucketHost_GetIdbFactory_Params', [
-      mojo.internal.StructField('arg_idb_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.IDBFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_idb_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.IDBFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec, 'blink.mojom.BucketHost_GetLockManager_Params', [
-      mojo.internal.StructField('arg_lock_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.LockManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lock_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.LockManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec, 'blink.mojom.BucketHost_GetCaches_Params', [
-      mojo.internal.StructField('arg_cache_storage', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_storage', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.CacheStoragePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -987,7 +987,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec, 'blink.mojom.BucketManagerHost_GetBucketForDevtools_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BucketHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BucketHostPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

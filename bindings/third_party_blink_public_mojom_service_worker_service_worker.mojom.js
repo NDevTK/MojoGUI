@@ -1852,7 +1852,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec, 'blink.mojom.ServiceWorker_InitializeGlobalScope_Params', [
       mojo.internal.StructField('arg_service_worker_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_associated_interfaces_to_browser', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_fetch_handler_existence', 20, 0, mojo.internal.bindings.blink.mojom.FetchHandlerExistenceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_registration_info', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_worker_info', 32, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, false, 0, undefined),

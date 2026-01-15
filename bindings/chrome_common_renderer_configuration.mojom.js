@@ -632,7 +632,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params', [
       mojo.internal.StructField('arg_is_incognito_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_chromeos_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_chromeos_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.ChromeOSListenerPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_content_settings_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemote), null, true, 0, undefined),
     ],

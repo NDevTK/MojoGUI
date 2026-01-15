@@ -623,14 +623,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandlePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandlePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -649,7 +649,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec, 'blink.mojom.FileSystemAccessManager_BindObserverHost_Params', [
-      mojo.internal.StructField('arg_observer_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

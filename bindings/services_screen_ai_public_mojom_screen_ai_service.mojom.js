@@ -1059,13 +1059,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec, 'screen_ai.mojom.OCRService_BindAnnotator_Params', [
-      mojo.internal.StructField('arg_annotator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec, 'screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_Params', [
-      mojo.internal.StructField('arg_main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

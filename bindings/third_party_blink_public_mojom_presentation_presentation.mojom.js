@@ -1054,7 +1054,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec, 'blink.mojom.PresentationConnectionResult', [
       mojo.internal.StructField('arg_presentation_info', 0, 0, mojo.internal.bindings.blink.mojom.PresentationInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_connection_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 mojo.internal.Struct(

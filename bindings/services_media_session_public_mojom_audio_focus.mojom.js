@@ -1161,7 +1161,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestAudioFocus_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_session', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 12, 0, mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_info', 16, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
@@ -1177,7 +1177,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec, 'media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_Params', [
       mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_session', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 20, 0, mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_info', 24, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),

@@ -518,7 +518,7 @@ mojo.internal.bindings.updater_ui.mojom.PageRequest = mojo.internal.bindings.upd
 mojo.internal.Struct(
     mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'updater_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.updater_ui.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater_ui.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

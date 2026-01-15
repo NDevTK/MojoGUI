@@ -3951,7 +3951,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CertVerifierServiceRemoteParamsSpec, 'network.mojom.CertVerifierServiceRemoteParams', [
       mojo.internal.StructField('arg_cert_verifier_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cert_verifier_service_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cert_verifier_service_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -4027,11 +4027,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_http_cache_file_operations_factory', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_encryption_provider', 56, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CacheEncryptionProviderRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_ssl_config', 64, 0, mojo.internal.bindings.network.mojom.SSLConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ssl_config_client_receiver', 72, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SSLConfigClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_proxy_config_client_receiver', 76, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyConfigClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_ssl_config_client_receiver', 72, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SSLConfigClientPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_proxy_config_client_receiver', 76, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyConfigClientPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_proxy_config', 80, 0, mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_custom_proxy_config', 88, 0, mojo.internal.bindings.network.mojom.CustomProxyConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_proxy_config_client_receiver', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CustomProxyConfigClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_proxy_config_client_receiver', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CustomProxyConfigClientPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_custom_proxy_connection_observer_remote', 100, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_proxy_config_poller_client', 108, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_proxy_error_client', 116, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ProxyErrorClientRemote), null, true, 0, undefined),
@@ -4040,8 +4040,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ct_policy', 136, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_cert_verifier_params', 144, 0, mojo.internal.bindings.network.mojom.CertVerifierServiceRemoteParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cookie_manager_params', 152, 0, mojo.internal.bindings.network.mojom.CookieManagerParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_manager', 160, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_first_party_sets_access_delegate_receiver', 164, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cookie_manager', 160, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_first_party_sets_access_delegate_receiver', 164, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegatePendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_domain_reliability_upload_reporter', 168, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_delivery_interval', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_cors_origin_access_list', 184, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CorsOriginAccessPatternsSpec, false), null, false, 0, undefined),
@@ -4117,7 +4117,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderFactoryOverrideSpec, 'network.mojom.URLLoaderFactoryOverride', [
       mojo.internal.StructField('arg_overriding_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_overridden_factory_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_overridden_factory_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_skip_cors_enabled_scheme_check', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -4224,14 +4224,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec, 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_Params', [
       mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_header_client', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_client', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec, 'network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.network.mojom.URLRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustedHeaderClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -4243,7 +4243,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec, 'network.mojom.NetworkContext_CreateURLLoaderFactory_Params', [
-      mojo.internal.StructField('arg_url_loader_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_loader_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -4262,13 +4262,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_GetCookieManager_ParamsSpec, 'network.mojom.NetworkContext_GetCookieManager_Params', [
-      mojo.internal.StructField('arg_cookie_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec, 'network.mojom.NetworkContext_GetRestrictedCookieManager_Params', [
-      mojo.internal.StructField('arg_restricted_cookie_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_restricted_cookie_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedCookieManagerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_role', 4, 0, mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_isolation_info', 16, 0, mojo.internal.bindings.network.mojom.IsolationInfoSpec, null, false, 0, undefined),
@@ -4280,7 +4280,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec, 'network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_Params', [
-      mojo.internal.StructField('arg_trust_token_query_answerer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_token_query_answerer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -4587,7 +4587,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec, 'network.mojom.NetworkContext_CreateUDPSocket_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.UDPSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.UDPSocketPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_listener', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.UDPSocketListenerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -4596,7 +4596,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec, 'network.mojom.NetworkContext_CreateRestrictedUDPSocket_Params', [
       mojo.internal.StructField('arg_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedUDPSocketPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 16, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.UDPSocketListenerRemote), null, true, 0, undefined),
@@ -4616,7 +4616,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 16, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPServerSocketPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -4633,7 +4633,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_remote_addr_list', 8, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tcp_connected_socket_options', 16, 0, mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 24, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 36, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -4652,7 +4652,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec, 'network.mojom.NetworkContext_CreateTCPBoundSocket_Params', [
       mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPBoundSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPBoundSocketPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -4665,7 +4665,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec, 'network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4733,7 +4733,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec, 'network.mojom.NetworkContext_CreateNetLogExporter_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetLogExporterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetLogExporterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4751,7 +4751,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec, 'network.mojom.NetworkContext_CreateMdnsResponder_Params', [
-      mojo.internal.StructField('arg_responder_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.MdnsResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_responder_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.MdnsResponderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4767,7 +4767,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateHostResolver_ParamsSpec, 'network.mojom.NetworkContext_CreateHostResolver_Params', [
       mojo.internal.StructField('arg_config_overrides', 0, 0, mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_host_resolver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.HostResolverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_resolver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.HostResolverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -5038,7 +5038,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec, 'network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_Params', [
       mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_preload_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preload_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.PreloadedSharedDictionaryInfoHandlePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -5122,7 +5122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec, 'network.mojom.NetworkContext_GetDeviceBoundSessionManager_Params', [
-      mojo.internal.StructField('arg_device_bound_session_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_bound_session_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

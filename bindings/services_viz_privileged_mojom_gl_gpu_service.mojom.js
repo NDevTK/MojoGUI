@@ -1080,13 +1080,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_Params', [
-      mojo.internal.StructField('arg_vea_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vea_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec, 'viz.mojom.GpuService_BindWebNNContextProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNContextProviderPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_client_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);

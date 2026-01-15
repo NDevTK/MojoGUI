@@ -416,7 +416,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRequest = mojo.in
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

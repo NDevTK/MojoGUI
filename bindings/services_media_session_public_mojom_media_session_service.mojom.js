@@ -342,25 +342,25 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRequest = mojo.int
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec, 'media_session.mojom.MediaSessionService_BindAudioFocusManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec, 'media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec, 'media_session.mojom.MediaSessionService_BindMediaControllerManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaControllerManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec, 'media_session.mojom.MediaSessionService_Bind_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_session.mojom.MediaSessionServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

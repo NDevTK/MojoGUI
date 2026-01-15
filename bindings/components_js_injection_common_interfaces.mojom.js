@@ -907,7 +907,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.JsObjectSpec, 'js_injection.mojom.JsObject', [
       mojo.internal.StructField('arg_js_object_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_js_world', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_origin_matcher', 24, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
     ],
@@ -952,7 +952,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

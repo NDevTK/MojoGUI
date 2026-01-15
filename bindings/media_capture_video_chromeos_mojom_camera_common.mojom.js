@@ -1090,7 +1090,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec, 'cros.mojom.CameraModule_OpenDevice_Params', [
       mojo.internal.StructField('arg_camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_ops_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_ops_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cros.mojom.Camera3DeviceOpsPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1162,7 +1162,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec, 'cros.mojom.CameraModule_GetVendorTagOps_Params', [
-      mojo.internal.StructField('arg_vendor_tag_ops_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cros.mojom.VendorTagOpsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_tag_ops_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cros.mojom.VendorTagOpsPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

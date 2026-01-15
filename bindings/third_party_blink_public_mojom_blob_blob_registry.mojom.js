@@ -458,7 +458,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec, 'blink.mojom.BlobRegistry_Register_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),

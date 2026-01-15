@@ -936,7 +936,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRequest = mojo.
 // Struct: StartSpeechRecognitionRequestParams
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec, 'media.mojom.StartSpeechRecognitionRequestParams', [
-      mojo.internal.StructField('arg_session_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_max_hypotheses', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, false, 0, undefined),
@@ -946,7 +946,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_interim_results', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_on_device', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_allow_cloud_fallback', 40, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_forwarder', 44, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_audio_forwarder', 44, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_channel_count', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sample_rate', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

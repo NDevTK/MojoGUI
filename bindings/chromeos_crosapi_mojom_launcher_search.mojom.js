@@ -665,7 +665,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_description_type', 108, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
       mojo.internal.StructField('arg_description_a11y_label', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 3, undefined),
       mojo.internal.StructField('arg_metrics_type', 120, 0, mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec, null, false, 5, undefined),
-      mojo.internal.StructField('arg_receiver', 124, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
+      mojo.internal.StructField('arg_receiver', 124, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerPendingReceiver), null, true, 5, undefined),
     ],
     [[0, 96], [2, 120], [3, 128], [5, 136]]);
 mojo.internal.Struct(
@@ -683,7 +683,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
-      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

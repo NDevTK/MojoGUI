@@ -2087,7 +2087,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_item_font_size', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_right_aligned', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_selected_item', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 48]]);
 mojo.internal.Struct(

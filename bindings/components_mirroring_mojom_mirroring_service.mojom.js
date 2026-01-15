@@ -355,7 +355,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_resource_provider', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mirroring.mojom.CastMessageChannelPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 56]]);
 

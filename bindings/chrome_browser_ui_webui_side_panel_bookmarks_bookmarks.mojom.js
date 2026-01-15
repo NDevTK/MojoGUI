@@ -1200,7 +1200,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec, 'side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.side_panel.mojom.BookmarksPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

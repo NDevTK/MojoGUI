@@ -413,8 +413,8 @@ mojo.internal.Struct(
     [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_updater', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServicePendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_updater', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_params', 16, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, null, true, 0, undefined),
     ],

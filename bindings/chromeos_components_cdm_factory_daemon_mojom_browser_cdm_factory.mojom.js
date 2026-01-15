@@ -496,7 +496,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec, 'chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_Params', [
-      mojo.internal.StructField('arg_output_protection', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_protection', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

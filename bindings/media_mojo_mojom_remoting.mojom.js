@@ -1479,7 +1479,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRequest = mojo.inte
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemoterFactory_Create_ParamsSpec, 'media.mojom.RemoterFactory_Create_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.RemotingSourceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_remoter', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemoterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remoter', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemoterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1513,8 +1513,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Remoter_StartDataStreams_ParamsSpec, 'media.mojom.Remoter_StartDataStreams_Params', [
       mojo.internal.StructField('arg_audio_pipe', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
       mojo.internal.StructField('arg_video_pipe', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_audio_sender', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_sender', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_audio_sender', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_sender', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -890,7 +890,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_group_by_origin_id', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_generate_bid_client', 112, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_bid_finalizer', 120, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bid_finalizer', 120, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 136]]);
 
@@ -950,7 +950,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec, 'auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_thread_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);

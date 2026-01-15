@@ -646,7 +646,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec, 'history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_sync_optin.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

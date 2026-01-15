@@ -753,7 +753,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec, 'content.mojom.GinJavaBridgeHost_GetObject_Params', [
       mojo.internal.StructField('arg_object_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

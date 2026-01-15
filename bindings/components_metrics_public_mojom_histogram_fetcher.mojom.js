@@ -463,7 +463,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRequest = mojo.interna
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec, 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params', [
       mojo.internal.StructField('arg_shared_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

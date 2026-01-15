@@ -1180,7 +1180,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_Params', [
       mojo.internal.StructField('arg_pac_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

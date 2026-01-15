@@ -689,7 +689,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.borealis_installer.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

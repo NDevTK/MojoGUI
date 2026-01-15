@@ -760,14 +760,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateController_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_web_ui', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateResources_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

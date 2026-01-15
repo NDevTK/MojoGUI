@@ -2562,7 +2562,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec, 'blink.mojom.IDBDatabase_CreateTransaction_Params', [
-      mojo.internal.StructField('arg_transaction_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_transaction_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 4, 0, mojo.internal.bindings.blink.mojom.IDBTransactionModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_object_store_ids', 16, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
@@ -2605,7 +2605,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec, 'blink.mojom.IDBDatabase_GetAll_ResponseParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2744,7 +2744,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_database_callbacks', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],

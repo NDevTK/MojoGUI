@@ -542,20 +542,20 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

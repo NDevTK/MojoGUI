@@ -2497,7 +2497,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec, 'blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_Params', [
-      mojo.internal.StructField('arg_interface_request', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_request', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

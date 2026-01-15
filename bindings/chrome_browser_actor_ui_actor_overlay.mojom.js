@@ -695,7 +695,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

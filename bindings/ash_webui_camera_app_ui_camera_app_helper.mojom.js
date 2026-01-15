@@ -3391,7 +3391,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_Params', [
-      mojo.internal.StructField('arg_builder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_builder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -974,7 +974,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -999,7 +999,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetyModelPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1018,7 +1018,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
       mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_progress_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);

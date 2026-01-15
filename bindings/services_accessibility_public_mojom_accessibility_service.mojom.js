@@ -789,14 +789,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec, 'ax.mojom.AccessibilityService_BindAssistiveTechnologyController_Params', [
-      mojo.internal.StructField('arg_at_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_at_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_enabled_features', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec, 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
@@ -809,43 +809,43 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutomationClient_Params', [
-      mojo.internal.StructField('arg_automation_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutomationClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_automation_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutomationClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutoclickClient_Params', [
-      mojo.internal.StructField('arg_autoclick_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutoclickClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_autoclick_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutoclickClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_Params', [
-      mojo.internal.StructField('arg_sr_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.SpeechRecognitionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sr_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.SpeechRecognitionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindTts_Params', [
-      mojo.internal.StructField('arg_tts_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.TtsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tts_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.TtsPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindUserInput_Params', [
-      mojo.internal.StructField('arg_user_input_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.UserInputRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_input_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.UserInputPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindUserInterface_Params', [
-      mojo.internal.StructField('arg_user_interface_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.UserInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_interface_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.UserInterfacePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_Params', [
-      mojo.internal.StructField('arg_file_loader_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_loader_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -378,7 +378,7 @@ mojo.internal.bindings.blink.mojom.FeatureObserverRequest = mojo.internal.bindin
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ObservedFeatureRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ObservedFeaturePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

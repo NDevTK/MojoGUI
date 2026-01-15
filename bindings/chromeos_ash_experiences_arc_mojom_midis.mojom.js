@@ -826,7 +826,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
-      mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

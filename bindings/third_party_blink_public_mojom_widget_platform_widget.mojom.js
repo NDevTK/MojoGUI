@@ -1168,7 +1168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec, 'blink.mojom.WidgetHost_CreateFrameSink_Params', [
-      mojo.internal.StructField('arg_compositor_frame_sink_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_frame_sink_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_compositor_frame_sink_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_render_input_router_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
     ],
@@ -1176,7 +1176,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec, 'blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_Params', [
-      mojo.internal.StructField('arg_render_frame_metadata_observer_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_frame_metadata_observer_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_render_frame_metadata_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1234,13 +1234,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec, 'blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_Params', [
-      mojo.internal.StructField('arg_browser_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RenderInputRouterClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec, 'blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetInputHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_from_viz', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1255,7 +1255,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec, 'blink.mojom.RenderInputRouterClient_BindInputTargetClient_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InputTargetClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InputTargetClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

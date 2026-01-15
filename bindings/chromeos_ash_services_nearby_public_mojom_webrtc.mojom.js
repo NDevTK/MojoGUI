@@ -459,7 +459,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec, 'sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Params', [
-      mojo.internal.StructField('arg_responder_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.MdnsResponderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_responder_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.MdnsResponderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

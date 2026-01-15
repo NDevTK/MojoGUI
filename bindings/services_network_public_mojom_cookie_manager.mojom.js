@@ -1394,7 +1394,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec, 'network.mojom.CookieManager_CloneInterface_Params', [
-      mojo.internal.StructField('arg_new_interface', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_interface', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

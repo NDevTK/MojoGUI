@@ -900,7 +900,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec, 'certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

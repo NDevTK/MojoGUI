@@ -899,7 +899,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_Params', [
       mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebSocketClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebSocketClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_response', 16, 0, mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_readable', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_writable', 32, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),

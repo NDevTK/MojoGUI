@@ -314,7 +314,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_Clone_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

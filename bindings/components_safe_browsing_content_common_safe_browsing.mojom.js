@@ -1432,7 +1432,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_Params', [
       mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_load_flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -1451,7 +1451,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1573,7 +1573,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

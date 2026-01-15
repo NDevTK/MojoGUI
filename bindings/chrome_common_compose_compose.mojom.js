@@ -1271,8 +1271,8 @@ mojo.internal.Struct(
     [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec, 'compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_Params', [
-      mojo.internal.StructField('arg_client_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_dialog', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

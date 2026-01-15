@@ -870,8 +870,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec, 'blink.mojom.DevToolsAgent_AttachDevToolsSession_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_io_session', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_io_session', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_reattach_session_state', 16, 0, mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_script_to_evaluate_on_load', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_expects_binary_responses', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -902,7 +902,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec, 'blink.mojom.DevToolsAgentHost_ChildTargetCreated_Params', [
       mojo.internal.StructField('arg_worker_devtools_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_worker_devtools_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_waiting_for_debugger', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),

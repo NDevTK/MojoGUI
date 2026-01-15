@@ -422,7 +422,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec, 'blink.mojom.WebUsbService_GetDevice_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDevicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

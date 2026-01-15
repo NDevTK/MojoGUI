@@ -288,7 +288,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryRequest = moj
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Params', [
-      mojo.internal.StructField('arg_stream_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

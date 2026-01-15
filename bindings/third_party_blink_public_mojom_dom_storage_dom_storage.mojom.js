@@ -611,7 +611,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientRequest = mojo.internal.bindi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec, 'blink.mojom.DomStorageProvider_BindDomStorage_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DomStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DomStoragePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DomStorageClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -620,14 +620,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec, 'blink.mojom.DomStorage_OpenLocalStorage_Params', [
       mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_local_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_area', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_area', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec, 'blink.mojom.DomStorage_BindSessionStorageNamespace_Params', [
       mojo.internal.StructField('arg_namespace_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SessionStorageNamespaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SessionStorageNamespacePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -636,7 +636,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_local_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_namespace', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_namespace', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

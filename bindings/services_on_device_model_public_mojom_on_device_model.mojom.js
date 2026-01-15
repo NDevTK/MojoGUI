@@ -1894,7 +1894,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_Clone_ParamsSpec, 'on_device_model.mojom.Session_Clone_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1919,14 +1919,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec, 'on_device_model.mojom.Session_AsrStream_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.AsrStreamOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.AsrStreamInputPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_responder', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_StartSession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
@@ -1958,7 +1958,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_LoadAdaptation_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadAdaptationParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1994,13 +1994,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.TextSafetySession_Clone_ParamsSpec, 'on_device_model.mojom.TextSafetySession_Clone_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec, 'on_device_model.mojom.TextSafetyModel_StartSession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

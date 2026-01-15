@@ -2563,7 +2563,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec, 'ash.boca.mojom.BocaPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.boca.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.boca.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.boca.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -311,7 +311,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.WorkletDevToolsHost_OnReadyForInspection_Params', [
       mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

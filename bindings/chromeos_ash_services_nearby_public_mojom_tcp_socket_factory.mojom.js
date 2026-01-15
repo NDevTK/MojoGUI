@@ -346,7 +346,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 8, 0, mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_backlog', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPServerSocketPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 24, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -365,7 +365,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_remote_addr_list', 16, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tcp_connected_socket_options', 24, 0, mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 44, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
     ],
     [[0, 64]]);

@@ -1159,7 +1159,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.RoutePresentationConnectionSpec, 'media_router.mojom.RoutePresentationConnection', [
       mojo.internal.StructField('arg_connection_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.PresentationConnectionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1276,7 +1276,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec, 'media_router.mojom.MediaRouteProvider_BindMediaController_Params', [
       mojo.internal.StructField('arg_route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_controller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.MediaControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_controller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.MediaControllerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_router.mojom.MediaStatusObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -1368,13 +1368,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogger_ParamsSpec, 'media_router.mojom.MediaRouter_GetLogger_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.LoggerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.LoggerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_GetDebugger_ParamsSpec, 'media_router.mojom.MediaRouter_GetDebugger_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.DebuggerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.DebuggerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

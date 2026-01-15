@@ -567,7 +567,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_translation_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

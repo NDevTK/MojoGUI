@@ -646,13 +646,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec, 'blink.mojom.Blob_Clone_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec, 'blink.mojom.Blob_AsDataPipeGetter_Params', [
-      mojo.internal.StructField('arg_data_pipe_getter', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DataPipeGetterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe_getter', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -674,7 +674,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec, 'blink.mojom.Blob_Load_Params', [
-      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_request_method', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),

@@ -278,7 +278,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerRequest = mojo.int
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_Params', [
-      mojo.internal.StructField('arg_renderer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

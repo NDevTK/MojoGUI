@@ -316,19 +316,19 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRequest = mojo.internal.bindi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec, 'chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec, 'chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec, 'chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

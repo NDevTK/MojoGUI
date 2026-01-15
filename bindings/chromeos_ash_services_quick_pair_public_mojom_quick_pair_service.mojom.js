@@ -269,7 +269,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceRequest = mojo.inter
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec, 'ash.quick_pair.mojom.QuickPairService_Connect_Params', [
-      mojo.internal.StructField('arg_fast_pair_data_parser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fast_pair_data_parser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

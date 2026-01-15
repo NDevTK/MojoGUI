@@ -485,7 +485,7 @@ mojo.internal.bindings.ash.file_manager.mojom.PageRequest = mojo.internal.bindin
 mojo.internal.Struct(
     mojo.internal.bindings.ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.file_manager.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.file_manager.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

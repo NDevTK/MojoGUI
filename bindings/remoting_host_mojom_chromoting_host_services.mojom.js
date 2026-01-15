@@ -454,25 +454,25 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRequest = mojo.in
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnProxyPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

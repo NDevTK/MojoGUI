@@ -587,7 +587,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.data_sharing_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

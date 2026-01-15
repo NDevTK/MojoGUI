@@ -382,7 +382,7 @@ mojo.internal.Struct(
     [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec, 'chromeos.machine_learning.mojom.Model_REMOVED_0_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -395,7 +395,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec, 'chromeos.machine_learning.mojom.Model_CreateGraphExecutor_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

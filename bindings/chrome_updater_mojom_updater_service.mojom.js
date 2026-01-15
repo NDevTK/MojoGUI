@@ -1093,7 +1093,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec, 'updater.mojom.UpdateService_UpdateAll_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1110,7 +1110,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec, 'updater.mojom.UpdateService_Update_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1126,7 +1126,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec, 'updater.mojom.UpdateService_Install_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1149,7 +1149,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec, 'updater.mojom.UpdateService_RunInstaller_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1164,7 +1164,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec, 'updater.mojom.UpdateService_CheckForUpdate_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.StateChangeObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

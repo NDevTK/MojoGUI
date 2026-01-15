@@ -1241,7 +1241,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_Clone_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

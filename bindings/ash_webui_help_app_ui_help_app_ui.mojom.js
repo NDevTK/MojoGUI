@@ -724,7 +724,7 @@ mojo.internal.Struct(
     [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.help_app.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

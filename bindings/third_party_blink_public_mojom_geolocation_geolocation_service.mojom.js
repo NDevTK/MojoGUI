@@ -282,7 +282,7 @@ mojo.internal.bindings.blink.mojom.GeolocationServiceRequest = mojo.internal.bin
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_gesture', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

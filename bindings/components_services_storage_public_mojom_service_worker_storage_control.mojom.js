@@ -2311,7 +2311,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerLiveVersionInfoSpec, 'storage.mojom.ServiceWorkerLiveVersionInfo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_purgeable_resources', 8, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reference', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerLiveVersionRefRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reference', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerLiveVersionRefPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -2677,21 +2677,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_Params', [
       mojo.internal.StructField('arg_resource_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reader', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reader', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_Params', [
       mojo.internal.StructField('arg_resource_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_writer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_writer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec, 'storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_Params', [
       mojo.internal.StructField('arg_resource_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_writer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_writer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

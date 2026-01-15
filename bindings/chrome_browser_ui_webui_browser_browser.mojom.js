@@ -1272,7 +1272,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRequest = mojo.internal.b
 mojo.internal.Struct(
     mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'webui_browser.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webui_browser.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_browser.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_browser.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1321,7 +1321,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec, 'webui_browser.mojom.PageHandler_GetGuestIdForTabId_Params', [
       mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_browser.mojom.GuestHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

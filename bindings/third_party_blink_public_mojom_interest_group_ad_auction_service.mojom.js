@@ -1121,7 +1121,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_abort_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_abort_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AbortableAdAuctionPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

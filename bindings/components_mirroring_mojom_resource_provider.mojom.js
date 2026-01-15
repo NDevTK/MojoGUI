@@ -556,32 +556,32 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRequest = mojo.internal.b
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec, 'mirroring.mojom.AudioStreamCreatorClient_StreamCreated_Params', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_data_pipe', 16, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec, 'mirroring.mojom.ResourceProvider_BindGpu_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoCaptureHost_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoCaptureHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoCaptureHostPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetNetworkContext_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkContextPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -596,7 +596,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec, 'mirroring.mojom.ResourceProvider_ConnectToRemotingSource_Params', [
       mojo.internal.StructField('arg_remoter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.RemoterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingSourcePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

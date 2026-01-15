@@ -430,43 +430,43 @@ mojo.internal.bindings.audio.mojom.AudioServiceRequest = mojo.internal.bindings.
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec, 'audio.mojom.AudioService_BindSystemInfo_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.SystemInfoRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.SystemInfoPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec, 'audio.mojom.AudioService_BindDebugRecording_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DebugRecordingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DebugRecordingPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec, 'audio.mojom.AudioService_BindStreamFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec, 'audio.mojom.AudioService_BindDeviceNotifier_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DeviceNotifierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec, 'audio.mojom.AudioService_BindLogFactoryManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.LogFactoryManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec, 'audio.mojom.AudioService_BindTestingApi_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.TestingApiRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.TestingApiPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec, 'audio.mojom.AudioService_BindMlModelManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.MlModelManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.MlModelManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

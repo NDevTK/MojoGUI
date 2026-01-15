@@ -562,7 +562,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageRequest = mojo.inter
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

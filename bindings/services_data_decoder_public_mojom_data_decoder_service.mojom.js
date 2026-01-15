@@ -432,43 +432,43 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRequest = mojo.inter
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.ImageDecoderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindXmlParser_Params', [
-      mojo.internal.StructField('arg_reciever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.XmlParserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reciever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.XmlParserPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindGzipper_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.GzipperRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.GzipperPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindCborParser_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.CborParserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.CborParserPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindPixCodeValidator_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

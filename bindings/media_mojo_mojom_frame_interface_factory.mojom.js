@@ -546,13 +546,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_Params', [
-      mojo.internal.StructField('arg_provision_fetcher', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.ProvisionFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_provision_fetcher', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.ProvisionFetcherPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateCdmStorage_Params', [
-      mojo.internal.StructField('arg_cdm_storage', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_storage', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmStoragePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -564,7 +564,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_Params', [
-      mojo.internal.StructField('arg_registry', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_registry', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

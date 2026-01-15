@@ -340,13 +340,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params', [
       mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_bits', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec, 'storage.mojom.FileSystemAccessContext_Clone_Params', [
-      mojo.internal.StructField('arg_receiever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.FileSystemAccessContextPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

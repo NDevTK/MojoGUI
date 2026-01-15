@@ -488,7 +488,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorInitParamsSpec, 'device.mojom.SensorInitParams', [
       mojo.internal.StructField('arg_sensor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SensorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.SensorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.SensorClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 12, 0, mojo.internal.bindings.device.mojom.ReportingModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),

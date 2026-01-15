@@ -521,7 +521,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec, 'auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_Params', [
-      mojo.internal.StructField('arg_bidder_worklet', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bidder_worklet', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.BidderWorkletPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_storage_hosts', 4, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote), false), null, true, 0, undefined),
       mojo.internal.StructField('arg_pause_for_debugger_on_start', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_experiment_group_id_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),
@@ -540,7 +540,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec, 'auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_Params', [
-      mojo.internal.StructField('arg_seller_worklet', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.SellerWorkletRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_seller_worklet', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.auction_worklet.mojom.SellerWorkletPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_storage_hosts', 4, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote), false), null, true, 0, undefined),
       mojo.internal.StructField('arg_pause_for_debugger_on_start', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_experiment_group_id_$flag', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_experiment_group_id_$value', originalFieldName: 'arg_experiment_group_id' }),

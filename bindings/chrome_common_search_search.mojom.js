@@ -723,7 +723,7 @@ mojo.internal.Struct(
     [[0, 8]]);
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
-      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

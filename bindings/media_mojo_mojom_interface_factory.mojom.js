@@ -586,49 +586,49 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRequest = mojo.internal.bindi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioDecoder_Params', [
-      mojo.internal.StructField('arg_audio_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioDecoderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoder_Params', [
-      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_dst_video_decoder', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_tracker', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioEncoder_Params', [
-      mojo.internal.StructField('arg_audio_encoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioEncoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_encoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioEncoderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateDefaultRenderer_Params', [
       mojo.internal.StructField('arg_audio_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCastRenderer_Params', [
       mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_Params', [
       mojo.internal.StructField('arg_media_log', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_extension', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_extension', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

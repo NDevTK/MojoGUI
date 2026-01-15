@@ -1618,7 +1618,7 @@ mojo.internal.Struct(
     [[0, 88]]);
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec, 'lens.mojom.LensPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensPageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

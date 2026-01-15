@@ -1752,7 +1752,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_update_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_transfer_update_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_confirmation_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);

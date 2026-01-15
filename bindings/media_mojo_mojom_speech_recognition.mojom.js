@@ -1519,7 +1519,7 @@ mojo.internal.Struct(
     [[0, 24], [1, 32], [4, 16], [5, 40], [6, 48], [8, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec, 'media.mojom.SpeechRecognitionContext_BindRecognizer_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),
     ],
@@ -1533,9 +1533,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec, 'media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_Params', [
-      mojo.internal.StructField('arg_session_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_forwarder', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_forwarder', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sample_rate', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),

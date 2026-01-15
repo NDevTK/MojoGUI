@@ -1464,7 +1464,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec, 'media.mojom.MediaPlayerHost_OnMediaPlayerAdded_Params', [
       mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.MediaPlayerObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.MediaPlayerObserverPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_player_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

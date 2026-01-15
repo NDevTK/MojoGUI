@@ -591,7 +591,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec, 'on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_Params', [
       mojo.internal.StructField('arg_source_lang', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_target_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_translation.mojom.TranslatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_translation.mojom.TranslatorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

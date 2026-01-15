@@ -1044,7 +1044,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_login_item_restore_state', 28, 0, mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_files', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_urls', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_action_handler', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_action_handler', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -1059,7 +1059,7 @@ mojo.internal.Struct(
     [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec, 'chrome.mojom.AppShim_CreateRemoteCocoaApplication_Params', [
-      mojo.internal.StructField('arg_application', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_application', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.ApplicationPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1095,7 +1095,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec, 'chrome.mojom.AppShim_BindNotificationProvider_Params', [
-      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1112,7 +1112,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec, 'chrome.mojom.AppShim_BindChildHistogramFetcherFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1174,7 +1174,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_Params', [
-      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_app_shim_info', 8, 0, mojo.internal.bindings.chrome.mojom.AppShimInfoSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1182,7 +1182,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParams', [
       mojo.internal.StructField('arg_launch_result', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_shim_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_shim_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_feature_state', 8, 0, mojo.internal.bindings.chrome.mojom.FeatureStateSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

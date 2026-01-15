@@ -3052,7 +3052,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec, 'drivefs.mojom.DriveFsBootstrap_Init_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.drivefs.mojom.DriveFsConfigurationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_drive_fs', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.DriveFsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_drive_fs', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.DriveFsPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_delegate', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -3129,7 +3129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec, 'drivefs.mojom.DriveFs_StartSearchQuery_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.SearchQueryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.SearchQueryPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_query_params', 8, 0, mojo.internal.bindings.drivefs.mojom.QueryParametersSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -3212,7 +3212,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec, 'drivefs.mojom.DriveFs_CreateNativeHostSession_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.NativeMessagingHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.NativeMessagingHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.drivefs.mojom.NativeMessagingPortRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -3507,7 +3507,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec, 'drivefs.mojom.DriveFsDelegate_ConnectToExtension_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.NativeMessagingPortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.drivefs.mojom.NativeMessagingPortPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.drivefs.mojom.NativeMessagingHostRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

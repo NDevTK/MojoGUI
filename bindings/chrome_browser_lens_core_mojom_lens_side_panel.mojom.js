@@ -954,7 +954,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRequest = mojo.internal.bindi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec, 'lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

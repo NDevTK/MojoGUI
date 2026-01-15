@@ -424,7 +424,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
       mojo.internal.StructField('arg_view_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_handle_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_handle_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandlePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_view_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

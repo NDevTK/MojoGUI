@@ -1247,7 +1247,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_initial_priority', 4, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.network.mojom.SourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_cache_usage', 12, 0, mojo.internal.bindings.network.mojom.CacheUsageSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_control_handle', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ResolveHostHandleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_control_handle', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ResolveHostHandlePendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_include_canonical_name', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_loopback_only', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_speculative', 20, 2, mojo.internal.Bool, false, false, 0, undefined),

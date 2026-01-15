@@ -907,7 +907,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
       mojo.internal.StructField('arg_ml_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
     ],
     [[0, 24], [2, 32]]);

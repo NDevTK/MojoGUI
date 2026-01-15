@@ -629,7 +629,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_Params', [
-      mojo.internal.StructField('arg_fake_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content.mojom.FakeBluetoothChooserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fake_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content.mojom.FakeBluetoothChooserPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

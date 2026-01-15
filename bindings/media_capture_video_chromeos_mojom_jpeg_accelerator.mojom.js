@@ -294,13 +294,13 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRequest = mojo.internal
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jea', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_jea', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

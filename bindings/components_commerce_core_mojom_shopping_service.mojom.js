@@ -1148,7 +1148,7 @@ mojo.internal.Struct(
     [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec, 'shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

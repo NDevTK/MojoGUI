@@ -328,7 +328,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params', [
-      mojo.internal.StructField('arg_vea_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vea_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

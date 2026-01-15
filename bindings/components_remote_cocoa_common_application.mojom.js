@@ -522,14 +522,14 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRequest = mojo.internal.bin
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec, 'remote_cocoa.mojom.Application_CreateAlert_Params', [
-      mojo.internal.StructField('arg_alert_bridge_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_alert_bridge_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.AlertBridgePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec, 'remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_Params', [
       mojo.internal.StructField('arg_bridge_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_window_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 12, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_text_input_host', 20, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote), null, false, 0, undefined),
     ],
@@ -539,13 +539,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_Params', [
       mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfacePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec, 'remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -554,7 +554,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateWebContentsNSView_Params', [
       mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfacePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

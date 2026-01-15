@@ -1028,7 +1028,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec, 'blink.mojom.WebPrintJobInfo', [
       mojo.internal.StructField('arg_job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_job_pages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_controller', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

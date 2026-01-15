@@ -492,7 +492,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params', [
       mojo.internal.StructField('arg_library_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_model_files', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ocr_service_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_ocr_service_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.OCRServicePendingReceiver), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -506,7 +506,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params', [
       mojo.internal.StructField('arg_library_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_model_files', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_content_extractor_service', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_main_content_extractor_service', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServicePendingReceiver), null, true, 0, undefined),
     ],
     [[0, 32]]);
 

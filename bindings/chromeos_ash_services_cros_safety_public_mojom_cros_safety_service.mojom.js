@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRequest = mojo.int
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -355,7 +355,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

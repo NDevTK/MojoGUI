@@ -398,7 +398,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_max', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bucket_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.SingleSampleMetricPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

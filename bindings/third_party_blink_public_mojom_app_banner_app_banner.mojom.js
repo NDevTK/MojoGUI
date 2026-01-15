@@ -569,7 +569,7 @@ mojo.internal.bindings.blink.mojom.AppBannerServiceRequest = mojo.internal.bindi
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec, 'blink.mojom.AppBannerController_BannerPromptRequest_Params', [
       mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AppBannerServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AppBannerEventRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AppBannerEventPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_platform', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

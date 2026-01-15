@@ -553,7 +553,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

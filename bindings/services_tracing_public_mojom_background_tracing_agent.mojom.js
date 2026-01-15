@@ -610,7 +610,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params', [
       mojo.internal.StructField('arg_tracing_process_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

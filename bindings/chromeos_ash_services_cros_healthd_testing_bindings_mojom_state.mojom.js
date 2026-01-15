@@ -511,7 +511,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_Params', [
       mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StatePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

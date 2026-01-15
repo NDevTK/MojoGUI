@@ -1601,7 +1601,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_routine_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_routine_observer', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);

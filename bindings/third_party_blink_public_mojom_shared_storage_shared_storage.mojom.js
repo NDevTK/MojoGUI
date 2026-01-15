@@ -677,7 +677,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_data_origin_type', 16, 0, mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_credentials_mode', 20, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_method', 24, 0, mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_worklet_host', 28, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_worklet_host', 28, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_origin_trial_features', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
     ],
     [[0, 48]]);

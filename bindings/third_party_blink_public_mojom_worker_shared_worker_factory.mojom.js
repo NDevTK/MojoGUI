@@ -338,7 +338,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_constructor_secure_context', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_pause_on_start', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_require_cross_site_request_for_cookies', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_preference_watcher_receiver', 36, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preference_watcher_receiver', 36, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_agent', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_ua_metadata', 48, 0, mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_worker_token', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
@@ -350,11 +350,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_controller_info', 104, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_policy_container', 112, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 120, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedWorkerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_worker', 128, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_worker', 128, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedWorkerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_interface_broker', 132, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 140, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 140, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_ukm_source_id', 144, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 152, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 152, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 168]]);
 

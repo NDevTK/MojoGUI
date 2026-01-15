@@ -315,7 +315,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

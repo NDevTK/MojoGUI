@@ -581,7 +581,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -547,7 +547,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec, 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params', [
       mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

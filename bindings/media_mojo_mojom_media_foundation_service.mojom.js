@@ -637,7 +637,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaFoundationService_CreateInterfaceFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -657,7 +657,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
       mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

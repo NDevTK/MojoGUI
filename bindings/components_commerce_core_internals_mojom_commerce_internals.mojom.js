@@ -779,7 +779,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec, 'commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.commerce.mojom.CommerceInternalsPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

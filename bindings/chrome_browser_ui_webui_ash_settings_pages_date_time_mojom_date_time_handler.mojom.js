@@ -608,7 +608,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.date_time.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -514,11 +514,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_service_worker_container_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_main_script_load_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_subresource_loader_factories', 16, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_updater', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 28, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_updater', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 28, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_controller_info', 32, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_back_forward_cache_controller_host', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 64]]);
 

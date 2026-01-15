@@ -338,7 +338,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRequest = mojo.internal
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_Params', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

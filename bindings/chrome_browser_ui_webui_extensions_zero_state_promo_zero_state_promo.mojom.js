@@ -414,7 +414,7 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRequest = mojo.internal
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.zero_state_promo.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

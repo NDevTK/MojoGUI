@@ -718,7 +718,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerRequest = mojo.internal
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec, 'blink.mojom.ServiceWorkerContainerInfoForClient', [
       mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 mojo.internal.Struct(
@@ -777,14 +777,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_purpose', 4, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec, 'blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_Params', [
-      mojo.internal.StructField('arg_container_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_container_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

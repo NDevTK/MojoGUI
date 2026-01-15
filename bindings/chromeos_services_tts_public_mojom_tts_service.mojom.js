@@ -1070,14 +1070,14 @@ mojo.internal.Struct(
     [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec, 'chromeos.tts.mojom.TtsService_BindGoogleTtsStream_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_factory', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec, 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_factory', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_desired_audio_parameters', 16, 0, mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec, null, true, 0, undefined),
     ],
@@ -1123,7 +1123,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParams', [
-      mojo.internal.StructField('arg_event_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1155,7 +1155,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParams', [
-      mojo.internal.StructField('arg_event_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

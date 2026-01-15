@@ -343,7 +343,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRequest = mo
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_Clone_Params', [
-      mojo.internal.StructField('arg_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

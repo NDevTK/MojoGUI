@@ -311,7 +311,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRequest = mojo.internal.bindings.
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec, 'device.mojom.NFCProvider_GetNFCForHost_Params', [
       mojo.internal.StructField('arg_host_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.NFCRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.NFCPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

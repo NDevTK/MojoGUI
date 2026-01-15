@@ -6036,21 +6036,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec, 'glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.GlicPreloadHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.GlicPreloadHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PreloadPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'glic.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandler_CreateWebClient_ParamsSpec, 'glic.mojom.PageHandler_CreateWebClient_Params', [
-      mojo.internal.StructField('arg_web_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.WebClientHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.glic.mojom.WebClientHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

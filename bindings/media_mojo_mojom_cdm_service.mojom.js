@@ -561,7 +561,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerRequest = mojo.internal.bindi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec, 'media.mojom.CdmService_CreateCdmFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmFactoryPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -581,7 +581,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
       mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

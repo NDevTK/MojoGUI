@@ -658,14 +658,14 @@ mojo.internal.Struct(
     [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec, 'optimization_guide.mojom.ModelSolution_CreateSession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec, 'optimization_guide.mojom.ModelSolution_CreateTextSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

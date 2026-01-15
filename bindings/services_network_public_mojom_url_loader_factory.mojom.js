@@ -321,7 +321,7 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryRequest = mojo.internal.bin
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec, 'network.mojom.URLLoaderFactory_CreateLoaderAndStart_Params', [
-      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_request', 16, 0, mojo.internal.bindings.network.mojom.URLRequestSpec, null, false, 0, undefined),
@@ -332,7 +332,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderFactory_Clone_ParamsSpec, 'network.mojom.URLLoaderFactory_Clone_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

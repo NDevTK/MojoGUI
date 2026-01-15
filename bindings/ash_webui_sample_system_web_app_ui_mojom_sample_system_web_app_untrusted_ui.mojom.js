@@ -275,7 +275,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReques
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_Params', [
       mojo.internal.StructField('arg_child_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

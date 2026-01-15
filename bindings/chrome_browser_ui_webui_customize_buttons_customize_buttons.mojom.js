@@ -585,7 +585,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRequest =
 mojo.internal.Struct(
     mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

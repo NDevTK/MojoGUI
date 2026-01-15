@@ -2140,7 +2140,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec, 'gpu.mojom.GpuChannel_CreateCommandBuffer_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_routing_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.CommandBufferRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.CommandBufferPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_state', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.gpu.mojom.CommandBufferClientRemote), null, false, 0, undefined),
     ],
@@ -2189,7 +2189,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec, 'gpu.mojom.GpuChannel_CreateDCOMPTexture_Params', [
       mojo.internal.StructField('arg_route_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.DCOMPTextureRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.DCOMPTexturePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

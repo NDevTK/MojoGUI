@@ -677,7 +677,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherRequest = mojo.internal.bin
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec, 'media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_Params', [
-      mojo.internal.StructField('arg_fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetcher_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceFetcherPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.media.mojom.SpeechRecognitionOptionsSpec, null, false, 0, undefined),
     ],
@@ -691,13 +691,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec, 'media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.SpeechRecognitionContextPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec, 'media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

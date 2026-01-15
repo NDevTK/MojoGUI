@@ -498,7 +498,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec, 'blink.mojom.ServiceWorkerRouterData', [
       mojo.internal.StructField('arg_router_rules', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_initial_running_status', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_running_status_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_running_status_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_remote_cache_storage', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -534,7 +534,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec, 'blink.mojom.ControllerServiceWorker_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_coep_reporter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_document_isolation_policy', 24, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),

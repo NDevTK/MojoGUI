@@ -353,7 +353,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRequest = mojo.internal.bi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec, 'device.mojom.GeolocationContext_BindGeolocation_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 4, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_requesting_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_has_precise_permission', 16, 0, mojo.internal.Bool, false, false, 0, undefined),

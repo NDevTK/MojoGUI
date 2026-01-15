@@ -430,8 +430,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec, 'chromecast.mojom.CastWebService_CreateWebView_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_contents', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_window', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastWebContentsPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_window', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastContentWindowPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

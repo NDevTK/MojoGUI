@@ -329,7 +329,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_Params', [
       mojo.internal.StructField('arg_port_id', 0, 0, mojo.internal.bindings.extensions.mojom.PortIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_type', 8, 0, mojo.internal.bindings.extensions.mojom.ChannelTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_info', 24, 0, mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_external_connection_info', 32, 0, mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec, null, false, 0, undefined),

@@ -656,7 +656,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_annotator', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

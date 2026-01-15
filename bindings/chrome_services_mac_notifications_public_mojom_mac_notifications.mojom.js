@@ -820,7 +820,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec, 'mac_notifications.mojom.MacNotificationProvider_BindNotificationService_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationServicePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_handler', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

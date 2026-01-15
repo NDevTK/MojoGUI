@@ -621,7 +621,7 @@ mojo.internal.Struct(
 // Struct: PendingLayerContext
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.PendingLayerContextSpec, 'viz.mojom.PendingLayerContext', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.LayerContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.LayerContextPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.LayerContextClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

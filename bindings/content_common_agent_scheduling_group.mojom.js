@@ -491,7 +491,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
       mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.RouteProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.RouteProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -509,7 +509,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServicePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_global_scope_creation_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

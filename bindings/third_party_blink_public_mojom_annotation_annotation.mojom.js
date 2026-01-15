@@ -637,7 +637,7 @@ mojo.internal.Union(
 // Struct: SelectorCreationResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec, 'blink.mojom.SelectorCreationResult', [
-      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_agent_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_serialized_selector', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
@@ -659,7 +659,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec, 'blink.mojom.AnnotationAgentContainer_CreateAgent_Params', [
       mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AnnotationAgentPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 12, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_selector', 16, 0, mojo.internal.bindings.blink.mojom.SelectorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_search_range_start_node_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_search_range_start_node_id_$value', originalFieldName: 'arg_search_range_start_node_id' }),

@@ -544,21 +544,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factory', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec, 'blink.mojom.BlobURLStore_ResolveAsBlobURLToken_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_top_level_navigation', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec, 'blink.mojom.BlobURLToken_Clone_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobURLTokenPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

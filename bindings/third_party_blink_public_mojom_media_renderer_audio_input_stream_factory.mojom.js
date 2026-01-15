@@ -460,7 +460,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_Params', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_request', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_request', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_initially_muted', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_data_pipe', 16, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),

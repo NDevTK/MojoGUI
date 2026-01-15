@@ -937,7 +937,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

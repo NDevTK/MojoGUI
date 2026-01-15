@@ -1211,8 +1211,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec, 'ash.secure_channel.mojom.ConnectionDelegate_OnConnection_Params', [
       mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_receiver_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_connection_state_listener_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_receiver_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connection_state_listener_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

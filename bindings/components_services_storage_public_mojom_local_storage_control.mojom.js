@@ -465,7 +465,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec, 'storage.mojom.LocalStorageControl_BindStorageArea_Params', [
       mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

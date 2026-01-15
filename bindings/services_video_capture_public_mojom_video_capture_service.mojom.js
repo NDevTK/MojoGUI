@@ -466,19 +466,19 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRequest = mojo.int
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec, 'video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec, 'video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec, 'video_capture.mojom.VideoCaptureService_BindControlsForTesting_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.TestingControlsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.TestingControlsPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

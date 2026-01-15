@@ -792,7 +792,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_Params', [
-      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_supports_paint_stability', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec, null, false, 0, undefined),
     ],

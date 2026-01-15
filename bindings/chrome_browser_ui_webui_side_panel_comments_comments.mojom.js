@@ -506,7 +506,7 @@ mojo.internal.bindings.comments.mojom.PageRequest = mojo.internal.bindings.comme
 mojo.internal.Struct(
     mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'comments.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.comments.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.comments.mojom.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.comments.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

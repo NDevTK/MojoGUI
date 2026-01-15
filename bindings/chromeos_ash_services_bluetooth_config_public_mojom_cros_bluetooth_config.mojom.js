@@ -1945,14 +1945,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_Params', [
       mojo.internal.StructField('arg_pin_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec, 'ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_Params', [
       mojo.internal.StructField('arg_passkey', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

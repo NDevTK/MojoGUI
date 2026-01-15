@@ -450,7 +450,7 @@ mojo.internal.Union(
     });
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_Params', [
-      mojo.internal.StructField('arg_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_cloud_project_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

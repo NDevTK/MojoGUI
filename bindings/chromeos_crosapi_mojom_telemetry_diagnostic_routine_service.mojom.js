@@ -1170,7 +1170,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec, 'crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_routine_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_routine_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_routine_observer', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);

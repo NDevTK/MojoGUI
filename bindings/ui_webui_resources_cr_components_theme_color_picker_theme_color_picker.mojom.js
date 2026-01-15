@@ -714,7 +714,7 @@ mojo.internal.Struct(
     [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

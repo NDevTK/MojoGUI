@@ -2436,7 +2436,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRSessionSpec, 'device.mojom.XRSession', [
       mojo.internal.StructField('arg_data_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_layer_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRLayerManagerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.XRSessionClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_enviroment_blend_mode', 20, 0, mojo.internal.bindings.device.mojom.XREnvironmentBlendModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_submit_frame_sink', 24, 0, mojo.internal.bindings.device.mojom.XRPresentationConnectionSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_enabled_features', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
@@ -2450,7 +2450,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationConnectionSpec, 'device.mojom.XRPresentationConnection', [
       mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRPresentationProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.XRPresentationClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_transport_options', 16, 0, mojo.internal.bindings.device.mojom.XRPresentationTransportOptionsSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -3049,7 +3049,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec, 'device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_Params', [
-      mojo.internal.StructField('arg_environment_provider', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_environment_provider', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

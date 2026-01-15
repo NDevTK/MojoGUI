@@ -278,7 +278,7 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientRequest = mojo.interna
 mojo.internal.Struct(
     mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec, 'download.mojom.DownloadStreamHandle', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.download.mojom.DownloadStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.download.mojom.DownloadStreamClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 mojo.internal.Struct(

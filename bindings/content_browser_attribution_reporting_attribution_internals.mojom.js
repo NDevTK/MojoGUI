@@ -1183,7 +1183,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec, 'attribution_internals.mojom.Factory_Create_Params', [
       mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.attribution_internals.mojom.ObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_internals.mojom.HandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_internals.mojom.HandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

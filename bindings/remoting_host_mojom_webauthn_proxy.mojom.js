@@ -557,7 +557,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_Params', [
       mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -570,7 +570,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
       mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

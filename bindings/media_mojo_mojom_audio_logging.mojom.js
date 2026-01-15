@@ -607,7 +607,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
       mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.media.mojom.AudioLogComponentSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_component_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

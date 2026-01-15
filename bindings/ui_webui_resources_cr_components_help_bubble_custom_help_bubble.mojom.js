@@ -402,7 +402,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRequest =
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

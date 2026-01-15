@@ -1373,7 +1373,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec, 'blink.mojom.FrameWidget_BindWidgetCompositor_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetCompositorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetCompositorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

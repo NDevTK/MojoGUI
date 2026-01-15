@@ -779,7 +779,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec, 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -1138,7 +1138,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_Params', [
       mojo.internal.StructField('arg_transport', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebTransportClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebTransportClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_response_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_application_protocol', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_initial_stats', 32, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec, null, false, 0, undefined),

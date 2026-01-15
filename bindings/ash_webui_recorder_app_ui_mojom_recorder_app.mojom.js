@@ -1163,7 +1163,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_LoadModel_Params', [
       mojo.internal.StructField('arg_model_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1264,7 +1264,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec, 'ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_Params', [
       mojo.internal.StructField('arg_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_soda_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_soda_recognizer', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_soda_recognizer', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

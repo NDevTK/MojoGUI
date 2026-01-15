@@ -579,7 +579,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

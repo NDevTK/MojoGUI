@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryRequest = mojo.internal
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec, 'blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_Params', [
-      mojo.internal.StructField('arg_keep_alive_handle', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_handle', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.KeepAliveHandlePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

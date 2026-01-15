@@ -508,7 +508,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec, 'ax.mojom.ObserverOrError', {
       'arg_observer': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemote),
+        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverPendingReceiver),
         'nullable': false,
       },
       'arg_error': {

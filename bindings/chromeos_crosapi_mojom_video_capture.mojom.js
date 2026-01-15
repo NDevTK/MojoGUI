@@ -1504,7 +1504,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec, 'crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_Params', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.VideoCaptureDevicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

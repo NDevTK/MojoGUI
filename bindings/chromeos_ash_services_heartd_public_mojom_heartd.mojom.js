@@ -707,7 +707,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);

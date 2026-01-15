@@ -294,7 +294,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

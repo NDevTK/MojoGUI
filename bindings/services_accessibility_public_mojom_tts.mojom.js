@@ -611,7 +611,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec, 'ax.mojom.TtsSpeakResult', [
       mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.ax.mojom.TtsErrorSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_utterance_client', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_utterance_client', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.TtsUtteranceClientPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(

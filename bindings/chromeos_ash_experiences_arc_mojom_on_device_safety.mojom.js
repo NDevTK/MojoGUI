@@ -481,7 +481,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

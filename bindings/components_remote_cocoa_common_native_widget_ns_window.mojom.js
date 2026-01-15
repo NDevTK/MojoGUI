@@ -1560,7 +1560,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_Params', [
-      mojo.internal.StructField('arg_dialog', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1860,7 +1860,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_Params', [
       mojo.internal.StructField('arg_menu', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.MenuHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.MenuRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.MenuPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

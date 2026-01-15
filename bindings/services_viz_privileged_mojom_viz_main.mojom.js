@@ -455,7 +455,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_restart_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_use_activation_deadline', 4, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_manager', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_manager', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkManagerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_sink_manager_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_debug_renderer_settings', 24, 0, mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
     ],
@@ -475,7 +475,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec, 'viz.mojom.VizMain_CreateGpuService_Params', [
-      mojo.internal.StructField('arg_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuServicePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_gpu_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_gpu_logging', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuLoggingRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_discardable_memory_manager', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), null, false, 0, undefined),
@@ -494,7 +494,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec, 'viz.mojom.VizMain_CreateInfoCollectionGpuService_Params', [
-      mojo.internal.StructField('arg_info_collection_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info_collection_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InfoCollectionGpuServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

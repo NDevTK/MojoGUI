@@ -1595,14 +1595,14 @@ mojo.internal.Struct(
     [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServicePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec, 'ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServicePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

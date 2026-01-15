@@ -4422,7 +4422,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.OemCryptoHost_Connect_ParamsSpec, 'arc.mojom.OemCryptoHost_Connect_Params', [
-      mojo.internal.StructField('arg_oemcryptor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.OemCryptoServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_oemcryptor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.OemCryptoServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

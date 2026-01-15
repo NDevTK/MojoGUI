@@ -1726,7 +1726,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec, 'read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

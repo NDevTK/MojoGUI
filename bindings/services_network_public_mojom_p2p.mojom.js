@@ -961,7 +961,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec, 'network.mojom.P2PSocketManager_CreateSocket_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.P2PSocketTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port_range', 16, 0, mojo.internal.bindings.network.mojom.P2PPortRangeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_remote_address', 24, 0, mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, null, false, 0, undefined),

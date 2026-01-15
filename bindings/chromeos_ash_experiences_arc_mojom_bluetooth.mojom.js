@@ -3476,7 +3476,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec, 'arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.BluetoothStatusSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.BluetoothListenSocketClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.BluetoothListenSocketClientPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -3492,7 +3492,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec, 'arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.BluetoothStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.BluetoothConnectSocketClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.BluetoothConnectSocketClientPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -755,13 +755,13 @@ mojo.internal.Struct(
     [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec, 'content.mojom.Renderer_CreateAgentSchedulingGroup_Params', [
-      mojo.internal.StructField('arg_bootstrap', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.IPC.mojom.ChannelBootstrapRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bootstrap', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.IPC.mojom.ChannelBootstrapPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec, 'content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_Params', [
-      mojo.internal.StructField('arg_agent_scheduling_group', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_scheduling_group', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.AgentSchedulingGroupPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

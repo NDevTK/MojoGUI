@@ -310,7 +310,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_Clone_Params', [
-      mojo.internal.StructField('arg_token_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

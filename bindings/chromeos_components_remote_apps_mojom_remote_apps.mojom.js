@@ -787,7 +787,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_Params', [
       mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_apps', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_apps', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

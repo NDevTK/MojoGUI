@@ -806,7 +806,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_Params', [
       mojo.internal.StructField('arg_document', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

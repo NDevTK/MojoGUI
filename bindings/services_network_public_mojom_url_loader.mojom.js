@@ -582,7 +582,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, 'network.mojom.URLLoaderClientEndpoints', [
       mojo.internal.StructField('arg_url_loader', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_loader_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_loader_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 mojo.internal.Struct(

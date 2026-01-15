@@ -957,13 +957,13 @@ mojo.internal.Struct(
     [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec, 'printing.mojom.UnsandboxedPrintBackendHost_BindBackend_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PrintBackendServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PrintBackendServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec, 'printing.mojom.SandboxedPrintBackendHost_BindBackend_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PrintBackendServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PrintBackendServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

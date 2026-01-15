@@ -805,7 +805,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec, 'codelabs.mojom.AssociatedProcess_SetProcess_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.codelabs.mojom.ProcessRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.codelabs.mojom.ProcessPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -817,7 +817,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfacePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

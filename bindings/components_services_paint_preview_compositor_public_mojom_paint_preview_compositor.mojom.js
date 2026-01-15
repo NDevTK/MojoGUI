@@ -751,7 +751,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_Params', [
-      mojo.internal.StructField('arg_compositor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

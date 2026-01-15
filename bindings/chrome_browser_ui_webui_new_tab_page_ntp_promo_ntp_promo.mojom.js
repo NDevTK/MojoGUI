@@ -733,7 +733,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

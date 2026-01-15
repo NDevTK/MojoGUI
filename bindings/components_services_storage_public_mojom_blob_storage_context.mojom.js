@@ -591,7 +591,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec, 'storage.mojom.BlobStorageContext_RegisterFromDataItem_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_item', 16, 0, mojo.internal.bindings.storage.mojom.BlobDataItemSpec, null, false, 0, undefined),
     ],
@@ -599,7 +599,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec, 'storage.mojom.BlobStorageContext_RegisterFromMemory_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
@@ -622,7 +622,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec, 'storage.mojom.BlobStorageContext_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.BlobStorageContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.BlobStorageContextPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

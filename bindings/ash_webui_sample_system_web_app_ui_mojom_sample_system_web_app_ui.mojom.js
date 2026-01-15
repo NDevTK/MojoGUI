@@ -629,7 +629,7 @@ mojo.internal.Struct(
     [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.PageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -665,7 +665,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.Page_CreateParentPage_Params', [
       mojo.internal.StructField('arg_child_untrusted_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_trusted_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_trusted_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

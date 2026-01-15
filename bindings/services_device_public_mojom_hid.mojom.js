@@ -1405,7 +1405,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec, 'device.mojom.HidManager_AddReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.HidManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.HidManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

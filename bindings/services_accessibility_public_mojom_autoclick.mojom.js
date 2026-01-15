@@ -453,7 +453,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec, 'ax.mojom.AutoclickClient_BindAutoclick_ResponseParams', [
-      mojo.internal.StructField('arg_autoclick_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutoclickRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_autoclick_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ax.mojom.AutoclickPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

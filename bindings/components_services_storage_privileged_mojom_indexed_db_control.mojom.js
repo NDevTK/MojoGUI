@@ -737,7 +737,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_info', 8, 0, mojo.internal.bindings.storage.mojom.BucketClientInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_state_checker_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.IDBFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.IDBFactoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -821,7 +821,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec, 'storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.IndexedDBControlTestPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

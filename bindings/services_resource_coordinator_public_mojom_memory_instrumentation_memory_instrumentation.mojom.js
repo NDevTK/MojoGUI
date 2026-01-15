@@ -1364,7 +1364,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec, 'memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_process', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

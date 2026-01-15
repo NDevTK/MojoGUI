@@ -478,7 +478,7 @@ mojo.internal.Union(
     mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec, 'remoting.mojom.StartSupportSessionResponse', {
       'arg_observer': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SupportHostObserverRemote),
+        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SupportHostObserverPendingReceiver),
         'nullable': false,
       },
       'arg_support_session_error': {

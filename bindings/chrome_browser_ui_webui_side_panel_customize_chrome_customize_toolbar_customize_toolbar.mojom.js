@@ -742,7 +742,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec, 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

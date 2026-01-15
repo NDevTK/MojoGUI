@@ -1663,20 +1663,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec, 'device.mojom.XRDeviceService_BindRuntimeProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRDeviceServiceHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRDeviceService_BindTestHook_ParamsSpec, 'device.mojom.XRDeviceService_BindTestHook_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device_test.mojom.XRServiceTestHookPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec, 'device.mojom.XRDeviceServiceHost_BindGpu_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

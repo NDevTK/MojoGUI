@@ -558,7 +558,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 mojo.internal.Struct(
     mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_Params', [
       mojo.internal.StructField('arg_pending_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

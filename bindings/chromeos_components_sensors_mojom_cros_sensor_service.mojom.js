@@ -402,7 +402,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRequest = mojo.inte
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalServer_CreateChannel_Params', [
-      mojo.internal.StructField('arg_sensor_service_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sensor_service_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorServicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

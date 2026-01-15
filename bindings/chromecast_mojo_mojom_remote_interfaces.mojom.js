@@ -288,7 +288,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_AddClient_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.RemoteInterfacesPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

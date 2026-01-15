@@ -1225,7 +1225,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_CreateOverlay_Params', [
       mojo.internal.StructField('arg_stacking_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

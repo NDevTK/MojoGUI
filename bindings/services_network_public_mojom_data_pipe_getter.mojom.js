@@ -305,7 +305,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec, 'network.mojom.DataPipeGetter_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DataPipeGetterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

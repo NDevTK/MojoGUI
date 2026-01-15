@@ -335,7 +335,7 @@ mojo.internal.Struct(
 // Struct: PolicyContainerBindParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(

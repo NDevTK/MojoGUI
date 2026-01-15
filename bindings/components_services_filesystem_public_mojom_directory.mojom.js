@@ -768,7 +768,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.Directory_OpenDirectory_ParamsSpec, 'filesystem.mojom.Directory_OpenDirectory_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.filesystem.mojom.DirectoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.filesystem.mojom.DirectoryPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_open_flags', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -870,7 +870,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.Directory_Clone_ParamsSpec, 'filesystem.mojom.Directory_Clone_Params', [
-      mojo.internal.StructField('arg_directory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.filesystem.mojom.DirectoryPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -403,10 +403,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec, 'sharing.mojom.Sharing_Connect_Params', [
       mojo.internal.StructField('arg_deps', 0, 0, mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_connections', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_presence', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_quick_start_decoder', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connections', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_presence', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresencePendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sharing.mojom.NearbySharingDecoderPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_quick_start_decoder', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

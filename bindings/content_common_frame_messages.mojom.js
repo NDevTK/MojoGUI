@@ -137,6 +137,6 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver = mojo.
 // Struct: DidCommitProvisionalLoadInterfaceParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, 'content.mojom.DidCommitProvisionalLoadInterfaceParams', [
-      mojo.internal.StructField('arg_browser_interface_broker_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_interface_broker_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);

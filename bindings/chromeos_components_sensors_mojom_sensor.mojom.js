@@ -1072,7 +1072,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDevice_Params', [
       mojo.internal.StructField('arg_iio_device_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_request', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_request', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorDevicePendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

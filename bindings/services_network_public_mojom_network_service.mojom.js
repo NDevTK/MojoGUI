@@ -1623,7 +1623,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec, 'network.mojom.NetworkService_AttachNetLogProxy_Params', [
       mojo.internal.StructField('arg_proxy_source', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetLogProxySourceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy_sink', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetLogProxySinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_sink', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetLogProxySinkPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1635,7 +1635,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_CreateNetworkContext_ParamsSpec, 'network.mojom.NetworkService_CreateNetworkContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkContextPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.network.mojom.NetworkContextParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1683,19 +1683,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec, 'network.mojom.NetworkService_GetNetworkChangeManager_Params', [
-      mojo.internal.StructField('arg_network_change_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkChangeManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_change_manager', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkChangeManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec, 'network.mojom.NetworkService_GetNetworkQualityEstimatorManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec, 'network.mojom.NetworkService_GetDnsConfigChangeManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1753,7 +1753,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec, 'network.mojom.NetworkService_BindTestInterfaceForTesting_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkServiceTestRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkServiceTestPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1812,8 +1812,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_source_body', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_dest_body', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_url_loader', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url_loader_client', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_url_loader', 36, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url_loader_client', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_url_loader', 36, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_dest_url_loader_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -1840,7 +1840,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec, 'network.mojom.NetworkService_AddDurableMessageCollector_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DurableMessageCollectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DurableMessageCollectorPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -625,7 +625,7 @@ mojo.internal.Struct(
     [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
-      mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlayPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, null, false, 0, undefined),
     ],

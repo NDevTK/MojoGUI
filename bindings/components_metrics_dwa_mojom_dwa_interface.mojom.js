@@ -523,7 +523,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);

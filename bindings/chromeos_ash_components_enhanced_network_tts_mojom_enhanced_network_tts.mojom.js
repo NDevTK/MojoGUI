@@ -478,7 +478,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

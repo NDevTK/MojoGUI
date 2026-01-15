@@ -899,7 +899,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec, 'commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.commerce.price_tracking.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
