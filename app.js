@@ -1405,12 +1405,30 @@
         } else if (type === 'url_wrapped') {
             val = { url: val };
         } else if (type === 'string16') {
-            // Convert string to array of char codes
+            // Convert string to array of char codes (uint16)
             const data = [];
             for (let i = 0; i < val.length; i++) {
                 data.push(val.charCodeAt(i));
             }
-            val = { data: data };
+            // Mojo Lite bindings often expect 'arg_' prefix for struct fields
+            val = { arg_data: data };
+        } else if (type === 'bigstring16') {
+            // Convert to Little Endian Uint16 bytes
+            const bytes = [];
+            for (let i = 0; i < val.length; i++) {
+                const code = val.charCodeAt(i);
+                bytes.push(code & 0xFF);
+                bytes.push((code >> 8) & 0xFF);
+            }
+            // BigBuffer (union) -> bytes (array<uint8>)
+            val = { arg_data: { arg_bytes: bytes } };
+        } else if (type === 'bigstring') {
+            // Convert to UTF-8 bytes
+            const encoder = new TextEncoder(); // defaults to utf-8
+            const u8 = encoder.encode(val);
+            // Array.from needed because Mojo expects regular array, not TypedArray sometimes? 
+            // Or TypedArray is fine. Let's send regular array to be safe.
+            val = { arg_data: { arg_bytes: Array.from(u8) } };
         }
         return val;
     };
