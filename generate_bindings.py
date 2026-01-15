@@ -688,7 +688,9 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             
             kind = global_kind_map.get(clean_name)
             suffix = 'Spec'
-            if kind == 'interface': suffix = 'Remote'
+            kind = global_kind_map.get(clean_name)
+            suffix = 'Spec'
+            if kind == 'interface': suffix = interface_suffix
             
             # Track external reference for stub generation
             if mod_prefix != module or iface_name not in valid_types:
@@ -703,7 +705,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             # However, global_kind_map does!
             fqn = f"{module}.{clean_name}"
             if global_kind_map.get(fqn) == 'interface':
-                return f"{current_ns}.{clean_name}Remote"
+                return f"{current_ns}.{clean_name}{interface_suffix}"
             return f"{current_ns}.{clean_name}Spec"
 
         # Unqualified name - Find Module
@@ -712,7 +714,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             fqn = f"{target_mod}.{clean_name}"
             kind = global_kind_map.get(fqn)
             suffix = 'Spec'
-            if kind == 'interface': suffix = 'Remote'
+            if kind == 'interface': suffix = interface_suffix
             # Track external reference
             if target_mod != module or clean_name not in valid_types:
                 external_type_refs.add((target_mod, clean_name, kind or 'struct'))
