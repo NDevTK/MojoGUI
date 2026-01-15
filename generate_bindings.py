@@ -227,56 +227,47 @@ def analyze_interface_usage(all_parsed, global_kind_map):
             if fqn not in usage_map: usage_map[fqn] = set()
             usage_map[fqn].add(usage_type)
 
-    for item in all_parsed:
-        parsed = item['data']
-        if not parsed: continue
-        module = parsed.get('module', '')
+    usage_map = {}
+    
+    # Scan matches using regex on raw file content for robustness
+    # This detects "standard" usage of associated types.
+    for item in all_parsed: 
+        file_path = item['file']
+        try:
+             with open(file_path, 'r', encoding='utf-8') as f:
+                 content = f.read()
+        except:
+             continue
         
-        # Helper to scan fields
-        def scan_fields(fields):
-            for f in fields:
-                t = f.get('type')
-                if t:
-                    # Default usage is direct unless type says otherwise
-                    register_usage(t, 'direct', module)
+        # Regex patterns
+        patterns = {
+            'associated': [
+                r'pending_associated_receiver\s*<\s*([\w\.]+)\s*>',
+                r'pending_associated_remote\s*<\s*([\w\.]+)\s*>',
+                r'\bassociated\s+([\w\.]+)'
+            ],
+            'direct': [
+                 r'pending_receiver\s*<\s*([\w\.]+)\s*>',
+                 r'pending_remote\s*<\s*([\w\.]+)\s*>'
+            ]
+        }
         
-        # Scan Structs
-        for s in parsed.get('structs', []):
-            scan_fields(s.get('fields', []))
-            
-        # Scan Unions
-        for u in parsed.get('unions', []):
-            scan_fields(u.get('fields', []))
-            
-        # Scan Interface Methods
-        for i in parsed.get('interfaces', []):
-            for m in i.get('methods', []):
-                scan_fields(m.get('params', []))
-                if m.get('returns'):
-                    scan_fields(m['returns'])
+        for usage_type, regex_list in patterns.items():
+            for pat in regex_list:
+                for match in re.finditer(pat, content):
+                    full_type = match.group(1)
+                    short_name = full_type.split('.')[-1]
                     
-    # Heuristic: If "NonAssociatedX" exists, then "X" is likely implicitly associated.
-    # Collect all known interface names first
-    all_interfaces = set()
-    for item in all_parsed:
-        parsed = item['data']
-        if not parsed: continue
-        module = parsed.get('module', '')
-        for i in parsed.get('interfaces', []):
-            fqn = f"{module}.{i['name']}"
-            all_interfaces.add(fqn)
-
-    for fqn in all_interfaces:
-        name = fqn.split('.')[-1]
-        module_prefix = fqn[:-(len(name)+1)] # 'a.b' from 'a.b.Name'
-        
-        non_associated_name = f"NonAssociated{name}"
-        non_associated_fqn = f"{module_prefix}.{non_associated_name}"
-        
-        if non_associated_fqn in all_interfaces:
-            if fqn not in usage_map: usage_map[fqn] = set()
-            usage_map[fqn].add('associated')
-            print(f"[Heuristic] Marked {fqn} as associated due to existence of {non_associated_name}")
+                    # Store for exact matches (FQN)
+                    if full_type in global_kind_map:
+                        if full_type not in usage_map: usage_map[full_type] = set()
+                        usage_map[full_type].add(usage_type)
+                    
+                    # Store for short name matches (all matching FQNs)
+                    for known_fqn in global_kind_map:
+                        if known_fqn.split('.')[-1] == short_name:
+                             if known_fqn not in usage_map: usage_map[known_fqn] = set()
+                             usage_map[known_fqn].add(usage_type)
 
     return usage_map
 
@@ -357,7 +348,7 @@ def parse_mojom(file_path):
         return True
 
     for match in re.finditer(interface_pattern, content_no_comments):
-        attributes_str = match.group(1)
+        interface_attrs_str = match.group(1)
         interface_name = match.group(2)
         start_pos = match.end()
         
@@ -380,7 +371,7 @@ def parse_mojom(file_path):
         method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
         
         for method_match in re.finditer(method_pattern, interface_body):
-            attributes_str = method_match.group(1)
+            method_attrs_str = method_match.group(1)
             method_name = method_match.group(2)
             ordinal_str = method_match.group(3)
             params_str = method_match.group(4).strip()
@@ -391,8 +382,8 @@ def parse_mojom(file_path):
                 continue
 
             # Check EnableIf
-            if not check_enable_if(attributes_str):
-                print(f"[Generator] Skipping disabled method {interface_name}.{method_name} (Attrs: {attributes_str.strip()})")
+            if not check_enable_if(method_attrs_str):
+                # print(f"[Generator] Skipping disabled method {interface_name}.{method_name}")
                 continue
             
             params = parse_params(params_str) if params_str else []
@@ -416,7 +407,7 @@ def parse_mojom(file_path):
         
         result['interfaces'].append({
             'name': interface_name,
-            'attributes': parse_attributes(attributes_str) if attributes_str else {},
+            'attributes': parse_attributes(interface_attrs_str) if interface_attrs_str else {},
             'methods': unique_methods
         })
 
@@ -515,17 +506,18 @@ def parse_attributes(attrs_str):
     # Remove outer brackets and join if multiple
     cleaned = normalized.replace('[', '').replace(']', '').replace('\n', ' ').strip()
     
-    # Split by comma (ignoring commas in values if possible - regex split?)
-    # Simple split for now
-    parts = [p.strip() for p in cleaned.split(',')]
+    # Simple CSV split that respects optional internal commas if quoted (though not common in basic attrs)
+    # Using simple split is okay for 99% of Mojom cases where values are Enums or simple strings.
+    parts = [p.strip() for p in cleaned.split(',') if p.strip()]
     
     for part in parts:
-        if not part: continue
         if '=' in part:
-            k, v = part.split('=', 1)
-            result[k.strip()] = v.strip()
+            key, val = part.split('=', 1)
+            result[key.strip()] = val.strip()
         else:
-            result[part.strip()] = True
+            result[part] = True
+            
+    return result
             
     return result
 
