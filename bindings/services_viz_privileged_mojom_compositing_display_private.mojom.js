@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7634.0';
+        const versionStr = window.mojoVersion || '146.0.7635.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,6 +126,8 @@ mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
+mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DisplayPrivate = {};
 mojo.internal.bindings.viz.mojom.DisplayPrivateSpec = { $ : {} };
 mojo.internal.bindings.viz.mojom.DisplayPrivate.$interfaceName = 'viz.mojom.DisplayPrivate';
@@ -782,6 +784,24 @@ mojo.internal.bindings.viz.mojom.DisplayClientRequest = mojo.internal.bindings.v
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FrameRateVelocityPoint
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec, 'viz.mojom.FrameRateVelocityPoint', [
+      mojo.internal.StructField('arg_frame_per_second', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dp_per_second', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AdaptiveRefreshRateInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec, 'viz.mojom.AdaptiveRefreshRateInfo', [
+      mojo.internal.StructField('arg_has_support', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suggested_high', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_velocity_mapping', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec, 'viz.mojom.DisplayPrivate_SetDisplayVisible_Params', [
       mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),

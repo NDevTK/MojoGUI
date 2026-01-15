@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7634.0';
+        const versionStr = window.mojoVersion || '146.0.7635.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -195,6 +195,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsS
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec = { $: {} };
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec = { $: {} };
+mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
@@ -1330,12 +1331,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote = class {
   onPinStatusReceived(arg_new_pin_state) {
     return this.$.onPinStatusReceived(arg_new_pin_state);
   }
+  updateContent(arg_title, arg_content) {
+    return this.$.updateContent(arg_title, arg_content);
+  }
 };
 
 mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1499,6 +1504,15 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       false);
   }
 
+  updateContent(arg_title, arg_content) {
+    return this.proxy.sendMessage(
+      this.ordinals[16],  // ordinal
+      mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec,
+      null,
+      [arg_title, arg_content],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.read_anything.mojom.UntrustedPage.getRemote = function() {
@@ -1517,6 +1531,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1686,6 +1701,13 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPinStatusReceived');
           const result = this.impl.onPinStatusReceived(params.arg_new_pin_state);
+          break;
+        }
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateContent');
+          const result = this.impl.updateContent(params.arg_title, params.arg_content);
           break;
         }
       }
@@ -2045,4 +2067,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_new_pin_state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec, 'read_anything.mojom.UntrustedPage_UpdateContent_Params', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

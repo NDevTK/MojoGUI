@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7634.0';
+        const versionStr = window.mojoVersion || '146.0.7635.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -120,8 +120,11 @@
 
  mojo.internal.bindings.webui_toolbar = mojo.internal.bindings.webui_toolbar || {};
 mojo.internal.bindings.webui_toolbar.mojom = mojo.internal.bindings.webui_toolbar.mojom || {};
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webui_toolbar.mojom.ContextMenuTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory.$interfaceName = 'webui_toolbar.mojom.PageHandlerFactory';
@@ -137,11 +140,24 @@ mojo.internal.bindings.webui_toolbar.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.webui_toolbar.mojom.Page.$interfaceName = 'webui_toolbar.mojom.Page';
 mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec = { $: {} };
 
+// External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec = mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec || { $: mojo.internal.Enum().$ };
+
 // Enum: ClickDispositionFlag
 mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlag = {
   kMiddleMouseButton: 0,
   kAltKeyDown: 1,
   kMetaKeyDown: 2,
+};
+
+// Enum: ContextMenuType
+mojo.internal.bindings.webui_toolbar.mojom.ContextMenuType = {
+  kReload: 0,
 };
 
 // Interface: PageHandlerFactory
@@ -307,8 +323,8 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemote = class {
   stopReload() {
     return this.$.stopReload();
   }
-  showContextMenu(arg_offset_x, arg_offset_y) {
-    return this.$.showContextMenu(arg_offset_x, arg_offset_y);
+  showContextMenu(arg_menu_type, arg_viewport_coordinate_css_pixels, arg_source) {
+    return this.$.showContextMenu(arg_menu_type, arg_viewport_coordinate_css_pixels, arg_source);
   }
 };
 
@@ -340,12 +356,12 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       false);
   }
 
-  showContextMenu(arg_offset_x, arg_offset_y) {
+  showContextMenu(arg_menu_type, arg_viewport_coordinate_css_pixels, arg_source) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [arg_offset_x, arg_offset_y],
+      [arg_menu_type, arg_viewport_coordinate_css_pixels, arg_source],
       false);
   }
 
@@ -431,7 +447,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_offset_x, params.arg_offset_y);
+          const result = this.impl.showContextMenu(params.arg_menu_type, params.arg_viewport_coordinate_css_pixels, params.arg_source);
           break;
         }
       }
@@ -601,10 +617,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'webui_toolbar.mojom.PageHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('arg_offset_x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset_y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_menu_type', 0, 0, mojo.internal.bindings.webui_toolbar.mojom.ContextMenuTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_coordinate_css_pixels', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec, 'webui_toolbar.mojom.Page_SetReloadButtonState_Params', [

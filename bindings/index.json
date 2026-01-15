@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-15T09:23:44.722547Z",
-  "version": "146.0.7634.0",
+  "generated_at": "2026-01-15T09:46:59.972790Z",
+  "version": "146.0.7635.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -6761,7 +6761,8 @@
         "OnTabWillDetach",
         "OnTabMuteStateChange",
         "OnImageDataDownloaded",
-        "OnPinStatusReceived"
+        "OnPinStatusReceived",
+        "UpdateContent"
       ],
       "usage": [
         "direct"
@@ -18195,7 +18196,9 @@
         "EnableAutoResize",
         "DisableAutoResize"
       ],
-      "usage": [],
+      "usage": [
+        "associated"
+      ],
       "security": {}
     },
     {
@@ -27756,7 +27759,9 @@
         "SetStorageAccessApiStatus",
         "InitializeCrashReportContext"
       ],
-      "usage": [],
+      "usage": [
+        "associated"
+      ],
       "security": {}
     },
     {
@@ -32993,7 +32998,10 @@
       "filename": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
       "source": "chrome/browser/ui/webui/webui_toolbar/webui_toolbar.mojom",
       "module": "webui_toolbar.mojom",
-      "imports": []
+      "imports": [
+        "ui/base/mojom/menu_source_type.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_whats_new_whats_new.mojom.js",
