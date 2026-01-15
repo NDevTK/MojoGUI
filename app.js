@@ -855,6 +855,141 @@
                 </div>`;
         }
 
+
+        // 1.5 String16 and BigString16 (Prioritize over Struct)
+        let effectiveType = param.type;
+        if (effectiveType === 'struct' && param.structSpec) {
+            const manualInfer = inferTypeFromMojomType(param.structSpec);
+            // 1.5 String16 and BigString16 (Prioritize over Struct)
+            let effectiveType = param.type;
+            if (effectiveType === 'struct' && param.structSpec) {
+                const manualInfer = inferTypeFromMojomType(param.structSpec);
+                if (manualInfer === 'string16' || manualInfer === 'bigstring16' || manualInfer === 'bigstring') {
+                    effectiveType = manualInfer;
+                }
+            }
+        }
+
+        if (effectiveType === 'string16') {
+            let displayValue = value;
+            const arrayData = value ? (value.arg_data || value.data) : null;
+            if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
+                try {
+                    let u8;
+                    if (arrayData instanceof Uint8Array) {
+                        u8 = arrayData;
+                    } else if (arrayData instanceof Uint16Array) {
+                        u8 = new Uint8Array(arrayData.buffer, arrayData.byteOffset, arrayData.byteLength);
+                    } else {
+                        // Regular array
+                        u8 = new Uint8Array(new Uint16Array(arrayData).buffer);
+                    }
+                    displayValue = new TextDecoder('utf-16le').decode(u8);
+                } catch (e) {
+                    displayValue = String.fromCharCode(...arrayData);
+                }
+            } else if (typeof value === 'object' && value !== null) {
+                displayValue = safeStringify(sanitizeKeys(value), 2);
+            }
+
+            return `
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                    <label>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">String16</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                    <textarea 
+                           class="intercept-input param-input" 
+                           data-id="${interceptId}" 
+                           data-index="${index}" 
+                           data-type="string16" 
+                           placeholder="String16 value"
+                           rows="2"
+                           style="width: 100%; font-family: monospace;">${escapeHtml(displayValue)}</textarea>
+                </div>`;
+        }
+
+        if (effectiveType === 'bigstring16') {
+            let displayValue = value;
+            const bigBuffer = value ? (value.arg_data || value.data) : null;
+            let arrayData = null;
+
+            if (bigBuffer) {
+                if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
+                else if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
+            }
+
+            if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
+                try {
+                    const u8 = (arrayData instanceof Uint8Array) ? arrayData : new Uint8Array(arrayData);
+                    // Decode using TextDecoder (safe for large strings)
+                    displayValue = new TextDecoder('utf-16le').decode(u8);
+                } catch (e) {
+                    displayValue = safeStringify(sanitizeKeys(value), 2);
+                }
+            } else if (typeof value === 'object' && value !== null) {
+                displayValue = safeStringify(sanitizeKeys(value), 2);
+            }
+
+            return `
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                    <label>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">BigString16</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                    <textarea
+                           class="intercept-input param-input" 
+                           data-id="${interceptId}" 
+                           data-index="${index}" 
+                           data-type="bigstring16" 
+                           placeholder="BigString16 value"
+                           rows="4"
+                           style="width: 100%; font-family: monospace;">${escapeHtml(displayValue)}</textarea>
+                </div>`;
+        }
+
+        if (effectiveType === 'bigstring') {
+            let displayValue = value;
+            const bigBuffer = value ? (value.arg_data || value.data) : null;
+            let arrayData = null;
+
+            if (bigBuffer) {
+                if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
+                else if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
+            }
+
+            if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
+                try {
+                    const u8 = (arrayData instanceof Uint8Array) ? arrayData : new Uint8Array(arrayData);
+                    // Decode using TextDecoder (utf-8 for BigString)
+                    displayValue = new TextDecoder('utf-8').decode(u8);
+                } catch (e) {
+                    displayValue = safeStringify(sanitizeKeys(value), 2);
+                }
+            } else if (typeof value === 'object' && value !== null) {
+                displayValue = safeStringify(sanitizeKeys(value), 2);
+            }
+
+            return `
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                    <label>
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        <span class="type">BigString</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                    <textarea
+                           class="intercept-input param-input" 
+                           data-id="${interceptId}" 
+                           data-index="${index}" 
+                           data-type="bigstring" 
+                           placeholder="BigString value"
+                           rows="4"
+                           style="width: 100%; font-family: monospace;">${escapeHtml(displayValue)}</textarea>
+                </div>`;
+        }
+
         // 3. Structs: Recursive Rendering
         if (param.type === 'struct' && param.structSpec) {
             const childParams = mapFieldsToUIParams(param.structSpec.fields);
@@ -1121,17 +1256,17 @@
             inputType = 'textarea';
         }
 
-        if (param.type === 'string16') {
-            inputType = 'text';
-            const arrayData = value ? (value.arg_data || value.data) : null;
-            if (arrayData && Array.isArray(arrayData)) {
-                // Convert char codes back to string
-                displayValue = String.fromCharCode(...arrayData);
-            }
-        }
+
+
+
 
         // Force textarea for 'json', complex types, or if it's a BigInt value (to allow editing as text)
-        if (param.type === 'json' || param.type.includes('array') || param.type.includes('map') || (value && typeof value === 'object' && param.type !== 'string16')) {
+        // Auto-switch to textarea if simple string is long or has newlines
+        if (param.type === 'string' && typeof value === 'string' && (value.length > 50 || value.includes('\n'))) {
+            inputType = 'textarea';
+        }
+
+        if (param.type === 'json' || param.type.includes('array') || param.type.includes('map') || (value && typeof value === 'object' && param.type !== 'string16' && param.type !== 'bigstring16' && param.type !== 'bigstring')) {
             inputType = 'textarea';
         }
 
@@ -1139,7 +1274,8 @@
         if (typeof value === 'bigint') {
             displayValue = value.toString() + 'n';
             if (inputType === 'number') inputType = 'text';
-        } else if (typeof value === 'object' && value !== null) {
+        } else if (typeof value === 'object' && value !== null && param.type !== 'string16' && param.type !== 'bigstring16' && param.type !== 'bigstring') {
+            // ... existing handle logic ...
             // Mojo Handle Detection for Form View
             if ((value.$ && value.proxy && typeof value.$ === 'object') || (value.handle && value.handle.router_)) {
                 let ifaceName = 'Unknown';
@@ -1467,8 +1603,14 @@
             const spec = mojomType.$ || mojomType;
             const name = spec.name || (spec.structSpec && spec.structSpec.name);
 
-            if (name === 'mojo_base.mojom.String16' || name === 'mojo_base.mojom.BigString16') {
+            if (name === 'mojo_base.mojom.String16') {
                 return 'string16';
+            }
+            if (name === 'mojo_base.mojom.BigString16') {
+                return 'bigstring16';
+            }
+            if (name === 'mojo_base.mojom.BigString') {
+                return 'bigstring';
             }
         }
 
