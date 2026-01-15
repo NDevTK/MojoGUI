@@ -672,7 +672,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
 
         return 'mojo.internal.OpaqueStruct'
 
-    def resolve_mojo_type_raw(type_name):
+    def resolve_mojo_type_raw(type_name, interface_suffix='Remote'):
         """Helper to get the raw Spec/Remote name without Proxy/Request wrappers."""
         type_name = type_name.strip()
         clean_name = type_name.replace('?', '').strip()
