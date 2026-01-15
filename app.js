@@ -894,7 +894,7 @@
             const items = (Array.isArray(value)) ? value : [];
             const prefix = parentName ? `${parentName}${param.name.startsWith('[') ? '' : '.'}${param.name}` : param.name;
 
-            const renderItemHtml = (val, idx) => {
+            const renderItemHtml = (val, idx, options = {}) => {
                 let itemType = inferTypeFromMojomType(param.elementSpec);
                 const itemStructSpec = (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null;
 
@@ -913,7 +913,7 @@
                     isInterceptor,
                     interceptId,
                     parentName: prefix,
-                    isTemplate
+                    isTemplate: options.isTemplate || isTemplate
                 });
             };
 
